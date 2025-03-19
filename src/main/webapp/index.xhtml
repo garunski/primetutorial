@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="jakarta.faces.facelets"
+      xmlns:f="jakarta.faces.core"
+      xmlns:h="jakarta.faces.html"
+      xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="/WEB-INF/template.xhtml">
+    <ui:define name="title">CareerZone - Home</ui:define>
+    
+    <ui:define name="head">
+        <style type="text/css">
+            .hero-section {
+                background-color: #f0f4f8;
+                padding: 3rem 1.5rem;
+                margin-bottom: 2rem;
+                text-align: center;
+            }
+            .page-title {
+                font-size: 2.5rem;
+                font-weight: bold;
+                margin-bottom: 0.5rem;
+                color: #1f2937;
+            }
+            .page-subtitle {
+                font-size: 1.5rem;
+                font-weight: 500;
+                margin-bottom: 1rem;
+                color: #4b5563;
+            }
+            .page-description {
+                font-size: 1.125rem;
+                max-width: 800px;
+                margin: 0 auto 2rem;
+                color: #6b7280;
+            }
+            .button-group {
+                margin-bottom: 1rem;
+            }
+            .button-group .button {
+                margin: 0 0.5rem;
+            }
+            .card-section {
+                padding: 1.5rem;
+            }
+            .card-title {
+                font-size: 1.25rem;
+                font-weight: 600;
+                margin-bottom: 1rem;
+            }
+            .image-text-container {
+                display: flex;
+                align-items: flex-start;
+            }
+            .image-container {
+                flex: 0 0 100px;
+                margin-right: 1rem;
+            }
+        </style>
+    </ui:define>
+    
+    <ui:define name="content">
+        <div class="hero-section">
+            <div class="grid-container">
+                <h1 class="page-title">Welcome to CareerZone</h1>
+                <h2 class="page-subtitle">Don't know what career to pursue?</h2>
+                <p class="page-description">The majority of the fastest growing jobs in Central New York through 2024 will be in health care and the computer fields.</p>
+                
+                <div class="button-group">
+                    <p:button value="CREATE AN ACCOUNT" outcome="createAccount" styleClass="button large primary" />
+                    <p:commandButton value="LOGIN" styleClass="button large secondary" />
+                </div>
+            </div>
+        </div>
+        
+        <div class="grid-container">
+            <div class="grid-x grid-margin-x">
+                <div class="cell small-12 medium-6">
+                    <div class="card">
+                        <div class="card-section">
+                            <h3 class="card-title">Guest Tools</h3>
+                            <h4>Your future starts here</h4>
+                            <p>As a guest, you can:</p>
+                            <ul>
+                                <li>Search for a career</li>
+                                <li>Assess yourself to start finding a good career match</li>
+                                <li>Create a resume</li>
+                                <li>Generate a list of references to send to employers</li>
+                                <li>Create cover letters, thank you letters, and follow-up letters</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="cell small-12 medium-6">
+                    <div class="card">
+                        <div class="card-section">
+                            <h3 class="card-title">Explore your career path. Your future begins here!</h3>
+                            <div class="image-text-container">
+                                <div class="image-container">
+                                    <p:graphicImage url="https://careerzone.ny.gov/views/careerzone/images/clusters/arts.png" width="100" />
+                                </div>
+                                <div>
+                                    <h4>Arts and Humanities</h4>
+                                    <p>People working in this field engage in literary, cultural, artistic, athletic and entertainment activities. They interpret and communicate concepts and ideas through writing, painting, drawing, speaking, dancing, musical and other communication techniques.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ui:define>
+</ui:composition>
+</html> 

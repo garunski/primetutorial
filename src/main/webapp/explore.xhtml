@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="jakarta.faces.facelets"
+      xmlns:f="jakarta.faces.core"
+      xmlns:h="jakarta.faces.html"
+      xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="/WEB-INF/template.xhtml">
+    <ui:define name="title">CareerZone - Explore Careers</ui:define>
+    
+    <ui:define name="head">
+        <style type="text/css">
+            .hero-section {
+                background-color: #f0f4f8;
+                padding: 3rem 1.5rem;
+                margin-bottom: 2rem;
+                text-align: center;
+            }
+            .page-title {
+                font-size: 2.5rem;
+                font-weight: bold;
+                margin-bottom: 0.5rem;
+                color: #1f2937;
+            }
+            .page-subtitle {
+                font-size: 1.5rem;
+                font-weight: 500;
+                margin-bottom: 1rem;
+                color: #4b5563;
+            }
+            .page-description {
+                font-size: 1.125rem;
+                max-width: 800px;
+                margin: 0 auto 2rem;
+                color: #6b7280;
+            }
+            .button-group {
+                margin-bottom: 1rem;
+            }
+            .button-group .button {
+                margin: 0 0.5rem;
+            }
+            .card-section {
+                padding: 1.5rem;
+            }
+            .card-title {
+                font-size: 1.25rem;
+                font-weight: 600;
+                margin-bottom: 1rem;
+            }
+            .image-text-container {
+                display: flex;
+                align-items: flex-start;
+            }
+            .image-container {
+                flex: 0 0 100px;
+                margin-right: 1rem;
+            }
+            .career-field {
+                margin-bottom: 1.5rem;
+            }
+            .search-box {
+                max-width: 600px;
+                margin: 0 auto 2rem;
+            }
+        </style>
+    </ui:define>
+    
+    <ui:define name="content">
+        <div class="hero-section">
+            <div class="grid-container">
+                <h1 class="page-title">Explore Career Fields</h1>
+                <h2 class="page-subtitle">Discover the perfect career path for you</h2>
+                <p class="page-description">Browse through different career fields and learn about opportunities, educational requirements, and projected growth in various sectors.</p>
+                
+                <div class="search-box">
+                    <p:inputText placeholder="Search for careers" styleClass="search-input" style="width: 100%"/>
+                </div>
+                
+                <div class="button-group">
+                    <p:button value="VIEW ALL CAREERS" outcome="careers" styleClass="button large primary" />
+                    <p:button value="TAKE ASSESSMENT" outcome="assessment" styleClass="button large secondary" />
+                </div>
+            </div>
+        </div>
+        
+        <div class="grid-container">
+            <div class="grid-x grid-margin-x">
+                <div class="cell small-12 medium-6">
+                    <p:card styleClass="career-field">
+                        <f:facet name="header">
+                            <h3 class="card-title">Science, Technology, Engineering &amp; Mathematics</h3>
+                        </f:facet>
+                        <div class="image-text-container">
+                            <div class="image-container">
+                                <p:graphicImage url="https://careerzone.ny.gov/views/careerzone/images/clusters/stem.png" width="100" />
+                            </div>
+                            <div>
+                                <p>People working in this field solve problems through research, design and testing of products and services. They find new and better ways of doing things in fields like mathematics, computers, economics, and the physical, social, life and human sciences.</p>
+                            </div>
+                        </div>
+                        <f:facet name="footer">
+                            <p:button value="Explore STEM Careers" styleClass="button small" />
+                        </f:facet>
+                    </p:card>
+                </div>
+                
+                <div class="cell small-12 medium-6">
+                    <p:card styleClass="career-field">
+                        <f:facet name="header">
+                            <h3 class="card-title">Health Sciences</h3>
+                        </f:facet>
+                        <div class="image-text-container">
+                            <div class="image-container">
+                                <p:graphicImage url="https://careerzone.ny.gov/views/careerzone/images/clusters/health.png" width="100" />
+                            </div>
+                            <div>
+                                <p>People working in this field promote health and wellness. They diagnose and treat injuries and disease. As researchers and scientists, they investigate processes, and study the nature of disease, its cause, transmission, and effect on the body.</p>
+                            </div>
+                        </div>
+                        <f:facet name="footer">
+                            <p:button value="Explore Health Careers" styleClass="button small" />
+                        </f:facet>
+                    </p:card>
+                </div>
+            </div>
+            
+            <div class="grid-x grid-margin-x">
+                <div class="cell small-12 medium-6">
+                    <p:card styleClass="career-field">
+                        <f:facet name="header">
+                            <h3 class="card-title">Business &amp; Finance</h3>
+                        </f:facet>
+                        <div class="image-text-container">
+                            <div class="image-container">
+                                <p:graphicImage url="https://careerzone.ny.gov/views/careerzone/images/clusters/business.png" width="100" />
+                            </div>
+                            <div>
+                                <p>People working in this field focus on planning, organizing and evaluating business functions. They may develop, track and disperse funds; be involved in buying, selling or servicing; or perform administrative, financial and data processing operations.</p>
+                            </div>
+                        </div>
+                        <f:facet name="footer">
+                            <p:button value="Explore Business Careers" styleClass="button small" />
+                        </f:facet>
+                    </p:card>
+                </div>
+                
+                <div class="cell small-12 medium-6">
+                    <p:card styleClass="career-field">
+                        <f:facet name="header">
+                            <h3 class="card-title">Arts &amp; Humanities</h3>
+                        </f:facet>
+                        <div class="image-text-container">
+                            <div class="image-container">
+                                <p:graphicImage url="https://careerzone.ny.gov/views/careerzone/images/clusters/arts.png" width="100" />
+                            </div>
+                            <div>
+                                <p>People working in this field engage in literary, cultural, artistic, athletic and entertainment activities. They interpret and communicate concepts and ideas through writing, painting, drawing, speaking, dancing, musical and other communication techniques.</p>
+                            </div>
+                        </div>
+                        <f:facet name="footer">
+                            <p:button value="Explore Arts Careers" styleClass="button small" />
+                        </f:facet>
+                    </p:card>
+                </div>
+            </div>
+        </div>
+    </ui:define>
+</ui:composition>
+</html>

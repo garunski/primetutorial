@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="jakarta.faces.facelets"
+      xmlns:f="jakarta.faces.core"
+      xmlns:h="jakarta.faces.html"
+      xmlns:p="primefaces">
+
+<ui:composition template="/WEB-INF/template.xhtml">
+    <ui:define name="title">CareerZone - Job Search Preferences</ui:define>
+    
+    <ui:define name="head">
+        <style type="text/css">
+            .tab-menu-custom {
+                margin-bottom: 30px;
+            }
+        </style>
+    </ui:define>
+    
+    <ui:define name="content">
+        <div class="form-container" style="max-width: 100%; padding: 20px;">
+            <h1>Create an Account</h1>
+            
+            <ul class="tabs" data-tabs="registration-tabs">
+                <li class="tabs-title"><a href="createAccount.xhtml">Account Info</a></li>
+                <li class="tabs-title"><a href="securityQuestions.xhtml">Security Questions</a></li>
+                <li class="tabs-title"><a href="contactInfo.xhtml">Contact</a></li>
+                <li class="tabs-title"><a href="schoolInfo.xhtml">School</a></li>
+                <li class="tabs-title"><a href="veteranInfo.xhtml">Veteran Status</a></li>
+                <li class="tabs-title"><a href="privateInfo.xhtml">Private Info</a></li>
+                <li class="tabs-title is-active"><a href="jobPreferences.xhtml">Job Preferences</a></li>
+            </ul>
+            
+            <div class="form-section">
+                <div class="alert alert-info" style="background-color: #e8f4f8; padding: 10px; border-left: 4px solid #006064; margin-bottom: 20px;">
+                    <p>This information is being collected to enable the employment and training professionals of your state's network of Career Centers to best serve your employment needs in the future.</p>
+                </div>
+                
+                <h3 class="form-section-title">Job Search Preferences</h3>
+                
+                <style type="text/css">
+                    .form-table {
+                        width: 100%;
+                        border-collapse: collapse;
+                    }
+                    .form-table td {
+                        padding: 8px;
+                        vertical-align: top;
+                    }
+                    .form-table .label-column {
+                        width: 20%;
+                        text-align: right;
+                        padding-top: 12px;
+                    }
+                    .form-table .input-column {
+                        width: 80%;
+                    }
+                    .form-table .p-message {
+                        display: block;
+                        margin-top: 5px;
+                    }
+                    .input-container {
+                        max-width: 500px;
+                    }
+                    .section-header {
+                        font-weight: bold;
+                        margin-top: 15px;
+                        margin-bottom: 10px;
+                    }
+                    .location-option {
+                        margin-bottom: 15px;
+                    }
+                    .location-fields {
+                        margin-top: 10px;
+                        margin-left: 25px;
+                    }
+                    .location-row {
+                        display: flex;
+                        align-items: center;
+                        margin-bottom: 8px;
+                    }
+                    .location-label {
+                        width: 60px;
+                        margin-right: 10px;
+                    }
+                    .zip-field {
+                        width: 100px;
+                        margin-left: 10px;
+                    }
+                    .miles-dropdown {
+                        width: 60px;
+                        margin: 0 10px;
+                    }
+                    .custom-radio {
+                        display: flex;
+                        align-items: center;
+                    }
+                    .custom-radio .p-radiobutton {
+                        display: inline-block;
+                        margin-right: 10px;
+                    }
+                    .custom-radio label {
+                        margin-bottom: 0;
+                    }
+                </style>
+                
+                <h:form>
+                    <p:panel header="Job Objective" styleClass="mb-3">
+                        <p>Your Job Objective is a statement of the desired job position or positions that you are looking for. When employers search for candidates this information is displayed to them as a summary of your overall objective. When you create resumes within the system, you may state more specific objectives for each resume.</p>
+                        
+                        <p class="section-header">Examples of objectives:</p>
+                        <ul>
+                            <li>To secure a position as a forklift operator</li>
+                            <li>To obtain a position that will utilize my computer knowledge, strong people skills, organizational abilities, and business experience</li>
+                        </ul>
+                        
+                        <div class="input-container" style="width: 100%; max-width: 600px; margin-top: 15px;">
+                            <p:inputTextarea id="jobObjective" rows="4" style="width: 100%" />
+                        </div>
+                    </p:panel>
+                    
+                    <p:panel header="Salary and Location" styleClass="mb-3">
+                        <p>Please enter your salary and desired work locations. In the Career Center, this information is used to match you with potential employers.</p>
+                        
+                        <div class="form-table">
+                            <table>
+                                <tr>
+                                    <td class="label-column">
+                                        <p:outputLabel for="desiredSalary" value="Please choose your desired salary" />
+                                    </td>
+                                    <td class="input-column">
+                                        <div style="display: flex; align-items: center;">
+                                            <p:inputNumber id="desiredSalary" symbol="$" symbolPosition="p" decimalPlaces="2" style="width: 150px;" />
+                                            <p:selectOneMenu id="salaryType" style="width: 120px; margin-left: 10px;">
+                                                <f:selectItem itemLabel="Hourly" itemValue="HOURLY" />
+                                                <f:selectItem itemLabel="Weekly" itemValue="WEEKLY" />
+                                                <f:selectItem itemLabel="Monthly" itemValue="MONTHLY" />
+                                                <f:selectItem itemLabel="Yearly" itemValue="YEARLY" />
+                                            </p:selectOneMenu>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        
+                        <p style="margin-top: 20px;">Please choose one way to describe where you want to work:</p>
+                        
+                        <p:selectOneRadio id="locationType" layout="custom">
+                            <f:selectItem itemLabel="Location 1 - ZIP Codes" itemValue="ZIP_CODES" />
+                            <f:selectItem itemLabel="Location 2 - States" itemValue="STATES" />
+                            <f:selectItem itemLabel="Location 3 - Countries" itemValue="COUNTRIES" />
+                        </p:selectOneRadio>
+                        
+                        <div class="location-option">
+                            <div class="custom-radio">
+                                <p:radioButton id="zipCodeOption" for="locationType" itemIndex="0" />
+                                <label for="zipCodeOption">Location 1 - ZIP Codes (select one, two or three)</label>
+                            </div>
+                            
+                            <div class="location-fields">
+                                <div class="location-row">
+                                    <span class="location-label">within</span>
+                                    <p:selectOneMenu id="miles1" styleClass="miles-dropdown">
+                                        <f:selectItem itemLabel="5" itemValue="5" />
+                                        <f:selectItem itemLabel="10" itemValue="10" />
+                                        <f:selectItem itemLabel="25" itemValue="25" />
+                                        <f:selectItem itemLabel="50" itemValue="50" />
+                                        <f:selectItem itemLabel="100" itemValue="100" />
+                                    </p:selectOneMenu>
+                                    <span>miles of ZIP Code:</span>
+                                    <p:inputMask id="zipCode1" mask="99999" styleClass="zip-field" />
+                                </div>
+                                
+                                <div class="location-row">
+                                    <span class="location-label">within</span>
+                                    <p:selectOneMenu id="miles2" styleClass="miles-dropdown">
+                                        <f:selectItem itemLabel="5" itemValue="5" />
+                                        <f:selectItem itemLabel="10" itemValue="10" />
+                                        <f:selectItem itemLabel="25" itemValue="25" />
+                                        <f:selectItem itemLabel="50" itemValue="50" />
+                                        <f:selectItem itemLabel="100" itemValue="100" />
+                                    </p:selectOneMenu>
+                                    <span>miles of ZIP Code:</span>
+                                    <p:inputMask id="zipCode2" mask="99999" styleClass="zip-field" />
+                                </div>
+                                
+                                <div class="location-row">
+                                    <span class="location-label">within</span>
+                                    <p:selectOneMenu id="miles3" styleClass="miles-dropdown">
+                                        <f:selectItem itemLabel="5" itemValue="5" />
+                                        <f:selectItem itemLabel="10" itemValue="10" />
+                                        <f:selectItem itemLabel="25" itemValue="25" />
+                                        <f:selectItem itemLabel="50" itemValue="50" />
+                                        <f:selectItem itemLabel="100" itemValue="100" />
+                                    </p:selectOneMenu>
+                                    <span>miles of ZIP Code:</span>
+                                    <p:inputMask id="zipCode3" mask="99999" styleClass="zip-field" />
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="location-option">
+                            <div class="custom-radio">
+                                <p:radioButton id="statesOption" for="locationType" itemIndex="1" />
+                                <label for="statesOption">Location 2 - States (select one, two or three)</label>
+                            </div>
+                            
+                            <div class="location-fields">
+                                <div class="location-row">
+                                    <span class="location-label">State 1:</span>
+                                    <p:selectOneMenu id="state1" style="width: 200px;">
+                                        <f:selectItem itemLabel="Alaska" itemValue="AK" />
+                                        <f:selectItem itemLabel="American Samoa" itemValue="AS" />
+                                        <f:selectItem itemLabel="Arizona" itemValue="AZ" />
+                                        <f:selectItem itemLabel="California" itemValue="CA" />
+                                        <f:selectItem itemLabel="Colorado" itemValue="CO" />
+                                        <f:selectItem itemLabel="Florida" itemValue="FL" />
+                                        <f:selectItem itemLabel="New York" itemValue="NY" />
+                                        <f:selectItem itemLabel="Texas" itemValue="TX" />
+                                        <!-- Add more states as needed -->
+                                    </p:selectOneMenu>
+                                </div>
+                                
+                                <div class="location-row">
+                                    <span class="location-label">State 2:</span>
+                                    <p:selectOneMenu id="state2" style="width: 200px;">
+                                        <f:selectItem itemLabel="Alaska" itemValue="AK" />
+                                        <f:selectItem itemLabel="American Samoa" itemValue="AS" />
+                                        <f:selectItem itemLabel="Arizona" itemValue="AZ" />
+                                        <f:selectItem itemLabel="California" itemValue="CA" />
+                                        <f:selectItem itemLabel="Colorado" itemValue="CO" />
+                                        <f:selectItem itemLabel="Florida" itemValue="FL" />
+                                        <f:selectItem itemLabel="New York" itemValue="NY" />
+                                        <f:selectItem itemLabel="Texas" itemValue="TX" />
+                                        <!-- Add more states as needed -->
+                                    </p:selectOneMenu>
+                                </div>
+                                
+                                <div class="location-row">
+                                    <span class="location-label">State 3:</span>
+                                    <p:selectOneMenu id="state3" style="width: 200px;">
+                                        <f:selectItem itemLabel="Alaska" itemValue="AK" />
+                                        <f:selectItem itemLabel="American Samoa" itemValue="AS" />
+                                        <f:selectItem itemLabel="Arizona" itemValue="AZ" />
+                                        <f:selectItem itemLabel="California" itemValue="CA" />
+                                        <f:selectItem itemLabel="Colorado" itemValue="CO" />
+                                        <f:selectItem itemLabel="Florida" itemValue="FL" />
+                                        <f:selectItem itemLabel="New York" itemValue="NY" />
+                                        <f:selectItem itemLabel="Texas" itemValue="TX" />
+                                        <!-- Add more states as needed -->
+                                    </p:selectOneMenu>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="location-option">
+                            <div class="custom-radio">
+                                <p:radioButton id="countriesOption" for="locationType" itemIndex="2" />
+                                <label for="countriesOption">Location 3 - Countries (select one, two or three)</label>
+                            </div>
+                            
+                            <div class="location-fields">
+                                <div class="location-row">
+                                    <span class="location-label">Country 1:</span>
+                                    <p:selectOneMenu id="country1" style="width: 200px;">
+                                        <f:selectItem itemLabel="Please Select" itemValue="" />
+                                        <f:selectItem itemLabel="United States" itemValue="US" />
+                                        <f:selectItem itemLabel="Canada" itemValue="CA" />
+                                        <f:selectItem itemLabel="Mexico" itemValue="MX" />
+                                        <f:selectItem itemLabel="United Kingdom" itemValue="UK" />
+                                        <!-- Add more countries as needed -->
+                                    </p:selectOneMenu>
+                                </div>
+                                
+                                <div class="location-row">
+                                    <span class="location-label">Country 2:</span>
+                                    <p:selectOneMenu id="country2" style="width: 200px;">
+                                        <f:selectItem itemLabel="Please Select" itemValue="" />
+                                        <f:selectItem itemLabel="United States" itemValue="US" />
+                                        <f:selectItem itemLabel="Canada" itemValue="CA" />
+                                        <f:selectItem itemLabel="Mexico" itemValue="MX" />
+                                        <f:selectItem itemLabel="United Kingdom" itemValue="UK" />
+                                        <!-- Add more countries as needed -->
+                                    </p:selectOneMenu>
+                                </div>
+                                
+                                <div class="location-row">
+                                    <span class="location-label">Country 3:</span>
+                                    <p:selectOneMenu id="country3" style="width: 200px;">
+                                        <f:selectItem itemLabel="Please Select" itemValue="" />
+                                        <f:selectItem itemLabel="United States" itemValue="US" />
+                                        <f:selectItem itemLabel="Canada" itemValue="CA" />
+                                        <f:selectItem itemLabel="Mexico" itemValue="MX" />
+                                        <f:selectItem itemLabel="United Kingdom" itemValue="UK" />
+                                        <!-- Add more countries as needed -->
+                                    </p:selectOneMenu>
+                                </div>
+                            </div>
+                        </div>
+                    </p:panel>
+                    
+                    <div class="form-buttons">
+                        <p:button value="Previous" outcome="privateInfo" icon="pi pi-arrow-left" styleClass="secondary button form-button" />
+                        <p:commandButton value="Complete Registration" icon="pi pi-check" iconPos="right" styleClass="success button form-button" />
+                    </div>
+                </h:form>
+            </div>
+        </div>
+    </ui:define>
+</ui:composition>
+</html> 

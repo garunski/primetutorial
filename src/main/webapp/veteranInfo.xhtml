@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="jakarta.faces.facelets"
+      xmlns:f="jakarta.faces.core"
+      xmlns:h="jakarta.faces.html"
+      xmlns:p="primefaces">
+
+<ui:composition template="/WEB-INF/template.xhtml">
+    <ui:define name="title">CareerZone - Veteran Information</ui:define>
+    
+    <ui:define name="head">
+        <style type="text/css">
+            .tab-menu-custom {
+                margin-bottom: 30px;
+            }
+        </style>
+    </ui:define>
+    
+    <ui:define name="content">
+        <div class="form-container" style="max-width: 100%; padding: 20px;">
+            <h1>Create an Account</h1>
+            
+            <ul class="tabs" data-tabs="registration-tabs">
+                <li class="tabs-title"><a href="createAccount.xhtml">Account Info</a></li>
+                <li class="tabs-title"><a href="securityQuestions.xhtml">Security Questions</a></li>
+                <li class="tabs-title"><a href="contactInfo.xhtml">Contact</a></li>
+                <li class="tabs-title"><a href="schoolInfo.xhtml">School</a></li>
+                <li class="tabs-title is-active"><a href="veteranInfo.xhtml">Veteran Status</a></li>
+                <li class="tabs-title"><a href="privateInfo.xhtml">Private Info</a></li>
+                <li class="tabs-title"><a href="jobPreferences.xhtml">Job Preferences</a></li>
+            </ul>
+            
+            <div class="form-section">
+                <h3 class="form-section-title">Veteran Status</h3>
+                
+                <style type="text/css">
+                    .form-table {
+                        width: 100%;
+                        border-collapse: collapse;
+                    }
+                    .form-table td {
+                        padding: 8px;
+                        vertical-align: top;
+                    }
+                    .form-table .label-column {
+                        width: 20%;
+                        text-align: right;
+                        padding-top: 12px;
+                    }
+                    .form-table .input-column {
+                        width: 80%;
+                    }
+                    .form-table .p-message {
+                        display: block;
+                        margin-top: 5px;
+                    }
+                    .input-container {
+                        max-width: 500px;
+                    }
+                    .radio-option {
+                        display: block;
+                        margin-bottom: 10px;
+                    }
+                    .option-description {
+                        margin-left: 24px;
+                        font-size: 0.9em;
+                        color: #555;
+                        margin-top: 2px;
+                        margin-bottom: 8px;
+                    }
+                    .custom-radio {
+                        display: flex;
+                        align-items: center;
+                        margin-bottom: 10px;
+                    }
+                    .custom-radio .p-radiobutton {
+                        display: inline-block;
+                        margin-right: 8px;
+                    }
+                    .custom-radio label {
+                        margin-bottom: 0;
+                    }
+                </style>
+                
+                <h:form>
+                    <p:panel header="Veteran Status" styleClass="mb-3">
+                        <p:selectOneRadio id="veteranStatus" layout="custom">
+                            <f:selectItem itemLabel="Not a Veteran" itemValue="NOT_VETERAN" />
+                            <f:selectItem itemLabel="Military Service with less than or equal to 180 days" itemValue="MILITARY_LESS_180" />
+                            <f:selectItem itemLabel="Military Service with more than 180 days" itemValue="MILITARY_MORE_180" />
+                            <f:selectItem itemLabel="Other Eligible" itemValue="OTHER_ELIGIBLE" />
+                            <f:selectItem itemLabel="Not Disclosed" itemValue="NOT_DISCLOSED" />
+                        </p:selectOneRadio>
+                        
+                        <div class="custom-radio">
+                            <p:radioButton id="notVeteran" for="veteranStatus" itemIndex="0" />
+                            <label for="notVeteran">Not a Veteran</label>
+                        </div>
+                        
+                        <div class="custom-radio">
+                            <p:radioButton id="militaryLessThan180" for="veteranStatus" itemIndex="1" />
+                            <label for="militaryLessThan180">Military Service with less than or equal to 180 days of active duty and released or discharged under conditions other than dishonorable</label>
+                        </div>
+                        
+                        <div class="custom-radio">
+                            <p:radioButton id="militaryMoreThan180" for="veteranStatus" itemIndex="2" />
+                            <label for="militaryMoreThan180">Military Service with more than 180 days of active duty and released or discharged under conditions other than dishonorable</label>
+                        </div>
+                        
+                        <div class="custom-radio">
+                            <p:radioButton id="otherEligible" for="veteranStatus" itemIndex="3" />
+                            <label for="otherEligible">Other Eligible</label>
+                        </div>
+                        <div class="option-description">
+                            Meaning the spouse of person that died in active duty or of a service-connected disability, or spouse of person with total permanent disability resulting from a service-connected disability, or the spouse of active duty service member who is currently listed as missing in action, or captured in the line of duty by a hostile force, or forcibly detained or interned in the line of duty by a foreign government or power
+                        </div>
+                        
+                        <div class="custom-radio">
+                            <p:radioButton id="notDisclosed" for="veteranStatus" itemIndex="4" />
+                            <label for="notDisclosed">Not Disclosed</label>
+                        </div>
+                    </p:panel>
+                    
+                    <p:panel header="Most Recent Service Branch" styleClass="mb-3">
+                        <div class="input-container">
+                            <p:selectOneMenu id="serviceBranch" style="width: 100%">
+                                <f:selectItem itemLabel="Select One" itemValue="" />
+                                <f:selectItem itemLabel="Army" itemValue="ARMY" />
+                                <f:selectItem itemLabel="Navy" itemValue="NAVY" />
+                                <f:selectItem itemLabel="Air Force" itemValue="AIR_FORCE" />
+                                <f:selectItem itemLabel="Marine Corps" itemValue="MARINE_CORPS" />
+                                <f:selectItem itemLabel="Coast Guard" itemValue="COAST_GUARD" />
+                                <f:selectItem itemLabel="Space Force" itemValue="SPACE_FORCE" />
+                            </p:selectOneMenu>
+                        </div>
+                    </p:panel>
+                    
+                    <p:panel header="Service Dates" styleClass="mb-3">
+                        <div class="form-table">
+                            <table>
+                                <tr>
+                                    <td class="label-column">
+                                        <p:outputLabel for="serviceStartDate" value="Service Start Date" />
+                                    </td>
+                                    <td class="input-column">
+                                        <div class="input-container">
+                                            <p:datePicker id="serviceStartDate" showIcon="true" style="width: 100%" />
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="label-column">
+                                        <p:outputLabel for="serviceEndDate" value="Service End Date" />
+                                    </td>
+                                    <td class="input-column">
+                                        <div class="input-container">
+                                            <p:datePicker id="serviceEndDate" showIcon="true" style="width: 100%" />
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </p:panel>
+                    
+                    <p:panel header="Migrant/Seasonal Farm Worker Status" styleClass="mb-3">
+                        <p:selectOneRadio id="migrantStatus" layout="custom">
+                            <f:selectItem itemLabel="Not a Migrant/Seasonal Worker" itemValue="NOT_MIGRANT" />
+                            <f:selectItem itemLabel="Migrant/Seasonal Worker" itemValue="MIGRANT_SEASONAL" />
+                            <f:selectItem itemLabel="Migrant Farmworker" itemValue="MIGRANT_FARMWORKER" />
+                            <f:selectItem itemLabel="Migrant Food Processing Worker" itemValue="MIGRANT_FOOD_PROCESSING" />
+                            <f:selectItem itemLabel="Seasonal Farmworker" itemValue="SEASONAL_FARMWORKER" />
+                            <f:selectItem itemLabel="Dependent of Migrant / Seasonal Farmer" itemValue="DEPENDENT_MIGRANT" />
+                        </p:selectOneRadio>
+                        
+                        <div class="custom-radio">
+                            <p:radioButton id="notMigrant" for="migrantStatus" itemIndex="0" />
+                            <label for="notMigrant">Not a Migrant/Seasonal Worker</label>
+                        </div>
+                        
+                        <div class="custom-radio">
+                            <p:radioButton id="migrantSeasonal" for="migrantStatus" itemIndex="1" />
+                            <label for="migrantSeasonal">Migrant/Seasonal Worker</label>
+                        </div>
+                        
+                        <div class="custom-radio">
+                            <p:radioButton id="migrantFarmworker" for="migrantStatus" itemIndex="2" />
+                            <label for="migrantFarmworker">Migrant Farmworker</label>
+                            <div class="option-description">
+                                A seasonal farm worker (see definition above) who had to travel to do the farm work so that he/she was unable to return to his/her permanent residence within the same day. Full-time students traveling in organized groups rather than with their families are excluded.
+                            </div>
+                        </div>
+                        
+                        <div class="custom-radio">
+                            <p:radioButton id="migrantFoodProcessing" for="migrantStatus" itemIndex="3" />
+                            <label for="migrantFoodProcessing">Migrant Food Processing Worker</label>
+                            <div class="option-description">
+                                A person who during the preceding 12 months has worked at least an aggregate of 25 or more days or parts of days in which some work was performed in food processing, earned at least half his/her earned income from processing work and was not employed in food processing work year round by the same employer. If the food processing required travel such that the worker was unable to return to his/her residence in the same day, the worker is a migrant food processing worker. Migrant food processing workers who are full time students but whom travel in organized groups rather than with their families are excluded.
+                            </div>
+                        </div>
+                        
+                        <div class="custom-radio">
+                            <p:radioButton id="seasonalFarmworker" for="migrantStatus" itemIndex="4" />
+                            <label for="seasonalFarmworker">Seasonal Farmworker</label>
+                            <div class="option-description">
+                                A person who during the preceding 12 months worked at least an aggregate of 25 or more days or parts of days in which some work was performed in farm work, earned at least half of his/her earned income from farm work, and was not employed in farm work year round by the same employer. Non-migrant individuals who are full-time students are excluded. "Farm work" means work performed for wages in agricultural production or agricultural services.
+                            </div>
+                        </div>
+                        
+                        <div class="custom-radio">
+                            <p:radioButton id="dependentMigrant" for="migrantStatus" itemIndex="5" />
+                            <label for="dependentMigrant">Dependent of Migrant / Seasonal Farmer</label>
+                            <div class="option-description">
+                                A person who is a dependent of an individual described as a Migrant Farm Worker or Seasonal Farm Worker, as defined above.
+                            </div>
+                        </div>
+                    </p:panel>
+                    
+                    <div class="form-buttons">
+                        <p:button value="Previous" outcome="schoolInfo" icon="pi pi-arrow-left" styleClass="secondary button form-button" />
+                        <p:button value="Next Step" outcome="privateInfo" icon="pi pi-arrow-right" iconPos="right" styleClass="primary button form-button" />
+                    </div>
+                </h:form>
+            </div>
+        </div>
+    </ui:define>
+</ui:composition>
+</html> 

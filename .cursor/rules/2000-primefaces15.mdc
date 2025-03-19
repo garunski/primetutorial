@@ -1,0 +1,122 @@
+---
+description: Use PrimeFaces 12 components with minimal custom CSS and no PrimeFlex
+globs: **/*.xhtml
+---
+
+# PrimeFaces 12 Development Standards
+
+<version>1.0.0</version>
+
+## Context
+- When developing with PrimeFaces 12
+- When creating or modifying JSF pages
+
+## Requirements
+- Use PrimeFaces components instead of custom HTML elements
+- Avoid PrimeFlex (deprecated) for layout and styling
+- Use built-in PrimeFaces CSS classes
+- Minimize custom CSS
+- Avoid inline styles
+- Alert users when a component is not available in PrimeFaces 12
+- Be concise in responses, avoid unnecessary explanations
+- Only provide detailed explanations when explicitly requested
+
+## PrimeFlex Guidelines
+- Do NOT use PrimeFlex - it is being sunset/deprecated
+- Remove any PrimeFlex imports (primeflex.min.css)
+- Replace flex classes with standard CSS flexbox
+- Replace grid classes with CSS Grid or flexbox
+- Replace utility classes (text-*, p-*, etc.) with custom CSS classes
+- Do not use responsive PrimeFlex classes (md:*, lg:*, etc.)
+
+## Component Guidelines
+- Use `p:card` for content containers
+- Use `p:panel` for grouping elements
+- Use `p:menubar` for navigation
+- Use `p:dataTable` for tabular data
+- Use `p:commandButton` for actions
+- Use `p:link` for navigation links
+- Use `p:outputPanel` for grouping content
+- Use `p:graphicImage` for images
+- Use `p:dialog` for modal windows
+- Use `p:messages` for displaying messages
+
+## CSS Guidelines
+- Use component-specific styleClass attributes
+- Create reusable CSS classes in stylesheet
+- Group related styles in CSS classes
+- Use PrimeFaces theme variables for colors
+
+## Communication Guidelines
+- Provide direct, concise answers
+- Skip explanations unless requested
+- Focus on implementation over theory
+- Use code examples instead of lengthy descriptions
+
+## Examples
+
+<example>
+<!-- Good: Using PrimeFaces components -->
+<p:card>
+    <f:facet name="header">
+        <h3>Card Title</h3>
+    </f:facet>
+    <p:outputPanel>
+        <p>Card content</p>
+    </p:outputPanel>
+    <f:facet name="footer">
+        <p:commandButton value="Action" styleClass="p-button-primary"/>
+    </f:facet>
+</p:card>
+</example>
+
+<example type="invalid">
+<!-- Bad: Using custom HTML with inline styles -->
+<div style="border: 1px solid #ccc; padding: 10px;">
+    <h3 style="color: blue;">Card Title</h3>
+    <div>
+        <p>Card content</p>
+    </div>
+    <div>
+        <button style="background-color: blue; color: white;">Action</button>
+    </div>
+</div>
+</example>
+
+<example>
+<!-- Good: Using CSS flexbox instead of PrimeFlex -->
+<style type="text/css">
+    .content-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem;
+    }
+    .content-title {
+        font-weight: bold;
+        font-size: 1.25rem;
+    }
+</style>
+
+<div class="content-container">
+    <span class="content-title">Title</span>
+    <p:button value="Action" />
+</div>
+</example>
+
+<example type="invalid">
+<!-- Bad: Using PrimeFlex classes -->
+<div class="flex justify-content-between align-items-center p-3">
+    <span class="text-xl font-bold">Title</span>
+    <p:button value="Action" />
+</div>
+</example>
+
+<critical>
+- NEVER use PrimeFlex classes (flex, grid, text-*, etc.)
+- NEVER use inline styles directly in HTML elements
+- ALWAYS prefer PrimeFaces components over raw HTML
+- ALWAYS alert users when a component is not available in PrimeFaces 12
+- ALWAYS be concise and direct in responses
+- NEVER provide lengthy explanations unless specifically requested
+</critical> 

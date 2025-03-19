@@ -1,0 +1,39 @@
+version: '3'
+
+tasks:
+  default:
+    desc: List available tasks
+    cmds:
+      - task --list
+
+  run:
+    desc: Run PrimeFaces application with Mojarra (default)
+    cmds:
+      - mvn clean jetty:run -Pmojarra40
+
+  run:myfaces:
+    desc: Run PrimeFaces application with MyFaces
+    cmds:
+      - mvn clean jetty:run -Pmyfaces40
+
+  run:custom-port:
+    desc: Run PrimeFaces application on custom port
+    cmds:
+      - mvn clean jetty:run -Djetty.port={{.PORT}}
+    vars:
+      PORT: '{{default "5000" .PORT}}'
+
+  clean:
+    desc: Clean the project
+    cmds:
+      - mvn clean
+
+  package:
+    desc: Package the application
+    cmds:
+      - mvn clean package
+
+  deps:
+    desc: Show project dependencies
+    cmds:
+      - mvn dependency:tree 

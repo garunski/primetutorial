@@ -1,0 +1,33 @@
+{
+    "name": "PrimeFaces Development",
+    "image": "mcr.microsoft.com/devcontainers/java:17-bullseye",
+    "features": {
+        "ghcr.io/devcontainers/features/java:1": {
+            "version": "17",
+            "installMaven": "true",
+            "mavenVersion": "3.9.5"
+        },
+        "ghcr.io/devcontainers/features/docker-in-docker:2": {
+            "version": "latest",
+            "moby": true,
+            "dockerDashComposeVersion": "v2"
+        },
+        "ghcr.io/eitsupi/devcontainer-features/go-task:1": {
+            "version": "latest"
+        }
+    },
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "vscjava.vscode-java-pack",
+                "redhat.vscode-xml",
+                "task.vscode-task",
+                "FlipWarthog.faces-intellisense",
+                "yigitfindikli.primeflexsnippets",
+                "redhat.vscode-community-server-connector"
+            ]
+        }
+    },
+    "forwardPorts": [8080],
+    "postCreateCommand": "mvn --version"
+} 

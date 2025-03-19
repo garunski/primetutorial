@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="jakarta.faces.facelets"
+      xmlns:f="jakarta.faces.core"
+      xmlns:h="jakarta.faces.html"
+      xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="/WEB-INF/template.xhtml">
+    <ui:define name="title">CareerZone - Contact Information</ui:define>
+    
+    <ui:define name="head">
+        <style type="text/css">
+            .tab-menu-custom {
+                margin-bottom: 1.875rem;
+            }
+            .form-container {
+                max-width: 100%;
+                padding: 1.25rem;
+            }
+            .form-section-title {
+                margin-top: 1.25rem;
+                margin-bottom: 0.9375rem;
+            }
+            .full-width {
+                width: 100%;
+            }
+            .form-label {
+                font-weight: 500;
+                margin-bottom: 0.5rem;
+            }
+            .form-buttons {
+                margin-top: 1.25rem;
+                display: flex;
+                justify-content: space-between;
+            }
+            .form-button {
+                margin-right: 0.625rem;
+            }
+        </style>
+    </ui:define>
+    
+    <ui:define name="content">
+        <div class="grid-container">
+            <p:panel styleClass="form-container">
+                <f:facet name="header">
+                    <h1>Create an Account</h1>
+                </f:facet>
+                
+                <p:tabMenu activeIndex="2" styleClass="tab-menu-custom">
+                    <p:menuitem value="Account Info" url="createAccount.xhtml" />
+                    <p:menuitem value="Security Questions" url="securityQuestions.xhtml" />
+                    <p:menuitem value="Contact" url="contactInfo.xhtml" />
+                    <p:menuitem value="School" url="schoolInfo.xhtml" />
+                    <p:menuitem value="Veteran Status" url="veteranInfo.xhtml" />
+                    <p:menuitem value="Private Info" url="privateInfo.xhtml" />
+                    <p:menuitem value="Job Preferences" url="jobPreferences.xhtml" />
+                </p:tabMenu>
+                
+                <p:panel styleClass="form-section">
+                    <p>All fields on this page are optional but recommended.</p>
+                    
+                    <h3 class="form-section-title">Contact Information</h3>
+                    
+                    <h:form>
+                        <div class="grid-x grid-margin-y">
+                            <div class="cell small-12">
+                                <div class="grid-x grid-margin-x">
+                                    <div class="cell small-12 medium-3">
+                                        <p:outputLabel for="firstName" value="First Name" styleClass="form-label" />
+                                    </div>
+                                    <div class="cell small-12 medium-9">
+                                        <p:inputText id="firstName" styleClass="full-width" />
+                                        <p:message for="firstName" />
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="cell small-12">
+                                <div class="grid-x grid-margin-x">
+                                    <div class="cell small-12 medium-3">
+                                        <p:outputLabel for="lastName" value="Last Name" styleClass="form-label" />
+                                    </div>
+                                    <div class="cell small-12 medium-9">
+                                        <p:inputText id="lastName" styleClass="full-width" />
+                                        <p:message for="lastName" />
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="cell small-12">
+                                <div class="grid-x grid-margin-x">
+                                    <div class="cell small-12 medium-3">
+                                        <p:outputLabel for="dob" value="Date of Birth" styleClass="form-label" />
+                                    </div>
+                                    <div class="cell small-12 medium-9">
+                                        <p:calendar id="dob" showButtonPanel="true" styleClass="full-width" />
+                                        <p:message for="dob" />
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="cell small-12">
+                                <div class="grid-x grid-margin-x">
+                                    <div class="cell small-12 medium-3">
+                                        <p:outputLabel for="email" value="Email Address" styleClass="form-label" />
+                                    </div>
+                                    <div class="cell small-12 medium-9">
+                                        <p:inputText id="email" styleClass="full-width">
+                                            <f:validateRegex pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" />
+                                        </p:inputText>
+                                        <p:message for="email" />
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="cell small-12">
+                                <div class="grid-x grid-margin-x">
+                                    <div class="cell small-12 medium-3">
+                                        <p:outputLabel for="phone" value="Phone Number" styleClass="form-label" />
+                                    </div>
+                                    <div class="cell small-12 medium-9">
+                                        <p:inputMask id="phone" mask="(999) 999-9999" styleClass="full-width" />
+                                        <p:message for="phone" />
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="cell small-12">
+                                <div class="grid-x grid-margin-x">
+                                    <div class="cell small-12 medium-3">
+                                        <p:outputLabel for="address1" value="Address Line 1" styleClass="form-label" />
+                                    </div>
+                                    <div class="cell small-12 medium-9">
+                                        <p:inputText id="address1" styleClass="full-width" />
+                                        <p:message for="address1" />
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="cell small-12">
+                                <div class="grid-x grid-margin-x">
+                                    <div class="cell small-12 medium-3">
+                                        <p:outputLabel for="address2" value="Address Line 2" styleClass="form-label" />
+                                    </div>
+                                    <div class="cell small-12 medium-9">
+                                        <p:inputText id="address2" styleClass="full-width" />
+                                        <p:message for="address2" />
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="cell small-12">
+                                <div class="grid-x grid-margin-x">
+                                    <div class="cell small-12 medium-3">
+                                        <p:outputLabel for="city" value="City" styleClass="form-label" />
+                                    </div>
+                                    <div class="cell small-12 medium-9">
+                                        <p:inputText id="city" styleClass="full-width" />
+                                        <p:message for="city" />
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="cell small-12">
+                                <div class="grid-x grid-margin-x">
+                                    <div class="cell small-12 medium-3">
+                                        <p:outputLabel for="state" value="State" styleClass="form-label" />
+                                    </div>
+                                    <div class="cell small-12 medium-9">
+                                        <p:selectOneMenu id="state" styleClass="full-width">
+                                            <f:selectItem itemLabel="Select State" itemValue="" />
+                                            <f:selectItem itemLabel="New York" itemValue="NY" />
+                                            <f:selectItem itemLabel="California" itemValue="CA" />
+                                            <f:selectItem itemLabel="Texas" itemValue="TX" />
+                                            <f:selectItem itemLabel="Florida" itemValue="FL" />
+                                            <f:selectItem itemLabel="Illinois" itemValue="IL" />
+                                            <!-- Add more states as needed -->
+                                        </p:selectOneMenu>
+                                        <p:message for="state" />
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="cell small-12">
+                                <div class="grid-x grid-margin-x">
+                                    <div class="cell small-12 medium-3">
+                                        <p:outputLabel for="zipCode" value="Zip Code" styleClass="form-label" />
+                                    </div>
+                                    <div class="cell small-12 medium-9">
+                                        <p:inputMask id="zipCode" mask="99999-9999" styleClass="full-width" />
+                                        <p:message for="zipCode" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-buttons">
+                            <p:commandButton value="Previous" action="securityQuestions" icon="ui-icon-arrow-1-w" styleClass="ui-button-secondary button secondary" />
+                            <p:commandButton value="Next Step" action="schoolInfo" icon="ui-icon-arrow-1-e" iconPos="right" styleClass="ui-button-primary button primary" />
+                        </div>
+                    </h:form>
+                </p:panel>
+            </p:panel>
+        </div>
+    </ui:define>
+</ui:composition>
+</html> 

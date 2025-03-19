@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="jakarta.faces.facelets"
+      xmlns:f="jakarta.faces.core"
+      xmlns:h="jakarta.faces.html"
+      xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="/WEB-INF/template.xhtml">
+    <ui:define name="title">CareerZone - Career Search</ui:define>
+    
+    <ui:define name="head">
+        <style type="text/css">
+            .banner {
+                background-color: #e5f2ff;
+                padding: 2rem 1rem;
+                margin-bottom: 2rem;
+                text-align: center;
+            }
+            .main-title {
+                font-size: 2.25rem;
+                font-weight: bold;
+                color: #1f2937;
+                margin-bottom: 1rem;
+            }
+            .description {
+                font-size: 1.1rem;
+                max-width: 800px;
+                margin: 0 auto 1.5rem;
+                color: #4b5563;
+            }
+            .search-container {
+                max-width: 600px;
+                margin: 0 auto 1rem;
+            }
+            .search-box {
+                width: 100%;
+                margin-bottom: 1rem;
+            }
+            .filter-section {
+                background-color: #f9fafb;
+                border-radius: 8px;
+                padding: 1.5rem;
+                margin-bottom: 1.5rem;
+            }
+            .filter-title {
+                font-size: 1.2rem;
+                font-weight: 600;
+                margin-bottom: 1rem;
+                color: #374151;
+            }
+            .result-card {
+                margin-bottom: 1.5rem;
+            }
+            .career-title {
+                font-size: 1.25rem;
+                font-weight: 600;
+                color: #1f2937;
+                margin-bottom: 0.5rem;
+            }
+            .career-category {
+                font-size: 0.875rem;
+                color: #6b7280;
+                margin-bottom: 0.75rem;
+            }
+            .career-description {
+                margin-bottom: 1rem;
+            }
+            .salary-info {
+                margin-bottom: 0.5rem;
+                color: #4b5563;
+            }
+            .education-info {
+                margin-bottom: 1rem;
+                color: #4b5563;
+            }
+            .tag {
+                display: inline-block;
+                background-color: #e5e7eb;
+                color: #4b5563;
+                padding: 0.25rem 0.75rem;
+                border-radius: 9999px;
+                font-size: 0.75rem;
+                margin-right: 0.5rem;
+                margin-bottom: 0.5rem;
+            }
+            .pagination {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-top: 2rem;
+            }
+            .page-info {
+                margin: 0 1rem;
+            }
+        </style>
+    </ui:define>
+    
+    <ui:define name="content">
+        <h:form>
+            <div class="banner">
+                <div class="grid-container">
+                    <h1 class="main-title">Find Your Perfect Career</h1>
+                    <p class="description">Explore thousands of career options based on your interests, skills, and education level.</p>
+                    
+                    <div class="search-container">
+                        <div class="grid-x grid-margin-x">
+                            <div class="cell small-9">
+                                <p:inputText placeholder="Search careers..." styleClass="search-box" />
+                            </div>
+                            <div class="cell small-3">
+                                <p:commandButton value="Search" styleClass="button expanded" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="grid-container">
+                <div class="grid-x grid-margin-x">
+                    <div class="cell small-12 medium-4 large-3">
+                        <p:panel header="Filter Results" styleClass="filter-section">
+                            <h4 class="filter-title">Career Fields</h4>
+                            <div>
+                                <p:selectManyCheckbox layout="responsive" columns="1">
+                                    <f:selectItem itemLabel="Business &amp; Finance" itemValue="business" />
+                                    <f:selectItem itemLabel="Healthcare" itemValue="healthcare" />
+                                    <f:selectItem itemLabel="Technology" itemValue="technology" />
+                                    <f:selectItem itemLabel="Education" itemValue="education" />
+                                    <f:selectItem itemLabel="Arts &amp; Humanities" itemValue="arts" />
+                                </p:selectManyCheckbox>
+                            </div>
+                            
+                            <h4 class="filter-title">Education Level</h4>
+                            <div>
+                                <p:selectManyCheckbox layout="responsive" columns="1">
+                                    <f:selectItem itemLabel="High School" itemValue="highschool" />
+                                    <f:selectItem itemLabel="Associate's Degree" itemValue="associate" />
+                                    <f:selectItem itemLabel="Bachelor's Degree" itemValue="bachelor" />
+                                    <f:selectItem itemLabel="Master's Degree" itemValue="master" />
+                                    <f:selectItem itemLabel="Doctorate" itemValue="doctorate" />
+                                </p:selectManyCheckbox>
+                            </div>
+                            
+                            <h4 class="filter-title">Salary Range</h4>
+                            <h:inputHidden id="minSalary" value="0" />
+                            <h:inputHidden id="maxSalary" value="200000" />
+                            <p:slider for="minSalary,maxSalary" range="true" minValue="0" maxValue="200000" display="displaySalary" displayTemplate="${minSalary} - ${maxSalary}" />
+                            <h:outputText id="displaySalary" value="$0 - $200,000" style="margin-top: 10px; display: block;" />
+                            
+                            <div style="margin-top: 1.5rem; text-align: center;">
+                                <p:commandButton value="Apply Filters" styleClass="button" />
+                                <p:commandButton value="Clear" styleClass="button secondary" style="margin-left: 8px;" />
+                            </div>
+                        </p:panel>
+                    </div>
+                    
+                    <div class="cell small-12 medium-8 large-9">
+                        <p:card styleClass="result-card">
+                            <div class="career-title">Software Developer</div>
+                            <div class="career-category">Technology | Computer Science</div>
+                            <div class="career-description">
+                                <p>Design, develop, and test software applications for computers, mobile devices, and other electronic systems. Create code using various programming languages and frameworks.</p>
+                            </div>
+                            <div class="salary-info">
+                                <strong>Average Salary:</strong> $105,000 - $150,000
+                            </div>
+                            <div class="education-info">
+                                <strong>Education Required:</strong> Bachelor's Degree
+                            </div>
+                            <div>
+                                <span class="tag">Programming</span>
+                                <span class="tag">Problem Solving</span>
+                                <span class="tag">Project Management</span>
+                                <span class="tag">Communication</span>
+                            </div>
+                            <f:facet name="footer">
+                                <p:button value="View Details" styleClass="button small" />
+                            </f:facet>
+                        </p:card>
+                        
+                        <p:card styleClass="result-card">
+                            <div class="career-title">Registered Nurse</div>
+                            <div class="career-category">Healthcare | Nursing</div>
+                            <div class="career-description">
+                                <p>Provide and coordinate patient care, educate patients about various health conditions, and provide advice and emotional support to patients and their family members.</p>
+                            </div>
+                            <div class="salary-info">
+                                <strong>Average Salary:</strong> $75,000 - $110,000
+                            </div>
+                            <div class="education-info">
+                                <strong>Education Required:</strong> Associate's or Bachelor's Degree
+                            </div>
+                            <div>
+                                <span class="tag">Patient Care</span>
+                                <span class="tag">Medical Knowledge</span>
+                                <span class="tag">Communication</span>
+                                <span class="tag">Critical Thinking</span>
+                            </div>
+                            <f:facet name="footer">
+                                <p:button value="View Details" styleClass="button small" />
+                            </f:facet>
+                        </p:card>
+                        
+                        <p:card styleClass="result-card">
+                            <div class="career-title">Financial Analyst</div>
+                            <div class="career-category">Business &amp; Finance | Economics</div>
+                            <div class="career-description">
+                                <p>Analyze financial data to guide business decisions. Assess the performance of stocks, bonds, and other types of investments. Prepare reports and recommendations.</p>
+                            </div>
+                            <div class="salary-info">
+                                <strong>Average Salary:</strong> $80,000 - $120,000
+                            </div>
+                            <div class="education-info">
+                                <strong>Education Required:</strong> Bachelor's Degree
+                            </div>
+                            <div>
+                                <span class="tag">Financial Modeling</span>
+                                <span class="tag">Data Analysis</span>
+                                <span class="tag">Research</span>
+                                <span class="tag">Reporting</span>
+                            </div>
+                            <f:facet name="footer">
+                                <p:button value="View Details" styleClass="button small" />
+                            </f:facet>
+                        </p:card>
+                        
+                        <div class="pagination">
+                            <p:commandButton value="Previous" styleClass="button small" disabled="true" />
+                            <span class="page-info">Page 1 of 92 (917 results)</span>
+                            <p:commandButton value="Next" styleClass="button small" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </h:form>
+    </ui:define>
+</ui:composition>
+</html> 

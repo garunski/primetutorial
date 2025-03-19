@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="jakarta.faces.facelets"
+      xmlns:f="jakarta.faces.core"
+      xmlns:h="jakarta.faces.html"
+      xmlns:p="primefaces">
+
+<ui:composition template="/WEB-INF/template.xhtml">
+    <ui:define name="title">CareerZone - School Information</ui:define>
+    
+    <ui:define name="head">
+        <style type="text/css">
+            .tab-menu-custom {
+                margin-bottom: 30px;
+            }
+        </style>
+    </ui:define>
+    
+    <ui:define name="content">
+        <div class="form-container" style="max-width: 100%; padding: 20px;">
+            <h1>Create an Account</h1>
+            
+            <ul class="tabs" data-tabs="registration-tabs">
+                <li class="tabs-title"><a href="createAccount.xhtml">Account Info</a></li>
+                <li class="tabs-title"><a href="securityQuestions.xhtml">Security Questions</a></li>
+                <li class="tabs-title"><a href="contactInfo.xhtml">Contact</a></li>
+                <li class="tabs-title is-active"><a href="schoolInfo.xhtml">School</a></li>
+                <li class="tabs-title"><a href="veteranInfo.xhtml">Veteran Status</a></li>
+                <li class="tabs-title"><a href="privateInfo.xhtml">Private Info</a></li>
+                <li class="tabs-title"><a href="jobPreferences.xhtml">Job Preferences</a></li>
+            </ul>
+            
+            <div class="form-section">
+                <p>All fields on this page are optional but recommended.</p>
+                
+                <h3 class="form-section-title">School Information</h3>
+                
+                <style type="text/css">
+                    .form-table {
+                        width: 100%;
+                        border-collapse: collapse;
+                    }
+                    .form-table td {
+                        padding: 8px;
+                        vertical-align: top;
+                    }
+                    .form-table .label-column {
+                        width: 20%;
+                        text-align: right;
+                        padding-top: 12px;
+                    }
+                    .form-table .input-column {
+                        width: 80%;
+                    }
+                    .form-table .p-message {
+                        display: block;
+                        margin-top: 5px;
+                    }
+                    .input-container {
+                        max-width: 500px;
+                    }
+                </style>
+                
+                <table class="form-table">
+                    <tr>
+                        <td class="label-column">
+                            <p:outputLabel for="schoolName" value="School Name" />
+                        </td>
+                        <td class="input-column">
+                            <div class="input-container">
+                                <p:inputText id="schoolName" style="width: 100%" />
+                                <p:message for="schoolName" />
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="label-column">
+                            <p:outputLabel for="schoolType" value="School Type" />
+                        </td>
+                        <td class="input-column">
+                            <div class="input-container">
+                                <p:selectOneMenu id="schoolType" style="width: 100%">
+                                    <f:selectItem itemLabel="Select School Type" itemValue="" />
+                                    <f:selectItem itemLabel="High School" itemValue="HIGH_SCHOOL" />
+                                    <f:selectItem itemLabel="Community College" itemValue="COMMUNITY_COLLEGE" />
+                                    <f:selectItem itemLabel="University" itemValue="UNIVERSITY" />
+                                    <f:selectItem itemLabel="Trade School" itemValue="TRADE_SCHOOL" />
+                                    <f:selectItem itemLabel="Other" itemValue="OTHER" />
+                                </p:selectOneMenu>
+                                <p:message for="schoolType" />
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="label-column">
+                            <p:outputLabel for="graduationYear" value="Graduation Year" />
+                        </td>
+                        <td class="input-column">
+                            <div class="input-container">
+                                <p:selectOneMenu id="graduationYear" style="width: 100%">
+                                    <f:selectItem itemLabel="Select Year" itemValue="" />
+                                    <f:selectItem itemLabel="2024" itemValue="2024" />
+                                    <f:selectItem itemLabel="2025" itemValue="2025" />
+                                    <f:selectItem itemLabel="2026" itemValue="2026" />
+                                    <f:selectItem itemLabel="2027" itemValue="2027" />
+                                    <f:selectItem itemLabel="2028" itemValue="2028" />
+                                    <f:selectItem itemLabel="Already Graduated" itemValue="GRADUATED" />
+                                </p:selectOneMenu>
+                                <p:message for="graduationYear" />
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="label-column">
+                            <p:outputLabel for="major" value="Major/Field of Study" />
+                        </td>
+                        <td class="input-column">
+                            <div class="input-container">
+                                <p:inputText id="major" style="width: 100%" />
+                                <p:message for="major" />
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="label-column">
+                            <p:outputLabel for="gpa" value="GPA" />
+                        </td>
+                        <td class="input-column">
+                            <div class="input-container">
+                                <p:inputNumber id="gpa" minValue="0" maxValue="4.0" decimalPlaces="2" style="width: 100%" />
+                                <p:message for="gpa" />
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="label-column">
+                            <p:outputLabel for="activities" value="Extracurricular Activities" />
+                        </td>
+                        <td class="input-column">
+                            <div class="input-container">
+                                <p:inputTextarea id="activities" rows="4" style="width: 100%" />
+                                <p:message for="activities" />
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+                
+                <div class="form-buttons">
+                    <p:button value="Previous" outcome="contactInfo" icon="pi pi-arrow-left" styleClass="secondary button form-button" />
+                    <p:button value="Next Step" outcome="veteranInfo" icon="pi pi-arrow-right" iconPos="right" styleClass="primary button form-button" />
+                </div>
+            </div>
+        </div>
+    </ui:define>
+</ui:composition>
+</html> 
