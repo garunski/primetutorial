@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="jakarta.faces.facelets"
+      xmlns:f="jakarta.faces.core"
+      xmlns:h="jakarta.faces.html"
+      xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="/WEB-INF/template.xhtml">
+    <ui:define name="title">CareerZone - Career Details</ui:define>
+    
+    <ui:define name="head">
+        <style type="text/css">
+            .career-header {
+                background-color: #e5f2ff;
+                padding: 2rem 1rem;
+                margin-bottom: 2rem;
+            }
+            .career-title {
+                font-size: 2.25rem;
+                font-weight: bold;
+                color: #1f2937;
+                margin-bottom: 0.5rem;
+            }
+            .career-category {
+                font-size: 1.1rem;
+                color: #6b7280;
+                margin-bottom: 1rem;
+            }
+            .career-quick-info {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 1.5rem;
+                margin-bottom: 1.5rem;
+            }
+            .info-item {
+                display: flex;
+                align-items: center;
+                gap: 0.5rem;
+            }
+            .info-label {
+                font-weight: 600;
+                color: #4b5563;
+            }
+            .info-value {
+                color: #1f2937;
+            }
+            .section {
+                margin-bottom: 2rem;
+            }
+            .section-title {
+                font-size: 1.5rem;
+                font-weight: 600;
+                color: #1f2937;
+                margin-bottom: 1rem;
+                padding-bottom: 0.5rem;
+                border-bottom: 1px solid #e5e7eb;
+            }
+            .tag {
+                display: inline-block;
+                background-color: #e5e7eb;
+                color: #4b5563;
+                padding: 0.25rem 0.75rem;
+                border-radius: 9999px;
+                font-size: 0.875rem;
+                margin-right: 0.5rem;
+                margin-bottom: 0.5rem;
+            }
+            .task-list {
+                list-style-type: none;
+                padding-left: 0;
+            }
+            .task-item {
+                margin-bottom: 0.75rem;
+                position: relative;
+                padding-left: 1.5rem;
+            }
+            .task-item:before {
+                content: "•";
+                position: absolute;
+                left: 0;
+                color: #4f46e5;
+            }
+            .interests-list {
+                list-style-type: none;
+                padding-left: 0;
+                margin-top: 1rem;
+            }
+            .interest-item {
+                margin-bottom: 0.5rem;
+                font-weight: 600;
+            }
+            .interest-description {
+                font-weight: normal;
+                color: #4b5563;
+            }
+            .related-careers {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 1rem;
+                margin-top: 1rem;
+            }
+            .action-buttons {
+                display: flex;
+                justify-content: center;
+                gap: 1rem;
+                margin: 2rem 0;
+            }
+        </style>
+    </ui:define>
+    
+    <ui:define name="content">
+        <div class="career-header">
+            <div class="grid-container">
+                <div class="career-title">Actor</div>
+                <div class="career-category">Arts, Audio/Video Technology and Communications | Performing Arts</div>
+                
+                <div class="career-quick-info">
+                    <div class="info-item">
+                        <span class="info-label">Average Salary:</span>
+                        <span class="info-value">$44,630 - $116,730</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Education Required:</span>
+                        <span class="info-value">Some college, no degree</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Job Outlook:</span>
+                        <span class="info-value">Growing</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="grid-container">
+            <div class="grid-x grid-margin-x">
+                <div class="cell small-12 medium-8">
+                    <div class="section">
+                        <h2 class="section-title">Description</h2>
+                        <p>Play parts in stage, television, radio, video, or film productions, or other settings for entertainment, information, or instruction. Interpret serious or comic role by speech, gesture, and body movement to entertain or inform audience. May dance and sing.</p>
+                    </div>
+                    
+                    <div class="section">
+                        <h2 class="section-title">Tasks</h2>
+                        <ul class="task-list">
+                            <li class="task-item">Collaborate with other actors as part of an ensemble.</li>
+                            <li class="task-item">Portray and interpret roles, using speech, gestures, and body movements, to entertain, inform, or instruct radio, film, television, or live audiences.</li>
+                            <li class="task-item">Work closely with directors, other actors, and playwrights to find the interpretation most suited to the role.</li>
+                            <li class="task-item">Perform humorous and serious interpretations of emotions, actions, and situations, using body movements, facial expressions, and gestures.</li>
+                            <li class="task-item">Study and rehearse roles from scripts to interpret, learn and memorize lines, stunts, and cues as directed.</li>
+                            <li class="task-item">Learn about characters in scripts and their relationships to each other to develop role interpretations.</li>
+                            <li class="task-item">Attend auditions and casting calls to audition for roles.</li>
+                            <li class="task-item">Sing or dance during dramatic or comedic performances.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="section">
+                        <h2 class="section-title">Skills</h2>
+                        <div>
+                            <span class="tag">Acting</span>
+                            <span class="tag">Public Speaking</span>
+                            <span class="tag">Memorization</span>
+                            <span class="tag">Voice Projection</span>
+                            <span class="tag">Movement</span>
+                            <span class="tag">Character Development</span>
+                            <span class="tag">Improvisation</span>
+                            <span class="tag">Collaboration</span>
+                            <span class="tag">Adaptability</span>
+                        </div>
+                    </div>
+                    
+                    <div class="section">
+                        <h2 class="section-title">Work Values</h2>
+                        <ul class="interests-list">
+                            <li class="interest-item">
+                                Achievement <span class="interest-description">- Occupations that satisfy this work value are results oriented and allow employees to use their strongest abilities, giving them a feeling of accomplishment.</span>
+                            </li>
+                            <li class="interest-item">
+                                Relationships <span class="interest-description">- Occupations that satisfy this work value allow employees to provide service to others and work with co-workers in a friendly non-competitive environment.</span>
+                            </li>
+                            <li class="interest-item">
+                                Independence <span class="interest-description">- Occupations that satisfy this work value allow employees to work on their own and make decisions.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="cell small-12 medium-4">
+                    <p:card styleClass="mb-3">
+                        <f:facet name="title">
+                            Education &amp; Training
+                        </f:facet>
+                        <p>Some actors train in acting for years before landing roles. Many actors enhance their skills through formal education. They may attend drama schools or acting conservatories or pursue a degree in theater.</p>
+                        <p>Some college, no degree is typically needed for this occupation, but many actors have bachelor's degrees in theater arts, drama, or related fields.</p>
+                        <ul>
+                            <li>Bachelor's degree in Theater Arts</li>
+                            <li>Bachelor of Fine Arts in Acting</li>
+                            <li>Master of Fine Arts in Acting</li>
+                        </ul>
+                    </p:card>
+                    
+                    <p:card styleClass="mb-3">
+                        <f:facet name="title">
+                            Knowledge
+                        </f:facet>
+                        <ul>
+                            <li>Fine Arts</li>
+                            <li>English Language</li>
+                            <li>Communications and Media</li>
+                            <li>Psychology</li>
+                            <li>History and Literature</li>
+                            <li>Performing Arts</li>
+                        </ul>
+                    </p:card>
+                    
+                    <p:card styleClass="mb-3">
+                        <f:facet name="title">
+                            Work Context
+                        </f:facet>
+                        <ul>
+                            <li>Work with a group or team</li>
+                            <li>Irregular work schedule</li>
+                            <li>Face-to-face discussions</li>
+                            <li>Freedom to make decisions</li>
+                            <li>Standing for long periods</li>
+                        </ul>
+                    </p:card>
+                    
+                    <p:card>
+                        <f:facet name="title">
+                            Related Careers
+                        </f:facet>
+                        <div class="related-careers">
+                            <p:button value="Producers and Directors" styleClass="p-button-text" />
+                            <p:button value="Talent Directors" styleClass="p-button-text" />
+                            <p:button value="Choreographers" styleClass="p-button-text" />
+                            <p:button value="Music Directors and Composers" styleClass="p-button-text" />
+                            <p:button value="Musicians and Singers" styleClass="p-button-text" />
+                        </div>
+                    </p:card>
+                </div>
+            </div>
+            
+            <div class="action-buttons">
+                <p:button value="Back to Careers" outcome="careers" styleClass="p-button-secondary" />
+                <p:button value="Save to Favorites" icon="pi pi-heart" styleClass="p-button-outlined" />
+                <p:button value="Print Career Information" icon="pi pi-print" styleClass="p-button-outlined" />
+            </div>
+        </div>
+    </ui:define>
+</ui:composition>
+</html> 
