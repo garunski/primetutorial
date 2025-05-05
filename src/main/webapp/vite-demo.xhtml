@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="jakarta.faces.facelets"
+      xmlns:f="jakarta.faces.core"
+      xmlns:h="jakarta.faces.html"
+      xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="/WEB-INF/template.xhtml">
+    <ui:define name="title">Vite Demo</ui:define>
+    
+    <ui:define name="head">
+        <style type="text/css">
+            .vite-demo-section {
+                background-color: #f0f4f8;
+                padding: 2rem;
+                border-radius: 8px;
+                margin-bottom: 2rem;
+            }
+            .vite-logo-container {
+                text-align: center;
+                margin-bottom: 2rem;
+            }
+        </style>
+    </ui:define>
+    
+    <ui:define name="content">
+        <div class="grid-container">
+            <div class="grid-x grid-margin-x">
+                <div class="cell small-12">
+                    <h1>Vite + JSF Integration Demo</h1>
+                    <p>This page demonstrates the integration of Vite with JSF and PrimeFaces.</p>
+                </div>
+            </div>
+            
+            <div class="grid-x grid-margin-x">
+                <div class="cell small-12 medium-6">
+                    <div class="vite-demo-section">
+                        <h2>Vite App Container</h2>
+                        <p>The div below will be populated by the Vite JavaScript:</p>
+                        <div id="app"></div>
+                    </div>
+                </div>
+                
+                <div class="cell small-12 medium-6">
+                    <div class="card">
+                        <div class="card-section">
+                            <h3 class="card-title">PrimeFaces Components</h3>
+                            <p>This section contains PrimeFaces components:</p>
+                            
+                            <p:panel header="PrimeFaces Panel" toggleable="true" style="margin-bottom: 1rem;">
+                                <p>This is a PrimeFaces panel component.</p>
+                            </p:panel>
+                            
+                            <p:accordionPanel style="margin-bottom: 1rem;">
+                                <p:tab title="First Tab">
+                                    <p>This is the first tab content.</p>
+                                </p:tab>
+                                <p:tab title="Second Tab">
+                                    <p>This is the second tab content.</p>
+                                </p:tab>
+                            </p:accordionPanel>
+                            
+                            <p:commandButton value="Click Me" update="@form" action="#{null}" 
+                                             styleClass="button primary" style="margin-right: 0.5rem;"/>
+                            <p:button value="Go Home" outcome="index" styleClass="button secondary"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ui:define>
+</ui:composition>
+</html>
