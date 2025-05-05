@@ -7,23 +7,29 @@
 
 <h:head>
     <title>Vite + JSF Integration Test</title>
+    <!-- Include Default Styles (Reset) -->
+    <link rel="stylesheet" href="#{request.contextPath}/resources/assets/default-styles.css" />
+
+    <!-- Include Foundation CSS -->
+    <link rel="stylesheet" href="#{request.contextPath}/resources/assets/foundation-custom.css" />
+
     <!-- Include Vite-built CSS -->
-    <link rel="stylesheet" href="#{request.contextPath}/assets/css/main-CrYBktwj.css" />
+    <link rel="stylesheet" href="#{request.contextPath}/resources/assets/main.css" />
 </h:head>
 
 <h:body>
     <div class="container">
         <h1>Vite + JSF Integration Test</h1>
-        
+
         <p:panel header="PrimeFaces Panel">
             <p>This is a PrimeFaces panel component.</p>
             <p>Below is a div that will be populated by Vite JavaScript:</p>
-            
+
             <div id="app"></div>
         </p:panel>
-        
+
         <!-- Include Vite-built JavaScript -->
-        <script type="module" src="#{request.contextPath}/assets/js/main-BgsQr0cf.js"></script>
+        <script type="module" src="#{request.contextPath}/resources/js/main.js"></script>
     </div>
 </h:body>
 </html>

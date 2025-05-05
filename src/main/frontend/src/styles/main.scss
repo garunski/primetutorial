@@ -1,0 +1,67 @@
+// Import utilities
+@import './utils/variables';
+@import './utils/mixins';
+
+// Import layout
+@import './layout/layout';
+
+// Import components
+@import './components/buttons';
+
+// Base styles
+body {
+  font-family: $font-family-base;
+  color: $text-color;
+  background-color: $background-color;
+  margin: 0;
+  padding: 0;
+  line-height: $line-height-base;
+}
+
+// Typography
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 0;
+  margin-bottom: $spacing-md;
+  font-weight: $font-weight-bold;
+  line-height: 1.2;
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: $spacing-md;
+}
+
+a {
+  color: $primary-color;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+// Card component
+.card {
+  @include card;
+  margin-bottom: $spacing-md;
+}
+
+// Vite logo animation (from the default Vite template)
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+
+  &:hover {
+    filter: drop-shadow(0 0 2em rgba($primary-color, 0.6));
+  }
+
+  &.vanilla:hover {
+    filter: drop-shadow(0 0 2em rgba(#f7df1e, 0.6));
+  }
+}
+
+.read-the-docs {
+  color: $secondary-color;
+}

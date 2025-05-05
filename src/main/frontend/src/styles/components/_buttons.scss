@@ -1,0 +1,73 @@
+@import '../utils/variables';
+@import '../utils/mixins';
+
+.button {
+  display: inline-block;
+  padding: $spacing-sm $spacing-md;
+  border-radius: $border-radius-sm;
+  font-weight: $font-weight-bold;
+  text-align: center;
+  cursor: pointer;
+  border: none;
+  @include transition;
+  
+  // Button variants
+  &.primary {
+    @include button-variant($primary-color);
+  }
+  
+  &.secondary {
+    @include button-variant($secondary-color);
+  }
+  
+  &.success {
+    @include button-variant($success-color);
+  }
+  
+  &.warning {
+    @include button-variant($warning-color);
+  }
+  
+  &.danger {
+    @include button-variant($danger-color);
+  }
+  
+  // Button sizes
+  &.small {
+    padding: $spacing-xs $spacing-sm;
+    font-size: $font-size-sm;
+  }
+  
+  &.large {
+    padding: $spacing-md $spacing-lg;
+    font-size: $font-size-lg;
+  }
+  
+  // Outlined variant
+  &.outlined {
+    background-color: transparent;
+    border: $border-width solid currentColor;
+    
+    &.primary {
+      color: $primary-color;
+      
+      &:hover, &:focus {
+        background-color: rgba($primary-color, 0.1);
+      }
+    }
+    
+    &.secondary {
+      color: $secondary-color;
+      
+      &:hover, &:focus {
+        background-color: rgba($secondary-color, 0.1);
+      }
+    }
+  }
+  
+  // Disabled state
+  &:disabled, &.disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}

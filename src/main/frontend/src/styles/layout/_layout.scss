@@ -1,0 +1,63 @@
+@import '../utils/variables';
+@import '../utils/mixins';
+
+.layout-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.layout-header {
+  background-color: white;
+  box-shadow: $shadow-md;
+  padding: $spacing-md;
+  
+  @include respond-to(md) {
+    padding: $spacing-md $spacing-lg;
+  }
+}
+
+.layout-main {
+  flex: 1;
+  padding: $spacing-md;
+  
+  @include respond-to(md) {
+    padding: $spacing-lg;
+  }
+}
+
+.layout-footer {
+  background-color: white;
+  padding: $spacing-md;
+  text-align: center;
+  border-top: $border-width solid $border-color;
+  
+  @include respond-to(md) {
+    padding: $spacing-md $spacing-lg;
+  }
+}
+
+// Container
+.container {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: $spacing-md;
+  padding-right: $spacing-md;
+  
+  @include respond-to(sm) {
+    max-width: 640px;
+  }
+  
+  @include respond-to(md) {
+    max-width: 768px;
+  }
+  
+  @include respond-to(lg) {
+    max-width: 1024px;
+  }
+  
+  @include respond-to(xl) {
+    max-width: 1280px;
+  }
+}

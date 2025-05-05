@@ -9,10 +9,16 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><ui:insert name="title">Default Title</ui:insert></title>
-    
+
+    <!-- Include Default Styles (Reset) -->
+    <link rel="stylesheet" href="#{request.contextPath}/resources/assets/default-styles.css" />
+
+    <!-- Include Foundation CSS -->
+    <link rel="stylesheet" href="#{request.contextPath}/resources/assets/foundation-custom.css" />
+
     <!-- Include Vite-built CSS -->
-    <link rel="stylesheet" href="#{request.contextPath}/assets/css/main-CrYBktwj.css" />
-    
+    <link rel="stylesheet" href="#{request.contextPath}/resources/assets/main.css" />
+
     <ui:insert name="head" />
 </h:head>
 
@@ -25,20 +31,20 @@
                 <p:menuitem value="Vite Test" url="/vite-test.xhtml" />
             </p:menubar>
         </header>
-        
+
         <main class="layout-main">
             <ui:insert name="content">
                 <p>Default content</p>
             </ui:insert>
         </main>
-        
+
         <footer class="layout-footer">
             <p>&copy; 2025 My Application</p>
         </footer>
     </div>
-    
+
     <!-- Include Vite-built JavaScript -->
-    <script type="module" src="#{request.contextPath}/assets/js/main-BgsQr0cf.js"></script>
+    <script type="module" src="#{request.contextPath}/resources/js/main.js"></script>
     <ui:insert name="scripts" />
 </h:body>
 </html>
