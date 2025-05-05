@@ -4,10 +4,10 @@
  */
 
 // Import Foundation
-@import "foundation-sites/scss/foundation";
+@import "foundation";
 
 // Import Font Awesome
-@import "font-awesome/scss/font-awesome";
+@import "font-awesome";
 
 // Include Foundation grid
 @include foundation-grid;
