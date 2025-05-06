@@ -4,54 +4,39 @@ import { sync as glob } from 'glob';
 import fs from 'fs';
 
 // Custom plugin to copy vendor files without processing them
-function copyVendorFiles() {
-  return {
-    name: 'copy-vendor-files',
-    generateBundle() {
-      // Create the vendor directory if it doesn't exist
-      const vendorDir = '../webapp/resources/js/vendor';
-      if (!fs.existsSync(vendorDir)) {
-        fs.mkdirSync(vendorDir, { recursive: true });
-      }
+const copyVendorFiles = () => ({
+  name: 'copy-vendor-files',
+  generateBundle() {
+    // Create the vendor directory if it doesn't exist
+    const vendorDir = '../webapp/resources/js/vendor';
+    fs.mkdirSync(vendorDir, { recursive: true });
 
-      // Copy Foundation and its dependencies
-      const vendorFiles = [
-        {
-          src: 'node_modules/jquery/dist/jquery.min.js',
-          dest: `${vendorDir}/jquery.min.js`
-        },
-        {
-          src: 'node_modules/what-input/dist/what-input.min.js',
-          dest: `${vendorDir}/what-input.min.js`
-        },
-        {
-          src: 'node_modules/foundation-sites/dist/js/foundation.min.js',
-          dest: `${vendorDir}/foundation.min.js`
-        }
-      ];
+    // Copy Foundation and its dependencies
+    const vendorFiles = [
+      ['jquery/dist/jquery.min.js', 'jquery.min.js'],
+      ['what-input/dist/what-input.min.js', 'what-input.min.js'],
+      ['foundation-sites/dist/js/foundation.min.js', 'foundation.min.js']
+    ];
 
-      // Copy each file
-      vendorFiles.forEach(file => {
-        const content = fs.readFileSync(file.src);
-        fs.writeFileSync(file.dest, content);
-        console.log(`Copied ${file.src} to ${file.dest}`);
-      });
-    }
-  };
-}
-
-// Find all SCSS files in the styles directory, excluding partials (files starting with _)
-const scssFiles = glob('./src/styles/**/*.scss').filter(file => !file.split('/').pop().startsWith('_'));
-
-// Create input entries for each SCSS file
-const scssEntries = {};
-scssFiles.forEach(file => {
-  // Get the relative path from the styles directory
-  const relativePath = path.relative('./src/styles', file);
-  // Use the path without extension as the entry name
-  const name = relativePath.replace('.scss', '');
-  scssEntries[name] = path.resolve(__dirname, file);
+    // Copy each file
+    vendorFiles.forEach(([src, dest]) => {
+      const srcPath = `node_modules/${src}`;
+      const destPath = `${vendorDir}/${dest}`;
+      fs.writeFileSync(destPath, fs.readFileSync(srcPath));
+      console.log(`Copied ${srcPath} to ${destPath}`);
+    });
+  }
 });
+
+// Find all SCSS files in the styles directory and create input entries, excluding partials (files starting with _)
+const scssEntries = glob('./src/styles/**/*.scss')
+  .filter(file => !path.basename(file).startsWith('_'))
+  .reduce((entries, file) => {
+    // Get the relative path from the styles directory without extension
+    const name = path.relative('./src/styles', file).replace('.scss', '');
+    entries[name] = path.resolve(__dirname, file);
+    return entries;
+  }, {});
 
 export default defineConfig({
   // Base public path when served in production
@@ -106,33 +91,22 @@ export default defineConfig({
         chunkFileNames: 'js/[name].js',
         assetFileNames: (info) => {
           // For CSS files from SCSS entries, preserve the nested structure
-          if (info.fileName && info.fileName.endsWith('.css')) {
-            // Get the original file names (using the non-deprecated property)
-            const originalFileNames = info.originalFileNames || [];
+          if (info.fileName?.endsWith('.css')) {
+            const originalFileName = (info.originalFileNames || [])[0];
 
-            // Check if we have original file names to work with
-            if (originalFileNames.length > 0) {
-              // Get the first original file name
-              const originalFileName = originalFileNames[0];
-
-              // Check if this is from a nested SCSS file
-              if (originalFileName && originalFileName.includes('/styles/')) {
-                // Extract the path relative to the styles directory
-                const relativePath = originalFileName.split('/styles/')[1];
-                if (relativePath && relativePath.includes('/')) {
-                  // This is a nested file, preserve the structure
-                  const pathWithoutExt = relativePath.replace('.scss', '');
-                  return `assets/${pathWithoutExt}.css`;
-                }
+            // If this is from a nested SCSS file in the styles directory
+            if (originalFileName?.includes('/styles/')) {
+              const parts = originalFileName.split('/styles/');
+              if (parts.length > 1 && parts[1].includes('/')) {
+                return `assets/${parts[1].replace('.scss', '')}.css`;
               }
             }
 
             // For non-nested files or fallback
-            const baseName = path.basename(info.fileName, '.css');
-            return `assets/${baseName}.css`;
+            return `assets/${path.basename(info.fileName, '.css')}.css`;
           }
 
-          // For other assets, use the default pattern
+          // For other assets
           return 'assets/[name].[ext]';
         }
       }
