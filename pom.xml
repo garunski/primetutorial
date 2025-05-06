@@ -1,5 +1,7 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.primefaces</groupId>
     <artifactId>primefaces-test</artifactId>
@@ -103,7 +105,8 @@
                 <artifactId>jetty-ee10-maven-plugin</artifactId>
                 <version>${jetty.version}</version>
                 <configuration>
-                    <!-- see https://eclipse.dev/jetty/documentation/jetty-12/programming-guide/index.html#jetty-run-goal -->
+                    <!-- see
+                    https://eclipse.dev/jetty/documentation/jetty-12/programming-guide/index.html#jetty-run-goal -->
                     <webApp>
                         <contextPath>/</contextPath>
                     </webApp>
@@ -129,8 +132,9 @@
                 <artifactId>frontend-maven-plugin</artifactId>
                 <version>1.15.0</version>
                 <configuration>
+                    <nodeVersion>v22.15.0</nodeVersion>
+                    <npmVersion>10.9.2</npmVersion>
                     <workingDirectory>src/main/frontend</workingDirectory>
-                    <installDirectory>target</installDirectory>
                 </configuration>
                 <executions>
                     <!-- Install Node and NPM -->
@@ -139,10 +143,6 @@
                         <goals>
                             <goal>install-node-and-npm</goal>
                         </goals>
-                        <configuration>
-                            <nodeVersion>v20.11.1</nodeVersion>
-                            <npmVersion>10.2.4</npmVersion>
-                        </configuration>
                     </execution>
                     <!-- Install npm dependencies -->
                     <execution>

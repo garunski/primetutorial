@@ -1,0 +1,83 @@
+// Custom Bootstrap import file
+// Selectively import Bootstrap components
+
+// 1. Include functions first (required)
+@import "bootstrap/scss/functions";
+
+// 2. Include any default variable overrides here
+$primary: #0d6efd;
+$secondary: #6c757d;
+$success: #198754;
+$info: #0dcaf0;
+$warning: #ffc107;
+$danger: #dc3545;
+$light: #f8f9fa;
+$dark: #212529;
+
+// 3. Include remainder of required Bootstrap stylesheets
+@import "bootstrap/scss/variables";
+@import "bootstrap/scss/variables-dark";
+@import "bootstrap/scss/maps";
+@import "bootstrap/scss/mixins";
+@import "bootstrap/scss/root";
+
+// 4. Include only the Bootstrap components we need
+// Layout & components
+@import "bootstrap/scss/reboot";
+@import "bootstrap/scss/type";
+@import "bootstrap/scss/containers";
+@import "bootstrap/scss/grid";
+@import "bootstrap/scss/tables";
+@import "bootstrap/scss/forms";
+@import "bootstrap/scss/buttons";
+@import "bootstrap/scss/transitions";
+@import "bootstrap/scss/dropdown";
+@import "bootstrap/scss/button-group";
+@import "bootstrap/scss/nav";
+@import "bootstrap/scss/navbar";
+@import "bootstrap/scss/card";
+@import "bootstrap/scss/alert";
+@import "bootstrap/scss/badge";
+
+// 5. Include utilities
+@import "bootstrap/scss/utilities";
+
+// 6. Include utilities API last to generate classes based on the Sass map in `_utilities.scss`
+@import "bootstrap/scss/utilities/api";
+
+// 7. Add additional custom code here
+.bootstrap-section {
+  padding: 2rem;
+  margin-bottom: 1rem;
+  border-radius: 0.375rem;
+  background-color: $light;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+}
+
+// Add a prefix to Bootstrap classes to avoid conflicts with Foundation
+.bs {
+  // Use Bootstrap's grid system with a prefix
+  &-row {
+    @extend .row;
+  }
+
+  &-col {
+    @extend .col;
+  }
+
+  &-btn {
+    @extend .btn;
+
+    &-primary {
+      @extend .btn-primary;
+    }
+
+    &-secondary {
+      @extend .btn-secondary;
+    }
+  }
+
+  &-card {
+    @extend .card;
+  }
+}

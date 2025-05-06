@@ -4,7 +4,7 @@ import * as globModule from 'glob';
 const glob = globModule.sync;
 
 // Find all SCSS files in the styles directory, excluding partials (files starting with _)
-const scssFiles = glob('src/styles/**/*.scss').filter(file => !file.split('/').pop().startsWith('_'));
+const scssFiles = glob('./styles/**/*.scss').filter(file => !file.split('/').pop().startsWith('_'));
 
 // Create input entries for each SCSS file
 const scssEntries = {};
@@ -24,7 +24,14 @@ export default defineConfig({
     preprocessorOptions: {
       scss: {
         // Add node_modules to the import paths
-        loadPaths: [resolve(__dirname, 'node_modules/foundation-sites/scss')]
+        loadPaths: [
+          resolve(__dirname, 'node_modules/foundation-sites/scss'),
+          resolve(__dirname, 'node_modules/bootstrap/scss')
+        ],
+        // Completely suppress all Sass warnings
+        quietDeps: true,
+        silent: true,
+        logger: { warn: () => {} }
       }
     }
   },
@@ -34,8 +41,8 @@ export default defineConfig({
     // Output directory (relative to project root)
     outDir: '../webapp/resources',
 
-    // Empty the outDir on build
-    emptyOutDir: true,
+    // Don't empty the outDir on build to avoid permission issues
+    emptyOutDir: false,
 
     // Don't generate manifest.json since we're using fixed filenames
     manifest: false,
