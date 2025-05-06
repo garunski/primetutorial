@@ -28,6 +28,71 @@ const copyVendorFiles = () => ({
   }
 });
 
+// Custom plugin to copy images with their nested structure
+const copyNestedImages = () => ({
+  name: 'copy-nested-images',
+  generateBundle() {
+    // Source and destination directories
+    const srcImagesDir = path.resolve(__dirname, 'src/images');
+    const destImagesDir = '../webapp/resources/assets/images';
+
+    // Create the destination directory if it doesn't exist
+    fs.mkdirSync(destImagesDir, { recursive: true });
+
+    // Function to recursively copy files
+    const copyFilesRecursively = (dir, baseDir, destDir) => {
+      const entries = fs.readdirSync(dir, { withFileTypes: true });
+
+      for (const entry of entries) {
+        const srcPath = path.join(dir, entry.name);
+        const destPath = path.join(destDir, path.relative(baseDir, srcPath));
+
+        if (entry.isDirectory()) {
+          // Create the destination directory
+          fs.mkdirSync(destPath, { recursive: true });
+          // Recursively copy files in the subdirectory
+          copyFilesRecursively(srcPath, baseDir, destDir);
+        } else if (entry.isFile()) {
+          // Create the parent directory if it doesn't exist
+          fs.mkdirSync(path.dirname(destPath), { recursive: true });
+          // Copy the file
+          fs.writeFileSync(destPath, fs.readFileSync(srcPath));
+          console.log(`Copied ${srcPath} to ${destPath}`);
+        }
+      }
+    };
+
+    // Start the recursive copy
+    if (fs.existsSync(srcImagesDir)) {
+      copyFilesRecursively(srcImagesDir, srcImagesDir, destImagesDir);
+    }
+  }
+});
+
+// Custom plugin to handle @images alias in CSS
+const imageAliasPlugin = () => ({
+  name: 'image-alias-plugin',
+  transform(code, id) {
+    // Only process CSS/SCSS files
+    if (!id.match(/\.(css|scss|sass)$/)) return null;
+
+    // Replace @images alias with the correct path
+    const modifiedCode = code.replace(
+      /url\(['"]?@images\/([^'"]+)['"]?\)/g,
+      "url('/resources/assets/images/$1')"
+    );
+
+    if (modifiedCode !== code) {
+      return {
+        code: modifiedCode,
+        map: null
+      };
+    }
+
+    return null;
+  }
+});
+
 // Find all SCSS files in the styles directory and create input entries, excluding partials (files starting with _)
 const scssEntries = glob('./src/styles/**/*.scss')
   .filter(file => !path.basename(file).startsWith('_'))
@@ -42,10 +107,20 @@ export default defineConfig({
   // Base public path when served in production
   base: '/resources/',
 
-  // Add our custom plugin to copy vendor files
+  // Add our custom plugins
   plugins: [
-    copyVendorFiles()
+    copyVendorFiles(),
+    copyNestedImages(),
+    imageAliasPlugin()
   ],
+
+  // Configure path aliases
+  resolve: {
+    alias: {
+      // Add alias for images in SCSS files
+      '@images': path.resolve(__dirname, 'src/images')
+    }
+  },
 
   // CSS configuration
   css: {
@@ -104,6 +179,18 @@ export default defineConfig({
 
             // For non-nested files or fallback
             return `assets/${path.basename(info.fileName, '.css')}.css`;
+          }
+
+          // For images, preserve the nested folder structure
+          const fileName = info.fileName || '';
+
+          // Check if this is from our images directory (either directly or via alias)
+          if (fileName.includes('/images/')) {
+            // Extract the path relative to the images directory
+            const parts = fileName.split('/images/');
+            if (parts.length > 1) {
+              return `assets/images/${parts[1]}`;
+            }
           }
 
           // For other assets
