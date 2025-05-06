@@ -1,9 +1,7 @@
 import { defineConfig } from 'vite';
-import { resolve } from 'path';
-import * as globModule from 'glob';
 import path from 'path';
+import { sync as glob } from 'glob';
 import fs from 'fs';
-const glob = globModule.sync;
 
 // Custom plugin to copy vendor files without processing them
 function copyVendorFiles() {
@@ -52,7 +50,7 @@ scssFiles.forEach(file => {
   const relativePath = path.relative('./src/styles', file);
   // Use the path without extension as the entry name
   const name = relativePath.replace('.scss', '');
-  scssEntries[name] = resolve(__dirname, file);
+  scssEntries[name] = path.resolve(__dirname, file);
 });
 
 export default defineConfig({
@@ -71,8 +69,8 @@ export default defineConfig({
       scss: {
         // Add node_modules to the import paths
         loadPaths: [
-          resolve(__dirname, 'node_modules/foundation-sites/scss'),
-          resolve(__dirname, 'node_modules/bootstrap/scss')
+          path.resolve(__dirname, 'node_modules/foundation-sites/scss'),
+          path.resolve(__dirname, 'node_modules/bootstrap/scss')
         ],
         // Completely suppress all Sass warnings
         quietDeps: true,
@@ -97,7 +95,7 @@ export default defineConfig({
     rollupOptions: {
       input: {
         // Regular JS/HTML entries
-        main: resolve(__dirname, 'index.html'),
+        main: path.resolve(__dirname, 'index.html'),
 
         // Add all SCSS files as entries
         ...scssEntries
