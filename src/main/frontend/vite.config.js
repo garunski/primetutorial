@@ -2,7 +2,45 @@ import { defineConfig } from 'vite';
 import { resolve } from 'path';
 import * as globModule from 'glob';
 import path from 'path';
+import fs from 'fs';
 const glob = globModule.sync;
+
+// Custom plugin to copy vendor files without processing them
+function copyVendorFiles() {
+  return {
+    name: 'copy-vendor-files',
+    generateBundle() {
+      // Create the vendor directory if it doesn't exist
+      const vendorDir = '../webapp/resources/js/vendor';
+      if (!fs.existsSync(vendorDir)) {
+        fs.mkdirSync(vendorDir, { recursive: true });
+      }
+
+      // Copy Foundation and its dependencies
+      const vendorFiles = [
+        {
+          src: 'node_modules/jquery/dist/jquery.min.js',
+          dest: `${vendorDir}/jquery.min.js`
+        },
+        {
+          src: 'node_modules/what-input/dist/what-input.min.js',
+          dest: `${vendorDir}/what-input.min.js`
+        },
+        {
+          src: 'node_modules/foundation-sites/dist/js/foundation.min.js',
+          dest: `${vendorDir}/foundation.min.js`
+        }
+      ];
+
+      // Copy each file
+      vendorFiles.forEach(file => {
+        const content = fs.readFileSync(file.src);
+        fs.writeFileSync(file.dest, content);
+        console.log(`Copied ${file.src} to ${file.dest}`);
+      });
+    }
+  };
+}
 
 // Find all SCSS files in the styles directory, excluding partials (files starting with _)
 const scssFiles = glob('./src/styles/**/*.scss').filter(file => !file.split('/').pop().startsWith('_'));
@@ -17,16 +55,14 @@ scssFiles.forEach(file => {
   scssEntries[name] = resolve(__dirname, file);
 });
 
-// Add vendor JS files as entry points
-const vendorEntries = {
-  'jquery.min': resolve(__dirname, 'node_modules/jquery/dist/jquery.min.js'),
-  'what-input.min': resolve(__dirname, 'node_modules/what-input/dist/what-input.min.js'),
-  'foundation.min': resolve(__dirname, 'node_modules/foundation-sites/dist/js/foundation.min.js')
-};
-
 export default defineConfig({
   // Base public path when served in production
   base: '/resources/',
+
+  // Add our custom plugin to copy vendor files
+  plugins: [
+    copyVendorFiles()
+  ],
 
   // CSS configuration
   css: {
@@ -64,10 +100,7 @@ export default defineConfig({
         main: resolve(__dirname, 'index.html'),
 
         // Add all SCSS files as entries
-        ...scssEntries,
-
-        // Add vendor JS files
-        ...vendorEntries
+        ...scssEntries
       },
       output: {
         // Use fixed filenames without hashes for predictable paths
