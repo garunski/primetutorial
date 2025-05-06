@@ -17,6 +17,13 @@ scssFiles.forEach(file => {
   scssEntries[name] = resolve(__dirname, file);
 });
 
+// Add vendor JS files as entry points
+const vendorEntries = {
+  'jquery.min': resolve(__dirname, 'node_modules/jquery/dist/jquery.min.js'),
+  'what-input.min': resolve(__dirname, 'node_modules/what-input/dist/what-input.min.js'),
+  'foundation.min': resolve(__dirname, 'node_modules/foundation-sites/dist/js/foundation.min.js')
+};
+
 export default defineConfig({
   // Base public path when served in production
   base: '/resources/',
@@ -57,30 +64,44 @@ export default defineConfig({
         main: resolve(__dirname, 'index.html'),
 
         // Add all SCSS files as entries
-        ...scssEntries
+        ...scssEntries,
+
+        // Add vendor JS files
+        ...vendorEntries
       },
       output: {
         // Use fixed filenames without hashes for predictable paths
         entryFileNames: 'js/[name].js',
         chunkFileNames: 'js/[name].js',
-        assetFileNames: ({ fileName }) => {
-          if (fileName && fileName.endsWith('.css')) {
-            // Extract the base name without extension
-            const baseName = fileName.split('.')[0];
+        assetFileNames: (info) => {
+          // For CSS files from SCSS entries, preserve the nested structure
+          if (info.fileName && info.fileName.endsWith('.css')) {
+            // Get the original file names (using the non-deprecated property)
+            const originalFileNames = info.originalFileNames || [];
 
-            // Check if this is from a nested SCSS file
-            for (const entryName in scssEntries) {
-              if (baseName === entryName) {
-                // This is a direct match, use the entry name which includes the path
-                return `assets/${entryName}.css`;
+            // Check if we have original file names to work with
+            if (originalFileNames.length > 0) {
+              // Get the first original file name
+              const originalFileName = originalFileNames[0];
+
+              // Check if this is from a nested SCSS file
+              if (originalFileName && originalFileName.includes('/styles/')) {
+                // Extract the path relative to the styles directory
+                const relativePath = originalFileName.split('/styles/')[1];
+                if (relativePath && relativePath.includes('/')) {
+                  // This is a nested file, preserve the structure
+                  const pathWithoutExt = relativePath.replace('.scss', '');
+                  return `assets/${pathWithoutExt}.css`;
+                }
               }
             }
 
             // For non-nested files or fallback
+            const baseName = path.basename(info.fileName, '.css');
             return `assets/${baseName}.css`;
           }
 
-          // Other assets go to their respective directories
+          // For other assets, use the default pattern
           return 'assets/[name].[ext]';
         }
       }

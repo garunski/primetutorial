@@ -31,6 +31,20 @@
             <div id="app"></div>
         </p:panel>
 
+        <!-- Include Foundation dependencies -->
+        <script src="#{request.contextPath}/resources/js/jquery.min.js"></script>
+        <script src="#{request.contextPath}/resources/js/what-input.min.js"></script>
+
+        <!-- Include Foundation JavaScript -->
+        <script src="#{request.contextPath}/resources/js/foundation.min.js"></script>
+
+        <!-- Initialize Foundation -->
+        <script>
+            $(document).ready(function() {
+                $(document).foundation();
+            });
+        </script>
+
         <!-- Include Vite-built JavaScript -->
         <script type="module" src="#{request.contextPath}/resources/js/main.js"></script>
     </div>
