@@ -1,16 +1,19 @@
 import { defineConfig } from 'vite';
 import { resolve } from 'path';
 import * as globModule from 'glob';
+import path from 'path';
 const glob = globModule.sync;
 
 // Find all SCSS files in the styles directory, excluding partials (files starting with _)
-const scssFiles = glob('./styles/**/*.scss').filter(file => !file.split('/').pop().startsWith('_'));
+const scssFiles = glob('./src/styles/**/*.scss').filter(file => !file.split('/').pop().startsWith('_'));
 
 // Create input entries for each SCSS file
 const scssEntries = {};
 scssFiles.forEach(file => {
-  // Extract the filename without extension to use as the entry name
-  const name = file.split('/').pop().replace('.scss', '');
+  // Get the relative path from the styles directory
+  const relativePath = path.relative('./src/styles', file);
+  // Use the path without extension as the entry name
+  const name = relativePath.replace('.scss', '');
   scssEntries[name] = resolve(__dirname, file);
 });
 
@@ -60,13 +63,23 @@ export default defineConfig({
         // Use fixed filenames without hashes for predictable paths
         entryFileNames: 'js/[name].js',
         chunkFileNames: 'js/[name].js',
-        assetFileNames: (assetInfo) => {
-          // Put CSS files in assets directory with name matching the source file
-          if (assetInfo.fileName && assetInfo.fileName.endsWith('.css')) {
+        assetFileNames: ({ fileName }) => {
+          if (fileName && fileName.endsWith('.css')) {
             // Extract the base name without extension
-            const baseName = assetInfo.fileName.split('.')[0];
+            const baseName = fileName.split('.')[0];
+
+            // Check if this is from a nested SCSS file
+            for (const entryName in scssEntries) {
+              if (baseName === entryName) {
+                // This is a direct match, use the entry name which includes the path
+                return `assets/${entryName}.css`;
+              }
+            }
+
+            // For non-nested files or fallback
             return `assets/${baseName}.css`;
           }
+
           // Other assets go to their respective directories
           return 'assets/[name].[ext]';
         }
