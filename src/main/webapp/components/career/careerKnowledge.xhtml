@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="jakarta.faces.facelets"
+      xmlns:f="jakarta.faces.core"
+      xmlns:h="jakarta.faces.html"
+      xmlns:p="http://primefaces.org/ui">
+
+<ui:composition>
+    <div id="knowledge" class="career-section">
+        <h2 class="career-section-title">Knowledge Areas</h2>
+        <div class="career-section-content">
+            <p>The list below includes knowledge items, the principles and facts required by this occupation.</p>
+
+            <div class="row mb-4">
+                <div class="col-md-12">
+                    <!-- Radar chart container -->
+                    <div class="knowledge-radar-container">
+                        <canvas id="knowledge-radar-chart"></canvas>
+                    </div>
+
+                    <!-- Knowledge legend and descriptions -->
+                    <div class="knowledge-legend mt-4">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="knowledge-item">
+                                    <h4>Fine Arts</h4>
+                                    <p>Knowledge of the theory and techniques required to compose, produce, and perform works of music, dance, visual arts, drama, and sculpture.</p>
+                                    <div class="knowledge-values">
+                                        <span class="knowledge-value">Importance: <strong>4.67</strong>/5</span>
+                                        <span class="knowledge-value">Level: <strong>5.85</strong>/7</span>
+                                    </div>
+                                </div>
+
+                                <div class="knowledge-item">
+                                    <h4>English Language</h4>
+                                    <p>Knowledge of the structure and content of the English language including the meaning and spelling of words, and rules of composition and grammar.</p>
+                                    <div class="knowledge-values">
+                                        <span class="knowledge-value">Importance: <strong>4.25</strong>/5</span>
+                                        <span class="knowledge-value">Level: <strong>4.50</strong>/7</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="knowledge-item">
+                                    <h4>Communications and Media</h4>
+                                    <p>Knowledge of media production, communication, and dissemination techniques and methods.</p>
+                                    <div class="knowledge-values">
+                                        <span class="knowledge-value">Importance: <strong>3.88</strong>/5</span>
+                                        <span class="knowledge-value">Level: <strong>4.12</strong>/7</span>
+                                    </div>
+                                </div>
+
+                                <div class="knowledge-item">
+                                    <h4>Psychology</h4>
+                                    <p>Knowledge of human behavior and performance; individual differences in ability, personality, and interests; learning and motivation.</p>
+                                    <div class="knowledge-values">
+                                        <span class="knowledge-value">Importance: <strong>3.75</strong>/5</span>
+                                        <span class="knowledge-value">Level: <strong>3.88</strong>/7</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Hidden data for the chart -->
+                    <div id="knowledge-data" class="d-none">
+                        <div class="knowledge-data"
+                             data-name="Fine Arts"
+                             data-importance="4.67"
+                             data-level="5.85"></div>
+                        <div class="knowledge-data"
+                             data-name="English Language"
+                             data-importance="4.25"
+                             data-level="4.50"></div>
+                        <div class="knowledge-data"
+                             data-name="Communications and Media"
+                             data-importance="3.88"
+                             data-level="4.12"></div>
+                        <div class="knowledge-data"
+                             data-name="Psychology"
+                             data-importance="3.75"
+                             data-level="3.88"></div>
+                    </div>
+
+                    <p class="small text-muted mt-2">* Knowledge importance is measured on a five point scale, where one means 'slightly important' and five means 'extremely important'.<br/>
+                    * Knowledge level is measured on a seven point scale, where one means 'some competence required' and seven means 'a high level of expertise required'.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</ui:composition>
+</html>

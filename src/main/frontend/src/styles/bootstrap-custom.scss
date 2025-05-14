@@ -93,6 +93,9 @@ $spacer: 1rem;
 
 // 7. Add additional custom code here
 
+// Import component styles
+@import "components/career";
+
 // Add a prefix to Bootstrap classes to avoid conflicts with Foundation
 .bs {
   // Use Bootstrap's grid system with a prefix

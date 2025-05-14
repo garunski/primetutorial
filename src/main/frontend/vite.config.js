@@ -15,7 +15,8 @@ const copyVendorFiles = () => ({
     const vendorFiles = [
       ['jquery/dist/jquery.min.js', 'jquery.min.js'],
       ['what-input/dist/what-input.min.js', 'what-input.min.js'],
-      ['foundation-sites/dist/js/foundation.min.js', 'foundation.min.js']
+      ['foundation-sites/dist/js/foundation.min.js', 'foundation.min.js'],
+      ['chart.js/dist/chart.umd.js', 'chart.umd.js']
     ];
 
     // Copy each file
@@ -103,6 +104,15 @@ const scssEntries = glob('./src/styles/**/*.scss')
     return entries;
   }, {});
 
+// Find all JS files in the js directory and create input entries
+const jsEntries = glob('./src/js/**/*.js')
+  .reduce((entries, file) => {
+    // Get the relative path from the js directory without extension
+    const name = path.relative('./src/js', file).replace('.js', '');
+    entries[name] = path.resolve(__dirname, file);
+    return entries;
+  }, {});
+
 export default defineConfig({
   // Base public path when served in production
   base: '/resources/',
@@ -158,7 +168,10 @@ export default defineConfig({
         main: path.resolve(__dirname, 'index.html'),
 
         // Add all SCSS files as entries
-        ...scssEntries
+        ...scssEntries,
+
+        // Add all JS files as entries
+        ...jsEntries
       },
       output: {
         // Use fixed filenames without hashes for predictable paths

@@ -1,0 +1,197 @@
+// Career Styles
+// Main styles for career components
+
+// Variables
+$primary-color: #0b5d66;
+$secondary-color: #1f2937;
+$light-gray: #e5e7eb;
+$medium-gray: #6b7280;
+$dark-gray: #4b5563;
+$background-light: #f9fafb;
+$bright-outlook: #10b981;
+
+// Career Header
+.career-header {
+  background-color: $background-light;
+  padding: 2rem 0;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid $light-gray;
+}
+
+.career-title {
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: $secondary-color;
+  margin-bottom: 0.5rem;
+}
+
+.career-category {
+  font-size: 1.125rem;
+  color: $medium-gray;
+  margin-bottom: 1rem;
+}
+
+.career-description {
+  font-size: 1.125rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+// Career Stats
+.career-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.career-stat {
+  flex: 1 1 200px;
+  background-color: $background-light;
+  padding: 1rem;
+  border-radius: 8px;
+  border: 1px solid $light-gray;
+}
+
+.career-stat-label {
+  font-size: 0.875rem;
+  color: $medium-gray;
+  margin-bottom: 0.25rem;
+}
+
+.career-stat-value {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: $secondary-color;
+}
+
+// Career Sections
+.career-section {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.career-section-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: $primary-color;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid $light-gray;
+}
+
+.career-section-content {
+  margin-bottom: 1rem;
+}
+
+// Career Navigation
+.career-nav {
+  background-color: $background-light;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  position: sticky;
+  top: 20px;
+}
+
+.career-nav-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: $primary-color;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid $light-gray;
+}
+
+.career-nav-list {
+  list-style-type: none;
+  padding-left: 0;
+  margin-bottom: 0;
+}
+
+.career-nav-list li {
+  margin-bottom: 0.75rem;
+}
+
+.career-nav-list li:last-child {
+  margin-bottom: 0;
+}
+
+.career-nav-link {
+  color: $dark-gray;
+  text-decoration: none;
+  display: block;
+  padding: 0.5rem;
+  border-radius: 4px;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.career-nav-link:hover {
+  background-color: rgba($primary-color, 0.1);
+  color: $primary-color;
+}
+
+.career-nav-link.active {
+  background-color: rgba($primary-color, 0.1);
+  color: $primary-color;
+  font-weight: 500;
+}
+
+// Common Elements
+.career-list {
+  list-style-type: none;
+  padding-left: 0;
+  margin-bottom: 1rem;
+}
+
+.career-list li {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid $light-gray;
+}
+
+.career-list li:last-child {
+  border-bottom: none;
+}
+
+.career-list-item-title {
+  font-weight: 600;
+  color: $secondary-color;
+  margin-bottom: 0.25rem;
+}
+
+.career-list-item-description {
+  color: $medium-gray;
+  font-size: 0.875rem;
+}
+
+.bright-outlook {
+  display: inline-block;
+  background-color: $bright-outlook;
+  color: white;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  margin-left: 0.5rem;
+  vertical-align: middle;
+}
+
+.tag {
+  display: inline-block;
+  background-color: $light-gray;
+  color: $dark-gray;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.tag-primary {
+  background-color: rgba($primary-color, 0.1);
+  color: $primary-color;
+}

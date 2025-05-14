@@ -1,0 +1,217 @@
+// Career Skills Styles
+// Styles for the skills and knowledge components
+
+// Variables
+$primary-color: #0b5d66;
+$secondary-color: #1f2937;
+$light-gray: #e5e7eb;
+$medium-gray: #6b7280;
+
+// Skills Radar Chart
+.skills-radar-container {
+  height: 400px;
+  margin: 0 auto;
+  max-width: 800px;
+  position: relative;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+}
+
+// Skills Legend
+.skills-legend {
+  margin-top: 2rem;
+}
+
+.skill-item {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  padding: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+
+.skill-item h4 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: $secondary-color;
+  margin-bottom: 0.5rem;
+}
+
+.skill-item p {
+  color: $medium-gray;
+  font-size: 0.875rem;
+  margin-bottom: 0.75rem;
+}
+
+.skill-values {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.skill-value {
+  font-size: 0.875rem;
+  color: $medium-gray;
+
+  strong {
+    color: $primary-color;
+    font-weight: 600;
+  }
+}
+
+// Legacy styles for backward compatibility
+.skill-chart-container {
+  height: 200px;
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.skill-meter-value {
+  font-size: 1rem;
+  font-weight: 600;
+  color: $primary-color;
+}
+
+.skill-meter-label {
+  font-size: 0.7rem;
+  color: $medium-gray;
+}
+
+// Knowledge Radar Chart
+.knowledge-radar-container {
+  height: 400px;
+  margin: 0 auto;
+  max-width: 800px;
+  position: relative;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+}
+
+// Knowledge Legend
+.knowledge-legend {
+  margin-top: 2rem;
+}
+
+.knowledge-item {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  padding: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+
+.knowledge-item h4 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: $secondary-color;
+  margin-bottom: 0.5rem;
+}
+
+.knowledge-item p {
+  color: $medium-gray;
+  font-size: 0.875rem;
+  margin-bottom: 0.75rem;
+}
+
+.knowledge-values {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.knowledge-value {
+  font-size: 0.875rem;
+  color: $medium-gray;
+
+  strong {
+    color: $primary-color;
+    font-weight: 600;
+  }
+}
+
+// Legacy styles for backward compatibility
+.knowledge-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.knowledge-card {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+}
+
+.knowledge-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.knowledge-header h4 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: $secondary-color;
+  margin-bottom: 0.5rem;
+  flex: 1;
+  min-width: 200px;
+}
+
+.knowledge-chart-container {
+  height: 200px;
+  margin-bottom: 1rem;
+  position: relative;
+  flex: 2;
+  min-width: 300px;
+}
+
+.knowledge-meters {
+  flex: 2;
+  min-width: 300px;
+}
+
+.knowledge-meter {
+  margin-bottom: 0.5rem;
+}
+
+.knowledge-meter-bar {
+  height: 8px;
+  background-color: $light-gray;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 0.25rem;
+}
+
+.knowledge-meter-fill {
+  height: 100%;
+  background-color: $primary-color;
+  border-radius: 4px;
+}
+
+.knowledge-meter-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.75rem;
+}
+
+.knowledge-meter-label {
+  color: $medium-gray;
+}
+
+.knowledge-meter-value {
+  font-weight: 600;
+  color: $primary-color;
+}
+
+.knowledge-content p {
+  color: $medium-gray;
+  font-size: 0.875rem;
+  margin-bottom: 0;
+}
