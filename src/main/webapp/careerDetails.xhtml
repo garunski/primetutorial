@@ -6,6 +6,601 @@
       xmlns:p="http://primefaces.org/ui">
 
 <ui:composition template="/WEB-INF/template.xhtml">
-    <ui:define name="title">CareerZone - Occupation Search</ui:define>
+    <ui:define name="title">CareerZone - Actors Career Details</ui:define>
+
+    <ui:define name="head">
+        <style type="text/css">
+            .career-header {
+                background-color: #f9fafb;
+                padding: 2rem 0;
+                margin-bottom: 2rem;
+                border-bottom: 1px solid #e5e7eb;
+            }
+            .career-title {
+                font-size: 2.25rem;
+                font-weight: 700;
+                color: #1f2937;
+                margin-bottom: 0.5rem;
+            }
+            .career-category {
+                font-size: 1.125rem;
+                color: #6b7280;
+                margin-bottom: 1rem;
+            }
+            .career-description {
+                font-size: 1.125rem;
+                line-height: 1.6;
+                margin-bottom: 1.5rem;
+            }
+            .career-section {
+                background-color: #fff;
+                border-radius: 8px;
+                box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+                padding: 1.5rem;
+                margin-bottom: 1.5rem;
+            }
+            .career-section-title {
+                font-size: 1.5rem;
+                font-weight: 600;
+                color: #0b5d66;
+                margin-bottom: 1rem;
+                padding-bottom: 0.5rem;
+                border-bottom: 1px solid #e5e7eb;
+            }
+            .career-section-content {
+                margin-bottom: 1rem;
+            }
+            .tag {
+                display: inline-block;
+                background-color: #e5e7eb;
+                color: #4b5563;
+                padding: 0.25rem 0.75rem;
+                border-radius: 9999px;
+                font-size: 0.875rem;
+                margin-right: 0.5rem;
+                margin-bottom: 0.5rem;
+            }
+            .tag-primary {
+                background-color: rgba(11, 93, 102, 0.1);
+                color: #0b5d66;
+            }
+            .career-stats {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 1rem;
+                margin-bottom: 1rem;
+            }
+            .career-stat {
+                flex: 1 1 200px;
+                background-color: #f9fafb;
+                padding: 1rem;
+                border-radius: 8px;
+                border: 1px solid #e5e7eb;
+            }
+            .career-stat-label {
+                font-size: 0.875rem;
+                color: #6b7280;
+                margin-bottom: 0.25rem;
+            }
+            .career-stat-value {
+                font-size: 1.25rem;
+                font-weight: 600;
+                color: #1f2937;
+            }
+            .career-list {
+                list-style-type: none;
+                padding-left: 0;
+                margin-bottom: 1rem;
+            }
+            .career-list li {
+                padding: 0.5rem 0;
+                border-bottom: 1px solid #e5e7eb;
+            }
+            .career-list li:last-child {
+                border-bottom: none;
+            }
+            .career-list-item-title {
+                font-weight: 600;
+                color: #1f2937;
+                margin-bottom: 0.25rem;
+            }
+            .career-list-item-description {
+                color: #6b7280;
+                font-size: 0.875rem;
+            }
+            .bright-outlook {
+                display: inline-block;
+                background-color: #10b981;
+                color: white;
+                font-size: 0.75rem;
+                font-weight: 600;
+                padding: 0.25rem 0.5rem;
+                border-radius: 4px;
+                margin-left: 0.5rem;
+                vertical-align: middle;
+            }
+            .career-nav {
+                background-color: #f9fafb;
+                border-radius: 8px;
+                box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+                padding: 1.5rem;
+                margin-bottom: 1.5rem;
+                position: sticky;
+                top: 20px;
+            }
+            .career-nav-title {
+                font-size: 1.25rem;
+                font-weight: 600;
+                color: #0b5d66;
+                margin-bottom: 1rem;
+                padding-bottom: 0.5rem;
+                border-bottom: 1px solid #e5e7eb;
+            }
+            .career-nav-list {
+                list-style-type: none;
+                padding-left: 0;
+                margin-bottom: 0;
+            }
+            .career-nav-list li {
+                margin-bottom: 0.75rem;
+            }
+            .career-nav-list li:last-child {
+                margin-bottom: 0;
+            }
+            .career-nav-link {
+                color: #4b5563;
+                text-decoration: none;
+                display: block;
+                padding: 0.5rem;
+                border-radius: 4px;
+                transition: background-color 0.2s, color 0.2s;
+            }
+            .career-nav-link:hover {
+                background-color: rgba(11, 93, 102, 0.1);
+                color: #0b5d66;
+            }
+            .career-nav-link.active {
+                background-color: rgba(11, 93, 102, 0.1);
+                color: #0b5d66;
+                font-weight: 500;
+            }
+        </style>
+    </ui:define>
+
+    <ui:define name="content">
+        <div class="career-header">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8">
+                        <h1 class="career-title">Actors <span class="bright-outlook">Bright Outlook</span></h1>
+                        <div class="career-category">Arts, Audio/Video Technology and Communications | Performing Arts</div>
+                        <div class="career-description">
+                            Play parts in stage, television, radio, video, or film productions, or other settings for entertainment, information, or instruction. Interpret serious or comic role by speech, gesture, and body movement to entertain or inform audience. May dance and sing.
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="career-stats">
+                            <div class="career-stat">
+                                <div class="career-stat-label">Average Salary (NY)</div>
+                                <div class="career-stat-value">$44,630 - $116,730</div>
+                            </div>
+                            <div class="career-stat">
+                                <div class="career-stat-label">Job Outlook</div>
+                                <div class="career-stat-value">Very Favorable</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <!-- Left Navigation -->
+                    <div class="career-nav">
+                        <h3 class="career-nav-title">Quick Navigation</h3>
+                        <ul class="career-nav-list">
+                            <li><a href="#overview" class="career-nav-link active">Overview</a></li>
+                            <li><a href="#skills" class="career-nav-link">Skills &amp;amp; Abilities</a></li>
+                            <li><a href="#tasks" class="career-nav-link">Tasks &amp;amp; Responsibilities</a></li>
+                            <li><a href="#tools" class="career-nav-link">Tools &amp;amp; Technology</a></li>
+                            <li><a href="#knowledge" class="career-nav-link">Knowledge Areas</a></li>
+                            <li><a href="#environment" class="career-nav-link">Work Environment</a></li>
+                            <li><a href="#context" class="career-nav-link">Work Context</a></li>
+                            <li><a href="#styles" class="career-nav-link">Work Styles</a></li>
+                            <li><a href="#education" class="career-nav-link">Education &amp;amp; Training</a></li>
+                            <li><a href="#salary" class="career-nav-link">Salary &amp;amp; Job Outlook</a></li>
+                            <li><a href="#related" class="career-nav-link">Related Careers</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-md-9">
+                    <!-- Overview Section -->
+                    <div id="overview" class="career-section">
+                        <h2 class="career-section-title">Overview</h2>
+                        <div class="career-section-content">
+                            <p>Actors play parts in stage, television, radio, video, or film productions, or other settings for entertainment, information, or instruction. They interpret serious or comic roles by speech, gesture, and body movement to entertain or inform audiences. Many work in films, theaters, television shows, commercials, and other performing arts venues.</p>
+                            <p>Acting requires a wide range of skills, including the ability to memorize lines, understand dramatic techniques, work with directors and other actors, and perform in front of an audience or camera.</p>
+                        </div>
+                    </div>
+
+                    <!-- Skills Section -->
+                    <div id="skills" class="career-section">
+                        <h2 class="career-section-title">Skills &amp;amp; Abilities</h2>
+                        <div class="career-section-content">
+                            <p>The list below includes the skills required by workers in this occupation; skills are what allow you to learn more quickly and improve your performance.</p>
+
+                            <div class="row mb-4">
+                                <div class="col-md-12">
+                                    <table class="table table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th>Skill Name</th>
+                                                <th>Description</th>
+                                                <th class="text-center">Importance</th>
+                                                <th class="text-center">Level</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Reading Comprehension</td>
+                                                <td>Understanding written sentences and paragraphs in work-related documents</td>
+                                                <td class="text-center">3.88</td>
+                                                <td class="text-center">3.88</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Speaking</td>
+                                                <td>Talking to others to convey information effectively</td>
+                                                <td class="text-center">3.88</td>
+                                                <td class="text-center">4.00</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Active Listening</td>
+                                                <td>Giving full attention to what other people are saying, taking time to understand the points being made</td>
+                                                <td class="text-center">3.75</td>
+                                                <td class="text-center">3.62</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Social Perceptiveness</td>
+                                                <td>Being aware of others' reactions and understanding why they react as they do</td>
+                                                <td class="text-center">3.75</td>
+                                                <td class="text-center">3.75</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Writing</td>
+                                                <td>Communicating effectively in writing as appropriate for the needs of the audience</td>
+                                                <td class="text-center">2.88</td>
+                                                <td class="text-center">3.38</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <p class="small text-muted mt-2">* Skill importance is measured on a five point scale, where one means 'slightly important' and five means 'extremely important'.<br/>
+                                    * Skill level is measured on a seven point scale, where one means 'some competence required' and seven means 'a high level of expertise required'.</p>
+                                </div>
+                            </div>
+
+                            <h3>Key Abilities</h3>
+                            <div class="mb-3">
+                                <span class="tag">Oral Expression</span>
+                                <span class="tag">Oral Comprehension</span>
+                                <span class="tag">Memorization</span>
+                                <span class="tag">Speech Clarity</span>
+                                <span class="tag">Written Comprehension</span>
+                                <span class="tag">Originality</span>
+                                <span class="tag">Problem Sensitivity</span>
+                                <span class="tag">Fluency of Ideas</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tasks Section -->
+                    <div id="tasks" class="career-section">
+                        <h2 class="career-section-title">Tasks &amp;amp; Responsibilities</h2>
+                        <div class="career-section-content">
+                            <p>The list below outlines occupation specific tasks that a worker in this occupation is called upon to do regularly.</p>
+                            <ul class="career-list">
+                                <li>Collaborate with other actors as part of an ensemble</li>
+                                <li>Portray and interpret roles, using speech, gestures, and body movements, to entertain, inform, or instruct radio, film, television, or live audiences</li>
+                                <li>Work closely with directors, other actors, and playwrights to find the interpretation most suited to the role</li>
+                                <li>Perform humorous and serious interpretations of emotions, actions, and situations, using body movements, facial expressions, and gestures</li>
+                                <li>Study and rehearse roles from scripts to interpret, learn and memorize lines, stunts, and cues as directed</li>
+                                <li>Learn about characters in scripts and their relationships to each other to develop role interpretations</li>
+                                <li>Attend auditions and casting calls to audition for roles</li>
+                                <li>Sing or dance during dramatic or comedic performances</li>
+                                <li>Work with other crew members responsible for lighting, costumes, make-up, and props</li>
+                                <li>Tell jokes, perform comic dances, songs and skits, impersonate mannerisms and voices of others</li>
+                                <li>Read from scripts or books to narrate action or to inform or entertain audiences</li>
+                                <li>Promote productions using means such as interviews about plays or movies</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Tools and Technology Section -->
+                    <div id="tools" class="career-section">
+                        <h2 class="career-section-title">Tools &amp;amp; Technology</h2>
+                        <div class="career-section-content">
+                            <p>This list describes the machines, equipment, tools, software, and information technology that workers in this occupation will use.</p>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <h3>Tools</h3>
+                                    <ul class="career-list">
+                                        <li>Digital still cameras</li>
+                                        <li>Digital video recorders</li>
+                                        <li>Laptop computers</li>
+                                        <li>MP3 digital voice recorders</li>
+                                        <li>Personal computers</li>
+                                        <li>Photography tripods</li>
+                                        <li>Tablet computers</li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-6">
+                                    <h3>Technology</h3>
+                                    <ul class="career-list">
+                                        <li>Apple Final Cut Pro</li>
+                                        <li>Email software</li>
+                                        <li>Social media (Facebook, Twitter, Instagram, LinkedIn)</li>
+                                        <li>FileMaker Pro</li>
+                                        <li>Microsoft Office (Word, Excel, PowerPoint, Outlook)</li>
+                                        <li>Motion capture software</li>
+                                        <li>Web browser software</li>
+                                        <li>Website development software</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Knowledge Section -->
+                    <div id="knowledge" class="career-section">
+                        <h2 class="career-section-title">Knowledge Areas</h2>
+                        <div class="career-section-content">
+                            <p>The list below includes knowledge items, the principles and facts required by this occupation.</p>
+
+                            <div class="row mb-4">
+                                <div class="col-md-12">
+                                    <table class="table table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th>Knowledge Name</th>
+                                                <th>Description</th>
+                                                <th class="text-center">Importance</th>
+                                                <th class="text-center">Level</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Fine Arts</td>
+                                                <td>Knowledge of the theory and techniques required to compose, produce, and perform works of music, dance, visual arts, drama, and sculpture.</td>
+                                                <td class="text-center">4.67</td>
+                                                <td class="text-center">5.85</td>
+                                            </tr>
+                                            <tr>
+                                                <td>English Language</td>
+                                                <td>Knowledge of the structure and content of the English language including the meaning and spelling of words, and rules of composition and grammar.</td>
+                                                <td class="text-center">4.25</td>
+                                                <td class="text-center">4.50</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Communications and Media</td>
+                                                <td>Knowledge of media production, communication, and dissemination techniques and methods.</td>
+                                                <td class="text-center">3.88</td>
+                                                <td class="text-center">4.12</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Psychology</td>
+                                                <td>Knowledge of human behavior and performance; individual differences in ability, personality, and interests; learning and motivation.</td>
+                                                <td class="text-center">3.75</td>
+                                                <td class="text-center">3.88</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <p class="small text-muted mt-2">* Knowledge importance is measured on a five point scale, where one means 'slightly important' and five means 'extremely important'.<br/>
+                                    * Knowledge level is measured on a seven point scale, where one means 'some competence required' and seven means 'a high level of expertise required'.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Work Environment Section -->
+                    <div id="environment" class="career-section">
+                        <h2 class="career-section-title">Work Environment</h2>
+                        <div class="career-section-content">
+                            <p>Actors work in various settings, including theaters, movie studios, theme parks, or on location. Their work may involve:</p>
+                            <ul class="career-list">
+                                <li>Working with a team or ensemble</li>
+                                <li>Irregular work schedules, often including evenings, weekends, and holidays</li>
+                                <li>Periods of unemployment between projects</li>
+                                <li>Physical demands, including standing for long periods and performing physically demanding tasks</li>
+                                <li>Travel for performances or filming</li>
+                                <li>High levels of competition for roles</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Work Context Section -->
+                    <div id="context" class="career-section">
+                        <h2 class="career-section-title">Work Context</h2>
+                        <div class="career-section-content">
+                            <p>The list below includes the physical and social factors that influence the nature of work in this occupation.</p>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <h3>Physical Factors</h3>
+                                    <ul class="career-list">
+                                        <li>Spend time standing</li>
+                                        <li>Spend time making repetitive motions</li>
+                                        <li>Wear common protective or safety equipment</li>
+                                        <li>Exposed to minor burns, cuts, bites, or stings</li>
+                                        <li>Spend time bending or twisting the body</li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-6">
+                                    <h3>Social Factors</h3>
+                                    <ul class="career-list">
+                                        <li>Face-to-face discussions</li>
+                                        <li>Work with group or team</li>
+                                        <li>Deal with external customers</li>
+                                        <li>Public speaking</li>
+                                        <li>Coordinate or lead others</li>
+                                        <li>Frequency of conflict situations</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="row mt-4">
+                                <div class="col-md-12">
+                                    <h3>Work Conditions</h3>
+                                    <ul class="career-list">
+                                        <li>Importance of being exact or accurate</li>
+                                        <li>Structured versus unstructured work</li>
+                                        <li>Freedom to make decisions</li>
+                                        <li>Time pressure</li>
+                                        <li>Level of competition</li>
+                                        <li>Consequence of error</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <p class="small text-muted mt-2">* Work Contexts are measured by how important the factor is to this occupation, where one is 'not important' and five is 'very important'.</p>
+                        </div>
+                    </div>
+
+                    <!-- Work Styles Section -->
+                    <div id="styles" class="career-section">
+                        <h2 class="career-section-title">Work Styles</h2>
+                        <div class="career-section-content">
+                            <p>Included in the list below are the personal work style characteristics that can affect how well a worker is likely to perform in this occupation.</p>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <h3>Personal Characteristics</h3>
+                                    <ul class="career-list">
+                                        <li><strong>Cooperation</strong> - Being pleasant with others and displaying a good-natured, cooperative attitude</li>
+                                        <li><strong>Self-Control</strong> - Maintaining composure, keeping emotions in check, controlling anger, and avoiding aggressive behavior</li>
+                                        <li><strong>Stress Tolerance</strong> - Accepting criticism and dealing calmly with high-stress situations</li>
+                                        <li><strong>Adaptability/Flexibility</strong> - Being open to change and to considerable variety in the workplace</li>
+                                        <li><strong>Dependability</strong> - Being reliable, responsible, and dependable, and fulfilling obligations</li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-6">
+                                    <h3>Work Approach</h3>
+                                    <ul class="career-list">
+                                        <li><strong>Persistence</strong> - Persistence in the face of obstacles</li>
+                                        <li><strong>Initiative</strong> - Willingness to take on responsibilities and challenges</li>
+                                        <li><strong>Leadership</strong> - Willingness to lead, take charge, and offer opinions and direction</li>
+                                        <li><strong>Achievement/Effort</strong> - Establishing and maintaining personally challenging goals and exerting effort toward mastering tasks</li>
+                                        <li><strong>Innovation</strong> - Creativity and alternative thinking to develop new ideas and answers to work-related problems</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <p class="small text-muted mt-2">* Work Styles are measured by how important the style is to this occupation, where one is 'not important' and five is 'very important'.</p>
+                        </div>
+                    </div>
+
+                    <!-- Education Section -->
+                    <div id="education" class="career-section">
+                        <h2 class="career-section-title">Education &amp;amp; Training</h2>
+                        <div class="career-section-content">
+                            <p>The list below outlines the prior educational experience required to perform in this occupation.</p>
+
+                            <div class="row mb-4">
+                                <div class="col-md-12">
+                                    <h3>Education Requirements</h3>
+                                    <table class="table">
+                                        <tbody>
+                                            <tr>
+                                                <th style="width: 40%">Required Level of Education</th>
+                                                <td>Some college, no degree</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Related Work Experience</th>
+                                                <td>None</td>
+                                            </tr>
+                                            <tr>
+                                                <th>On-the-job Training</th>
+                                                <td>Long-term on-the-job training</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <h3>Educational Paths</h3>
+                            <p>Many actors enhance their skills through formal dramatic education. Common educational paths include:</p>
+                            <ul class="career-list">
+                                <li>High school drama classes</li>
+                                <li>Bachelor's degree in theater arts, drama, or related field</li>
+                                <li>Master of Fine Arts (MFA) in acting</li>
+                                <li>Acting conservatories or specialized acting schools</li>
+                                <li>Workshops and continuing education classes</li>
+                            </ul>
+
+                            <h3>School Programs</h3>
+                            <p>The following programs are applicable to this occupation:</p>
+                            <ul class="career-list">
+                                <li>Drama and Dramatics/Theatre Arts</li>
+                                <li>Acting</li>
+                                <li>Directing and Theatrical Production</li>
+                                <li>Playwriting and Screenwriting</li>
+                                <li>Theatre/Theatre Arts Management</li>
+                                <li>Dramatic/Theatre Arts and Stagecraft</li>
+                            </ul>
+
+                            <p>Many actors also gain experience through community theater, school productions, or acting workshops before pursuing professional roles. Practical experience is highly valued in this field.</p>
+                        </div>
+                    </div>
+
+                    <!-- Salary Section -->
+                    <div id="salary" class="career-section">
+                        <h2 class="career-section-title">Salary &amp;amp; Job Outlook</h2>
+                        <div class="career-section-content">
+                            <h3>Salary Information</h3>
+                            <p>In New York State, the average annual wage for actors is:</p>
+                            <ul>
+                                <li><strong>Entry level:</strong> $44,630</li>
+                                <li><strong>Experienced:</strong> $116,730</li>
+                            </ul>
+                            <p>Wages shown here are calculated from an average hourly rate paid full time over a one year period. As these positions do not typically follow a 40-hour work week for the duration of a year, actual annual salaries may vary widely.</p>
+
+                            <h3>Job Outlook</h3>
+                            <p>Employment prospects for actors in New York State are described as <strong>Very Favorable</strong>.</p>
+                            <ul>
+                                <li>During 2018, there were approximately 7,660 Actors employed in New York State.</li>
+                                <li>By 2030, this number is estimated to grow to 11,120, representing an increase of 346 jobs each year.</li>
+                                <li>Total annual job openings: 1,362</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Related Careers Section -->
+                    <div id="related" class="career-section">
+                        <h2 class="career-section-title">Related Careers</h2>
+                        <div class="career-section-content">
+                            <ul class="career-list">
+                                <li>
+                                    <div class="career-list-item-title">Producers and Directors</div>
+                                    <div class="career-list-item-description">Produce or direct stage, television, radio, video, or motion picture productions for entertainment, information, or instruction.</div>
+                                </li>
+                                <li>
+                                    <div class="career-list-item-title">Talent Directors</div>
+                                    <div class="career-list-item-description">Audition and interview performers to select most appropriate talent for parts in stage, television, radio, or motion picture productions.</div>
+                                </li>
+                                <li>
+                                    <div class="career-list-item-title">Choreographers</div>
+                                    <div class="career-list-item-description">Create new dance routines. Rehearse performance of routines. May direct and stage presentations.</div>
+                                </li>
+                                <li>
+                                    <div class="career-list-item-title">Musicians and Singers</div>
+                                    <div class="career-list-item-description">Play one or more musical instruments or sing. May perform on stage, for on-air broadcasting, or for sound or video recording.</div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ui:define>
 </ui:composition>
 </html>
