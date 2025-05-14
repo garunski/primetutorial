@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="jakarta.faces.facelets"
+      xmlns:f="jakarta.faces.core"
+      xmlns:h="jakarta.faces.html"
+      xmlns:p="http://primefaces.org/ui">
+
+<ui:composition>
+    <!-- Education Options Section -->
+    <div class="mb-4">
+        <p:accordionPanel activeIndex="0">
+            <p:tab title="Education Options:">
+                <div class="mb-3">
+                    <h6 class="mb-2">Preparation:</h6>
+                    <p:selectOneMenu styleClass="form-select">
+                        <f:selectItem itemLabel="Select One" itemValue="" />
+                        <f:selectItem itemLabel="High School" itemValue="highschool" />
+                        <f:selectItem itemLabel="Some College" itemValue="somecollege" />
+                        <f:selectItem itemLabel="Associate's Degree" itemValue="associates" />
+                        <f:selectItem itemLabel="Bachelor's Degree" itemValue="bachelors" />
+                        <f:selectItem itemLabel="Master's Degree" itemValue="masters" />
+                        <f:selectItem itemLabel="Doctoral Degree" itemValue="doctoral" />
+                    </p:selectOneMenu>
+                </div>
+
+                <div class="mb-3">
+                    <h6 class="mb-2">Cluster:</h6>
+                    <div class="form-check mb-2">
+                        <p:selectBooleanCheckbox id="eduCluster1" styleClass="form-check-input" />
+                        <p:outputLabel for="eduCluster1" value="Arts and Humanities" styleClass="form-check-label ms-2" />
+                    </div>
+                    <div class="form-check mb-2">
+                        <p:selectBooleanCheckbox id="eduCluster2" styleClass="form-check-input" />
+                        <p:outputLabel for="eduCluster2" value="Business and Information Systems" styleClass="form-check-label ms-2" />
+                    </div>
+                    <div class="form-check mb-2">
+                        <p:selectBooleanCheckbox id="eduCluster3" styleClass="form-check-input" />
+                        <p:outputLabel for="eduCluster3" value="Engineering and Technology" styleClass="form-check-label ms-2" />
+                    </div>
+                    <div class="form-check mb-2">
+                        <p:selectBooleanCheckbox id="eduCluster4" styleClass="form-check-input" />
+                        <p:outputLabel for="eduCluster4" value="Health Services" styleClass="form-check-label ms-2" />
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <h6 class="mb-2">STEM Discipline:</h6>
+                    <div class="form-check mb-2">
+                        <p:selectBooleanCheckbox id="stem1" styleClass="form-check-input" />
+                        <p:outputLabel for="stem1" value="Architecture and Engineering" styleClass="form-check-label ms-2" />
+                    </div>
+                    <div class="form-check mb-2">
+                        <p:selectBooleanCheckbox id="stem2" styleClass="form-check-input" />
+                        <p:outputLabel for="stem2" value="Computer and Mathematical" styleClass="form-check-label ms-2" />
+                    </div>
+                    <div class="form-check mb-2">
+                        <p:selectBooleanCheckbox id="stem3" styleClass="form-check-input" />
+                        <p:outputLabel for="stem3" value="Healthcare Practitioners and Technical" styleClass="form-check-label ms-2" />
+                    </div>
+                    <div class="form-check mb-2">
+                        <p:selectBooleanCheckbox id="stem4" styleClass="form-check-input" />
+                        <p:outputLabel for="stem4" value="Life, Physical, and Social Science" styleClass="form-check-label ms-2" />
+                    </div>
+                </div>
+            </p:tab>
+        </p:accordionPanel>
+    </div>
+</ui:composition>
+</html>

@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="jakarta.faces.facelets"
+      xmlns:f="jakarta.faces.core"
+      xmlns:h="jakarta.faces.html"
+      xmlns:p="http://primefaces.org/ui">
+
+<ui:composition>
+    <!-- Results Section -->
+    <div class="col-12 col-lg-8">
+        <!-- Result Cards -->
+        <div class="card bs-result-card">
+            <div class="card-body">
+                <h3 class="bs-occupation-title">Software Developer</h3>
+                <div class="bs-occupation-category">Technology | Computer Science</div>
+
+                <div class="bs-occupation-description">
+                    <p>Design, develop, and test software applications for computers, mobile devices, and other electronic systems. Create code using various programming languages and frameworks.</p>
+                </div>
+
+                <div class="bs-info-row">
+                    <div class="bs-info-item">
+                        <span class="bs-info-label">Average Salary:</span>
+                        <span class="bs-info-value">$105,000 - $150,000</span>
+                    </div>
+                    <div class="bs-info-item">
+                        <span class="bs-info-label">Education Required:</span>
+                        <span class="bs-info-value">Bachelor's Degree</span>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <span class="badge bs-badge">Programming</span>
+                    <span class="badge bs-badge">Problem Solving</span>
+                    <span class="badge bs-badge">Project Management</span>
+                    <span class="badge bs-badge">Communication</span>
+                </div>
+
+                <div class="text-end">
+                    <p:button value="View Details" outcome="careerDetails" styleClass="btn btn-primary btn-sm" />
+                </div>
+            </div>
+        </div>
+
+        <div class="card bs-result-card">
+            <div class="card-body">
+                <h3 class="bs-occupation-title">Registered Nurse</h3>
+                <div class="bs-occupation-category">Healthcare | Nursing</div>
+
+                <div class="bs-occupation-description">
+                    <p>Provide and coordinate patient care, educate patients about various health conditions, and provide advice and emotional support to patients and their family members.</p>
+                </div>
+
+                <div class="bs-info-row">
+                    <div class="bs-info-item">
+                        <span class="bs-info-label">Average Salary:</span>
+                        <span class="bs-info-value">$75,000 - $110,000</span>
+                    </div>
+                    <div class="bs-info-item">
+                        <span class="bs-info-label">Education Required:</span>
+                        <span class="bs-info-value">Associate's or Bachelor's Degree</span>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <span class="badge bs-badge">Patient Care</span>
+                    <span class="badge bs-badge">Medical Knowledge</span>
+                    <span class="badge bs-badge">Communication</span>
+                    <span class="badge bs-badge">Critical Thinking</span>
+                </div>
+
+                <div class="text-end">
+                    <p:button value="View Details" outcome="careerDetails" styleClass="btn btn-primary btn-sm" />
+                </div>
+            </div>
+        </div>
+
+        <div class="card bs-result-card">
+            <div class="card-body">
+                <h3 class="bs-occupation-title">Financial Analyst</h3>
+                <div class="bs-occupation-category">Business &amp; Finance | Economics</div>
+
+                <div class="bs-occupation-description">
+                    <p>Analyze financial data to guide business decisions. Assess the performance of stocks, bonds, and other types of investments. Prepare reports and recommendations.</p>
+                </div>
+
+                <div class="bs-info-row">
+                    <div class="bs-info-item">
+                        <span class="bs-info-label">Average Salary:</span>
+                        <span class="bs-info-value">$80,000 - $120,000</span>
+                    </div>
+                    <div class="bs-info-item">
+                        <span class="bs-info-label">Education Required:</span>
+                        <span class="bs-info-value">Bachelor's Degree</span>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <span class="badge bs-badge">Financial Modeling</span>
+                    <span class="badge bs-badge">Data Analysis</span>
+                    <span class="badge bs-badge">Research</span>
+                    <span class="badge bs-badge">Reporting</span>
+                </div>
+
+                <div class="text-end">
+                    <p:button value="View Details" outcome="careerDetails" styleClass="btn btn-primary btn-sm" />
+                </div>
+            </div>
+        </div>
+
+        <!-- Pagination Component -->
+        <ui:include src="/components/searchComponents/searchPagination.xhtml" />
+    </div>
+</ui:composition>
+</html>

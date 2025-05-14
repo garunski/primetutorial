@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="jakarta.faces.facelets"
+      xmlns:f="jakarta.faces.core"
+      xmlns:h="jakarta.faces.html"
+      xmlns:p="http://primefaces.org/ui">
+
+<ui:composition>
+    <!-- Filters Sidebar -->
+    <div class="col-12 col-lg-4 mb-4">
+        <div class="card bs-filter-card">
+            <div class="card-header bs-filter-header">
+                <i class="pi pi-filter me-2"></i>Filter Results
+            </div>
+            <div class="card-body">
+                <h4 class="fw-bold mb-4">Advanced Search</h4>
+
+                <!-- Career Path Options Section -->
+                <ui:include src="/components/searchComponents/searchCareerPathFilters.xhtml" />
+
+                <!-- Education Options Section -->
+                <ui:include src="/components/searchComponents/searchEducationFilters.xhtml" />
+
+                <!-- Other Options Section -->
+                <ui:include src="/components/searchComponents/searchOtherFilters.xhtml" />
+
+                <div style="margin-top: 1.5rem; text-align: center;">
+                    <p:commandButton value="Search" styleClass="btn btn-primary" />
+                </div>
+            </div>
+        </div>
+    </div>
+</ui:composition>
+</html>

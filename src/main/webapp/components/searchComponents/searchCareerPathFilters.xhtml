@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="jakarta.faces.facelets"
+      xmlns:f="jakarta.faces.core"
+      xmlns:h="jakarta.faces.html"
+      xmlns:p="http://primefaces.org/ui">
+
+<ui:composition>
+    <!-- Career Path Options Section -->
+    <div class="mb-4">
+        <p:accordionPanel activeIndex="0">
+            <p:tab title="Career Path Options:">
+                <div class="mb-3">
+                    <h6 class="mb-2">Career Cluster:</h6>
+                    <div class="form-check mb-2">
+                        <p:selectBooleanCheckbox id="cluster1" styleClass="form-check-input" />
+                        <p:outputLabel for="cluster1" value="Agriculture, Food and Natural Resources" styleClass="form-check-label ms-2" />
+                    </div>
+                    <div class="form-check mb-2">
+                        <p:selectBooleanCheckbox id="cluster2" styleClass="form-check-input" />
+                        <p:outputLabel for="cluster2" value="Architecture and Construction" styleClass="form-check-label ms-2" />
+                    </div>
+                    <div class="form-check mb-2">
+                        <p:selectBooleanCheckbox id="cluster3" styleClass="form-check-input" />
+                        <p:outputLabel for="cluster3" value="Arts, Audio/Video Technology and Communications" styleClass="form-check-label ms-2" />
+                    </div>
+                    <div class="form-check mb-2">
+                        <p:selectBooleanCheckbox id="cluster4" styleClass="form-check-input" />
+                        <p:outputLabel for="cluster4" value="Business, Management and Administration" styleClass="form-check-label ms-2" />
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <h6 class="mb-2">Career Pathway:</h6>
+                    <div class="form-control" style="height: 100px; overflow-y: auto;">
+                        <!-- This would be populated dynamically based on selected cluster -->
+                    </div>
+                </div>
+            </p:tab>
+        </p:accordionPanel>
+    </div>
+</ui:composition>
+</html>

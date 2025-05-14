@@ -1,0 +1,69 @@
+// Search Results Styles
+// Styles for the search results component
+
+// Variables
+$primary-color: #0b5d66;
+$primary-hover: #094954;
+$secondary-color: #1f2937;
+$light-gray: #e5e7eb;
+$medium-gray: #6b7280;
+$dark-gray: #4b5563;
+
+// Result card styles
+.bs-result-card {
+  border-radius: 0.5rem !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1) !important;
+  border: none !important;
+  margin-bottom: 1.5rem !important;
+}
+
+.bs-occupation-title {
+  color: $primary-color !important;
+  font-weight: 600 !important;
+  font-size: 1.25rem !important;
+  margin-bottom: 0.5rem !important;
+}
+
+.bs-occupation-category {
+  color: $medium-gray !important;
+  font-size: 0.875rem !important;
+  margin-bottom: 0.75rem !important;
+}
+
+.bs-occupation-description {
+  color: $dark-gray !important;
+  margin-bottom: 1rem !important;
+}
+
+// Badge styles
+.bs-badge {
+  font-size: 0.75rem !important;
+  font-weight: 500 !important;
+  padding: 0.25rem 0.75rem !important;
+  margin-right: 0.5rem !important;
+  margin-bottom: 0.5rem !important;
+  border-radius: 9999px !important;
+  background-color: $light-gray !important;
+  color: $dark-gray !important;
+}
+
+// Info row styles
+.bs-info-row {
+  margin-bottom: 1rem !important;
+}
+
+.bs-info-item {
+  margin-right: 1.5rem !important;
+  margin-bottom: 0.5rem !important;
+  display: inline-block !important;
+}
+
+.bs-info-label {
+  font-weight: 600 !important;
+  color: $dark-gray !important;
+  margin-right: 0.5rem !important;
+}
+
+.bs-info-value {
+  color: $medium-gray !important;
+}

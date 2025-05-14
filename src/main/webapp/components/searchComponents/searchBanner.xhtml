@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="jakarta.faces.facelets"
+      xmlns:f="jakarta.faces.core"
+      xmlns:h="jakarta.faces.html"
+      xmlns:p="http://primefaces.org/ui">
+
+<ui:composition>
+    <!-- Banner Section with Search -->
+    <div class="container-fluid mb-4">
+        <div class="bs-banner">
+            <h1 class="bs-main-title">Find Your Perfect Occupation</h1>
+            <p class="bs-description">Explore thousands of occupations based on your interests, skills, and education level.</p>
+
+            <div class="bs-search-container">
+                <div class="row g-2">
+                    <div class="col-12 col-md-9">
+                        <p:inputText placeholder="Search occupations (e.g., Software Developer, Nurse, Teacher...)"
+                                     styleClass="form-control bs-search-input" />
+                    </div>
+                    <div class="col-12 col-md-3">
+                        <p:commandButton value="Search"
+                                         styleClass="btn btn-primary w-100 bs-search-button"
+                                         icon="pi pi-search" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</ui:composition>
+</html>
