@@ -93,24 +93,6 @@ $spacer: 1rem;
 
 // 7. Add additional custom code here
 
-// Section styling
-.bootstrap-section {
-  padding: 2rem;
-  margin-bottom: 1.5rem;
-  border-radius: $border-radius;
-  background-color: white;
-  box-shadow: $box-shadow;
-}
-
-// Banner section
-.banner-section {
-  background-color: #e5f2ff;
-  padding: 2rem 1rem;
-  margin-bottom: 2rem;
-  text-align: center;
-  border-radius: $border-radius;
-}
-
 // Add a prefix to Bootstrap classes to avoid conflicts with Foundation
 .bs {
   // Use Bootstrap's grid system with a prefix
