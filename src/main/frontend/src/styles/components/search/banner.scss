@@ -46,3 +46,37 @@
   font-weight: $font-weight-semibold;
   @include button-primary;
 }
+
+// Fix for PrimeFaces search button
+.search-button {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  .ui-button-icon-left {
+    margin-right: 8px !important;
+    position: relative !important;
+    top: 0 !important;
+    left: 0 !important;
+  }
+
+  .ui-button-text {
+    padding-left: 0 !important;
+  }
+}
+
+// Search input and button container styles
+.row.g-0 {
+  .form-control {
+    height: 48px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  .btn {
+    height: 48px;
+    width: 100%;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+}
