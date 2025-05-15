@@ -7,25 +7,39 @@
       xmlns:p="http://primefaces.org/ui">
 
 <ui:composition>
-    <div class="career-header">
+    <div class="career-header bg-light py-4 border-bottom">
         <div class="container">
-            <div class="row">
+            <div class="row g-3 align-items-start">
                 <div class="col-md-8">
-                    <h1 class="career-title">Actors <span class="bright-outlook">Bright Outlook</span></h1>
-                    <div class="career-category">Arts, Audio/Video Technology and Communications | Performing Arts</div>
-                    <div class="career-description">
+                    <h1 class="career-title display-4">Actors <span class="bright-outlook">Bright Outlook</span></h1>
+                    <div class="career-category text-muted mb-3">Arts, Audio/Video Technology and Communications | Performing Arts</div>
+                    <div class="career-description fs-5">
                         Play parts in stage, television, radio, video, or film productions, or other settings for entertainment, information, or instruction. Interpret serious or comic role by speech, gesture, and body movement to entertain or inform audience. May dance and sing.
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div class="career-stats">
-                        <div class="career-stat">
-                            <div class="career-stat-label">Average Salary (NY)</div>
-                            <div class="career-stat-value">$44,630 - $116,730</div>
+                    <div class="d-flex flex-column gap-2">
+                        <div class="bg-white rounded p-2 border-start border-3" style="border-left-color: #0b5d66;">
+                            <div class="d-flex align-items-center">
+                                <div class="me-2 text-primary" style="color: #0b5d66 !important;">
+                                    <i class="bi bi-currency-dollar"></i>
+                                </div>
+                                <div>
+                                    <div class="small text-muted">Average Salary (NY)</div>
+                                    <div class="fw-semibold">$44,630 - $116,730</div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="career-stat">
-                            <div class="career-stat-label">Job Outlook</div>
-                            <div class="career-stat-value">Very Favorable</div>
+                        <div class="bg-white rounded p-2 border-start border-3 border-success">
+                            <div class="d-flex align-items-center">
+                                <div class="me-2 text-success">
+                                    <i class="bi bi-graph-up-arrow"></i>
+                                </div>
+                                <div>
+                                    <div class="small text-muted">Job Outlook</div>
+                                    <div class="fw-semibold">Very Favorable</div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

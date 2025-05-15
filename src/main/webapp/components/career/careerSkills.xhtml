@@ -7,111 +7,113 @@
       xmlns:p="http://primefaces.org/ui">
 
 <ui:composition>
-    <div id="skills" class="career-section">
-        <h2 class="career-section-title">Skills &amp; Abilities</h2>
-        <div class="career-section-content">
-            <p>The list below includes the skills required by workers in this occupation; skills are what allow you to learn more quickly and improve your performance.</p>
+    <div id="skills" class="career-section card shadow-sm mb-4">
+        <div class="card-body">
+            <h2 class="career-section-title fs-2 fw-semibold text-primary mb-3 pb-2 border-bottom">Skills &amp; Abilities</h2>
+            <div class="career-section-content mb-3">
+                <p class="mb-4">The list below includes the skills required by workers in this occupation; skills are what allow you to learn more quickly and improve your performance.</p>
 
-            <div class="row mb-4">
-                <div class="col-md-12">
-                    <!-- Radar chart container -->
-                    <div class="skills-radar-container">
-                        <canvas id="skills-radar-chart"></canvas>
-                    </div>
+                <div class="row mb-4">
+                    <div class="col-md-12">
+                        <!-- Radar chart container -->
+                        <div class="skills-radar-container bg-white p-3 rounded shadow-sm" style="height: 400px; max-width: 800px; margin: 0 auto; position: relative;">
+                            <canvas id="skills-radar-chart"></canvas>
+                        </div>
 
-                    <!-- Skills legend and descriptions -->
-                    <div class="skills-legend mt-4">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="skill-item">
-                                    <h4>Reading Comprehension</h4>
-                                    <p>Understanding written sentences and paragraphs in work-related documents</p>
-                                    <div class="skill-values">
-                                        <span class="skill-value">Importance: <strong>3.88</strong>/5</span>
-                                        <span class="skill-value">Level: <strong>3.88</strong>/7</span>
+                        <!-- Skills legend and descriptions -->
+                        <div class="skills-legend mt-4">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="skill-item card shadow-sm mb-4 p-3">
+                                        <h4 class="fs-5 fw-semibold text-dark mb-2">Reading Comprehension</h4>
+                                        <p class="text-muted small mb-3">Understanding written sentences and paragraphs in work-related documents</p>
+                                        <div class="skill-values d-flex flex-wrap gap-3">
+                                            <span class="skill-value small text-muted">Importance: <strong class="text-primary">3.88</strong>/5</span>
+                                            <span class="skill-value small text-muted">Level: <strong class="text-primary">3.88</strong>/7</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="skill-item card shadow-sm mb-4 p-3">
+                                        <h4 class="fs-5 fw-semibold text-dark mb-2">Speaking</h4>
+                                        <p class="text-muted small mb-3">Talking to others to convey information effectively</p>
+                                        <div class="skill-values d-flex flex-wrap gap-3">
+                                            <span class="skill-value small text-muted">Importance: <strong class="text-primary">3.88</strong>/5</span>
+                                            <span class="skill-value small text-muted">Level: <strong class="text-primary">4.00</strong>/7</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="skill-item card shadow-sm mb-4 p-3">
+                                        <h4 class="fs-5 fw-semibold text-dark mb-2">Active Listening</h4>
+                                        <p class="text-muted small mb-3">Giving full attention to what other people are saying, taking time to understand the points being made</p>
+                                        <div class="skill-values d-flex flex-wrap gap-3">
+                                            <span class="skill-value small text-muted">Importance: <strong class="text-primary">3.75</strong>/5</span>
+                                            <span class="skill-value small text-muted">Level: <strong class="text-primary">3.62</strong>/7</span>
+                                        </div>
                                     </div>
                                 </div>
 
-                                <div class="skill-item">
-                                    <h4>Speaking</h4>
-                                    <p>Talking to others to convey information effectively</p>
-                                    <div class="skill-values">
-                                        <span class="skill-value">Importance: <strong>3.88</strong>/5</span>
-                                        <span class="skill-value">Level: <strong>4.00</strong>/7</span>
+                                <div class="col-md-6">
+                                    <div class="skill-item card shadow-sm mb-4 p-3">
+                                        <h4 class="fs-5 fw-semibold text-dark mb-2">Social Perceptiveness</h4>
+                                        <p class="text-muted small mb-3">Being aware of others' reactions and understanding why they react as they do</p>
+                                        <div class="skill-values d-flex flex-wrap gap-3">
+                                            <span class="skill-value small text-muted">Importance: <strong class="text-primary">3.75</strong>/5</span>
+                                            <span class="skill-value small text-muted">Level: <strong class="text-primary">3.75</strong>/7</span>
+                                        </div>
                                     </div>
-                                </div>
 
-                                <div class="skill-item">
-                                    <h4>Active Listening</h4>
-                                    <p>Giving full attention to what other people are saying, taking time to understand the points being made</p>
-                                    <div class="skill-values">
-                                        <span class="skill-value">Importance: <strong>3.75</strong>/5</span>
-                                        <span class="skill-value">Level: <strong>3.62</strong>/7</span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-md-6">
-                                <div class="skill-item">
-                                    <h4>Social Perceptiveness</h4>
-                                    <p>Being aware of others' reactions and understanding why they react as they do</p>
-                                    <div class="skill-values">
-                                        <span class="skill-value">Importance: <strong>3.75</strong>/5</span>
-                                        <span class="skill-value">Level: <strong>3.75</strong>/7</span>
-                                    </div>
-                                </div>
-
-                                <div class="skill-item">
-                                    <h4>Writing</h4>
-                                    <p>Communicating effectively in writing as appropriate for the needs of the audience</p>
-                                    <div class="skill-values">
-                                        <span class="skill-value">Importance: <strong>2.88</strong>/5</span>
-                                        <span class="skill-value">Level: <strong>3.38</strong>/7</span>
+                                    <div class="skill-item card shadow-sm mb-4 p-3">
+                                        <h4 class="fs-5 fw-semibold text-dark mb-2">Writing</h4>
+                                        <p class="text-muted small mb-3">Communicating effectively in writing as appropriate for the needs of the audience</p>
+                                        <div class="skill-values d-flex flex-wrap gap-3">
+                                            <span class="skill-value small text-muted">Importance: <strong class="text-primary">2.88</strong>/5</span>
+                                            <span class="skill-value small text-muted">Level: <strong class="text-primary">3.38</strong>/7</span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
 
-                    <!-- Hidden data for the chart -->
-                    <div id="skills-data" class="d-none">
-                        <div class="skill-data"
-                             data-name="Reading Comprehension"
-                             data-importance="3.88"
-                             data-level="3.88"></div>
-                        <div class="skill-data"
-                             data-name="Speaking"
-                             data-importance="3.88"
-                             data-level="4.00"></div>
-                        <div class="skill-data"
-                             data-name="Active Listening"
-                             data-importance="3.75"
-                             data-level="3.62"></div>
-                        <div class="skill-data"
-                             data-name="Social Perceptiveness"
-                             data-importance="3.75"
-                             data-level="3.75"></div>
-                        <div class="skill-data"
-                             data-name="Writing"
-                             data-importance="2.88"
-                             data-level="3.38"></div>
-                    </div>
+                        <!-- Hidden data for the chart -->
+                        <div id="skills-data" class="d-none">
+                            <div class="skill-data"
+                                 data-name="Reading Comprehension"
+                                 data-importance="3.88"
+                                 data-level="3.88"></div>
+                            <div class="skill-data"
+                                 data-name="Speaking"
+                                 data-importance="3.88"
+                                 data-level="4.00"></div>
+                            <div class="skill-data"
+                                 data-name="Active Listening"
+                                 data-importance="3.75"
+                                 data-level="3.62"></div>
+                            <div class="skill-data"
+                                 data-name="Social Perceptiveness"
+                                 data-importance="3.75"
+                                 data-level="3.75"></div>
+                            <div class="skill-data"
+                                 data-name="Writing"
+                                 data-importance="2.88"
+                                 data-level="3.38"></div>
+                        </div>
 
-                    <p class="small text-muted mt-2">* Skill importance is measured on a five point scale, where one means 'slightly important' and five means 'extremely important'.<br/>
-                    * Skill level is measured on a seven point scale, where one means 'some competence required' and seven means 'a high level of expertise required'.</p>
+                        <p class="small text-muted mt-2">* Skill importance is measured on a five point scale, where one means 'slightly important' and five means 'extremely important'.<br/>
+                        * Skill level is measured on a seven point scale, where one means 'some competence required' and seven means 'a high level of expertise required'.</p>
+                    </div>
                 </div>
-            </div>
 
-            <h3>Key Abilities</h3>
-            <div class="mb-3">
-                <span class="tag">Oral Expression</span>
-                <span class="tag">Oral Comprehension</span>
-                <span class="tag">Memorization</span>
-                <span class="tag">Speech Clarity</span>
-                <span class="tag">Written Comprehension</span>
-                <span class="tag">Originality</span>
-                <span class="tag">Problem Sensitivity</span>
-                <span class="tag">Fluency of Ideas</span>
+                <h3 class="fs-4 fw-semibold mb-3">Key Abilities</h3>
+                <div class="mb-3">
+                    <span class="tag badge bg-light text-secondary me-2 mb-2">Oral Expression</span>
+                    <span class="tag badge bg-light text-secondary me-2 mb-2">Oral Comprehension</span>
+                    <span class="tag badge bg-light text-secondary me-2 mb-2">Memorization</span>
+                    <span class="tag badge bg-light text-secondary me-2 mb-2">Speech Clarity</span>
+                    <span class="tag badge bg-light text-secondary me-2 mb-2">Written Comprehension</span>
+                    <span class="tag badge bg-light text-secondary me-2 mb-2">Originality</span>
+                    <span class="tag badge bg-light text-secondary me-2 mb-2">Problem Sensitivity</span>
+                    <span class="tag badge bg-light text-secondary me-2 mb-2">Fluency of Ideas</span>
+                </div>
             </div>
         </div>
     </div>

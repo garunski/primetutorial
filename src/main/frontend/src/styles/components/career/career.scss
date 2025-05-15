@@ -1,118 +1,95 @@
 // Career Styles
 // Main styles for career components
+// Using Bootstrap utility classes where possible
 
 @import "../../variables";
 @import "../../mixins";
 
 // Career Header
+// Most styling now handled by Bootstrap utility classes in the component
 .career-header {
-  background-color: $light;
-  padding: $spacer-5 0;
-  margin-bottom: $spacer-4;
-  border-bottom: 1px solid $border-color;
+  // Core styles that can't be replaced with Bootstrap utilities
+  // Other styles like bg-light, py-5, border-bottom are added directly in the component
 }
 
 .career-title {
-  font-size: $font-size-4xl;
-  font-weight: $font-weight-bold;
-  color: $text-primary;
-  margin-bottom: $spacer-2;
+  // Core styles that can't be replaced with Bootstrap utilities
+  // Other styles like display-4 are added directly in the component
 }
 
 .career-category {
-  font-size: $font-size-lg;
-  color: $text-muted;
-  margin-bottom: $spacer;
+  // Core styles that can't be replaced with Bootstrap utilities
+  // Other styles like text-muted, mb-3 are added directly in the component
 }
 
 .career-description {
-  font-size: $font-size-lg;
-  line-height: 1.6;
-  margin-bottom: $spacer-4;
+  // Core styles that can't be replaced with Bootstrap utilities
+  // Other styles like fs-5 are added directly in the component
 }
 
 // Career Stats
 .career-stats {
-  display: flex;
-  flex-wrap: wrap;
-  gap: $spacer;
-  margin-bottom: $spacer;
+  // Core styles that can't be replaced with Bootstrap utilities
+  // Other styles like d-flex, flex-column, gap-3 are added directly in the component
 }
 
 .career-stat {
-  flex: 1 1 200px;
-  background-color: $light;
-  padding: $spacer;
-  border-radius: $border-radius;
-  border: 1px solid $gray-200;
+  // Core styles that can't be replaced with Bootstrap utilities
+  // Other styles like bg-white, shadow-sm, rounded are added directly in the component
 }
 
 .career-stat-label {
-  font-size: $font-size-sm;
-  color: $text-muted;
-  margin-bottom: $spacer-1;
+  // Core styles that can't be replaced with Bootstrap utilities
+  // Other styles like small, text-muted, mb-1 are added directly in the component
 }
 
 .career-stat-value {
-  font-size: $font-size-xl;
-  font-weight: $font-weight-semibold;
-  color: $text-primary;
+  // Core styles that can't be replaced with Bootstrap utilities
+  // Other styles like fs-4, fw-semibold are added directly in the component
 }
 
 // Career Sections
 .career-section {
-  @include container-shadow;
+  // Using Bootstrap card component instead
+  // Styles like card, shadow-sm, mb-4 are added directly in the component
   margin-bottom: $spacer-4;
 }
 
 .career-section-title {
-  @include section-title;
+  // Core styles that can't be replaced with Bootstrap utilities
+  // Other styles like fs-2, fw-semibold, text-primary, mb-3, pb-2, border-bottom are added directly in the component
+  color: $primary;
 }
 
 .career-section-content {
-  margin-bottom: $spacer;
+  // Core styles that can't be replaced with Bootstrap utilities
+  // Other styles like mb-3 are added directly in the component
 }
 
 // Career Navigation
 .career-nav {
-  background-color: $light;
-  border-radius: $border-radius;
-  box-shadow: $box-shadow;
-  padding: $spacer-4;
-  margin-bottom: $spacer-4;
+  // Core styles that can't be replaced with Bootstrap utilities
+  // Other styles like bg-light, rounded, shadow-sm, position-sticky are added directly in the component
   position: sticky;
   top: 20px;
 }
 
 .career-nav-title {
-  font-size: $font-size-xl;
-  font-weight: $font-weight-semibold;
+  // Core styles that can't be replaced with Bootstrap utilities
+  // Other styles like fw-semibold, text-primary, border-bottom, pb-2 are added directly in the component
   color: $primary;
-  margin-bottom: $spacer;
-  padding-bottom: $spacer-2;
-  border-bottom: 1px solid $border-color;
 }
 
 .career-nav-list {
-  list-style-type: none;
-  padding-left: 0;
-  margin-bottom: 0;
-}
-
-.career-nav-list li {
-  margin-bottom: $spacer-3;
-}
-
-.career-nav-list li:last-child {
-  margin-bottom: 0;
+  // Using Bootstrap list-unstyled class instead
+  // Styles like list-unstyled, mb-0 are added directly in the component
 }
 
 .career-nav-link {
+  // Core styles that can't be replaced with Bootstrap utilities
+  // Other styles like rounded, d-block are added directly in the component
   color: $text-secondary;
   text-decoration: none;
-  display: block;
-  padding: $spacer-2;
-  border-radius: $border-radius-sm;
   transition: background-color 0.2s, color 0.2s;
 
   &:hover {
@@ -129,35 +106,30 @@
 
 // Common Elements
 .career-list {
-  list-style-type: none;
-  padding-left: 0;
-  margin-bottom: $spacer;
+  // Using Bootstrap list-group component instead
+  // Styles like list-group, list-group-flush are added directly in the component
 }
 
 .career-list li {
-  padding: $spacer-2 0;
-  border-bottom: 1px solid $border-color;
-
-  &:last-child {
-    border-bottom: none;
-  }
+  // Using Bootstrap list-group-item component instead
+  // Styles like list-group-item, border-bottom, py-2 are added directly in the component
 }
 
 .career-list-item-title {
-  font-weight: $font-weight-semibold;
+  // Core styles that can't be replaced with Bootstrap utilities
+  // Other styles like fw-semibold, mb-1 are added directly in the component
   color: $text-primary;
-  margin-bottom: $spacer-1;
 }
 
 .career-list-item-description {
-  color: $text-muted;
-  font-size: $font-size-sm;
+  // Core styles that can't be replaced with Bootstrap utilities
+  // Other styles like text-muted are added directly in the component
 }
 
 .bright-outlook {
+  // Using Bootstrap badge component instead
+  // Styles like badge, bg-success, text-white are added directly in the component
   display: inline-block;
-  background-color: $success;
-  color: white;
   font-size: 0.75rem;
   font-weight: $font-weight-semibold;
   padding: $spacer-1 $spacer-2;
@@ -167,12 +139,12 @@
 }
 
 .tag {
-  @include badge;
-  background-color: $gray-200;
-  color: $text-secondary;
+  // Using Bootstrap badge component instead
+  // Styles like badge, bg-light, text-secondary, me-2, mb-2 are added directly in the component
 }
 
 .tag-primary {
+  // Using Bootstrap badge component with custom colors
   background-color: rgba($primary, 0.1);
   color: $primary;
 }
