@@ -9,37 +9,32 @@
 <ui:composition>
     <!-- Career Path Options Section -->
     <div class="mb-4">
-        <div class="card shadow-sm">
-            <div class="card-header bg-light">
-                <h5 class="mb-0">Career Path Options</h5>
-            </div>
-            <div class="card-body">
-                <div class="mb-3">
-                    <label class="form-label mb-2">Career Cluster:</label>
-                    <div class="form-check mb-2">
-                        <p:selectBooleanCheckbox id="cluster1" styleClass="form-check-input" />
-                        <p:outputLabel for="cluster1" value="Agriculture, Food and Natural Resources" styleClass="form-check-label ms-2" />
-                    </div>
-                    <div class="form-check mb-2">
-                        <p:selectBooleanCheckbox id="cluster2" styleClass="form-check-input" />
-                        <p:outputLabel for="cluster2" value="Architecture and Construction" styleClass="form-check-label ms-2" />
-                    </div>
-                    <div class="form-check mb-2">
-                        <p:selectBooleanCheckbox id="cluster3" styleClass="form-check-input" />
-                        <p:outputLabel for="cluster3" value="Arts, Audio/Video Technology and Communications" styleClass="form-check-label ms-2" />
-                    </div>
-                    <div class="form-check mb-2">
-                        <p:selectBooleanCheckbox id="cluster4" styleClass="form-check-input" />
-                        <p:outputLabel for="cluster4" value="Business, Management and Administration" styleClass="form-check-label ms-2" />
-                    </div>
-                </div>
+        <h5 class="mb-3">Career Path Options</h5>
 
-                <div class="mb-3">
-                    <label class="form-label mb-2">Career Pathway:</label>
-                    <div class="form-control overflow-auto" style="height: 100px;">
-                        <!-- This would be populated dynamically based on selected cluster -->
-                    </div>
-                </div>
+        <div class="mb-3">
+            <label class="form-label mb-2">Career Cluster:</label>
+            <div class="form-check mb-2">
+                <p:selectBooleanCheckbox id="cluster1" styleClass="form-check-input" />
+                <p:outputLabel for="cluster1" value="Agriculture, Food and Natural Resources" styleClass="form-check-label ms-2" />
+            </div>
+            <div class="form-check mb-2">
+                <p:selectBooleanCheckbox id="cluster2" styleClass="form-check-input" />
+                <p:outputLabel for="cluster2" value="Architecture and Construction" styleClass="form-check-label ms-2" />
+            </div>
+            <div class="form-check mb-2">
+                <p:selectBooleanCheckbox id="cluster3" styleClass="form-check-input" />
+                <p:outputLabel for="cluster3" value="Arts, Audio/Video Technology and Communications" styleClass="form-check-label ms-2" />
+            </div>
+            <div class="form-check mb-2">
+                <p:selectBooleanCheckbox id="cluster4" styleClass="form-check-input" />
+                <p:outputLabel for="cluster4" value="Business, Management and Administration" styleClass="form-check-label ms-2" />
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label mb-2">Career Pathway:</label>
+            <div class="form-control overflow-auto" style="height: 100px;">
+                <!-- This would be populated dynamically based on selected cluster -->
             </div>
         </div>
     </div>
