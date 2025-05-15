@@ -9,8 +9,11 @@
 <ui:composition>
     <!-- Other Options Section -->
     <div class="mb-4">
-        <p:accordionPanel activeIndex="0">
-            <p:tab title="Other Options:">
+        <div class="card shadow-sm">
+            <div class="card-header bg-light">
+                <h5 class="mb-0">Other Options</h5>
+            </div>
+            <div class="card-body">
                 <div class="mb-3">
                     <label for="salarySelect" class="form-label mb-2">Salary:</label>
                     <p:selectOneMenu id="salarySelect" styleClass="form-select">
@@ -37,8 +40,8 @@
                         <p:outputLabel for="apprenticeship" value="Apprenticeship" styleClass="form-check-label ms-2" />
                     </div>
                 </div>
-            </p:tab>
-        </p:accordionPanel>
+            </div>
+        </div>
     </div>
 </ui:composition>
 </html>

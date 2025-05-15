@@ -9,8 +9,11 @@
 <ui:composition>
     <!-- Education Options Section -->
     <div class="mb-4">
-        <p:accordionPanel activeIndex="0">
-            <p:tab title="Education Options:">
+        <div class="card shadow-sm">
+            <div class="card-header bg-light">
+                <h5 class="mb-0">Education Options</h5>
+            </div>
+            <div class="card-body">
                 <div class="mb-3">
                     <label for="educationSelect" class="form-label mb-2">Preparation:</label>
                     <p:selectOneMenu id="educationSelect" styleClass="form-select">
@@ -63,8 +66,8 @@
                         <p:outputLabel for="stem4" value="Life, Physical, and Social Science" styleClass="form-check-label ms-2" />
                     </div>
                 </div>
-            </p:tab>
-        </p:accordionPanel>
+            </div>
+        </div>
     </div>
 </ui:composition>
 </html>
