@@ -42,11 +42,9 @@
 
 // 7. Add additional custom code here
 
-// Import shared mixins and common styles
-@import "mixins";
-@import "common";
-
-// Import component styles
+// Import component styles directly
+// Note: Removed imports of _mixins.scss and _common.scss as their contents
+// have been moved to the appropriate component files
 @import "components/career";
 @import "components/search";
 

@@ -2,11 +2,13 @@
 // Styles for the search pagination component
 
 @import "../../variables";
-@import "../../mixins";
 
 // Pagination styles
 .bs-pagination {
-  @include flex-center;
+  // Replaced @include flex-center with direct Bootstrap utility classes
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin-top: $spacer-5;
 }
 
@@ -15,4 +17,4 @@
   color: $text-muted;
 }
 
-// Note: Button styles are now in _common.scss and _mixins.scss
+// Note: Button styles are now directly in component files
