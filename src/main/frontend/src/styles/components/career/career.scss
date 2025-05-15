@@ -1,110 +1,96 @@
 // Career Styles
 // Main styles for career components
 
-// Variables
-$primary-color: #0b5d66;
-$secondary-color: #1f2937;
-$light-gray: #e5e7eb;
-$medium-gray: #6b7280;
-$dark-gray: #4b5563;
-$background-light: #f9fafb;
-$bright-outlook: #10b981;
+@import "../../variables";
+@import "../../mixins";
 
 // Career Header
 .career-header {
-  background-color: $background-light;
-  padding: 2rem 0;
-  margin-bottom: 2rem;
-  border-bottom: 1px solid $light-gray;
+  background-color: $light;
+  padding: $spacer-5 0;
+  margin-bottom: $spacer-4;
+  border-bottom: 1px solid $border-color;
 }
 
 .career-title {
-  font-size: 2.25rem;
-  font-weight: 700;
-  color: $secondary-color;
-  margin-bottom: 0.5rem;
+  font-size: $font-size-4xl;
+  font-weight: $font-weight-bold;
+  color: $text-primary;
+  margin-bottom: $spacer-2;
 }
 
 .career-category {
-  font-size: 1.125rem;
-  color: $medium-gray;
-  margin-bottom: 1rem;
+  font-size: $font-size-lg;
+  color: $text-muted;
+  margin-bottom: $spacer;
 }
 
 .career-description {
-  font-size: 1.125rem;
+  font-size: $font-size-lg;
   line-height: 1.6;
-  margin-bottom: 1.5rem;
+  margin-bottom: $spacer-4;
 }
 
 // Career Stats
 .career-stats {
   display: flex;
   flex-wrap: wrap;
-  gap: 1rem;
-  margin-bottom: 1rem;
+  gap: $spacer;
+  margin-bottom: $spacer;
 }
 
 .career-stat {
   flex: 1 1 200px;
-  background-color: $background-light;
-  padding: 1rem;
-  border-radius: 8px;
-  border: 1px solid $light-gray;
+  background-color: $light;
+  padding: $spacer;
+  border-radius: $border-radius;
+  border: 1px solid $gray-200;
 }
 
 .career-stat-label {
-  font-size: 0.875rem;
-  color: $medium-gray;
-  margin-bottom: 0.25rem;
+  font-size: $font-size-sm;
+  color: $text-muted;
+  margin-bottom: $spacer-1;
 }
 
 .career-stat-value {
-  font-size: 1.25rem;
-  font-weight: 600;
-  color: $secondary-color;
+  font-size: $font-size-xl;
+  font-weight: $font-weight-semibold;
+  color: $text-primary;
 }
 
 // Career Sections
 .career-section {
-  background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-  padding: 1.5rem;
-  margin-bottom: 1.5rem;
+  @include container-shadow;
+  margin-bottom: $spacer-4;
 }
 
 .career-section-title {
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: $primary-color;
-  margin-bottom: 1rem;
-  padding-bottom: 0.5rem;
-  border-bottom: 1px solid $light-gray;
+  @include section-title;
 }
 
 .career-section-content {
-  margin-bottom: 1rem;
+  margin-bottom: $spacer;
 }
 
 // Career Navigation
 .career-nav {
-  background-color: $background-light;
-  border-radius: 8px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-  padding: 1.5rem;
-  margin-bottom: 1.5rem;
+  background-color: $light;
+  border-radius: $border-radius;
+  box-shadow: $box-shadow;
+  padding: $spacer-4;
+  margin-bottom: $spacer-4;
   position: sticky;
   top: 20px;
 }
 
 .career-nav-title {
-  font-size: 1.25rem;
-  font-weight: 600;
-  color: $primary-color;
-  margin-bottom: 1rem;
-  padding-bottom: 0.5rem;
-  border-bottom: 1px solid $light-gray;
+  font-size: $font-size-xl;
+  font-weight: $font-weight-semibold;
+  color: $primary;
+  margin-bottom: $spacer;
+  padding-bottom: $spacer-2;
+  border-bottom: 1px solid $border-color;
 }
 
 .career-nav-list {
@@ -114,7 +100,7 @@ $bright-outlook: #10b981;
 }
 
 .career-nav-list li {
-  margin-bottom: 0.75rem;
+  margin-bottom: $spacer-3;
 }
 
 .career-nav-list li:last-child {
@@ -122,76 +108,71 @@ $bright-outlook: #10b981;
 }
 
 .career-nav-link {
-  color: $dark-gray;
+  color: $text-secondary;
   text-decoration: none;
   display: block;
-  padding: 0.5rem;
-  border-radius: 4px;
+  padding: $spacer-2;
+  border-radius: $border-radius-sm;
   transition: background-color 0.2s, color 0.2s;
-}
 
-.career-nav-link:hover {
-  background-color: rgba($primary-color, 0.1);
-  color: $primary-color;
-}
+  &:hover {
+    background-color: rgba($primary, 0.1);
+    color: $primary;
+  }
 
-.career-nav-link.active {
-  background-color: rgba($primary-color, 0.1);
-  color: $primary-color;
-  font-weight: 500;
+  &.active {
+    background-color: rgba($primary, 0.1);
+    color: $primary;
+    font-weight: $font-weight-medium;
+  }
 }
 
 // Common Elements
 .career-list {
   list-style-type: none;
   padding-left: 0;
-  margin-bottom: 1rem;
+  margin-bottom: $spacer;
 }
 
 .career-list li {
-  padding: 0.5rem 0;
-  border-bottom: 1px solid $light-gray;
-}
+  padding: $spacer-2 0;
+  border-bottom: 1px solid $border-color;
 
-.career-list li:last-child {
-  border-bottom: none;
+  &:last-child {
+    border-bottom: none;
+  }
 }
 
 .career-list-item-title {
-  font-weight: 600;
-  color: $secondary-color;
-  margin-bottom: 0.25rem;
+  font-weight: $font-weight-semibold;
+  color: $text-primary;
+  margin-bottom: $spacer-1;
 }
 
 .career-list-item-description {
-  color: $medium-gray;
-  font-size: 0.875rem;
+  color: $text-muted;
+  font-size: $font-size-sm;
 }
 
 .bright-outlook {
   display: inline-block;
-  background-color: $bright-outlook;
+  background-color: $success;
   color: white;
   font-size: 0.75rem;
-  font-weight: 600;
-  padding: 0.25rem 0.5rem;
-  border-radius: 4px;
-  margin-left: 0.5rem;
+  font-weight: $font-weight-semibold;
+  padding: $spacer-1 $spacer-2;
+  border-radius: $border-radius-sm;
+  margin-left: $spacer-2;
   vertical-align: middle;
 }
 
 .tag {
-  display: inline-block;
-  background-color: $light-gray;
-  color: $dark-gray;
-  padding: 0.25rem 0.75rem;
-  border-radius: 9999px;
-  font-size: 0.875rem;
-  margin-right: 0.5rem;
-  margin-bottom: 0.5rem;
+  @include badge;
+  background-color: $gray-200;
+  color: $text-secondary;
 }
 
 .tag-primary {
-  background-color: rgba($primary-color, 0.1);
-  color: $primary-color;
+  background-color: rgba($primary, 0.1);
+  color: $primary;
 }

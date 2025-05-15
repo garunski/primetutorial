@@ -1,41 +1,18 @@
 // Search Pagination Styles
 // Styles for the search pagination component
 
-// Variables
-$primary-color: #0b5d66;
-$primary-hover: #094954;
-$medium-gray: #6b7280;
+@import "../../variables";
+@import "../../mixins";
 
 // Pagination styles
 .bs-pagination {
-  display: flex !important;
-  justify-content: center !important;
-  align-items: center !important;
-  margin-top: 2rem !important;
+  @include flex-center;
+  margin-top: $spacer-5;
 }
 
 .bs-page-info {
-  margin: 0 1rem !important;
-  color: $medium-gray !important;
+  margin: 0 $spacer;
+  color: $text-muted;
 }
 
-// Button overrides to match site colors
-.btn-primary {
-  background-color: $primary-color !important;
-  border-color: $primary-color !important;
-  
-  &:hover, &:focus {
-    background-color: $primary-hover !important;
-    border-color: $primary-hover !important;
-  }
-}
-
-.btn-outline-primary {
-  color: $primary-color !important;
-  border-color: $primary-color !important;
-  
-  &:hover, &:focus {
-    background-color: $primary-color !important;
-    color: #fff !important;
-  }
-}
+// Note: Button styles are now in _common.scss and _mixins.scss

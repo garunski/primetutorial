@@ -1,6 +1,9 @@
 // Main Search Components Styles
 // This file imports all search-related styles
 
+@import "../variables";
+@import "../mixins";
+
 @import "search/banner";
 @import "search/filters";
 @import "search/results";
@@ -8,14 +11,16 @@
 
 // Common styles for the search page
 .bs-occupation-search {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-family: $font-family-base;
 }
 
 // Fix for PrimeFaces components inside Bootstrap
-.bs-occupation-search .ui-slider {
-  width: 100% !important;
-}
+.bs-occupation-search {
+  .ui-slider {
+    width: 100%;
+  }
 
-.bs-occupation-search .ui-button {
-  margin: 0 !important;
+  .ui-button {
+    margin: 0;
+  }
 }

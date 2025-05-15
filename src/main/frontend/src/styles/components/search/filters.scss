@@ -1,33 +1,24 @@
 // Search Filters Styles
 // Styles for the search filters component
 
-// Variables
-$primary-color: #0b5d66;
-$primary-hover: #094954;
-$secondary-color: #1f2937;
-$light-gray: #e5e7eb;
-$medium-gray: #6b7280;
-$dark-gray: #4b5563;
-$light-bg: #f8f9fa;
+@import "../../variables";
+@import "../../mixins";
 
 // Filter card styles
 .bs-filter-card {
-  border-radius: 0.5rem !important;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1) !important;
-  border: none !important;
-  margin-bottom: 1.5rem !important;
+  @include card-base;
 }
 
 .bs-filter-header {
-  background-color: $light-bg !important;
-  border-bottom: 1px solid $light-gray !important;
-  padding: 1rem 1.25rem !important;
-  font-weight: 600 !important;
-  font-size: 1.1rem !important;
-  color: #374151 !important;
+  background-color: $light;
+  border-bottom: 1px solid $border-color;
+  padding: $spacer $spacer-4;
+  font-weight: $font-weight-semibold;
+  font-size: $font-size-lg;
+  color: $gray-700;
 }
 
 // Range slider styles
 .bs-range-slider {
-  padding: 1.5rem 0.5rem 0.5rem 0.5rem !important;
+  padding: $spacer-4 $spacer-2 $spacer-2 $spacer-2;
 }

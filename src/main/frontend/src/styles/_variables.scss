@@ -1,0 +1,78 @@
+// _variables.scss
+// Shared variables for the entire application
+
+// Colors
+$primary: #0b5d66; // Teal - CareerZone primary color
+$primary-hover: #094954; // Darker teal for hover states
+$secondary: #6b7280; // Gray
+$success: #10b981; // Green
+$info: #3b82f6; // Blue
+$warning: #f59e0b; // Amber
+$danger: #ef4444; // Red
+$light: #f9fafb; // Very light gray - background
+$dark: #1f2937; // Dark gray - headings
+
+// Gray scale for text and UI elements
+$gray-100: #f3f4f6;
+$gray-200: #e5e7eb;
+$gray-300: #d1d5db;
+$gray-400: #9ca3af;
+$gray-500: #6b7280;
+$gray-600: #4b5563;
+$gray-700: #374151;
+$gray-800: #1f2937;
+$gray-900: #111827;
+
+// Border radius
+$border-radius-sm: 0.25rem;
+$border-radius: 0.375rem;
+$border-radius-lg: 0.5rem;
+$border-radius-pill: 9999px;
+
+// Box shadow
+$box-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+$box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+$box-shadow-lg: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+
+// Typography
+$font-family-base: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+$font-size-base: 1rem;
+$font-size-sm: 0.875rem;
+$font-size-lg: 1.125rem;
+$font-size-xl: 1.25rem;
+$font-size-2xl: 1.5rem;
+$font-size-3xl: 1.875rem;
+$font-size-4xl: 2.25rem;
+
+$font-weight-normal: 400;
+$font-weight-medium: 500;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+$line-height-base: 1.5;
+
+// Headings
+$h1-font-size: $font-size-4xl;
+$h2-font-size: $font-size-3xl;
+$h3-font-size: $font-size-2xl;
+$h4-font-size: $font-size-xl;
+$h5-font-size: $font-size-lg;
+$h6-font-size: $font-size-base;
+
+// Spacing
+$spacer: 1rem;
+$spacer-1: $spacer * 0.25; // 0.25rem
+$spacer-2: $spacer * 0.5;  // 0.5rem
+$spacer-3: $spacer;        // 1rem
+$spacer-4: $spacer * 1.5;  // 1.5rem
+$spacer-5: $spacer * 3;    // 3rem
+
+// Component specific variables
+$banner-bg: #e5f2ff;
+$background-light: $light;
+$bright-outlook: $success;
+
+// Semantic color mappings
+$text-primary: $dark;
+$text-secondary: $gray-600;
+$text-muted: $gray-500;
+$border-color: $gray-200;

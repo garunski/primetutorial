@@ -1,11 +1,8 @@
 // Career Skills Styles
 // Styles for the skills and knowledge components
 
-// Variables
-$primary-color: #0b5d66;
-$secondary-color: #1f2937;
-$light-gray: #e5e7eb;
-$medium-gray: #6b7280;
+@import "../../variables";
+@import "../../mixins";
 
 // Skills Radar Chart
 .skills-radar-container {
@@ -13,10 +10,7 @@ $medium-gray: #6b7280;
   margin: 0 auto;
   max-width: 800px;
   position: relative;
-  background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-  padding: 1.5rem;
+  @include container-shadow;
 }
 
 // Skills Legend
@@ -25,24 +19,21 @@ $medium-gray: #6b7280;
 }
 
 .skill-item {
-  background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-  padding: 1.25rem;
-  margin-bottom: 1.25rem;
+  @include container-shadow;
+  margin-bottom: $spacer-4;
 }
 
 .skill-item h4 {
-  font-size: 1.125rem;
-  font-weight: 600;
-  color: $secondary-color;
-  margin-bottom: 0.5rem;
+  font-size: $font-size-lg;
+  font-weight: $font-weight-semibold;
+  color: $text-primary;
+  margin-bottom: $spacer-2;
 }
 
 .skill-item p {
-  color: $medium-gray;
-  font-size: 0.875rem;
-  margin-bottom: 0.75rem;
+  color: $text-muted;
+  font-size: $font-size-sm;
+  margin-bottom: $spacer-3;
 }
 
 .skill-values {
@@ -52,12 +43,12 @@ $medium-gray: #6b7280;
 }
 
 .skill-value {
-  font-size: 0.875rem;
-  color: $medium-gray;
+  font-size: $font-size-sm;
+  color: $text-muted;
 
   strong {
-    color: $primary-color;
-    font-weight: 600;
+    color: $primary;
+    font-weight: $font-weight-semibold;
   }
 }
 
@@ -69,14 +60,14 @@ $medium-gray: #6b7280;
 }
 
 .skill-meter-value {
-  font-size: 1rem;
-  font-weight: 600;
-  color: $primary-color;
+  font-size: $font-size-base;
+  font-weight: $font-weight-semibold;
+  color: $primary;
 }
 
 .skill-meter-label {
   font-size: 0.7rem;
-  color: $medium-gray;
+  color: $text-muted;
 }
 
 // Knowledge Radar Chart
@@ -85,10 +76,7 @@ $medium-gray: #6b7280;
   margin: 0 auto;
   max-width: 800px;
   position: relative;
-  background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-  padding: 1.5rem;
+  @include container-shadow;
 }
 
 // Knowledge Legend
@@ -97,24 +85,21 @@ $medium-gray: #6b7280;
 }
 
 .knowledge-item {
-  background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-  padding: 1.25rem;
-  margin-bottom: 1.25rem;
+  @include container-shadow;
+  margin-bottom: $spacer-4;
 }
 
 .knowledge-item h4 {
-  font-size: 1.125rem;
-  font-weight: 600;
-  color: $secondary-color;
-  margin-bottom: 0.5rem;
+  font-size: $font-size-lg;
+  font-weight: $font-weight-semibold;
+  color: $text-primary;
+  margin-bottom: $spacer-2;
 }
 
 .knowledge-item p {
-  color: $medium-gray;
-  font-size: 0.875rem;
-  margin-bottom: 0.75rem;
+  color: $text-muted;
+  font-size: $font-size-sm;
+  margin-bottom: $spacer-3;
 }
 
 .knowledge-values {
@@ -124,12 +109,12 @@ $medium-gray: #6b7280;
 }
 
 .knowledge-value {
-  font-size: 0.875rem;
-  color: $medium-gray;
+  font-size: $font-size-sm;
+  color: $text-muted;
 
   strong {
-    color: $primary-color;
-    font-weight: 600;
+    color: $primary;
+    font-weight: $font-weight-semibold;
   }
 }
 
@@ -141,25 +126,22 @@ $medium-gray: #6b7280;
 }
 
 .knowledge-card {
-  background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-  padding: 1.5rem;
+  @include container-shadow;
 }
 
 .knowledge-header {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  margin-bottom: 1rem;
+  margin-bottom: $spacer;
   flex-wrap: wrap;
 }
 
 .knowledge-header h4 {
-  font-size: 1.125rem;
-  font-weight: 600;
-  color: $secondary-color;
-  margin-bottom: 0.5rem;
+  font-size: $font-size-lg;
+  font-weight: $font-weight-semibold;
+  color: $text-primary;
+  margin-bottom: $spacer-2;
   flex: 1;
   min-width: 200px;
 }
@@ -183,16 +165,16 @@ $medium-gray: #6b7280;
 
 .knowledge-meter-bar {
   height: 8px;
-  background-color: $light-gray;
-  border-radius: 4px;
+  background-color: $gray-200;
+  border-radius: $border-radius-sm;
   overflow: hidden;
-  margin-bottom: 0.25rem;
+  margin-bottom: $spacer-1;
 }
 
 .knowledge-meter-fill {
   height: 100%;
-  background-color: $primary-color;
-  border-radius: 4px;
+  background-color: $primary;
+  border-radius: $border-radius-sm;
 }
 
 .knowledge-meter-labels {
@@ -202,16 +184,16 @@ $medium-gray: #6b7280;
 }
 
 .knowledge-meter-label {
-  color: $medium-gray;
+  color: $text-muted;
 }
 
 .knowledge-meter-value {
-  font-weight: 600;
-  color: $primary-color;
+  font-weight: $font-weight-semibold;
+  color: $primary;
 }
 
 .knowledge-content p {
-  color: $medium-gray;
-  font-size: 0.875rem;
+  color: $text-muted;
+  font-size: $font-size-sm;
   margin-bottom: 0;
 }
