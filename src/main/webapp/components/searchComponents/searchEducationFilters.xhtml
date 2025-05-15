@@ -12,8 +12,8 @@
         <p:accordionPanel activeIndex="0">
             <p:tab title="Education Options:">
                 <div class="mb-3">
-                    <h6 class="mb-2">Preparation:</h6>
-                    <p:selectOneMenu styleClass="form-select">
+                    <label for="educationSelect" class="form-label mb-2">Preparation:</label>
+                    <p:selectOneMenu id="educationSelect" styleClass="form-select">
                         <f:selectItem itemLabel="Select One" itemValue="" />
                         <f:selectItem itemLabel="High School" itemValue="highschool" />
                         <f:selectItem itemLabel="Some College" itemValue="somecollege" />
@@ -25,7 +25,7 @@
                 </div>
 
                 <div class="mb-3">
-                    <h6 class="mb-2">Cluster:</h6>
+                    <label class="form-label mb-2">Cluster:</label>
                     <div class="form-check mb-2">
                         <p:selectBooleanCheckbox id="eduCluster1" styleClass="form-check-input" />
                         <p:outputLabel for="eduCluster1" value="Arts and Humanities" styleClass="form-check-label ms-2" />
@@ -45,7 +45,7 @@
                 </div>
 
                 <div class="mb-3">
-                    <h6 class="mb-2">STEM Discipline:</h6>
+                    <label class="form-label mb-2">STEM Discipline:</label>
                     <div class="form-check mb-2">
                         <p:selectBooleanCheckbox id="stem1" styleClass="form-check-input" />
                         <p:outputLabel for="stem1" value="Architecture and Engineering" styleClass="form-check-label ms-2" />

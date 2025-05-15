@@ -1,80 +1,9 @@
-// Main Search Components Styles
-// All search-related styles consolidated into one file
+// Search Components - PrimeFaces Integration
+// Minimal styles for PrimeFaces components and search-specific styling
 
 @import "../variables";
 
-// Common styles for the search page
-.bs-occupation-search {
-  font-family: $font-family-base;
-  // Use Bootstrap classes: .font-family-base
-
-  // Fix for PrimeFaces components inside Bootstrap
-  .ui-slider {
-    width: 100%;
-  }
-
-  .ui-button {
-    margin: 0;
-  }
-}
-
-// Banner styles
-.bs-banner {
-  background-color: $banner-bg;
-  padding: $spacer-5 $spacer;
-  margin-bottom: $spacer-4;
-  text-align: center;
-  border-radius: $border-radius;
-  // Use Bootstrap classes: .bg-light .py-5 .px-3 .mb-4 .text-center .rounded
-}
-
-.bs-main-title {
-  font-size: $font-size-4xl;
-  font-weight: $font-weight-bold;
-  color: $text-primary;
-  margin-bottom: $spacer;
-  // Use Bootstrap classes: .display-4 .fw-bold .text-dark .mb-3
-}
-
-.bs-description {
-  font-size: $font-size-lg;
-  max-width: 800px;
-  margin: 0 auto $spacer-4;
-  color: $text-secondary;
-  // Use Bootstrap classes: .fs-5 .mx-auto .mb-4 .text-secondary
-}
-
-.bs-search-container {
-  max-width: 600px;
-  margin: 0 auto $spacer;
-  // Use Bootstrap classes: .mx-auto .mb-3
-}
-
-.bs-search-input {
-  border-radius: $border-radius;
-  padding-left: $spacer;
-  height: calc(2.5rem + 2px);
-  font-size: $font-size-base;
-  box-shadow: $box-shadow;
-  // Use Bootstrap classes: .form-control .rounded .ps-3 .shadow
-}
-
-.bs-search-button {
-  border-radius: $border-radius;
-  height: calc(2.5rem + 2px);
-  font-weight: $font-weight-semibold;
-  background-color: $primary;
-  border-color: $primary;
-  color: #fff;
-  // Use Bootstrap classes: .btn .btn-primary .rounded .fw-semibold
-
-  &:hover, &:focus {
-    background-color: $primary-hover;
-    border-color: $primary-hover;
-  }
-}
-
-// Fix for PrimeFaces search button
+// PrimeFaces button fixes
 .search-button {
   display: flex !important;
   align-items: center !important;
@@ -92,7 +21,7 @@
   }
 }
 
-// Search input and button container styles
+// Input group styling for search
 .row.g-0 {
   .form-control {
     height: 48px;
@@ -106,115 +35,4 @@
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
   }
-}
-
-// Filter card styles
-.bs-filter-card {
-  background-color: #fff;
-  border-radius: $border-radius-lg;
-  box-shadow: $box-shadow;
-  border: none;
-  margin-bottom: $spacer-4;
-  // Use Bootstrap classes: .card .bg-white .rounded-lg .shadow .border-0 .mb-4
-}
-
-.bs-filter-header {
-  background-color: $light;
-  border-bottom: 1px solid $border-color;
-  padding: $spacer $spacer-4;
-  font-weight: $font-weight-semibold;
-  font-size: $font-size-lg;
-  color: $gray-700;
-  // Use Bootstrap classes: .card-header .bg-light .border-bottom .p-3 .fw-semibold .fs-5 .text-gray-700
-}
-
-// Range slider styles
-.bs-range-slider {
-  padding: $spacer-4 $spacer-2 $spacer-2 $spacer-2;
-  // Use Bootstrap classes: .p-4 .pb-2 .px-2
-}
-
-// Result card styles
-.bs-result-card {
-  background-color: #fff;
-  border-radius: $border-radius-lg;
-  box-shadow: $box-shadow;
-  border: none;
-  margin-bottom: $spacer-4;
-  // Use Bootstrap classes: .card .bg-white .rounded-lg .shadow .border-0 .mb-4
-}
-
-.bs-occupation-title {
-  color: $primary;
-  font-weight: $font-weight-semibold;
-  font-size: $font-size-xl;
-  margin-bottom: $spacer-2;
-  // Use Bootstrap classes: .text-primary .fw-semibold .fs-4 .mb-2
-}
-
-.bs-occupation-category {
-  color: $text-muted;
-  font-size: $font-size-sm;
-  margin-bottom: $spacer-3;
-  // Use Bootstrap classes: .text-muted .small .mb-3
-}
-
-.bs-occupation-description {
-  color: $text-secondary;
-  margin-bottom: $spacer;
-  // Use Bootstrap classes: .text-secondary .mb-3
-}
-
-// Badge styles
-.bs-badge {
-  display: inline-block;
-  font-size: 0.75rem;
-  font-weight: $font-weight-medium;
-  padding: 0.25rem 0.75rem;
-  margin-right: $spacer-2;
-  margin-bottom: $spacer-2;
-  border-radius: $border-radius-pill;
-  background-color: $gray-200;
-  color: $text-secondary;
-  // Use Bootstrap classes: .badge .bg-light .text-secondary .me-2 .mb-2
-}
-
-// Info row styles
-.bs-info-row {
-  margin-bottom: $spacer;
-  // Use Bootstrap classes: .mb-3
-}
-
-.bs-info-item {
-  margin-right: $spacer-4;
-  margin-bottom: $spacer-2;
-  display: inline-block;
-  // Use Bootstrap classes: .me-4 .mb-2 .d-inline-block
-}
-
-.bs-info-label {
-  font-weight: $font-weight-semibold;
-  color: $text-secondary;
-  margin-right: $spacer-2;
-  // Use Bootstrap classes: .fw-semibold .text-secondary .me-2
-}
-
-.bs-info-value {
-  color: $text-muted;
-  // Use Bootstrap classes: .text-muted
-}
-
-// Pagination styles
-.bs-pagination {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: $spacer-5;
-  // Use Bootstrap classes: .d-flex .justify-content-center .align-items-center .mt-5
-}
-
-.bs-page-info {
-  margin: 0 $spacer;
-  color: $text-muted;
-  // Use Bootstrap classes: .mx-3 .text-muted
 }
