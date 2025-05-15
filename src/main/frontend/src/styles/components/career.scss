@@ -1,7 +1,213 @@
 // Main Career Components Styles
-// This file imports all career-related styles
+// All career-related styles consolidated into one file
 
 @import "../variables";
 
-@import "career/career";
-@import "career/skills";
+// Section title styles
+.section-title {
+  font-size: $font-size-2xl;
+  font-weight: $font-weight-semibold;
+  color: $primary;
+  margin-bottom: $spacer;
+  padding-bottom: $spacer-2;
+  border-bottom: 1px solid $gray-200;
+  // Use Bootstrap classes: .fs-4 .fw-semibold .text-primary .mb-3 .pb-2 .border-bottom
+}
+
+// Career Sections
+.career-section {
+  margin-bottom: $spacer-4;
+  // Use Bootstrap classes: .card .shadow-sm .mb-4
+}
+
+.career-section-title {
+  color: $primary;
+  // Use Bootstrap classes: .fs-2 .fw-semibold .text-primary .mb-3 .pb-2 .border-bottom
+}
+
+// Info items styles
+.info-item {
+  margin-right: $spacer-4;
+  margin-bottom: $spacer-2;
+  display: inline-block;
+  // Use Bootstrap classes: .me-4 .mb-2 .d-inline-block
+}
+
+.info-label {
+  font-weight: $font-weight-semibold;
+  color: $text-secondary;
+  margin-right: $spacer-2;
+  // Use Bootstrap classes: .fw-semibold .text-secondary .me-2
+}
+
+.info-value {
+  color: $text-muted;
+  // Use Bootstrap classes: .text-muted
+}
+
+// Career Navigation
+.career-nav {
+  position: sticky;
+  top: 20px;
+  // Use Bootstrap classes: .bg-light .rounded .shadow-sm .position-sticky .top-0 .p-3
+}
+
+.career-nav-title {
+  color: $primary;
+  // Use Bootstrap classes: .fw-semibold .text-primary .border-bottom .pb-2
+}
+
+.career-nav-link {
+  color: $text-secondary;
+  text-decoration: none;
+  transition: background-color 0.2s, color 0.2s;
+  // Use Bootstrap classes: .rounded .d-block .p-2
+
+  &:hover {
+    background-color: rgba($primary, 0.1);
+    color: $primary;
+  }
+
+  &.active {
+    background-color: rgba($primary, 0.1);
+    color: $primary;
+    font-weight: $font-weight-medium;
+  }
+}
+
+.career-list-item-title {
+  color: $text-primary;
+  // Use Bootstrap classes: .fw-semibold .mb-1
+}
+
+.bright-outlook {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: $font-weight-semibold;
+  padding: $spacer-1 $spacer-2;
+  border-radius: $border-radius-sm;
+  margin-left: $spacer-2;
+  vertical-align: middle;
+  // Use Bootstrap classes: .badge .bg-success .text-white
+}
+
+.tag-primary {
+  background-color: rgba($primary, 0.1);
+  color: $primary;
+  // Use Bootstrap classes: .badge .bg-opacity-10 .bg-primary .text-primary
+}
+
+// Skills Radar Chart
+.skills-radar-container {
+  height: 400px;
+  max-width: 800px;
+  position: relative;
+  // Use Bootstrap classes: .bg-white .p-3 .rounded .shadow-sm
+}
+
+.skill-value strong {
+  font-weight: $font-weight-semibold;
+  // Use Bootstrap classes: .text-primary
+}
+
+// Legacy styles for backward compatibility
+.skill-chart-container {
+  height: 200px;
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.skill-meter-value {
+  font-weight: $font-weight-semibold;
+  color: $primary;
+  // Use Bootstrap classes: .fw-semibold .text-primary
+}
+
+.skill-meter-label {
+  font-size: 0.7rem;
+  color: $text-muted;
+  // Use Bootstrap classes: .small .text-muted
+}
+
+// Knowledge Radar Chart
+.knowledge-radar-container {
+  height: 400px;
+  max-width: 800px;
+  position: relative;
+  // Use Bootstrap classes: .bg-white .p-3 .rounded .shadow-sm
+}
+
+.knowledge-value strong {
+  font-weight: $font-weight-semibold;
+  // Use Bootstrap classes: .text-primary
+}
+
+// Legacy styles for backward compatibility
+.knowledge-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  // Use Bootstrap classes: .d-flex .flex-column .gap-3
+}
+
+.knowledge-header h4 {
+  flex: 1;
+  min-width: 200px;
+  // Use Bootstrap classes: .fs-5 .fw-semibold .text-dark .mb-2
+}
+
+.knowledge-chart-container {
+  height: 200px;
+  margin-bottom: 1rem;
+  position: relative;
+  flex: 2;
+  min-width: 300px;
+}
+
+.knowledge-meters {
+  flex: 2;
+  min-width: 300px;
+}
+
+.knowledge-meter {
+  margin-bottom: 0.5rem;
+}
+
+.knowledge-meter-bar {
+  height: 8px;
+  background-color: $gray-200;
+  border-radius: $border-radius-sm;
+  overflow: hidden;
+  margin-bottom: $spacer-1;
+}
+
+.knowledge-meter-fill {
+  height: 100%;
+  background-color: $primary;
+  border-radius: $border-radius-sm;
+}
+
+.knowledge-meter-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  // Use Bootstrap classes: .d-flex .justify-content-between .small
+}
+
+.knowledge-meter-label {
+  color: $text-muted;
+  // Use Bootstrap classes: .text-muted
+}
+
+.knowledge-meter-value {
+  font-weight: $font-weight-semibold;
+  color: $primary;
+  // Use Bootstrap classes: .fw-semibold .text-primary
+}
+
+.knowledge-content p {
+  color: $text-muted;
+  font-size: $font-size-sm;
+  margin-bottom: 0;
+  // Use Bootstrap classes: .text-muted .small .mb-0
+}

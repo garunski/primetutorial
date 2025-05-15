@@ -42,9 +42,8 @@
 
 // 7. Add additional custom code here
 
-// Import component styles directly
-// Note: Removed imports of _mixins.scss and _common.scss as their contents
-// have been moved to the appropriate component files
+// Import consolidated component styles
+// Each component file now contains all related styles in one place
 @import "components/career";
 @import "components/search";
 
