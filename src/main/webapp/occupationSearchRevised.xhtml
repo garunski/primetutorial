@@ -9,23 +9,21 @@
     <ui:define name="title">CareerZone - Occupation Search</ui:define>
 
     <ui:define name="content">
-        <div class="bs-occupation-search">
-            <h:form>
-                <!-- Banner Section with Search -->
-                <ui:include src="/components/searchComponents/searchBanner.xhtml" />
+        <h:form>
+            <!-- Banner Section with Search -->
+            <ui:include src="/components/searchComponents/searchBanner.xhtml" />
 
-                <!-- Main Content -->
-                <div class="container">
-                    <div class="row">
-                        <!-- Filters Sidebar -->
-                        <ui:include src="/components/searchComponents/searchFilters.xhtml" />
+            <!-- Main Content -->
+            <div class="container">
+                <div class="row">
+                    <!-- Filters Sidebar -->
+                    <ui:include src="/components/searchComponents/searchFilters.xhtml" />
 
-                        <!-- Results Section -->
-                        <ui:include src="/components/searchComponents/searchResults.xhtml" />
-                    </div>
+                    <!-- Results Section -->
+                    <ui:include src="/components/searchComponents/searchResults.xhtml" />
                 </div>
-            </h:form>
-        </div>
+            </div>
+        </h:form>
     </ui:define>
 </ui:composition>
 </html>

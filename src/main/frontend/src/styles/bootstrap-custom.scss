@@ -51,16 +51,9 @@
 @import "components/search";
 
 // Add a prefix to Bootstrap classes to avoid conflicts with Foundation
+// Note: Most bs- prefixed classes have been replaced with native Bootstrap classes
+// This section is kept for backward compatibility with any remaining bs- classes
 .bs {
-  // Use Bootstrap's grid system with a prefix
-  &-row {
-    @extend .row;
-  }
-
-  &-col {
-    @extend .col;
-  }
-
   &-btn {
     @extend .btn;
 
@@ -72,9 +65,4 @@
       @extend .btn-secondary;
     }
   }
-
-  &-card {
-    @extend .card;
-  }
-
 }

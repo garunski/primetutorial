@@ -9,8 +9,8 @@
 <ui:composition>
     <!-- Filters Sidebar -->
     <div class="col-12 col-lg-4 mb-4">
-        <div class="card bs-filter-card">
-            <div class="card-header bs-filter-header">
+        <div class="card shadow-sm">
+            <div class="card-header bg-light border-bottom">
                 <i class="pi pi-filter me-2"></i>Filter Results
             </div>
             <div class="card-body">
@@ -25,7 +25,7 @@
                 <!-- Other Options Section -->
                 <ui:include src="/components/searchComponents/searchOtherFilters.xhtml" />
 
-                <div style="margin-top: 1.5rem; text-align: center;">
+                <div class="mt-4 text-center">
                     <p:commandButton value="Search" styleClass="btn btn-primary" />
                 </div>
             </div>
