@@ -9,108 +9,59 @@
 <ui:composition>
     <!-- Results Section -->
     <div class="col-12 col-lg-8">
+
+        <!-- No Results Message -->
+        <h:panelGroup layout="block" styleClass="alert alert-warning" rendered="#{empty jobService.filteredJobs}">
+            <h5 class="alert-heading">No Results Found</h5>
+            <p class="mb-0">Try adjusting your search criteria or browse all jobs.</p>
+            <div class="mt-3">
+                <h:link outcome="occupationSearchRevised" styleClass="btn btn-outline-primary btn-sm">
+                    View All Jobs
+                </h:link>
+            </div>
+        </h:panelGroup>
+
         <!-- Result Cards -->
-        <div class="card shadow-sm mb-4">
-            <div class="card-body">
-                <h3 class="text-primary fw-semibold fs-4 mb-2">Software Developer</h3>
-                <div class="text-muted small mb-3">Technology | Computer Science</div>
+        <ui:repeat value="#{jobService.filteredJobs}" var="job">
+            <div class="card shadow-sm mb-4">
+                <div class="card-body">
+                    <h3 class="text-primary fw-semibold fs-4 mb-2">#{job.title}</h3>
+                    <div class="text-muted small mb-3">#{job.category}</div>
 
-                <div class="text-secondary mb-3">
-                    <p>Design, develop, and test software applications for computers, mobile devices, and other electronic systems. Create code using various programming languages and frameworks.</p>
-                </div>
-
-                <div class="mb-3">
-                    <div class="d-inline-block me-4 mb-2">
-                        <span class="fw-semibold text-secondary me-2">Average Salary:</span>
-                        <span class="text-muted">$105,000 - $150,000</span>
+                    <div class="text-secondary mb-3">
+                        <p>#{job.description}</p>
                     </div>
-                    <div class="d-inline-block me-4 mb-2">
-                        <span class="fw-semibold text-secondary me-2">Education Required:</span>
-                        <span class="text-muted">Bachelor's Degree</span>
+
+                    <div class="mb-3">
+                        <div class="d-inline-block me-4 mb-2">
+                            <span class="fw-semibold text-secondary me-2">Average Salary:</span>
+                            <span class="text-muted">#{job.salaryRange}</span>
+                        </div>
+                        <div class="d-inline-block me-4 mb-2">
+                            <span class="fw-semibold text-secondary me-2">Education Required:</span>
+                            <span class="text-muted">#{job.educationRequired}</span>
+                        </div>
                     </div>
-                </div>
 
-                <div class="mb-3">
-                    <span class="badge bg-light text-secondary me-2 mb-2">Programming</span>
-                    <span class="badge bg-light text-secondary me-2 mb-2">Problem Solving</span>
-                    <span class="badge bg-light text-secondary me-2 mb-2">Project Management</span>
-                    <span class="badge bg-light text-secondary me-2 mb-2">Communication</span>
-                </div>
+                    <div class="mb-3">
+                        <ui:repeat value="#{job.skills}" var="skill">
+                            <span class="badge bg-light text-secondary me-2 mb-2">#{skill}</span>
+                        </ui:repeat>
+                    </div>
 
-                <div class="text-end">
-                    <p:button value="View Details" outcome="careerDetails" styleClass="btn btn-primary btn-sm" />
+                    <div class="text-end">
+                        <p:button value="View Details" outcome="careerDetails" styleClass="btn btn-primary btn-sm">
+                            <f:param name="jobId" value="#{job.id}" />
+                        </p:button>
+                    </div>
                 </div>
             </div>
-        </div>
+        </ui:repeat>
 
-        <div class="card shadow-sm mb-4">
-            <div class="card-body">
-                <h3 class="text-primary fw-semibold fs-4 mb-2">Registered Nurse</h3>
-                <div class="text-muted small mb-3">Healthcare | Nursing</div>
-
-                <div class="text-secondary mb-3">
-                    <p>Provide and coordinate patient care, educate patients about various health conditions, and provide advice and emotional support to patients and their family members.</p>
-                </div>
-
-                <div class="mb-3">
-                    <div class="d-inline-block me-4 mb-2">
-                        <span class="fw-semibold text-secondary me-2">Average Salary:</span>
-                        <span class="text-muted">$75,000 - $110,000</span>
-                    </div>
-                    <div class="d-inline-block me-4 mb-2">
-                        <span class="fw-semibold text-secondary me-2">Education Required:</span>
-                        <span class="text-muted">Associate's or Bachelor's Degree</span>
-                    </div>
-                </div>
-
-                <div class="mb-3">
-                    <span class="badge bg-light text-secondary me-2 mb-2">Patient Care</span>
-                    <span class="badge bg-light text-secondary me-2 mb-2">Medical Knowledge</span>
-                    <span class="badge bg-light text-secondary me-2 mb-2">Communication</span>
-                    <span class="badge bg-light text-secondary me-2 mb-2">Critical Thinking</span>
-                </div>
-
-                <div class="text-end">
-                    <p:button value="View Details" outcome="careerDetails" styleClass="btn btn-primary btn-sm" />
-                </div>
-            </div>
-        </div>
-
-        <div class="card shadow-sm mb-4">
-            <div class="card-body">
-                <h3 class="text-primary fw-semibold fs-4 mb-2">Financial Analyst</h3>
-                <div class="text-muted small mb-3">Business &amp; Finance | Economics</div>
-
-                <div class="text-secondary mb-3">
-                    <p>Analyze financial data to guide business decisions. Assess the performance of stocks, bonds, and other types of investments. Prepare reports and recommendations.</p>
-                </div>
-
-                <div class="mb-3">
-                    <div class="d-inline-block me-4 mb-2">
-                        <span class="fw-semibold text-secondary me-2">Average Salary:</span>
-                        <span class="text-muted">$80,000 - $120,000</span>
-                    </div>
-                    <div class="d-inline-block me-4 mb-2">
-                        <span class="fw-semibold text-secondary me-2">Education Required:</span>
-                        <span class="text-muted">Bachelor's Degree</span>
-                    </div>
-                </div>
-
-                <div class="mb-3">
-                    <span class="badge bg-light text-secondary me-2 mb-2">Financial Modeling</span>
-                    <span class="badge bg-light text-secondary me-2 mb-2">Data Analysis</span>
-                    <span class="badge bg-light text-secondary me-2 mb-2">Research</span>
-                    <span class="badge bg-light text-secondary me-2 mb-2">Reporting</span>
-                </div>
-
-                <div class="text-end">
-                    <p:button value="View Details" outcome="careerDetails" styleClass="btn btn-primary btn-sm" />
-                </div>
-            </div>
-        </div>
-
-        <!-- Pagination Component -->
-        <ui:include src="/components/searchComponents/searchPagination.xhtml" />
+        <!-- Pagination Component (only show if we have results) -->
+        <h:panelGroup layout="block" rendered="#{not empty jobService.filteredJobs}">
+            <ui:include src="/components/searchComponents/searchPagination.xhtml" />
+        </h:panelGroup>
     </div>
 </ui:composition>
 </html>

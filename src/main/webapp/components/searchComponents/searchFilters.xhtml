@@ -9,6 +9,26 @@
 <ui:composition>
     <!-- Filters Sidebar -->
     <div class="col-12 col-lg-4 mb-4">
+        <!-- Search Results Info Box -->
+        <div class="alert alert-info mb-4" role="alert">
+            <div class="d-flex justify-content-between align-items-start">
+                <div>
+                    <h5 class="alert-heading">Search Results</h5>
+                    <p class="mb-0">
+                        <h:outputText value="Showing all jobs" rendered="#{empty param['cluster'] and empty param['pathway']}" />
+                        <h:outputText value="Showing jobs in #{param['cluster']} cluster" rendered="#{not empty param['cluster'] and empty param['pathway']}" />
+                        <h:outputText value="Showing jobs in #{param['pathway']} pathway" rendered="#{not empty param['pathway']}" />
+                        <h:outputText value=" (#{jobService.filteredJobs.size()} results found)" />
+                    </p>
+                </div>
+                <h:link outcome="occupationSearchRevised"
+                        styleClass="btn btn-outline-primary btn-sm"
+                        rendered="#{not empty param['cluster'] or not empty param['pathway']}">
+                    <i class="bi bi-x-circle me-1"></i> Clear Filters
+                </h:link>
+            </div>
+        </div>
+
         <div class="card shadow-sm">
             <div class="card-header bg-light border-bottom">
                 <i class="pi pi-filter me-2"></i>Filter Results
