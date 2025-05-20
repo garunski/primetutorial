@@ -16,13 +16,15 @@
             <div class="mx-auto mb-3 w-75" style="max-width: 600px;">
                 <div class="row g-0">
                     <div class="col-12 col-md-9">
-                        <p:inputText placeholder="Search occupations (e.g., Software Developer, Nurse, Teacher...)"
+                        <h:inputText id="searchInput"
                                      styleClass="form-control" />
+                        <h:outputScript>
+                            document.getElementById('searchInput').placeholder = 'Search occupations (e.g., Software Developer, Nurse, Teacher...)';
+                        </h:outputScript>
                     </div>
                     <div class="col-12 col-md-3">
-                        <p:commandButton value="Search"
-                                         styleClass="btn btn-primary search-button"
-                                         icon="pi pi-search" />
+                        <h:commandButton value="Search"
+                                         styleClass="btn btn-primary search-button" />
                     </div>
                 </div>
             </div>
