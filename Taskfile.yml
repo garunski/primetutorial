@@ -9,17 +9,17 @@ tasks:
   run:
     desc: Run PrimeFaces application with Mojarra (default)
     cmds:
-      - mvn clean jetty:run -Pmojarra40
+      - MAVEN_OPTS="--add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.base/java.io=ALL-UNNAMED --add-opens=java.base/java.util=ALL-UNNAMED --add-opens=java.base/java.util.concurrent=ALL-UNNAMED --add-opens=java.base/java.net=ALL-UNNAMED --add-opens=java.base/java.lang.reflect=ALL-UNNAMED --add-opens=java.desktop/java.awt.font=ALL-UNNAMED --add-opens=java.desktop/sun.awt=ALL-UNNAMED --add-opens=java.desktop/sun.java2d=ALL-UNNAMED --add-exports=java.base/sun.security.action=ALL-UNNAMED" mvn clean jetty:run -Pmojarra
 
   run:myfaces:
     desc: Run PrimeFaces application with MyFaces
     cmds:
-      - mvn clean jetty:run -Pmyfaces40
+      - MAVEN_OPTS="--add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.base/java.io=ALL-UNNAMED --add-opens=java.base/java.util=ALL-UNNAMED --add-opens=java.base/java.util.concurrent=ALL-UNNAMED --add-opens=java.base/java.net=ALL-UNNAMED --add-opens=java.base/java.lang.reflect=ALL-UNNAMED --add-opens=java.desktop/java.awt.font=ALL-UNNAMED --add-opens=java.desktop/sun.awt=ALL-UNNAMED --add-opens=java.desktop/sun.java2d=ALL-UNNAMED --add-exports=java.base/sun.security.action=ALL-UNNAMED" mvn clean jetty:run -Pmyfaces
 
   run:custom-port:
     desc: Run PrimeFaces application on custom port
     cmds:
-      - mvn clean jetty:run -Djetty.port={{.PORT}}
+      - MAVEN_OPTS="--add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.base/java.io=ALL-UNNAMED --add-opens=java.base/java.util=ALL-UNNAMED --add-opens=java.base/java.util.concurrent=ALL-UNNAMED --add-opens=java.base/java.net=ALL-UNNAMED --add-opens=java.base/java.lang.reflect=ALL-UNNAMED --add-opens=java.desktop/java.awt.font=ALL-UNNAMED --add-opens=java.desktop/sun.awt=ALL-UNNAMED --add-opens=java.desktop/sun.java2d=ALL-UNNAMED --add-exports=java.base/sun.security.action=ALL-UNNAMED" mvn clean jetty:run -Djetty.port={{.PORT}}
     vars:
       PORT: '{{default "5000" .PORT}}'
 
@@ -36,4 +36,4 @@ tasks:
   deps:
     desc: Show project dependencies
     cmds:
-      - mvn dependency:tree 
+      - mvn dependency:tree

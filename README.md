@@ -11,11 +11,11 @@ You can execute the sample with <strong>mvn jetty:run</strong> command and hit <
 ### Jakarta EE10 Version
 ***
 
-PrimeFaces Test is setup to run again Jakarta EE10 profile using Jetty 12. You can also use other versions with the available maven profiles: mojarra40, myfaces40
+PrimeFaces Test is setup to run with the available maven profiles: mojarra, myfaces
 
-`mvn clean jetty:run -Pmojarra40`
+`mvn clean jetty:run -Pmojarra`
 
-`mvn clean jetty:run -Pmyfaces40`
+`mvn clean jetty:run -Pmyfaces`
 
 ### Server Port
 ***
