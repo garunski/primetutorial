@@ -44,11 +44,17 @@
                     <h:outputText value=" (#{jobService.filteredJobs.size()} results found)" />
                 </p>
             </div>
-            <h:link outcome="occupationSearchRevised"
-                    styleClass="btn btn-outline-primary btn-sm"
-                    rendered="#{not empty param['cluster'] or not empty param['pathway'] or not empty param['education'] or not empty param['artsHumanities'] or not empty param['businessInfoSystems'] or not empty param['engineeringTech'] or not empty param['healthServices'] or not empty param['architectureEngineering'] or not empty param['computerMathematical'] or not empty param['healthcarePractitioners'] or not empty param['lifeSocialScience']}">
-                <i class="bi bi-x-circle me-1"></i> Clear Filters
-            </h:link>
+            <div>
+                <h:commandButton value="Save Search"
+                               styleClass="btn btn-primary btn-sm me-2"
+                               rendered="#{not empty param['cluster'] or not empty param['pathway'] or not empty param['education'] or not empty param['artsHumanities'] or not empty param['businessInfoSystems'] or not empty param['engineeringTech'] or not empty param['healthServices'] or not empty param['architectureEngineering'] or not empty param['computerMathematical'] or not empty param['healthcarePractitioners'] or not empty param['lifeSocialScience']}" />
+
+                <h:link outcome="occupationSearchRevised"
+                      styleClass="btn btn-outline-primary btn-sm"
+                      rendered="#{not empty param['cluster'] or not empty param['pathway'] or not empty param['education'] or not empty param['artsHumanities'] or not empty param['businessInfoSystems'] or not empty param['engineeringTech'] or not empty param['healthServices'] or not empty param['architectureEngineering'] or not empty param['computerMathematical'] or not empty param['healthcarePractitioners'] or not empty param['lifeSocialScience']}">
+                    <i class="bi bi-x-circle me-1"></i> Clear Filters
+                </h:link>
+            </div>
         </div>
     </div>
 </ui:composition>
