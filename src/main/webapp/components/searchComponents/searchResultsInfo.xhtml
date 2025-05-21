@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+<ui:composition>
+    <!-- Search Results Info Box -->
+    <div class="alert alert-info mb-4" role="alert">
+        <div class="d-flex justify-content-between align-items-start">
+            <div>
+                <h5 class="alert-heading">Search Results</h5>
+                <p class="mb-0">
+                    <h:outputText value="Showing all jobs" rendered="#{empty param['cluster'] and empty param['pathway'] and empty param['education'] and empty param['artsHumanities'] and empty param['businessInfoSystems'] and empty param['engineeringTech'] and empty param['healthServices'] and empty param['architectureEngineering'] and empty param['computerMathematical'] and empty param['healthcarePractitioners'] and empty param['lifeSocialScience']}" />
+
+                    <!-- Career filters -->
+                    <h:outputText value="Showing jobs in #{param['cluster']} cluster" rendered="#{not empty param['cluster'] and empty param['pathway']}" />
+                    <h:outputText value="Showing jobs in #{param['pathway']} pathway" rendered="#{not empty param['pathway']}" />
+
+                    <!-- Education level -->
+                    <h:outputText value="Showing jobs with #{param['education']} education"
+                                  rendered="#{not empty param['education'] and empty param['cluster'] and empty param['pathway']}" />
+                    <h:outputText value=" and #{param['education']} education"
+                                  rendered="#{not empty param['education'] and (not empty param['cluster'] or not empty param['pathway'])}" />
+
+                    <!-- Education clusters -->
+                    <h:outputText value="Showing jobs in education clusters: "
+                                  rendered="#{(empty param['cluster'] and empty param['pathway'] and empty param['education']) and (not empty param['artsHumanities'] or not empty param['businessInfoSystems'] or not empty param['engineeringTech'] or not empty param['healthServices'])}" />
+                    <h:outputText value="Arts &amp; Humanities " rendered="#{not empty param['artsHumanities']}" />
+                    <h:outputText value="Business &amp; Info Systems " rendered="#{not empty param['businessInfoSystems']}" />
+                    <h:outputText value="Engineering &amp; Tech " rendered="#{not empty param['engineeringTech']}" />
+                    <h:outputText value="Health Services " rendered="#{not empty param['healthServices']}" />
+
+                    <!-- STEM disciplines -->
+                    <h:outputText value="Showing jobs in STEM disciplines: "
+                                  rendered="#{(empty param['cluster'] and empty param['pathway'] and empty param['education'] and empty param['artsHumanities'] and empty param['businessInfoSystems'] and empty param['engineeringTech'] and empty param['healthServices']) and (not empty param['architectureEngineering'] or not empty param['computerMathematical'] or not empty param['healthcarePractitioners'] or not empty param['lifeSocialScience'])}" />
+                    <h:outputText value="Architecture &amp; Engineering " rendered="#{not empty param['architectureEngineering']}" />
+                    <h:outputText value="Computer &amp; Mathematical " rendered="#{not empty param['computerMathematical']}" />
+                    <h:outputText value="Healthcare Practitioners " rendered="#{not empty param['healthcarePractitioners']}" />
+                    <h:outputText value="Life &amp; Social Science " rendered="#{not empty param['lifeSocialScience']}" />
+
+                    <h:outputText value=" (#{jobService.filteredJobs.size()} results found)" />
+                </p>
+            </div>
+            <h:link outcome="occupationSearchRevised"
+                    styleClass="btn btn-outline-primary btn-sm"
+                    rendered="#{not empty param['cluster'] or not empty param['pathway'] or not empty param['education'] or not empty param['artsHumanities'] or not empty param['businessInfoSystems'] or not empty param['engineeringTech'] or not empty param['healthServices'] or not empty param['architectureEngineering'] or not empty param['computerMathematical'] or not empty param['healthcarePractitioners'] or not empty param['lifeSocialScience']}">
+                <i class="bi bi-x-circle me-1"></i> Clear Filters
+            </h:link>
+        </div>
+    </div>
+</ui:composition>
+</html>
