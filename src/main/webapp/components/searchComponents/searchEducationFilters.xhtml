@@ -13,7 +13,10 @@
 
         <div class="mb-3">
             <label for="educationSelect" class="form-label mb-2">Preparation:</label>
-            <h:selectOneMenu id="educationSelect" styleClass="form-select">
+            <h:selectOneMenu id="educationSelect"
+                             value="#{searchFilterBean.educationLevel}"
+                             styleClass="form-select"
+                             onchange="applyFilter('education', this.value)">
                 <f:selectItem itemLabel="Select One" itemValue="" />
                 <f:selectItem itemLabel="High School" itemValue="highschool" />
                 <f:selectItem itemLabel="Some College" itemValue="somecollege" />
@@ -27,19 +30,31 @@
         <div class="mb-3">
             <label class="form-label mb-2">Cluster:</label>
             <div class="form-check mb-2">
-                <h:selectBooleanCheckbox id="eduCluster1" styleClass="form-check-input" />
+                <h:selectBooleanCheckbox id="eduCluster1"
+                                         value="#{searchFilterBean.artsHumanities}"
+                                         styleClass="form-check-input"
+                                         onchange="applyFilter('artsHumanities', this.checked)" />
                 <h:outputLabel for="eduCluster1" value="Arts and Humanities" styleClass="form-check-label ms-2" />
             </div>
             <div class="form-check mb-2">
-                <h:selectBooleanCheckbox id="eduCluster2" styleClass="form-check-input" />
+                <h:selectBooleanCheckbox id="eduCluster2"
+                                         value="#{searchFilterBean.businessInfoSystems}"
+                                         styleClass="form-check-input"
+                                         onchange="applyFilter('businessInfoSystems', this.checked)" />
                 <h:outputLabel for="eduCluster2" value="Business and Information Systems" styleClass="form-check-label ms-2" />
             </div>
             <div class="form-check mb-2">
-                <h:selectBooleanCheckbox id="eduCluster3" styleClass="form-check-input" />
+                <h:selectBooleanCheckbox id="eduCluster3"
+                                         value="#{searchFilterBean.engineeringTech}"
+                                         styleClass="form-check-input"
+                                         onchange="applyFilter('engineeringTech', this.checked)" />
                 <h:outputLabel for="eduCluster3" value="Engineering and Technology" styleClass="form-check-label ms-2" />
             </div>
             <div class="form-check mb-2">
-                <h:selectBooleanCheckbox id="eduCluster4" styleClass="form-check-input" />
+                <h:selectBooleanCheckbox id="eduCluster4"
+                                         value="#{searchFilterBean.healthServices}"
+                                         styleClass="form-check-input"
+                                         onchange="applyFilter('healthServices', this.checked)" />
                 <h:outputLabel for="eduCluster4" value="Health Services" styleClass="form-check-label ms-2" />
             </div>
         </div>
@@ -47,19 +62,31 @@
         <div class="mb-3">
             <label class="form-label mb-2">STEM Discipline:</label>
             <div class="form-check mb-2">
-                <h:selectBooleanCheckbox id="stem1" styleClass="form-check-input" />
+                <h:selectBooleanCheckbox id="stem1"
+                                         value="#{searchFilterBean.architectureEngineering}"
+                                         styleClass="form-check-input"
+                                         onchange="applyFilter('architectureEngineering', this.checked)" />
                 <h:outputLabel for="stem1" value="Architecture and Engineering" styleClass="form-check-label ms-2" />
             </div>
             <div class="form-check mb-2">
-                <h:selectBooleanCheckbox id="stem2" styleClass="form-check-input" />
+                <h:selectBooleanCheckbox id="stem2"
+                                         value="#{searchFilterBean.computerMathematical}"
+                                         styleClass="form-check-input"
+                                         onchange="applyFilter('computerMathematical', this.checked)" />
                 <h:outputLabel for="stem2" value="Computer and Mathematical" styleClass="form-check-label ms-2" />
             </div>
             <div class="form-check mb-2">
-                <h:selectBooleanCheckbox id="stem3" styleClass="form-check-input" />
+                <h:selectBooleanCheckbox id="stem3"
+                                         value="#{searchFilterBean.healthcarePractitioners}"
+                                         styleClass="form-check-input"
+                                         onchange="applyFilter('healthcarePractitioners', this.checked)" />
                 <h:outputLabel for="stem3" value="Healthcare Practitioners and Technical" styleClass="form-check-label ms-2" />
             </div>
             <div class="form-check mb-2">
-                <h:selectBooleanCheckbox id="stem4" styleClass="form-check-input" />
+                <h:selectBooleanCheckbox id="stem4"
+                                         value="#{searchFilterBean.lifeSocialScience}"
+                                         styleClass="form-check-input"
+                                         onchange="applyFilter('lifeSocialScience', this.checked)" />
                 <h:outputLabel for="stem4" value="Life, Physical, and Social Science" styleClass="form-check-label ms-2" />
             </div>
         </div>

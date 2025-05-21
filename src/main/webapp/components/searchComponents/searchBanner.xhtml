@@ -17,10 +17,10 @@
                 <div class="row g-0">
                     <div class="col-12 col-md-9">
                         <h:inputText id="searchInput"
-                                     styleClass="form-control" />
-                        <h:outputScript>
-                            document.getElementById('searchInput').placeholder = 'Search occupations (e.g., Software Developer, Nurse, Teacher...)';
-                        </h:outputScript>
+                                     styleClass="form-control"
+                                     value="#{searchBean.searchQuery}">
+                            <f:passThroughAttribute name="placeholder" value="Search occupations (e.g., Software Developer, Nurse, Teacher...)" />
+                        </h:inputText>
                     </div>
                     <div class="col-12 col-md-3">
                         <h:commandButton value="Search"

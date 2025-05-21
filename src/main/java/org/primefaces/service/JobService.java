@@ -113,22 +113,116 @@ public class JobService implements Serializable {
         Map<String, String> params = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap();
         String clusterParam = params.get("cluster");
         String pathwayParam = params.get("pathway");
+        String educationParam = params.get("education");
 
-        if (clusterParam == null && pathwayParam == null) {
+        // Education cluster filters
+        boolean artsHumanities = "true".equals(params.get("artsHumanities"));
+        boolean businessInfoSystems = "true".equals(params.get("businessInfoSystems"));
+        boolean engineeringTech = "true".equals(params.get("engineeringTech"));
+        boolean healthServices = "true".equals(params.get("healthServices"));
+
+        // STEM discipline filters
+        boolean architectureEngineering = "true".equals(params.get("architectureEngineering"));
+        boolean computerMathematical = "true".equals(params.get("computerMathematical"));
+        boolean healthcarePractitioners = "true".equals(params.get("healthcarePractitioners"));
+        boolean lifeSocialScience = "true".equals(params.get("lifeSocialScience"));
+
+        // Check if any filters are applied
+        boolean hasFilters = clusterParam != null || pathwayParam != null ||
+                            (educationParam != null && !educationParam.isEmpty()) ||
+                            artsHumanities || businessInfoSystems || engineeringTech || healthServices ||
+                            architectureEngineering || computerMathematical ||
+                            healthcarePractitioners || lifeSocialScience;
+
+        if (!hasFilters) {
             return allJobs;
         }
 
         List<Job> result = allJobs;
 
+        // Apply career cluster filter
         if (clusterParam != null) {
             result = result.stream()
                     .filter(job -> job.getCluster().equals(clusterParam))
                     .collect(Collectors.toList());
         }
 
+        // Apply career pathway filter
         if (pathwayParam != null) {
             result = result.stream()
                     .filter(job -> job.getPathway().equals(pathwayParam))
+                    .collect(Collectors.toList());
+        }
+
+        // Apply education level filter
+        if (educationParam != null && !educationParam.isEmpty()) {
+            result = result.stream()
+                    .filter(job -> {
+                        String education = job.getEducationRequired().toLowerCase();
+                        switch (educationParam) {
+                            case "highschool":
+                                return education.contains("high school");
+                            case "somecollege":
+                                return education.contains("some college");
+                            case "associates":
+                                return education.contains("associate");
+                            case "bachelors":
+                                return education.contains("bachelor");
+                            case "masters":
+                                return education.contains("master");
+                            case "doctoral":
+                                return education.contains("doctoral") || education.contains("phd");
+                            default:
+                                return true;
+                        }
+                    })
+                    .collect(Collectors.toList());
+        }
+
+        // Apply education cluster filters
+        if (artsHumanities || businessInfoSystems || engineeringTech || healthServices) {
+            result = result.stream()
+                    .filter(job -> {
+                        String category = job.getCategory().toLowerCase();
+                        if (artsHumanities && (category.contains("art") || category.contains("humanities"))) {
+                            return true;
+                        }
+                        if (businessInfoSystems && (category.contains("business") || category.contains("information"))) {
+                            return true;
+                        }
+                        if (engineeringTech && (category.contains("engineering") || category.contains("technology"))) {
+                            return true;
+                        }
+                        if (healthServices && category.contains("health")) {
+                            return true;
+                        }
+                        return !(artsHumanities || businessInfoSystems || engineeringTech || healthServices);
+                    })
+                    .collect(Collectors.toList());
+        }
+
+        // Apply STEM discipline filters
+        if (architectureEngineering || computerMathematical || healthcarePractitioners || lifeSocialScience) {
+            result = result.stream()
+                    .filter(job -> {
+                        String category = job.getCategory().toLowerCase();
+                        List<String> skills = job.getSkills();
+                        String skillsStr = skills != null ? String.join(" ", skills).toLowerCase() : "";
+
+                        if (architectureEngineering && (category.contains("architecture") || category.contains("engineering"))) {
+                            return true;
+                        }
+                        if (computerMathematical && (category.contains("computer") || category.contains("math"))) {
+                            return true;
+                        }
+                        if (healthcarePractitioners && (category.contains("healthcare") || skillsStr.contains("healthcare"))) {
+                            return true;
+                        }
+                        if (lifeSocialScience && (category.contains("science") || skillsStr.contains("research"))) {
+                            return true;
+                        }
+                        return !(architectureEngineering || computerMathematical || healthcarePractitioners || lifeSocialScience);
+                    })
                     .collect(Collectors.toList());
         }
 

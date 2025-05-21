@@ -13,7 +13,7 @@
 
         <div class="mb-3">
             <label for="salarySelect" class="form-label mb-2">Salary:</label>
-            <h:selectOneMenu id="salarySelect" styleClass="form-select">
+            <h:selectOneMenu id="salarySelect" styleClass="form-select" onchange="applyFilter('salary', this.value)">
                 <f:selectItem itemLabel="No Low Wage" itemValue="" />
                 <f:selectItem itemLabel="$20,000+" itemValue="20000" />
                 <f:selectItem itemLabel="$40,000+" itemValue="40000" />
@@ -25,15 +25,15 @@
 
         <div class="mb-3">
             <div class="form-check mb-2">
-                <h:selectBooleanCheckbox id="brightOutlook" styleClass="form-check-input" />
+                <h:selectBooleanCheckbox id="brightOutlook" styleClass="form-check-input" onchange="applyFilter('brightOutlook', this.checked)" />
                 <h:outputLabel for="brightOutlook" value="Bright Outlook" styleClass="form-check-label ms-2" />
             </div>
             <div class="form-check mb-2">
-                <h:selectBooleanCheckbox id="greenJobs" styleClass="form-check-input" />
+                <h:selectBooleanCheckbox id="greenJobs" styleClass="form-check-input" onchange="applyFilter('greenJobs', this.checked)" />
                 <h:outputLabel for="greenJobs" value="Green Jobs" styleClass="form-check-label ms-2" />
             </div>
             <div class="form-check mb-2">
-                <h:selectBooleanCheckbox id="apprenticeship" styleClass="form-check-input" />
+                <h:selectBooleanCheckbox id="apprenticeship" styleClass="form-check-input" onchange="applyFilter('apprenticeship', this.checked)" />
                 <h:outputLabel for="apprenticeship" value="Apprenticeship" styleClass="form-check-label ms-2" />
             </div>
         </div>

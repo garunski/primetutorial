@@ -14,45 +14,45 @@
         <div class="vertical menu-container">
             <ul class="vertical menu" id="career-path-menu">
                 <li>
-                    <a href="occupationSearchRevised.xhtml?cluster=cluster1" class="career-cluster-link" data-cluster="cluster1">Agriculture, Food and Natural Resources</a>
+                    <a href="#{searchFilterBean.getClusterUrl('occupationSearchRevised.xhtml', 'cluster1')}" class="career-cluster-link" data-cluster="cluster1">Agriculture, Food and Natural Resources</a>
                     <ui:fragment rendered="#{param['cluster'] == 'cluster1'}">
                         <ul class="submenu" id="cluster1-pathways">
-                            <li><a href="occupationSearchRevised.xhtml?cluster=cluster1&amp;pathway=food-processing" class="pathway-link #{param['pathway'] == 'food-processing' ? 'active' : ''}">Food Products and Processing Systems</a></li>
-                            <li><a href="occupationSearchRevised.xhtml?cluster=cluster1&amp;pathway=plant-systems" class="pathway-link #{param['pathway'] == 'plant-systems' ? 'active' : ''}">Plant Systems</a></li>
-                            <li><a href="occupationSearchRevised.xhtml?cluster=cluster1&amp;pathway=animal-systems" class="pathway-link #{param['pathway'] == 'animal-systems' ? 'active' : ''}">Animal Systems</a></li>
-                            <li><a href="occupationSearchRevised.xhtml?cluster=cluster1&amp;pathway=environmental-systems" class="pathway-link #{param['pathway'] == 'environmental-systems' ? 'active' : ''}">Environmental Service Systems</a></li>
+                            <li><a href="#{searchFilterBean.getPathwayUrl('occupationSearchRevised.xhtml', 'cluster1', 'food-processing')}" class="pathway-link #{param['pathway'] == 'food-processing' ? 'active' : ''}">Food Products and Processing Systems</a></li>
+                            <li><a href="#{searchFilterBean.getPathwayUrl('occupationSearchRevised.xhtml', 'cluster1', 'plant-systems')}" class="pathway-link #{param['pathway'] == 'plant-systems' ? 'active' : ''}">Plant Systems</a></li>
+                            <li><a href="#{searchFilterBean.getPathwayUrl('occupationSearchRevised.xhtml', 'cluster1', 'animal-systems')}" class="pathway-link #{param['pathway'] == 'animal-systems' ? 'active' : ''}">Animal Systems</a></li>
+                            <li><a href="#{searchFilterBean.getPathwayUrl('occupationSearchRevised.xhtml', 'cluster1', 'environmental-systems')}" class="pathway-link #{param['pathway'] == 'environmental-systems' ? 'active' : ''}">Environmental Service Systems</a></li>
                         </ul>
                     </ui:fragment>
                 </li>
                 <li>
-                    <a href="occupationSearchRevised.xhtml?cluster=cluster2" class="career-cluster-link #{param['cluster'] == 'cluster2' ? 'active' : ''}" data-cluster="cluster2">Architecture and Construction</a>
+                    <a href="#{searchFilterBean.getClusterUrl('occupationSearchRevised.xhtml', 'cluster2')}" class="career-cluster-link #{param['cluster'] == 'cluster2' ? 'active' : ''}" data-cluster="cluster2">Architecture and Construction</a>
                     <ui:fragment rendered="#{param['cluster'] == 'cluster2'}">
                         <ul class="submenu" id="cluster2-pathways">
-                            <li><a href="occupationSearchRevised.xhtml?cluster=cluster2&amp;pathway=design-preconstruction" class="pathway-link #{param['pathway'] == 'design-preconstruction' ? 'active' : ''}">Design/Pre-Construction</a></li>
-                            <li><a href="occupationSearchRevised.xhtml?cluster=cluster2&amp;pathway=construction" class="pathway-link #{param['pathway'] == 'construction' ? 'active' : ''}">Construction</a></li>
-                            <li><a href="occupationSearchRevised.xhtml?cluster=cluster2&amp;pathway=maintenance-operations" class="pathway-link #{param['pathway'] == 'maintenance-operations' ? 'active' : ''}">Maintenance/Operations</a></li>
+                            <li><a href="#{searchFilterBean.getPathwayUrl('occupationSearchRevised.xhtml', 'cluster2', 'design-preconstruction')}" class="pathway-link #{param['pathway'] == 'design-preconstruction' ? 'active' : ''}">Design/Pre-Construction</a></li>
+                            <li><a href="#{searchFilterBean.getPathwayUrl('occupationSearchRevised.xhtml', 'cluster2', 'construction')}" class="pathway-link #{param['pathway'] == 'construction' ? 'active' : ''}">Construction</a></li>
+                            <li><a href="#{searchFilterBean.getPathwayUrl('occupationSearchRevised.xhtml', 'cluster2', 'maintenance-operations')}" class="pathway-link #{param['pathway'] == 'maintenance-operations' ? 'active' : ''}">Maintenance/Operations</a></li>
                         </ul>
                     </ui:fragment>
                 </li>
                 <li>
-                    <a href="occupationSearchRevised.xhtml?cluster=cluster3" class="career-cluster-link #{param['cluster'] == 'cluster3' ? 'active' : ''}" data-cluster="cluster3">Arts, Audio/Video Technology and Communications</a>
+                    <a href="#{searchFilterBean.getClusterUrl('occupationSearchRevised.xhtml', 'cluster3')}" class="career-cluster-link #{param['cluster'] == 'cluster3' ? 'active' : ''}" data-cluster="cluster3">Arts, Audio/Video Technology and Communications</a>
                     <ui:fragment rendered="#{param['cluster'] == 'cluster3'}">
                         <ul class="submenu" id="cluster3-pathways">
-                            <li><a href="occupationSearchRevised.xhtml?cluster=cluster3&amp;pathway=audio-video-film" class="pathway-link #{param['pathway'] == 'audio-video-film' ? 'active' : ''}">Audio and Video Technology and Film</a></li>
-                            <li><a href="occupationSearchRevised.xhtml?cluster=cluster3&amp;pathway=printing-technology" class="pathway-link #{param['pathway'] == 'printing-technology' ? 'active' : ''}">Printing Technology</a></li>
-                            <li><a href="occupationSearchRevised.xhtml?cluster=cluster3&amp;pathway=visual-arts" class="pathway-link #{param['pathway'] == 'visual-arts' ? 'active' : ''}">Visual Arts</a></li>
-                            <li><a href="occupationSearchRevised.xhtml?cluster=cluster3&amp;pathway=performing-arts" class="pathway-link #{param['pathway'] == 'performing-arts' ? 'active' : ''}">Performing Arts</a></li>
+                            <li><a href="#{searchFilterBean.getPathwayUrl('occupationSearchRevised.xhtml', 'cluster3', 'audio-video-film')}" class="pathway-link #{param['pathway'] == 'audio-video-film' ? 'active' : ''}">Audio and Video Technology and Film</a></li>
+                            <li><a href="#{searchFilterBean.getPathwayUrl('occupationSearchRevised.xhtml', 'cluster3', 'printing-technology')}" class="pathway-link #{param['pathway'] == 'printing-technology' ? 'active' : ''}">Printing Technology</a></li>
+                            <li><a href="#{searchFilterBean.getPathwayUrl('occupationSearchRevised.xhtml', 'cluster3', 'visual-arts')}" class="pathway-link #{param['pathway'] == 'visual-arts' ? 'active' : ''}">Visual Arts</a></li>
+                            <li><a href="#{searchFilterBean.getPathwayUrl('occupationSearchRevised.xhtml', 'cluster3', 'performing-arts')}" class="pathway-link #{param['pathway'] == 'performing-arts' ? 'active' : ''}">Performing Arts</a></li>
                         </ul>
                     </ui:fragment>
                 </li>
                 <li>
-                    <a href="occupationSearchRevised.xhtml?cluster=cluster4" class="career-cluster-link #{param['cluster'] == 'cluster4' ? 'active' : ''}" data-cluster="cluster4">Business, Management and Administration</a>
+                    <a href="#{searchFilterBean.getClusterUrl('occupationSearchRevised.xhtml', 'cluster4')}" class="career-cluster-link #{param['cluster'] == 'cluster4' ? 'active' : ''}" data-cluster="cluster4">Business, Management and Administration</a>
                     <ui:fragment rendered="#{param['cluster'] == 'cluster4'}">
                         <ul class="submenu" id="cluster4-pathways">
-                            <li><a href="occupationSearchRevised.xhtml?cluster=cluster4&amp;pathway=management" class="pathway-link #{param['pathway'] == 'management' ? 'active' : ''}">Management</a></li>
-                            <li><a href="occupationSearchRevised.xhtml?cluster=cluster4&amp;pathway=financial-management" class="pathway-link #{param['pathway'] == 'financial-management' ? 'active' : ''}">Business Financial Management</a></li>
-                            <li><a href="occupationSearchRevised.xhtml?cluster=cluster4&amp;pathway=human-resources" class="pathway-link #{param['pathway'] == 'human-resources' ? 'active' : ''}">Human Resources</a></li>
-                            <li><a href="occupationSearchRevised.xhtml?cluster=cluster4&amp;pathway=business-analysis" class="pathway-link #{param['pathway'] == 'business-analysis' ? 'active' : ''}">Business Analysis</a></li>
+                            <li><a href="#{searchFilterBean.getPathwayUrl('occupationSearchRevised.xhtml', 'cluster4', 'management')}" class="pathway-link #{param['pathway'] == 'management' ? 'active' : ''}">Management</a></li>
+                            <li><a href="#{searchFilterBean.getPathwayUrl('occupationSearchRevised.xhtml', 'cluster4', 'financial-management')}" class="pathway-link #{param['pathway'] == 'financial-management' ? 'active' : ''}">Business Financial Management</a></li>
+                            <li><a href="#{searchFilterBean.getPathwayUrl('occupationSearchRevised.xhtml', 'cluster4', 'human-resources')}" class="pathway-link #{param['pathway'] == 'human-resources' ? 'active' : ''}">Human Resources</a></li>
+                            <li><a href="#{searchFilterBean.getPathwayUrl('occupationSearchRevised.xhtml', 'cluster4', 'business-analysis')}" class="pathway-link #{param['pathway'] == 'business-analysis' ? 'active' : ''}">Business Analysis</a></li>
                         </ul>
                     </ui:fragment>
                 </li>
@@ -89,6 +89,8 @@
                 font-weight: bold;
             }
         </style>
+
+        <!-- No JavaScript needed - using server-side link building -->
     </div>
 </ui:composition>
 </html>
