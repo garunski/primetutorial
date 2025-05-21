@@ -12,15 +12,47 @@
         <h5 class="mb-3">Other Options</h5>
 
         <div class="mb-3">
-            <label for="salarySelect" class="form-label mb-2">Salary:</label>
-            <h:selectOneMenu id="salarySelect" styleClass="form-select" onchange="applyFilter('salary', this.value)">
-                <f:selectItem itemLabel="No Low Wage" itemValue="" />
-                <f:selectItem itemLabel="$20,000+" itemValue="20000" />
-                <f:selectItem itemLabel="$40,000+" itemValue="40000" />
-                <f:selectItem itemLabel="$60,000+" itemValue="60000" />
-                <f:selectItem itemLabel="$80,000+" itemValue="80000" />
-                <f:selectItem itemLabel="$100,000+" itemValue="100000" />
-            </h:selectOneMenu>
+            <label for="salarySlider" class="form-label mb-2">Minimum Salary: <span id="salaryValue">$0</span></label>
+            <div class="d-flex align-items-center">
+                <span class="me-2">$0</span>
+                <h:inputHidden id="salaryInput" value="#{searchFilterBean.salary}" />
+                <input type="range" id="salarySlider"
+                       class="form-range flex-grow-1"
+                       min="0"
+                       max="100000"
+                       step="5000"
+                       value="#{searchFilterBean.salary}"
+                       oninput="updateSalaryValue(this.value)"
+                       onchange="applySalaryFilter(this.value)" />
+                <span class="ms-2">$100k+</span>
+            </div>
+
+            <script type="text/javascript">
+                function updateSalaryValue(value) {
+                    // Update the displayed value
+                    var formattedValue = value > 0 ? '$' + parseInt(value).toLocaleString() : '$0';
+                    document.getElementById('salaryValue').textContent = formattedValue;
+                }
+
+                function applySalaryFilter(value) {
+                    // Update the displayed value first
+                    updateSalaryValue(value);
+
+                    // Apply the filter (with a small delay to prevent rapid consecutive calls)
+                    setTimeout(function() {
+                        applyFilter('salary', value);
+                    }, 500);
+                }
+
+                // Initialize the displayed value on page load without triggering the filter
+                document.addEventListener('DOMContentLoaded', function() {
+                    var slider = document.getElementById('salarySlider');
+                    if (slider) {
+                        // Just update the display without applying the filter
+                        updateSalaryValue(slider.value);
+                    }
+                });
+            </script>
         </div>
 
         <div class="mb-3">
