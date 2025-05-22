@@ -21,9 +21,7 @@
                        min="0"
                        max="100000"
                        step="5000"
-                       value="#{searchFilterBean.salary}"
-                       oninput="updateSalaryValue(this.value)"
-                       onchange="applySalaryFilter(this.value)" />
+                       value="#{searchFilterBean.salary}" />
                 <span class="ms-2">$100k+</span>
             </div>
 
@@ -31,7 +29,7 @@
                 function updateSalaryValue(value) {
                     // Update the displayed value
                     var formattedValue = value > 0 ? '$' + parseInt(value).toLocaleString() : '$0';
-                    document.getElementById('salaryValue').textContent = formattedValue;
+                    $('#salaryValue').text(formattedValue);
                 }
 
                 function applySalaryFilter(value) {
@@ -45,11 +43,20 @@
                 }
 
                 // Initialize the displayed value on page load without triggering the filter
-                document.addEventListener('DOMContentLoaded', function() {
-                    var slider = document.getElementById('salarySlider');
-                    if (slider) {
+                $(document).ready(function() {
+                    var slider = $('#salarySlider');
+                    if (slider.length) {
                         // Just update the display without applying the filter
-                        updateSalaryValue(slider.value);
+                        updateSalaryValue(slider.val());
+
+                        // Add event handlers using jQuery
+                        slider.on('input', function() {
+                            updateSalaryValue($(this).val());
+                        });
+
+                        slider.on('change', function() {
+                            applySalaryFilter($(this).val());
+                        });
                     }
                 });
             </script>

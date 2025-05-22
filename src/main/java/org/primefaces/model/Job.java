@@ -7,9 +7,9 @@ import java.util.List;
  * Model class representing a job/occupation.
  */
 public class Job implements Serializable {
-    
+
     private static final long serialVersionUID = 1L;
-    
+
     private String id;
     private String title;
     private String category;
@@ -19,11 +19,12 @@ public class Job implements Serializable {
     private String salaryRange;
     private String educationRequired;
     private List<String> skills;
-    
+    private String videoId;
+
     public Job() {
     }
-    
-    public Job(String id, String title, String category, String cluster, String pathway, 
+
+    public Job(String id, String title, String category, String cluster, String pathway,
                String description, String salaryRange, String educationRequired, List<String> skills) {
         this.id = id;
         this.title = title;
@@ -34,6 +35,22 @@ public class Job implements Serializable {
         this.salaryRange = salaryRange;
         this.educationRequired = educationRequired;
         this.skills = skills;
+        this.videoId = null; // Default to null
+    }
+
+    public Job(String id, String title, String category, String cluster, String pathway,
+               String description, String salaryRange, String educationRequired, List<String> skills,
+               String videoId) {
+        this.id = id;
+        this.title = title;
+        this.category = category;
+        this.cluster = cluster;
+        this.pathway = pathway;
+        this.description = description;
+        this.salaryRange = salaryRange;
+        this.educationRequired = educationRequired;
+        this.skills = skills;
+        this.videoId = videoId;
     }
 
     public String getId() {
@@ -106,5 +123,13 @@ public class Job implements Serializable {
 
     public void setSkills(List<String> skills) {
         this.skills = skills;
+    }
+
+    public String getVideoId() {
+        return videoId;
+    }
+
+    public void setVideoId(String videoId) {
+        this.videoId = videoId;
     }
 }

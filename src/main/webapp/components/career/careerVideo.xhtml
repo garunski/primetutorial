@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html
+  xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:ui="http://java.sun.com/jsf/facelets"
+  xmlns:f="http://java.sun.com/jsf/core"
+  xmlns:h="http://java.sun.com/jsf/html"
+  xmlns:p="http://primefaces.org/ui"
+>
+  <ui:composition>
+    <div id="careerVideo" class="card shadow-sm mb-4">
+      <div class="card-body">
+        <h2 class="fs-2 fw-semibold text-primary mb-3 pb-2 border-bottom">
+          Career Video
+        </h2>
+        <!-- Video container with centered content and responsive sizing -->
+        <div class="d-flex justify-content-center mb-3">
+          <div class="ratio ratio-16x9" style="max-width: 800px; max-height: 450px;">
+            <iframe
+              src="https://www.youtube.com/embed/#{empty job.videoId ? 'dQw4w9WgXcQ' : job.videoId}"
+              title="Career Video for #{job.title}"
+              allowfullscreen="true"
+              class="rounded"
+              width="600"
+              height="300"
+            >
+            </iframe>
+          </div>
+        </div>
+        <p class="text-muted">
+          <i class="bi bi-info-circle me-1"></i>
+          This video provides an overview of what it's like to work as
+          #{job.title}.
+        </p>
+      </div>
+    </div>
+  </ui:composition>
+</html>

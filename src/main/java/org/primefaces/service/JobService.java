@@ -41,7 +41,8 @@ public class JobService implements Serializable {
         jobs.add(new Job("job1", "Food Scientist", "Agriculture | Food Science", "cluster1", "food-processing",
                 "Research and develop new food products and improve existing ones. Analyze nutritional content and ensure food safety.",
                 "$65,000 - $95,000", "Bachelor's Degree",
-                Arrays.asList("Food Chemistry", "Quality Control", "Laboratory Testing", "Research")));
+                Arrays.asList("Food Chemistry", "Quality Control", "Laboratory Testing", "Research"),
+                "Wy0qhA_QeZA")); // YouTube video ID for Food Scientist career
 
         jobs.add(new Job("job2", "Agricultural Inspector", "Agriculture | Food Safety", "cluster1", "food-processing",
                 "Inspect agricultural commodities, processing equipment, and facilities to ensure compliance with regulations and standards.",
@@ -63,7 +64,8 @@ public class JobService implements Serializable {
         jobs.add(new Job("job5", "Architect", "Architecture | Design", "cluster2", "design-preconstruction",
                 "Design buildings and structures, considering aesthetics, functionality, safety, and sustainability.",
                 "$70,000 - $120,000", "Master's Degree",
-                Arrays.asList("CAD Software", "Design", "Project Management", "Building Codes")));
+                Arrays.asList("CAD Software", "Design", "Project Management", "Building Codes"),
+                "QygAMzzVLrY")); // YouTube video ID for Architect career
 
         jobs.add(new Job("job6", "Civil Engineer", "Engineering | Construction", "cluster2", "design-preconstruction",
                 "Design and oversee construction projects, including roads, buildings, airports, tunnels, dams, bridges, and water supply systems.",
@@ -85,7 +87,8 @@ public class JobService implements Serializable {
         jobs.add(new Job("job9", "Actor", "Arts | Performance", "cluster3", "performing-arts",
                 "Interpret and portray characters to entertain or inform audiences through stage, television, film, radio, or other media.",
                 "$30,000 - $150,000", "Some College",
-                Arrays.asList("Performance", "Memorization", "Public Speaking", "Emotional Expression")));
+                Arrays.asList("Performance", "Memorization", "Public Speaking", "Emotional Expression"),
+                "j_ntNNw_hn8")); // YouTube video ID for Actor career
 
         jobs.add(new Job("job10", "Music Director", "Arts | Music", "cluster3", "performing-arts",
                 "Direct and conduct musical performances by orchestras, choirs, and other musical groups.",
