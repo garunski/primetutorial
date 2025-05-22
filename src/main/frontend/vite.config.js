@@ -19,6 +19,30 @@ const copyVendorFiles = () => ({
       ['chart.js/dist/chart.umd.js', 'chart.umd.js']
     ];
 
+    // Create the vendor CSS directory if it doesn't exist
+    const vendorCssDir = '../webapp/resources/css/vendor';
+    fs.mkdirSync(vendorCssDir, { recursive: true });
+
+    // Copy Bootstrap Icons CSS
+    const bootstrapIconsCss = 'node_modules/bootstrap-icons/font/bootstrap-icons.css';
+    const bootstrapIconsCssDest = `${vendorCssDir}/bootstrap-icons.css`;
+    fs.writeFileSync(bootstrapIconsCssDest, fs.readFileSync(bootstrapIconsCss));
+    console.log(`Copied ${bootstrapIconsCss} to ${bootstrapIconsCssDest}`);
+
+    // Copy Bootstrap Icons fonts directory
+    const bootstrapIconsFontsDir = 'node_modules/bootstrap-icons/font/fonts';
+    const bootstrapIconsFontsDest = `${vendorCssDir}/fonts`;
+    fs.mkdirSync(bootstrapIconsFontsDest, { recursive: true });
+
+    // Copy all font files
+    const fontFiles = fs.readdirSync(bootstrapIconsFontsDir);
+    fontFiles.forEach(file => {
+      const srcPath = `${bootstrapIconsFontsDir}/${file}`;
+      const destPath = `${bootstrapIconsFontsDest}/${file}`;
+      fs.writeFileSync(destPath, fs.readFileSync(srcPath));
+      console.log(`Copied ${srcPath} to ${destPath}`);
+    });
+
     // Copy each file
     vendorFiles.forEach(([src, dest]) => {
       const srcPath = `node_modules/${src}`;
