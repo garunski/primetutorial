@@ -88,6 +88,38 @@ public class SearchFilterBean implements Serializable {
         return FacesContext.getCurrentInstance().getExternalContext().getRequestContextPath();
     }
 
+    /**
+     * Splits a category string by the pipe character and returns the parts as a list
+     * @param category The category string (e.g., "Agriculture | Food Science")
+     * @return List of category parts
+     */
+    public java.util.List<String> getCategoryParts(String category) {
+        if (category == null || category.trim().isEmpty()) {
+            return java.util.Collections.emptyList();
+        }
+        
+        String[] parts = category.split("\\|");
+        java.util.List<String> result = new java.util.ArrayList<>();
+        
+        for (String part : parts) {
+            String trimmed = part.trim();
+            if (!trimmed.isEmpty()) {
+                result.add(trimmed);
+            }
+        }
+        
+        return result;
+    }
+
+    /**
+     * Builds a URL for a category filter, preserving other filter parameters.
+     * @param category The category value to filter by
+     * @return The URL with the category parameter and preserved filter parameters
+     */
+    public String getCategoryUrl(String category) {
+        return LinkBuilderUtil.buildCategoryUrl("occupationSearchRevised.jsf", category);
+    }
+
     // Getters and setters for all properties
 
     public String getEducationLevel() {

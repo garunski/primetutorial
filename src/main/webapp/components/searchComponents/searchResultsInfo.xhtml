@@ -13,17 +13,23 @@
             <div>
                 <h5 class="alert-heading">Search Results</h5>
                 <p class="mb-0">
-                    <h:outputText value="Showing all jobs" rendered="#{empty param['cluster'] and empty param['pathway'] and empty param['education'] and empty param['artsHumanities'] and empty param['businessInfoSystems'] and empty param['engineeringTech'] and empty param['healthServices'] and empty param['architectureEngineering'] and empty param['computerMathematical'] and empty param['healthcarePractitioners'] and empty param['lifeSocialScience']}" />
+                    <h:outputText value="Showing all jobs" rendered="#{empty param['cluster'] and empty param['pathway'] and empty param['education'] and empty param['category'] and empty param['artsHumanities'] and empty param['businessInfoSystems'] and empty param['engineeringTech'] and empty param['healthServices'] and empty param['architectureEngineering'] and empty param['computerMathematical'] and empty param['healthcarePractitioners'] and empty param['lifeSocialScience']}" />
 
                     <!-- Career filters -->
                     <h:outputText value="Showing jobs in #{param['cluster']} cluster" rendered="#{not empty param['cluster'] and empty param['pathway']}" />
                     <h:outputText value="Showing jobs in #{param['pathway']} pathway" rendered="#{not empty param['pathway']}" />
 
+                    <!-- Category filter -->
+                    <h:outputText value="Showing jobs in #{param['category']} category"
+                                  rendered="#{not empty param['category'] and empty param['cluster'] and empty param['pathway'] and empty param['education']}" />
+                    <h:outputText value=" in #{param['category']} category"
+                                  rendered="#{not empty param['category'] and (not empty param['cluster'] or not empty param['pathway'] or not empty param['education'])}" />
+
                     <!-- Education level -->
                     <h:outputText value="Showing jobs with #{param['education']} education"
-                                  rendered="#{not empty param['education'] and empty param['cluster'] and empty param['pathway']}" />
+                                  rendered="#{not empty param['education'] and empty param['cluster'] and empty param['pathway'] and empty param['category']}" />
                     <h:outputText value=" and #{param['education']} education"
-                                  rendered="#{not empty param['education'] and (not empty param['cluster'] or not empty param['pathway'])}" />
+                                  rendered="#{not empty param['education'] and (not empty param['cluster'] or not empty param['pathway'] or not empty param['category'])}" />
 
                     <!-- Education clusters -->
                     <h:outputText value="Showing jobs in education clusters: "

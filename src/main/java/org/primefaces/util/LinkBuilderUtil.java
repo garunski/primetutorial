@@ -84,4 +84,18 @@ public class LinkBuilderUtil implements Serializable {
         
         return buildUrl(outcome, params);
     }
+    
+    /**
+     * Builds a URL for a category filter, preserving other filter parameters.
+     * 
+     * @param outcome The JSF outcome (page name)
+     * @param category The category value to filter by
+     * @return The URL with the category parameter and preserved filter parameters
+     */
+    public static String buildCategoryUrl(String outcome, String category) {
+        Map<String, String> params = new HashMap<>();
+        params.put("category", category);
+        
+        return buildUrl(outcome, params);
+    }
 }

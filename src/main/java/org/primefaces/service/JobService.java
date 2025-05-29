@@ -133,6 +133,7 @@ public class JobService implements Serializable {
         String clusterParam = params.get("cluster");
         String pathwayParam = params.get("pathway");
         String educationParam = params.get("education");
+        String categoryParam = params.get("category");
 
         // Education cluster filters
         boolean artsHumanities = "true".equals(params.get("artsHumanities"));
@@ -149,6 +150,7 @@ public class JobService implements Serializable {
         // Check if any filters are applied
         boolean hasFilters = clusterParam != null || pathwayParam != null ||
                             (educationParam != null && !educationParam.isEmpty()) ||
+                            (categoryParam != null && !categoryParam.isEmpty()) ||
                             artsHumanities || businessInfoSystems || engineeringTech || healthServices ||
                             architectureEngineering || computerMathematical ||
                             healthcarePractitioners || lifeSocialScience;
@@ -170,6 +172,13 @@ public class JobService implements Serializable {
         if (pathwayParam != null) {
             result = result.stream()
                     .filter(job -> job.getPathway().equals(pathwayParam))
+                    .collect(Collectors.toList());
+        }
+
+        // Apply category filter
+        if (categoryParam != null && !categoryParam.isEmpty()) {
+            result = result.stream()
+                    .filter(job -> job.getCategory().toLowerCase().contains(categoryParam.toLowerCase()))
                     .collect(Collectors.toList());
         }
 

@@ -36,3 +36,13 @@
     border-bottom-left-radius: 0;
   }
 }
+
+// Category links styling
+.category-link {
+  &:hover {
+    color: var(--bs-primary) !important;
+    text-decoration: underline !important;
+  }
+  
+  transition: color 0.2s ease;
+}
