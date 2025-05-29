@@ -40,71 +40,87 @@ public class JobService implements Serializable {
         // Agriculture, Food and Natural Resources - Food Products and Processing Systems
         jobs.add(new Job("job1", "Food Scientist", "Agriculture | Food Science", "cluster1", "food-processing",
                 "Research and develop new food products and improve existing ones. Analyze nutritional content and ensure food safety.",
-                "$65,000 - $95,000", "Bachelor's Degree",
+                "$65,000 - $95,000", "College Degree Required (4+ Years)",
                 Arrays.asList("Food Chemistry", "Quality Control", "Laboratory Testing", "Research"),
                 "Wy0qhA_QeZA")); // YouTube video ID for Food Scientist career
 
         jobs.add(new Job("job2", "Agricultural Inspector", "Agriculture | Food Safety", "cluster1", "food-processing",
                 "Inspect agricultural commodities, processing equipment, and facilities to ensure compliance with regulations and standards.",
-                "$45,000 - $70,000", "Associate's Degree",
+                "$45,000 - $70,000", "Moderate Training (1-2 Years)",
                 Arrays.asList("Inspection", "Regulation", "Documentation", "Safety Protocols")));
 
         // Agriculture, Food and Natural Resources - Plant Systems
         jobs.add(new Job("job3", "Plant Scientist", "Agriculture | Botany", "cluster1", "plant-systems",
                 "Study plant growth, reproduction, and responses to environmental conditions to improve crop yields and sustainability.",
-                "$60,000 - $90,000", "Master's Degree",
+                "$60,000 - $90,000", "Advanced Degree Required (6+ Years)",
                 Arrays.asList("Botany", "Research", "Data Analysis", "Field Work")));
 
         jobs.add(new Job("job4", "Greenhouse Manager", "Agriculture | Horticulture", "cluster1", "plant-systems",
                 "Oversee greenhouse operations, including plant cultivation, environmental controls, and staff management.",
-                "$45,000 - $75,000", "Bachelor's Degree",
+                "$45,000 - $75,000", "College Degree Required (4+ Years)",
                 Arrays.asList("Plant Care", "Climate Control", "Inventory Management", "Staff Supervision")));
 
         // Architecture and Construction - Design/Pre-Construction
         jobs.add(new Job("job5", "Architect", "Architecture | Design", "cluster2", "design-preconstruction",
                 "Design buildings and structures, considering aesthetics, functionality, safety, and sustainability.",
-                "$70,000 - $120,000", "Master's Degree",
+                "$70,000 - $120,000", "Advanced Degree Required (6+ Years)",
                 Arrays.asList("CAD Software", "Design", "Project Management", "Building Codes"),
                 "QygAMzzVLrY")); // YouTube video ID for Architect career
 
         jobs.add(new Job("job6", "Civil Engineer", "Engineering | Construction", "cluster2", "design-preconstruction",
                 "Design and oversee construction projects, including roads, buildings, airports, tunnels, dams, bridges, and water supply systems.",
-                "$75,000 - $110,000", "Bachelor's Degree",
+                "$75,000 - $110,000", "College Degree Required (4+ Years)",
                 Arrays.asList("Structural Analysis", "AutoCAD", "Project Planning", "Mathematics")));
 
         // Architecture and Construction - Construction
         jobs.add(new Job("job7", "Construction Manager", "Construction | Management", "cluster2", "construction",
                 "Plan, coordinate, budget, and supervise construction projects from development to completion.",
-                "$80,000 - $120,000", "Bachelor's Degree",
+                "$80,000 - $120,000", "College Degree Required (4+ Years)",
                 Arrays.asList("Project Management", "Budgeting", "Contract Administration", "Leadership")));
 
         jobs.add(new Job("job8", "Electrician", "Construction | Electrical", "cluster2", "construction",
                 "Install, maintain, and repair electrical wiring, equipment, and fixtures in buildings and other structures.",
-                "$50,000 - $90,000", "Technical Certificate",
+                "$50,000 - $90,000", "Moderate Training (1-2 Years)",
                 Arrays.asList("Electrical Systems", "Troubleshooting", "Blueprint Reading", "Safety Procedures")));
 
         // Arts, Audio/Video Technology and Communications - Performing Arts
         jobs.add(new Job("job9", "Actor", "Arts | Performance", "cluster3", "performing-arts",
                 "Interpret and portray characters to entertain or inform audiences through stage, television, film, radio, or other media.",
-                "$30,000 - $150,000", "Some College",
+                "$30,000 - $150,000", "Moderate Training (1-2 Years)",
                 Arrays.asList("Performance", "Memorization", "Public Speaking", "Emotional Expression"),
                 "j_ntNNw_hn8")); // YouTube video ID for Actor career
 
         jobs.add(new Job("job10", "Music Director", "Arts | Music", "cluster3", "performing-arts",
                 "Direct and conduct musical performances by orchestras, choirs, and other musical groups.",
-                "$45,000 - $110,000", "Master's Degree",
+                "$45,000 - $110,000", "Advanced Degree Required (6+ Years)",
                 Arrays.asList("Music Theory", "Conducting", "Leadership", "Performance")));
 
         // Business, Management and Administration - Management
         jobs.add(new Job("job11", "Chief Executive Officer", "Business | Executive Management", "cluster4", "management",
                 "Provide overall direction for companies and organizations, formulate policies, and plan business objectives.",
-                "$120,000 - $500,000", "Master's Degree",
+                "$120,000 - $500,000", "Advanced Degree Required (6+ Years)",
                 Arrays.asList("Leadership", "Strategic Planning", "Decision Making", "Business Development")));
 
         jobs.add(new Job("job12", "Human Resources Manager", "Business | HR", "cluster4", "human-resources",
                 "Plan, direct, and coordinate the administrative functions of an organization, including recruiting, interviewing, and hiring staff.",
-                "$70,000 - $120,000", "Bachelor's Degree",
+                "$70,000 - $120,000", "College Degree Required (4+ Years)",
                 Arrays.asList("Recruitment", "Employee Relations", "Benefits Administration", "Conflict Resolution")));
+
+        // Additional jobs to showcase all preparation levels
+        jobs.add(new Job("job13", "Dishwasher", "Food Service | Kitchen", "cluster5", "food-service",
+                "Clean dishes, kitchen utensils, and equipment in restaurants and other food service establishments.",
+                "$20,000 - $25,000", "No Experience Required - Start Right Away",
+                Arrays.asList("Physical Stamina", "Attention to Detail", "Time Management")));
+
+        jobs.add(new Job("job14", "Retail Salesperson", "Sales | Customer Service", "cluster6", "retail",
+                "Sell merchandise to customers in retail establishments, assist with product selection and provide customer service.",
+                "$25,000 - $35,000", "Short-Term Training (Few Months)",
+                Arrays.asList("Customer Service", "Product Knowledge", "Communication", "Sales Techniques")));
+
+        jobs.add(new Job("job15", "Security Guard", "Protective Services | Security", "cluster7", "security",
+                "Monitor premises to prevent theft, violence, or infractions of rules and maintain order.",
+                "$28,000 - $40,000", "Short-Term Training (Few Months)",
+                Arrays.asList("Observation", "Communication", "Physical Fitness", "Report Writing")));
 
         return jobs;
     }
@@ -163,18 +179,29 @@ public class JobService implements Serializable {
                     .filter(job -> {
                         String education = job.getEducationRequired().toLowerCase();
                         switch (educationParam) {
+                            case "jobzone1":
+                                return education.contains("no experience required") || education.contains("start right away");
+                            case "jobzone2":
+                                return education.contains("short-term training") || education.contains("few months");
+                            case "jobzone3":
+                                return education.contains("moderate training") || education.contains("1-2 years");
+                            case "jobzone4":
+                                return education.contains("college degree required") || education.contains("4+ years");
+                            case "jobzone5":
+                                return education.contains("advanced degree required") || education.contains("6+ years");
+                            // Keep backward compatibility with old values
                             case "highschool":
-                                return education.contains("high school");
+                                return education.contains("high school") || education.contains("no experience required") || education.contains("short-term training");
                             case "somecollege":
-                                return education.contains("some college");
+                                return education.contains("some college") || education.contains("moderate training");
                             case "associates":
-                                return education.contains("associate");
+                                return education.contains("associate") || education.contains("moderate training");
                             case "bachelors":
-                                return education.contains("bachelor");
+                                return education.contains("bachelor") || education.contains("college degree required");
                             case "masters":
-                                return education.contains("master");
+                                return education.contains("master") || education.contains("advanced degree required");
                             case "doctoral":
-                                return education.contains("doctoral") || education.contains("phd");
+                                return education.contains("doctoral") || education.contains("phd") || education.contains("advanced degree required");
                             default:
                                 return true;
                         }
