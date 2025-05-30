@@ -21,9 +21,12 @@ import java.util.stream.Collectors;
 public class JobService implements Serializable {
 
     private static final long serialVersionUID = 1L;
+    private static final int DEFAULT_PAGE_SIZE = 10;
 
     private List<Job> allJobs;
     private List<Job> filteredJobs;
+    private int pageSize = DEFAULT_PAGE_SIZE;
+    private int currentPage = 1;
 
     @PostConstruct
     public void init() {
@@ -122,6 +125,52 @@ public class JobService implements Serializable {
                 "$28,000 - $40,000", "Short-Term Training (Few Months)",
                 Arrays.asList("Observation", "Communication", "Physical Fitness", "Report Writing")));
 
+        // Add more jobs for pagination testing
+        jobs.add(new Job("job16", "Software Developer", "Technology | Programming", "cluster8", "technology",
+                "Design, develop, and maintain software applications and systems.",
+                "$70,000 - $120,000", "College Degree Required (4+ Years)",
+                Arrays.asList("Programming", "Problem Solving", "Software Design", "Testing")));
+
+        jobs.add(new Job("job17", "Nurse", "Healthcare | Patient Care", "cluster9", "healthcare",
+                "Provide patient care, administer medications, and support medical procedures.",
+                "$60,000 - $85,000", "College Degree Required (4+ Years)",
+                Arrays.asList("Patient Care", "Medical Knowledge", "Communication", "Compassion")));
+
+        jobs.add(new Job("job18", "Teacher", "Education | Instruction", "cluster10", "education",
+                "Educate students in various subjects and help them develop academic and social skills.",
+                "$45,000 - $70,000", "College Degree Required (4+ Years)",
+                Arrays.asList("Teaching", "Curriculum Development", "Classroom Management", "Communication")));
+
+        jobs.add(new Job("job19", "Marketing Manager", "Business | Marketing", "cluster4", "marketing",
+                "Develop and implement marketing strategies to promote products and services.",
+                "$65,000 - $110,000", "College Degree Required (4+ Years)",
+                Arrays.asList("Marketing Strategy", "Brand Management", "Digital Marketing", "Analytics")));
+
+        jobs.add(new Job("job20", "Graphic Designer", "Arts | Design", "cluster3", "visual-arts",
+                "Create visual concepts and designs for various media and marketing materials.",
+                "$40,000 - $70,000", "College Degree Required (4+ Years)",
+                Arrays.asList("Design Software", "Creativity", "Visual Communication", "Typography")));
+
+        jobs.add(new Job("job21", "Data Analyst", "Technology | Analytics", "cluster8", "data-science",
+                "Analyze data to help organizations make informed business decisions.",
+                "$55,000 - $85,000", "College Degree Required (4+ Years)",
+                Arrays.asList("Data Analysis", "Statistics", "SQL", "Data Visualization")));
+
+        jobs.add(new Job("job22", "Mechanic", "Transportation | Automotive", "cluster11", "automotive",
+                "Repair and maintain vehicles and automotive equipment.",
+                "$40,000 - $65,000", "Moderate Training (1-2 Years)",
+                Arrays.asList("Mechanical Skills", "Problem Solving", "Tool Usage", "Diagnostics")));
+
+        jobs.add(new Job("job23", "Chef", "Food Service | Culinary", "cluster5", "culinary",
+                "Plan menus, prepare food, and manage kitchen operations in restaurants.",
+                "$45,000 - $75,000", "Moderate Training (1-2 Years)",
+                Arrays.asList("Culinary Skills", "Menu Planning", "Kitchen Management", "Food Safety")));
+
+        jobs.add(new Job("job24", "Financial Advisor", "Finance | Advisory", "cluster12", "finance",
+                "Provide financial planning and investment advice to individuals and businesses.",
+                "$60,000 - $120,000", "College Degree Required (4+ Years)",
+                Arrays.asList("Financial Planning", "Investment Knowledge", "Client Relations", "Risk Assessment")));
+
         return jobs;
     }
 
@@ -129,6 +178,40 @@ public class JobService implements Serializable {
      * Filters jobs based on URL parameters.
      */
     public List<Job> getFilteredJobs() {
+        // Get all filtered jobs first
+        List<Job> allFilteredJobs = getAllFilteredJobs();
+        
+        // Handle pagination parameter
+        Map<String, String> params = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap();
+        String pageParam = params.get("page");
+        if (pageParam != null && !pageParam.isEmpty()) {
+            try {
+                currentPage = Integer.parseInt(pageParam);
+                if (currentPage < 1) {
+                    currentPage = 1;
+                }
+            } catch (NumberFormatException e) {
+                currentPage = 1;
+            }
+        } else {
+            currentPage = 1;
+        }
+        
+        // Apply pagination
+        int startIndex = (currentPage - 1) * pageSize;
+        int endIndex = Math.min(startIndex + pageSize, allFilteredJobs.size());
+        
+        if (startIndex >= allFilteredJobs.size()) {
+            return new ArrayList<>();
+        }
+        
+        return allFilteredJobs.subList(startIndex, endIndex);
+    }
+
+    /**
+     * Gets all filtered jobs without pagination.
+     */
+    private List<Job> getAllFilteredJobs() {
         Map<String, String> params = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap();
         String clusterParam = params.get("cluster");
         String pathwayParam = params.get("pathway");
@@ -270,5 +353,129 @@ public class JobService implements Serializable {
 
     public List<Job> getAllJobs() {
         return allJobs;
+    }
+
+    // Pagination methods
+    
+    /**
+     * Gets the total number of filtered results (without pagination).
+     */
+    public int getTotalFilteredResults() {
+        return getAllFilteredJobs().size();
+    }
+
+    /**
+     * Gets the current page number.
+     */
+    public int getCurrentPage() {
+        return currentPage;
+    }
+
+    /**
+     * Sets the current page number.
+     */
+    public void setCurrentPage(int currentPage) {
+        this.currentPage = currentPage;
+    }
+
+    /**
+     * Gets the page size.
+     */
+    public int getPageSize() {
+        return pageSize;
+    }
+
+    /**
+     * Sets the page size.
+     */
+    public void setPageSize(int pageSize) {
+        this.pageSize = pageSize;
+    }
+
+    /**
+     * Gets the total number of pages.
+     */
+    public int getTotalPages() {
+        int totalResults = getTotalFilteredResults();
+        return (int) Math.ceil((double) totalResults / pageSize);
+    }
+
+    /**
+     * Checks if there is a previous page.
+     */
+    public boolean isPreviousPage() {
+        return currentPage > 1;
+    }
+
+    /**
+     * Checks if there is a next page.
+     */
+    public boolean isNextPage() {
+        return currentPage < getTotalPages();
+    }
+
+    /**
+     * Gets the starting result number for the current page.
+     */
+    public int getStartResult() {
+        if (getTotalFilteredResults() == 0) {
+            return 0;
+        }
+        return (currentPage - 1) * pageSize + 1;
+    }
+
+    /**
+     * Gets the ending result number for the current page.
+     */
+    public int getEndResult() {
+        int totalResults = getTotalFilteredResults();
+        if (totalResults == 0) {
+            return 0;
+        }
+        return Math.min(currentPage * pageSize, totalResults);
+    }
+
+    /**
+     * Gets a list of page numbers to display in pagination.
+     * Returns -1 for ellipsis positions.
+     */
+    public List<Integer> getPageNumbers() {
+        List<Integer> pageNumbers = new ArrayList<>();
+        int totalPages = getTotalPages();
+        
+        if (totalPages <= 7) {
+            // Show all pages if 7 or fewer
+            for (int i = 1; i <= totalPages; i++) {
+                pageNumbers.add(i);
+            }
+        } else {
+            // Always show first page
+            pageNumbers.add(1);
+            
+            if (currentPage <= 4) {
+                // Current page is near the beginning
+                for (int i = 2; i <= 5; i++) {
+                    pageNumbers.add(i);
+                }
+                pageNumbers.add(-1); // Ellipsis
+                pageNumbers.add(totalPages);
+            } else if (currentPage >= totalPages - 3) {
+                // Current page is near the end
+                pageNumbers.add(-1); // Ellipsis
+                for (int i = totalPages - 4; i <= totalPages; i++) {
+                    pageNumbers.add(i);
+                }
+            } else {
+                // Current page is in the middle
+                pageNumbers.add(-1); // Ellipsis
+                for (int i = currentPage - 1; i <= currentPage + 1; i++) {
+                    pageNumbers.add(i);
+                }
+                pageNumbers.add(-1); // Ellipsis
+                pageNumbers.add(totalPages);
+            }
+        }
+        
+        return pageNumbers;
     }
 }

@@ -47,7 +47,10 @@
                     <h:outputText value="Healthcare Practitioners " rendered="#{not empty param['healthcarePractitioners']}" />
                     <h:outputText value="Life &amp; Social Science " rendered="#{not empty param['lifeSocialScience']}" />
 
-                    <h:outputText value=" (#{jobService.filteredJobs.size()} results found)" />
+                    <h:outputText value=" (#{jobService.totalFilteredResults} results found" />
+                    <h:outputText value=", showing #{jobService.startResult}-#{jobService.endResult}" 
+                                  rendered="#{jobService.totalPages > 1}" />
+                    <h:outputText value=")" />
                 </p>
             </div>
             <div>

@@ -4,6 +4,8 @@ import javax.faces.context.FacesContext;
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
+import java.net.URLEncoder;
+import java.io.UnsupportedEncodingException;
 
 /**
  * Utility class for building links with preserved URL parameters.
@@ -97,5 +99,52 @@ public class LinkBuilderUtil implements Serializable {
         params.put("category", category);
         
         return buildUrl(outcome, params);
+    }
+    
+    /**
+     * Builds a URL for pagination, preserving all current filter parameters.
+     *
+     * @param outcome The JSF outcome (page name)
+     * @param page The page number
+     * @return The URL with the page parameter and preserved filter parameters
+     */
+    public static String buildPaginationUrl(String outcome, int page) {
+        FacesContext context = FacesContext.getCurrentInstance();
+        Map<String, String> params = context.getExternalContext().getRequestParameterMap();
+        
+        StringBuilder url = new StringBuilder();
+        url.append(context.getExternalContext().getRequestContextPath());
+        url.append("/").append(outcome);
+        
+        // Add page parameter
+        url.append("?page=").append(page);
+        
+        // Preserve all existing filter parameters except page
+        for (Map.Entry<String, String> entry : params.entrySet()) {
+            String key = entry.getKey();
+            String value = entry.getValue();
+            
+            // Skip page parameter as we're setting it explicitly
+            if ("page".equals(key)) {
+                continue;
+            }
+            
+            // Skip JSF internal parameters
+            if (key.startsWith("javax.faces") || key.contains("ViewState") || key.contains("ClientWindow")) {
+                continue;
+            }
+            
+            if (value != null && !value.isEmpty()) {
+                try {
+                    url.append("&").append(URLEncoder.encode(key, "UTF-8"))
+                       .append("=").append(URLEncoder.encode(value, "UTF-8"));
+                } catch (UnsupportedEncodingException e) {
+                    // Fallback without encoding
+                    url.append("&").append(key).append("=").append(value);
+                }
+            }
+        }
+        
+        return url.toString();
     }
 }

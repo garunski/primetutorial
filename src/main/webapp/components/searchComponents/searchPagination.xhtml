@@ -8,10 +8,97 @@
 
 <ui:composition>
     <!-- Pagination -->
-    <div class="d-flex justify-content-center align-items-center mt-5">
-        <h:commandButton value="Previous" styleClass="btn btn-outline-primary" disabled="true" />
-        <span class="mx-3 text-muted">Page 1 of 92 (917 results)</span>
-        <h:commandButton value="Next" styleClass="btn btn-outline-primary" />
+    <div class="d-flex justify-content-center align-items-center mt-5 pagination-container" 
+         rendered="#{jobService.totalPages > 1}">
+        
+        <!-- Previous Button -->
+        <h:link outcome="occupationSearchRevised" 
+                styleClass="btn btn-outline-primary me-2"
+                rendered="#{jobService.previousPage}">
+            <f:param name="page" value="#{jobService.currentPage - 1}" />
+            <!-- Preserve all current filter parameters -->
+            <f:param name="cluster" value="#{param['cluster']}" rendered="#{not empty param['cluster']}" />
+            <f:param name="pathway" value="#{param['pathway']}" rendered="#{not empty param['pathway']}" />
+            <f:param name="education" value="#{param['education']}" rendered="#{not empty param['education']}" />
+            <f:param name="category" value="#{param['category']}" rendered="#{not empty param['category']}" />
+            <f:param name="artsHumanities" value="#{param['artsHumanities']}" rendered="#{not empty param['artsHumanities']}" />
+            <f:param name="businessInfoSystems" value="#{param['businessInfoSystems']}" rendered="#{not empty param['businessInfoSystems']}" />
+            <f:param name="engineeringTech" value="#{param['engineeringTech']}" rendered="#{not empty param['engineeringTech']}" />
+            <f:param name="healthServices" value="#{param['healthServices']}" rendered="#{not empty param['healthServices']}" />
+            <f:param name="architectureEngineering" value="#{param['architectureEngineering']}" rendered="#{not empty param['architectureEngineering']}" />
+            <f:param name="computerMathematical" value="#{param['computerMathematical']}" rendered="#{not empty param['computerMathematical']}" />
+            <f:param name="healthcarePractitioners" value="#{param['healthcarePractitioners']}" rendered="#{not empty param['healthcarePractitioners']}" />
+            <f:param name="lifeSocialScience" value="#{param['lifeSocialScience']}" rendered="#{not empty param['lifeSocialScience']}" />
+            <i class="bi bi-chevron-left me-1"></i> Previous
+        </h:link>
+        
+        <!-- Disabled Previous Button -->
+        <span class="btn btn-outline-secondary me-2 disabled" 
+              rendered="#{not jobService.previousPage}">
+            <i class="bi bi-chevron-left me-1"></i> Previous
+        </span>
+
+        <!-- Page Numbers -->
+        <div class="d-flex align-items-center mx-3 page-numbers">
+            <!-- Show page numbers around current page -->
+            <ui:repeat value="#{jobService.pageNumbers}" var="pageNum">
+                <h:link outcome="occupationSearchRevised" 
+                        styleClass="btn btn-sm me-1 #{pageNum == jobService.currentPage ? 'btn-primary' : 'btn-outline-primary'}"
+                        rendered="#{pageNum != -1}">
+                    <f:param name="page" value="#{pageNum}" />
+                    <!-- Preserve all current filter parameters -->
+                    <f:param name="cluster" value="#{param['cluster']}" rendered="#{not empty param['cluster']}" />
+                    <f:param name="pathway" value="#{param['pathway']}" rendered="#{not empty param['pathway']}" />
+                    <f:param name="education" value="#{param['education']}" rendered="#{not empty param['education']}" />
+                    <f:param name="category" value="#{param['category']}" rendered="#{not empty param['category']}" />
+                    <f:param name="artsHumanities" value="#{param['artsHumanities']}" rendered="#{not empty param['artsHumanities']}" />
+                    <f:param name="businessInfoSystems" value="#{param['businessInfoSystems']}" rendered="#{not empty param['businessInfoSystems']}" />
+                    <f:param name="engineeringTech" value="#{param['engineeringTech']}" rendered="#{not empty param['engineeringTech']}" />
+                    <f:param name="healthServices" value="#{param['healthServices']}" rendered="#{not empty param['healthServices']}" />
+                    <f:param name="architectureEngineering" value="#{param['architectureEngineering']}" rendered="#{not empty param['architectureEngineering']}" />
+                    <f:param name="computerMathematical" value="#{param['computerMathematical']}" rendered="#{not empty param['computerMathematical']}" />
+                    <f:param name="healthcarePractitioners" value="#{param['healthcarePractitioners']}" rendered="#{not empty param['healthcarePractitioners']}" />
+                    <f:param name="lifeSocialScience" value="#{param['lifeSocialScience']}" rendered="#{not empty param['lifeSocialScience']}" />
+                    #{pageNum}
+                </h:link>
+                
+                <!-- Ellipsis for gaps -->
+                <span class="ellipsis me-1" rendered="#{pageNum == -1}">...</span>
+            </ui:repeat>
+        </div>
+
+        <!-- Page Info -->
+        <span class="mx-3 text-muted page-info">
+            Page #{jobService.currentPage} of #{jobService.totalPages} 
+            (#{jobService.startResult}-#{jobService.endResult} of #{jobService.totalFilteredResults} results)
+        </span>
+
+        <!-- Next Button -->
+        <h:link outcome="occupationSearchRevised" 
+                styleClass="btn btn-outline-primary ms-2"
+                rendered="#{jobService.nextPage}">
+            <f:param name="page" value="#{jobService.currentPage + 1}" />
+            <!-- Preserve all current filter parameters -->
+            <f:param name="cluster" value="#{param['cluster']}" rendered="#{not empty param['cluster']}" />
+            <f:param name="pathway" value="#{param['pathway']}" rendered="#{not empty param['pathway']}" />
+            <f:param name="education" value="#{param['education']}" rendered="#{not empty param['education']}" />
+            <f:param name="category" value="#{param['category']}" rendered="#{not empty param['category']}" />
+            <f:param name="artsHumanities" value="#{param['artsHumanities']}" rendered="#{not empty param['artsHumanities']}" />
+            <f:param name="businessInfoSystems" value="#{param['businessInfoSystems']}" rendered="#{not empty param['businessInfoSystems']}" />
+            <f:param name="engineeringTech" value="#{param['engineeringTech']}" rendered="#{not empty param['engineeringTech']}" />
+            <f:param name="healthServices" value="#{param['healthServices']}" rendered="#{not empty param['healthServices']}" />
+            <f:param name="architectureEngineering" value="#{param['architectureEngineering']}" rendered="#{not empty param['architectureEngineering']}" />
+            <f:param name="computerMathematical" value="#{param['computerMathematical']}" rendered="#{not empty param['computerMathematical']}" />
+            <f:param name="healthcarePractitioners" value="#{param['healthcarePractitioners']}" rendered="#{not empty param['healthcarePractitioners']}" />
+            <f:param name="lifeSocialScience" value="#{param['lifeSocialScience']}" rendered="#{not empty param['lifeSocialScience']}" />
+            Next <i class="bi bi-chevron-right ms-1"></i>
+        </h:link>
+        
+        <!-- Disabled Next Button -->
+        <span class="btn btn-outline-secondary ms-2 disabled" 
+              rendered="#{not jobService.nextPage}">
+            Next <i class="bi bi-chevron-right ms-1"></i>
+        </span>
     </div>
 </ui:composition>
 </html>

@@ -240,4 +240,15 @@ public class SearchFilterBean implements Serializable {
     public String getPathwayUrl(String outcome, String clusterValue, String pathwayValue) {
         return LinkBuilderUtil.buildPathwayUrl(outcome, clusterValue, pathwayValue);
     }
+
+    /**
+     * Builds a URL for pagination, preserving all current filter parameters.
+     *
+     * @param outcome The JSF outcome (page name)
+     * @param page The page number
+     * @return The URL with the page parameter and preserved filter parameters
+     */
+    public String getPaginationUrl(String outcome, int page) {
+        return LinkBuilderUtil.buildPaginationUrl(outcome, page);
+    }
 }
