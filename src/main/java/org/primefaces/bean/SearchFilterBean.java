@@ -1,12 +1,9 @@
 package org.primefaces.bean;
 
-import org.primefaces.util.LinkBuilderUtil;
-
 import javax.enterprise.context.RequestScoped;
 import javax.faces.context.FacesContext;
 import javax.inject.Named;
 import java.io.Serializable;
-import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -37,6 +34,7 @@ public class SearchFilterBean implements Serializable {
 
     // Other filters
     private String salary;
+    private String category;
 
     /**
      * Default constructor
@@ -78,6 +76,7 @@ public class SearchFilterBean implements Serializable {
 
         // Other filters
         this.salary = params.get("salary");
+        this.category = params.get("category");
     }
 
     /**
@@ -117,7 +116,7 @@ public class SearchFilterBean implements Serializable {
      * @return The URL with the category parameter and preserved filter parameters
      */
     public String getCategoryUrl(String category) {
-        return LinkBuilderUtil.buildCategoryUrl("occupationSearchRevised.jsf", category);
+        return "occupationSearchRevised.xhtml?category=" + category;
     }
 
     // Getters and setters for all properties
@@ -218,6 +217,14 @@ public class SearchFilterBean implements Serializable {
         this.salary = salary;
     }
 
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
     /**
      * Builds a URL for a career cluster, preserving other filter parameters.
      *
@@ -226,7 +233,7 @@ public class SearchFilterBean implements Serializable {
      * @return The URL with the cluster parameter and preserved filter parameters
      */
     public String getClusterUrl(String outcome, String clusterValue) {
-        return LinkBuilderUtil.buildClusterUrl(outcome, clusterValue);
+        return outcome + ".xhtml?cluster=" + clusterValue;
     }
 
     /**
@@ -238,7 +245,7 @@ public class SearchFilterBean implements Serializable {
      * @return The URL with the cluster and pathway parameters and preserved filter parameters
      */
     public String getPathwayUrl(String outcome, String clusterValue, String pathwayValue) {
-        return LinkBuilderUtil.buildPathwayUrl(outcome, clusterValue, pathwayValue);
+        return outcome + ".xhtml?cluster=" + clusterValue + "&pathway=" + pathwayValue;
     }
 
     /**
@@ -249,6 +256,6 @@ public class SearchFilterBean implements Serializable {
      * @return The URL with the page parameter and preserved filter parameters
      */
     public String getPaginationUrl(String outcome, int page) {
-        return LinkBuilderUtil.buildPaginationUrl(outcome, page);
+        return outcome + ".xhtml?page=" + page;
     }
 }

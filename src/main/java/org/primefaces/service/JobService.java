@@ -3,8 +3,10 @@ package org.primefaces.service;
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.ApplicationScoped;
 import javax.faces.context.FacesContext;
+import javax.inject.Inject;
 import javax.inject.Named;
 import org.primefaces.model.Job;
+import org.primefaces.bean.SearchFilterBean;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -22,6 +24,9 @@ public class JobService implements Serializable {
 
     private static final long serialVersionUID = 1L;
     private static final int DEFAULT_PAGE_SIZE = 10;
+
+    @Inject
+    private SearchFilterBean searchFilterBean;
 
     private List<Job> allJobs;
     private List<Job> filteredJobs;
@@ -212,23 +217,22 @@ public class JobService implements Serializable {
      * Gets all filtered jobs without pagination.
      */
     private List<Job> getAllFilteredJobs() {
-        Map<String, String> params = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap();
-        String clusterParam = params.get("cluster");
-        String pathwayParam = params.get("pathway");
-        String educationParam = params.get("education");
-        String categoryParam = params.get("category");
+        String clusterParam = searchFilterBean.getCluster();
+        String pathwayParam = searchFilterBean.getPathway();
+        String educationParam = searchFilterBean.getEducationLevel();
+        String categoryParam = searchFilterBean.getCategory();
 
         // Education cluster filters
-        boolean artsHumanities = "true".equals(params.get("artsHumanities"));
-        boolean businessInfoSystems = "true".equals(params.get("businessInfoSystems"));
-        boolean engineeringTech = "true".equals(params.get("engineeringTech"));
-        boolean healthServices = "true".equals(params.get("healthServices"));
+        boolean artsHumanities = searchFilterBean.isArtsHumanities();
+        boolean businessInfoSystems = searchFilterBean.isBusinessInfoSystems();
+        boolean engineeringTech = searchFilterBean.isEngineeringTech();
+        boolean healthServices = searchFilterBean.isHealthServices();
 
         // STEM discipline filters
-        boolean architectureEngineering = "true".equals(params.get("architectureEngineering"));
-        boolean computerMathematical = "true".equals(params.get("computerMathematical"));
-        boolean healthcarePractitioners = "true".equals(params.get("healthcarePractitioners"));
-        boolean lifeSocialScience = "true".equals(params.get("lifeSocialScience"));
+        boolean architectureEngineering = searchFilterBean.isArchitectureEngineering();
+        boolean computerMathematical = searchFilterBean.isComputerMathematical();
+        boolean healthcarePractitioners = searchFilterBean.isHealthcarePractitioners();
+        boolean lifeSocialScience = searchFilterBean.isLifeSocialScience();
 
         // Check if any filters are applied
         boolean hasFilters = clusterParam != null || pathwayParam != null ||
@@ -433,49 +437,5 @@ public class JobService implements Serializable {
             return 0;
         }
         return Math.min(currentPage * pageSize, totalResults);
-    }
-
-    /**
-     * Gets a list of page numbers to display in pagination.
-     * Returns -1 for ellipsis positions.
-     */
-    public List<Integer> getPageNumbers() {
-        List<Integer> pageNumbers = new ArrayList<>();
-        int totalPages = getTotalPages();
-        
-        if (totalPages <= 7) {
-            // Show all pages if 7 or fewer
-            for (int i = 1; i <= totalPages; i++) {
-                pageNumbers.add(i);
-            }
-        } else {
-            // Always show first page
-            pageNumbers.add(1);
-            
-            if (currentPage <= 4) {
-                // Current page is near the beginning
-                for (int i = 2; i <= 5; i++) {
-                    pageNumbers.add(i);
-                }
-                pageNumbers.add(-1); // Ellipsis
-                pageNumbers.add(totalPages);
-            } else if (currentPage >= totalPages - 3) {
-                // Current page is near the end
-                pageNumbers.add(-1); // Ellipsis
-                for (int i = totalPages - 4; i <= totalPages; i++) {
-                    pageNumbers.add(i);
-                }
-            } else {
-                // Current page is in the middle
-                pageNumbers.add(-1); // Ellipsis
-                for (int i = currentPage - 1; i <= currentPage + 1; i++) {
-                    pageNumbers.add(i);
-                }
-                pageNumbers.add(-1); // Ellipsis
-                pageNumbers.add(totalPages);
-            }
-        }
-        
-        return pageNumbers;
     }
 }
