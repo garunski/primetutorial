@@ -12,21 +12,6 @@
         <h5 class="mb-3">Education Options</h5>
 
         <div class="mb-3">
-            <label for="educationSelect" class="form-label mb-2">Preparation:</label>
-            <h:selectOneMenu id="educationSelect"
-                             value="#{searchFilterBean.educationLevel}"
-                             styleClass="form-select"
-                             onchange="applyFilter('education', this.value)">
-                <f:selectItem itemLabel="Select One" itemValue="" />
-                <f:selectItem itemLabel="No Experience Required - Start Right Away" itemValue="jobzone1" />
-                <f:selectItem itemLabel="Short-Term Training (Few Months)" itemValue="jobzone2" />
-                <f:selectItem itemLabel="Moderate Training (1-2 Years)" itemValue="jobzone3" />
-                <f:selectItem itemLabel="College Degree Required (4+ Years)" itemValue="jobzone4" />
-                <f:selectItem itemLabel="Advanced Degree Required (6+ Years)" itemValue="jobzone5" />
-            </h:selectOneMenu>
-        </div>
-
-        <div class="mb-3">
             <label class="form-label mb-2">Cluster:</label>
             <div class="form-check mb-2">
                 <h:selectBooleanCheckbox id="eduCluster1"
