@@ -71,55 +71,57 @@
 
         <!-- Horizontal Filters Panel -->
         <div class="card-body bg-light border-bottom">
-            <div class="row align-items-center g-3">
+            <div class="row g-4">
                 <!-- Preparation Filter -->
                 <div class="col-md-3">
-                    <label class="form-label fw-semibold mb-1">Preparation</label>
-                    <h:selectOneMenu id="educationSelect"
-                                     value="#{searchFilterBean.educationLevel}"
-                                     styleClass="form-select form-select-sm"
-                                     onchange="applyFilter('education', this.value)">
-                        <f:selectItem itemLabel="Select One" itemValue="" />
-                        <f:selectItem itemLabel="No Experience Required - Start Right Away" itemValue="jobzone1" />
-                        <f:selectItem itemLabel="Short-Term Training (Few Months)" itemValue="jobzone2" />
-                        <f:selectItem itemLabel="Moderate Training (1-2 Years)" itemValue="jobzone3" />
-                        <f:selectItem itemLabel="College Degree Required (4+ Years)" itemValue="jobzone4" />
-                        <f:selectItem itemLabel="Advanced Degree Required (6+ Years)" itemValue="jobzone5" />
-                    </h:selectOneMenu>
+                    <div>
+                        <label class="form-label fw-semibold d-block mb-2">Preparation</label>
+                        <h:selectOneMenu id="educationSelect"
+                                         value="#{searchFilterBean.educationLevel}"
+                                         styleClass="form-select form-select-sm"
+                                         onchange="applyFilter('education', this.value)">
+                            <f:selectItem itemLabel="Select One" itemValue="" />
+                            <f:selectItem itemLabel="No Experience Required - Start Right Away" itemValue="jobzone1" />
+                            <f:selectItem itemLabel="Short-Term Training (Few Months)" itemValue="jobzone2" />
+                            <f:selectItem itemLabel="Moderate Training (1-2 Years)" itemValue="jobzone3" />
+                            <f:selectItem itemLabel="College Degree Required (4+ Years)" itemValue="jobzone4" />
+                            <f:selectItem itemLabel="Advanced Degree Required (6+ Years)" itemValue="jobzone5" />
+                        </h:selectOneMenu>
+                    </div>
                 </div>
 
                 <!-- Salary Filter -->
                 <div class="col-md-4">
-                    <label class="form-label fw-semibold mb-1">Minimum Salary</label>
-                    <div class="d-flex align-items-center">
-                        <small class="text-muted me-2">$0</small>
-                        <h:inputHidden id="salaryInput" value="#{searchFilterBean.salary}" />
-                        <input type="range" id="salarySlider"
-                               class="form-range flex-grow-1 mx-2"
-                               min="0"
-                               max="100000"
-                               step="5000"
-                               value="#{searchFilterBean.salary}" />
-                        <small class="text-muted ms-2">$100k+</small>
+                    <div>
+                        <label class="form-label fw-semibold d-block mb-2">Minimum Salary</label>
+                        <div class="d-flex align-items-center mb-1">
+                            <small class="text-muted me-2">$0</small>
+                            <h:inputHidden id="salaryInput" value="#{searchFilterBean.salary}" />
+                            <input type="range" id="salarySlider"
+                                   class="form-range flex-grow-1 mx-2"
+                                   min="0"
+                                   max="100000"
+                                   step="5000"
+                                   value="#{searchFilterBean.salary}" />
+                            <small class="text-muted ms-2">$100k+</small>
+                        </div>
+                        <small class="text-primary fw-semibold" id="salaryValue">$0</small>
                     </div>
-                    <small class="text-primary fw-semibold" id="salaryValue">$0</small>
                 </div>
 
                 <!-- Quick Filters -->
                 <div class="col-md-5">
-                    <label class="form-label fw-semibold mb-1">Quick Filters</label>
-                    <div class="d-flex flex-wrap gap-3">
-                        <div class="form-check">
-                            <h:selectBooleanCheckbox id="brightOutlook" styleClass="form-check-input" onchange="applyFilter('brightOutlook', this.checked)" />
-                            <h:outputLabel for="brightOutlook" value="Bright Outlook" styleClass="form-check-label" />
-                        </div>
-                        <div class="form-check">
-                            <h:selectBooleanCheckbox id="greenJobs" styleClass="form-check-input" onchange="applyFilter('greenJobs', this.checked)" />
-                            <h:outputLabel for="greenJobs" value="Green Jobs" styleClass="form-check-label" />
-                        </div>
-                        <div class="form-check">
-                            <h:selectBooleanCheckbox id="apprenticeship" styleClass="form-check-input" onchange="applyFilter('apprenticeship', this.checked)" />
-                            <h:outputLabel for="apprenticeship" value="Apprenticeship" styleClass="form-check-label" />
+                    <div>
+                        <label class="form-label fw-semibold d-block mb-2">Quick Filters</label>
+                        <div class="d-flex flex-wrap gap-2">
+                            <h:selectBooleanCheckbox id="brightOutlook" styleClass="btn-check" onchange="applyFilter('brightOutlook', this.checked)" />
+                            <h:outputLabel for="brightOutlook" value="Bright Outlook" styleClass="btn btn-outline-primary btn-sm" />
+                            
+                            <h:selectBooleanCheckbox id="greenJobs" styleClass="btn-check" onchange="applyFilter('greenJobs', this.checked)" />
+                            <h:outputLabel for="greenJobs" value="Green Jobs" styleClass="btn btn-outline-success btn-sm" />
+                            
+                            <h:selectBooleanCheckbox id="apprenticeship" styleClass="btn-check" onchange="applyFilter('apprenticeship', this.checked)" />
+                            <h:outputLabel for="apprenticeship" value="Apprenticeship" styleClass="btn btn-outline-info btn-sm" />
                         </div>
                     </div>
                 </div>
@@ -131,7 +133,10 @@
         function updateSalaryValue(value) {
             // Update the displayed value
             var formattedValue = value > 0 ? '$' + parseInt(value).toLocaleString() : '$0';
-            $('#salaryValue').text(formattedValue);
+            var salaryValueElement = document.getElementById('salaryValue');
+            if (salaryValueElement) {
+                salaryValueElement.textContent = formattedValue;
+            }
         }
 
         function applySalaryFilter(value) {
@@ -140,24 +145,26 @@
 
             // Apply the filter (with a small delay to prevent rapid consecutive calls)
             setTimeout(function() {
-                applyFilter('salary', value);
+                if (typeof applyFilter === 'function') {
+                    applyFilter('salary', value);
+                }
             }, 500);
         }
 
         // Initialize the displayed value on page load without triggering the filter
-        $(document).ready(function() {
-            var slider = $('#salarySlider');
-            if (slider.length) {
+        document.addEventListener('DOMContentLoaded', function() {
+            var slider = document.getElementById('salarySlider');
+            if (slider) {
                 // Just update the display without applying the filter
-                updateSalaryValue(slider.val());
+                updateSalaryValue(slider.value);
 
-                // Add event handlers using jQuery
-                slider.on('input', function() {
-                    updateSalaryValue($(this).val());
+                // Add event handlers using vanilla JavaScript
+                slider.addEventListener('input', function() {
+                    updateSalaryValue(this.value);
                 });
 
-                slider.on('change', function() {
-                    applySalaryFilter($(this).val());
+                slider.addEventListener('change', function() {
+                    applySalaryFilter(this.value);
                 });
             }
         });
