@@ -52,162 +52,104 @@ $bootstrap-icons-font-dir: "bootstrap-icons/font/fonts";
 @import "components/search";
 
 // Minimal Bootstrap class prefixes to avoid conflicts with Foundation CSS and PrimeFaces 12
-// Only includes classes that actually conflict between frameworks
+// Only includes classes that actually exist in Bootstrap 5.3.3
 .bs {
-  // Grid system conflicts (Foundation uses .row, .column)
-  &-container { @extend .container; }
-  &-container-fluid { @extend .container-fluid; }
-  &-row { @extend .row; }
-  &-col { @extend .col; }
+  // Grid system conflicts with Foundation
+  .container,
+  .container-fluid,
+  .container-sm,
+  .container-md,
+  .container-lg,
+  .container-xl,
+  .container-xxl,
+  .row,
+  .col,
+  [class*="col-"] {
+    @extend .container;
+    @extend .row;
+    @extend .col;
+  }
   
-  // Column classes that conflict with Foundation's grid
-  @for $i from 1 through 12 {
-    &-col-#{$i} { @extend .col-#{$i}; }
-    &-col-sm-#{$i} { @extend .col-sm-#{$i}; }
-    &-col-md-#{$i} { @extend .col-md-#{$i}; }
-    &-col-lg-#{$i} { @extend .col-lg-#{$i}; }
-    &-col-xl-#{$i} { @extend .col-xl-#{$i}; }
-  }
-
-  // Button conflicts (Foundation has .button, PrimeFaces has .ui-button)
-  &-btn {
+  // Button conflicts with Foundation and PrimeFaces
+  .btn,
+  [class*="btn-"] {
     @extend .btn;
-    &-primary { @extend .btn-primary; }
-    &-secondary { @extend .btn-secondary; }
-    &-success { @extend .btn-success; }
-    &-danger { @extend .btn-danger; }
-    &-warning { @extend .btn-warning; }
-    &-info { @extend .btn-info; }
-    &-light { @extend .btn-light; }
-    &-dark { @extend .btn-dark; }
-    &-lg { @extend .btn-lg; }
-    &-sm { @extend .btn-sm; }
   }
-
-  // Button groups (Foundation has .button-group)
-  &-btn-group {
-    @extend .btn-group;
-    &-vertical { @extend .btn-group-vertical; }
-    &-lg { @extend .btn-group-lg; }
-    &-sm { @extend .btn-group-sm; }
+  
+  // Form conflicts with Foundation and PrimeFaces
+  .form-control,
+  .form-group,
+  .form-label,
+  .form-select,
+  .form-check,
+  .form-check-input,
+  .form-check-label,
+  .input-group,
+  .input-group-text {
+    @extend .form-control;
+    @extend .form-group;
+    @extend .form-label;
+    @extend .form-select;
+    @extend .form-check;
+    @extend .form-check-input;
+    @extend .form-check-label;
+    @extend .input-group;
+    @extend .input-group-text;
   }
-
-  // Form controls (Foundation has .form-control, PrimeFaces has various form classes)
-  &-form-control { @extend .form-control; }
-  &-form-control-lg { @extend .form-control-lg; }
-  &-form-control-sm { @extend .form-control-sm; }
-  &-form-select { @extend .form-select; }
-  &-form-check { @extend .form-check; }
-  &-form-check-input { @extend .form-check-input; }
-  &-form-check-label { @extend .form-check-label; }
-  &-form-label { @extend .form-label; }
-  &-input-group { @extend .input-group; }
-  &-input-group-text { @extend .input-group-text; }
-
-  // Navigation conflicts (Foundation has .nav, .navbar)
-  &-nav {
-    @extend .nav;
-    &-link { @extend .nav-link; }
-    &-item { @extend .nav-item; }
-    &-tabs { @extend .nav-tabs; }
-    &-pills { @extend .nav-pills; }
-  }
-
-  &-navbar {
-    @extend .navbar;
-    &-brand { @extend .navbar-brand; }
-    &-nav { @extend .navbar-nav; }
-    &-toggler { @extend .navbar-toggler; }
-    &-expand-lg { @extend .navbar-expand-lg; }
-    &-light { @extend .navbar-light; }
-    &-dark { @extend .navbar-dark; }
-  }
-
-  // Table conflicts (Foundation has .table)
-  &-table {
+  
+  // Table conflicts with Foundation
+  .table,
+  [class*="table-"] {
     @extend .table;
-    &-striped { @extend .table-striped; }
-    &-bordered { @extend .table-bordered; }
-    &-hover { @extend .table-hover; }
-    &-sm { @extend .table-sm; }
-    &-responsive { @extend .table-responsive; }
   }
-
-  // Alert conflicts (Foundation has .alert)
-  &-alert {
-    @extend .alert;
-    &-primary { @extend .alert-primary; }
-    &-secondary { @extend .alert-secondary; }
-    &-success { @extend .alert-success; }
-    &-danger { @extend .alert-danger; }
-    &-warning { @extend .alert-warning; }
-    &-info { @extend .alert-info; }
-    &-dismissible { @extend .alert-dismissible; }
+  
+  // Navigation conflicts with Foundation
+  .nav,
+  .nav-link,
+  .nav-item,
+  .navbar,
+  [class*="navbar-"] {
+    @extend .nav;
+    @extend .nav-link;
+    @extend .nav-item;
+    @extend .navbar;
   }
-
-  // Card conflicts (Foundation has .card)
-  &-card {
+  
+  // Card component (unique to Bootstrap, potential conflict)
+  .card,
+  .card-body,
+  .card-header,
+  .card-footer,
+  .card-title,
+  .card-text {
     @extend .card;
-    &-header { @extend .card-header; }
-    &-body { @extend .card-body; }
-    &-footer { @extend .card-footer; }
-    &-title { @extend .card-title; }
-    &-text { @extend .card-text; }
+    @extend .card-body;
+    @extend .card-header;
+    @extend .card-footer;
+    @extend .card-title;
+    @extend .card-text;
   }
-
-  // Dropdown conflicts (Foundation has .dropdown)
-  &-dropdown {
-    @extend .dropdown;
-    &-toggle { @extend .dropdown-toggle; }
-    &-menu { @extend .dropdown-menu; }
-    &-item { @extend .dropdown-item; }
-    &-divider { @extend .dropdown-divider; }
+  
+  // Alert conflicts with Foundation
+  .alert,
+  [class*="alert-"] {
+    @extend .alert;
   }
-
-  // Badge conflicts (Foundation has .badge)
-  &-badge {
+  
+  // Badge conflicts with Foundation
+  .badge,
+  [class*="badge-"] {
     @extend .badge;
-    &-primary { @extend .badge-primary; }
-    &-secondary { @extend .badge-secondary; }
-    &-success { @extend .badge-success; }
-    &-danger { @extend .badge-danger; }
-    &-warning { @extend .badge-warning; }
-    &-info { @extend .badge-info; }
   }
-
-  // Pagination conflicts (Foundation has .pagination)
-  &-pagination {
-    @extend .pagination;
-    &-lg { @extend .pagination-lg; }
-    &-sm { @extend .pagination-sm; }
+  
+  // Dropdown conflicts with Foundation
+  .dropdown,
+  .dropdown-menu,
+  .dropdown-item,
+  .dropdown-toggle {
+    @extend .dropdown;
+    @extend .dropdown-menu;
+    @extend .dropdown-item;
+    @extend .dropdown-toggle;
   }
-  &-page-item { @extend .page-item; }
-  &-page-link { @extend .page-link; }
-
-  // Display utility conflicts (Foundation has .show, .hide)
-  &-d-none { @extend .d-none; }
-  &-d-block { @extend .d-block; }
-  &-d-inline { @extend .d-inline; }
-  &-d-inline-block { @extend .d-inline-block; }
-  &-d-flex { @extend .d-flex; }
-
-  // Text alignment conflicts (Foundation has .text-center, .text-left, .text-right)
-  &-text-left { @extend .text-left; }
-  &-text-center { @extend .text-center; }
-  &-text-right { @extend .text-right; }
-
-  // Float conflicts (Foundation has .left, .right)
-  &-float-left { @extend .float-left; }
-  &-float-right { @extend .float-right; }
-  &-clearfix { @extend .clearfix; }
-
-  // Only critical spacing utilities that commonly conflict
-  &-m-0 { @extend .m-0; }
-  &-m-1 { @extend .m-1; }
-  &-m-2 { @extend .m-2; }
-  &-m-3 { @extend .m-3; }
-  &-p-0 { @extend .p-0; }
-  &-p-1 { @extend .p-1; }
-  &-p-2 { @extend .p-2; }
-  &-p-3 { @extend .p-3; }
 }
