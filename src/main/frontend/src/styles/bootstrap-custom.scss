@@ -52,18 +52,279 @@ $bootstrap-icons-font-dir: "bootstrap-icons/font/fonts";
 @import "components/search";
 
 // Add a prefix to Bootstrap classes to avoid conflicts with Foundation
-// Note: Most bs- prefixed classes have been replaced with native Bootstrap classes
-// This section is kept for backward compatibility with any remaining bs- classes
+// Wrap all Bootstrap classes with .bs prefix
 .bs {
+  // Typography
+  &-h1, &-h2, &-h3, &-h4, &-h5, &-h6 {
+    @extend .h1, .h2, .h3, .h4, .h5, .h6;
+  }
+  
+  &-display-1, &-display-2, &-display-3, &-display-4, &-display-5, &-display-6 {
+    @extend .display-1, .display-2, .display-3, .display-4, .display-5, .display-6;
+  }
+  
+  &-lead { @extend .lead; }
+  &-text-muted { @extend .text-muted; }
+  &-text-primary { @extend .text-primary; }
+  &-text-secondary { @extend .text-secondary; }
+  &-text-success { @extend .text-success; }
+  &-text-danger { @extend .text-danger; }
+  &-text-warning { @extend .text-warning; }
+  &-text-info { @extend .text-info; }
+  &-text-light { @extend .text-light; }
+  &-text-dark { @extend .text-dark; }
+
+  // Buttons
   &-btn {
     @extend .btn;
 
-    &-primary {
-      @extend .btn-primary;
-    }
-
-    &-secondary {
-      @extend .btn-secondary;
-    }
+    &-primary { @extend .btn-primary; }
+    &-secondary { @extend .btn-secondary; }
+    &-success { @extend .btn-success; }
+    &-danger { @extend .btn-danger; }
+    &-warning { @extend .btn-warning; }
+    &-info { @extend .btn-info; }
+    &-light { @extend .btn-light; }
+    &-dark { @extend .btn-dark; }
+    &-outline-primary { @extend .btn-outline-primary; }
+    &-outline-secondary { @extend .btn-outline-secondary; }
+    &-outline-success { @extend .btn-outline-success; }
+    &-outline-danger { @extend .btn-outline-danger; }
+    &-outline-warning { @extend .btn-outline-warning; }
+    &-outline-info { @extend .btn-outline-info; }
+    &-outline-light { @extend .btn-outline-light; }
+    &-outline-dark { @extend .btn-outline-dark; }
+    &-lg { @extend .btn-lg; }
+    &-sm { @extend .btn-sm; }
+    &-block { @extend .btn-block; }
   }
+
+  // Button groups
+  &-btn-group {
+    @extend .btn-group;
+    &-vertical { @extend .btn-group-vertical; }
+    &-lg { @extend .btn-group-lg; }
+    &-sm { @extend .btn-group-sm; }
+  }
+
+  // Grid system
+  &-container { @extend .container; }
+  &-container-fluid { @extend .container-fluid; }
+  &-container-sm { @extend .container-sm; }
+  &-container-md { @extend .container-md; }
+  &-container-lg { @extend .container-lg; }
+  &-container-xl { @extend .container-xl; }
+  &-container-xxl { @extend .container-xxl; }
+  
+  &-row { @extend .row; }
+  &-col { @extend .col; }
+  
+  // Column classes
+  @for $i from 1 through 12 {
+    &-col-#{$i} { @extend .col-#{$i}; }
+    &-col-sm-#{$i} { @extend .col-sm-#{$i}; }
+    &-col-md-#{$i} { @extend .col-md-#{$i}; }
+    &-col-lg-#{$i} { @extend .col-lg-#{$i}; }
+    &-col-xl-#{$i} { @extend .col-xl-#{$i}; }
+    &-col-xxl-#{$i} { @extend .col-xxl-#{$i}; }
+  }
+
+  // Forms
+  &-form-control { @extend .form-control; }
+  &-form-control-lg { @extend .form-control-lg; }
+  &-form-control-sm { @extend .form-control-sm; }
+  &-form-select { @extend .form-select; }
+  &-form-check { @extend .form-check; }
+  &-form-check-input { @extend .form-check-input; }
+  &-form-check-label { @extend .form-check-label; }
+  &-form-label { @extend .form-label; }
+  &-form-text { @extend .form-text; }
+  &-input-group { @extend .input-group; }
+  &-input-group-text { @extend .input-group-text; }
+
+  // Cards
+  &-card {
+    @extend .card;
+    &-header { @extend .card-header; }
+    &-body { @extend .card-body; }
+    &-footer { @extend .card-footer; }
+    &-title { @extend .card-title; }
+    &-text { @extend .card-text; }
+    &-img-top { @extend .card-img-top; }
+    &-img-bottom { @extend .card-img-bottom; }
+  }
+
+  // Navigation
+  &-nav {
+    @extend .nav;
+    &-link { @extend .nav-link; }
+    &-item { @extend .nav-item; }
+    &-tabs { @extend .nav-tabs; }
+    &-pills { @extend .nav-pills; }
+  }
+
+  &-navbar {
+    @extend .navbar;
+    &-brand { @extend .navbar-brand; }
+    &-nav { @extend .navbar-nav; }
+    &-toggler { @extend .navbar-toggler; }
+    &-expand-sm { @extend .navbar-expand-sm; }
+    &-expand-md { @extend .navbar-expand-md; }
+    &-expand-lg { @extend .navbar-expand-lg; }
+    &-expand-xl { @extend .navbar-expand-xl; }
+    &-light { @extend .navbar-light; }
+    &-dark { @extend .navbar-dark; }
+  }
+
+  // Alerts
+  &-alert {
+    @extend .alert;
+    &-primary { @extend .alert-primary; }
+    &-secondary { @extend .alert-secondary; }
+    &-success { @extend .alert-success; }
+    &-danger { @extend .alert-danger; }
+    &-warning { @extend .alert-warning; }
+    &-info { @extend .alert-info; }
+    &-light { @extend .alert-light; }
+    &-dark { @extend .alert-dark; }
+    &-dismissible { @extend .alert-dismissible; }
+  }
+
+  // Badges
+  &-badge {
+    @extend .badge;
+    &-primary { @extend .badge-primary; }
+    &-secondary { @extend .badge-secondary; }
+    &-success { @extend .badge-success; }
+    &-danger { @extend .badge-danger; }
+    &-warning { @extend .badge-warning; }
+    &-info { @extend .badge-info; }
+    &-light { @extend .badge-light; }
+    &-dark { @extend .badge-dark; }
+    &-pill { @extend .badge-pill; }
+  }
+
+  // Tables
+  &-table {
+    @extend .table;
+    &-striped { @extend .table-striped; }
+    &-bordered { @extend .table-bordered; }
+    &-hover { @extend .table-hover; }
+    &-sm { @extend .table-sm; }
+    &-responsive { @extend .table-responsive; }
+  }
+
+  // Pagination
+  &-pagination {
+    @extend .pagination;
+    &-lg { @extend .pagination-lg; }
+    &-sm { @extend .pagination-sm; }
+  }
+  &-page-item { @extend .page-item; }
+  &-page-link { @extend .page-link; }
+
+  // Dropdowns
+  &-dropdown {
+    @extend .dropdown;
+    &-toggle { @extend .dropdown-toggle; }
+    &-menu { @extend .dropdown-menu; }
+    &-item { @extend .dropdown-item; }
+    &-divider { @extend .dropdown-divider; }
+    &-header { @extend .dropdown-header; }
+  }
+
+  // Accordion
+  &-accordion {
+    @extend .accordion;
+    &-item { @extend .accordion-item; }
+    &-header { @extend .accordion-header; }
+    &-button { @extend .accordion-button; }
+    &-body { @extend .accordion-body; }
+    &-collapse { @extend .accordion-collapse; }
+  }
+
+  // Utility classes
+  &-d-none { @extend .d-none; }
+  &-d-block { @extend .d-block; }
+  &-d-inline { @extend .d-inline; }
+  &-d-inline-block { @extend .d-inline-block; }
+  &-d-flex { @extend .d-flex; }
+  &-d-inline-flex { @extend .d-inline-flex; }
+  
+  &-justify-content-start { @extend .justify-content-start; }
+  &-justify-content-end { @extend .justify-content-end; }
+  &-justify-content-center { @extend .justify-content-center; }
+  &-justify-content-between { @extend .justify-content-between; }
+  &-justify-content-around { @extend .justify-content-around; }
+  
+  &-align-items-start { @extend .align-items-start; }
+  &-align-items-end { @extend .align-items-end; }
+  &-align-items-center { @extend .align-items-center; }
+  &-align-items-baseline { @extend .align-items-baseline; }
+  &-align-items-stretch { @extend .align-items-stretch; }
+
+  // Spacing utilities
+  @for $i from 0 through 5 {
+    &-m-#{$i} { @extend .m-#{$i}; }
+    &-mt-#{$i} { @extend .mt-#{$i}; }
+    &-mb-#{$i} { @extend .mb-#{$i}; }
+    &-ml-#{$i} { @extend .ml-#{$i}; }
+    &-mr-#{$i} { @extend .mr-#{$i}; }
+    &-mx-#{$i} { @extend .mx-#{$i}; }
+    &-my-#{$i} { @extend .my-#{$i}; }
+    
+    &-p-#{$i} { @extend .p-#{$i}; }
+    &-pt-#{$i} { @extend .pt-#{$i}; }
+    &-pb-#{$i} { @extend .pb-#{$i}; }
+    &-pl-#{$i} { @extend .pl-#{$i}; }
+    &-pr-#{$i} { @extend .pr-#{$i}; }
+    &-px-#{$i} { @extend .px-#{$i}; }
+    &-py-#{$i} { @extend .py-#{$i}; }
+  }
+
+  // Text alignment
+  &-text-left { @extend .text-left; }
+  &-text-center { @extend .text-center; }
+  &-text-right { @extend .text-right; }
+  &-text-justify { @extend .text-justify; }
+
+  // Background colors
+  &-bg-primary { @extend .bg-primary; }
+  &-bg-secondary { @extend .bg-secondary; }
+  &-bg-success { @extend .bg-success; }
+  &-bg-danger { @extend .bg-danger; }
+  &-bg-warning { @extend .bg-warning; }
+  &-bg-info { @extend .bg-info; }
+  &-bg-light { @extend .bg-light; }
+  &-bg-dark { @extend .bg-dark; }
+  &-bg-white { @extend .bg-white; }
+  &-bg-transparent { @extend .bg-transparent; }
+
+  // Border utilities
+  &-border { @extend .border; }
+  &-border-top { @extend .border-top; }
+  &-border-bottom { @extend .border-bottom; }
+  &-border-left { @extend .border-left; }
+  &-border-right { @extend .border-right; }
+  &-border-0 { @extend .border-0; }
+  &-rounded { @extend .rounded; }
+  &-rounded-circle { @extend .rounded-circle; }
+  &-rounded-pill { @extend .rounded-pill; }
+
+  // Position utilities
+  &-position-static { @extend .position-static; }
+  &-position-relative { @extend .position-relative; }
+  &-position-absolute { @extend .position-absolute; }
+  &-position-fixed { @extend .position-fixed; }
+  &-position-sticky { @extend .position-sticky; }
+
+  // Width and height utilities
+  &-w-25 { @extend .w-25; }
+  &-w-50 { @extend .w-50; }
+  &-w-75 { @extend .w-75; }
+  &-w-100 { @extend .w-100; }
+  &-h-25 { @extend .h-25; }
+  &-h-50 { @extend .h-50; }
+  &-h-75 { @extend .h-75; }
+  &-h-100 { @extend .h-100; }
 }
