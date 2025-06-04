@@ -1,0 +1,275 @@
+// Template Override Styles
+// Extracted from inline styles in template.xhtml
+
+@import "variables";
+
+/* CSS Conflict Fixes - Target specific issues */
+
+/* Fix PrimeFaces buttons getting broken by Foundation */
+.ui-button {
+  font-family: $font-family-base !important;
+  border-style: solid !important;
+  cursor: pointer !important;
+  display: inline-block !important;
+  text-align: center !important;
+  vertical-align: middle !important;
+  text-decoration: none !important;
+}
+
+/* Fix PrimeFaces input fields */
+.ui-inputfield {
+  font-family: $font-family-base !important;
+  box-sizing: border-box !important;
+}
+
+/* Fix Foundation button conflicts with Bootstrap */
+.btn:not(.ui-button) {
+  background-image: none !important;
+  border: 1px solid transparent !important;
+  padding: 0.375rem 0.75rem !important;
+  margin-bottom: 0 !important;
+  font-size: 1rem !important;
+  line-height: 1.5 !important;
+  border-radius: 0.375rem !important;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out !important;
+}
+
+/* Fix Foundation input conflicts with Bootstrap */
+.form-control {
+  display: block !important;
+  width: 100% !important;
+  padding: 0.375rem 0.75rem !important;
+  font-size: 1rem !important;
+  font-weight: 400 !important;
+  line-height: 1.5 !important;
+  color: #212529 !important;
+  background-color: #fff !important;
+  background-image: none !important;
+  border: 1px solid #ced4da !important;
+  border-radius: 0.375rem !important;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out !important;
+  box-sizing: border-box !important;
+}
+
+/* Scope Bootstrap to specific areas */
+.bootstrap-forms .button,
+.bootstrap-search .button {
+  /* Reset Foundation button in Bootstrap areas */
+  all: unset;
+}
+
+/* Base layout styles */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: $font-family-base;
+  background-color: $background-light;
+}
+
+/* Header styles */
+.header {
+  background-color: #fff;
+  box-shadow: $box-shadow;
+  padding: 1rem;
+}
+
+.logo {
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: $primary;
+  text-decoration: none;
+}
+
+/* Content area styles */
+.content {
+  padding: 1rem;
+}
+
+/* Form container styles */
+.form-container {
+  background-color: #fff;
+  border-radius: $border-radius-lg;
+  box-shadow: $box-shadow;
+  padding: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.form-section {
+  margin-bottom: 2rem;
+}
+
+.form-section-title {
+  font-size: $font-size-xl;
+  font-weight: $font-weight-semibold;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid $border-color;
+}
+
+.required-field {
+  color: $danger;
+  margin-left: 2px;
+}
+
+.form-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  margin-top: 2rem;
+}
+
+.form-button {
+  margin-left: 0.5rem;
+}
+
+/* Navigation styles (Foundation-based) */
+.tabs {
+  border-bottom: 1px solid $border-color;
+  margin-bottom: 2rem;
+  display: flex;
+  list-style: none;
+  padding: 0;
+}
+
+.tabs-title {
+  margin-right: 0.5rem;
+}
+
+.tabs-title a {
+  display: block;
+  padding: 0.75rem 1.5rem;
+  text-decoration: none;
+  color: $text-secondary;
+  border-bottom: 2px solid transparent;
+}
+
+.tabs-title.is-active a {
+  color: $primary;
+  border-bottom: 2px solid $primary;
+}
+
+.tabs-title a:hover {
+  color: $primary;
+}
+
+/* Menu styles */
+.menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.menu li {
+  margin-left: 1.5rem;
+}
+
+.menu a {
+  color: $text-secondary;
+  text-decoration: none;
+  font-weight: $font-weight-medium;
+  padding: 0.5rem 0;
+  display: block;
+}
+
+.menu a:hover {
+  color: $primary;
+}
+
+/* Vertical menu styles */
+.vertical.menu-container {
+  background-color: #fff;
+  border-radius: $border-radius-lg;
+  box-shadow: $box-shadow;
+  margin-bottom: 1rem;
+}
+
+.vertical.menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.vertical.menu li {
+  border-bottom: 1px solid $border-color;
+}
+
+.vertical.menu li:last-child {
+  border-bottom: none;
+}
+
+.vertical.menu a {
+  display: block;
+  padding: 0.75rem 1rem;
+  color: $text-secondary;
+  text-decoration: none;
+}
+
+.vertical.menu a:hover,
+.vertical.menu a.active {
+  background-color: $background-light;
+  color: $primary;
+}
+
+/* PrimeFaces component fixes */
+.checkbox-item {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 12px;
+}
+
+.checkbox-item .p-checkbox {
+  display: inline-block;
+  margin-right: 8px;
+}
+
+.checkbox-item .ui-chkbox {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 8px;
+}
+
+.checkbox-item label.ui-chkbox-label {
+  margin-left: 0;
+  font-size: $font-size-sm;
+  margin-bottom: 0;
+  vertical-align: middle;
+}
+
+/* PrimeFaces 12 specific styles */
+.ui-chkbox-box {
+  border: 1px solid #ced4da;
+  background: #ffffff;
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  border-radius: $border-radius-sm;
+}
+
+.ui-chkbox-box.ui-state-active {
+  border-color: $primary;
+  background: $primary;
+  color: #ffffff;
+}
+
+.ui-chkbox-icon {
+  font-size: 14px;
+  line-height: 18px;
+}
+
+/* Fix for PrimeFaces radio buttons */
+.custom-radio {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.custom-radio .p-radiobutton {
+  display: inline-block;
+  margin-right: 8px;
+}
+
+.custom-radio label {
+  margin-bottom: 0;
+} 
