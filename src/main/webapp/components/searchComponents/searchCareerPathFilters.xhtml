@@ -11,30 +11,30 @@
     <div class="mb-4">
         <h5 class="mb-3 fw-semibold">Career Path Options</h5>
 
-        <div class="nav-menu-container bg-white border rounded-2 overflow-hidden">
+        <div class="bg-white border rounded-2 shadow-sm overflow-hidden">
             <!-- Agriculture Cluster -->
-            <div class="nav-cluster">
+            <div class="border-bottom">
                 <a href="#{searchFilterBean.getClusterUrl('occupationSearchRevised.xhtml', 'cluster1')}" 
-                   class="nav-cluster-link d-block text-decoration-none p-3 #{param['cluster'] == 'cluster1' ? 'active' : ''}"
+                   class="cluster-link d-block text-decoration-none p-3 text-body-secondary fw-medium #{param['cluster'] == 'cluster1' ? 'bg-primary-subtle text-primary border-start border-primary border-4 fw-semibold' : ''}"
                    data-cluster="cluster1">
                     Agriculture, Food and Natural Resources
                 </a>
                 <ui:fragment rendered="#{param['cluster'] == 'cluster1'}">
-                    <div class="nav-submenu">
+                    <div class="bg-light border-top">
                         <a href="#{searchFilterBean.getPathwayUrl('occupationSearchRevised.xhtml', 'cluster1', 'food-processing')}" 
-                           class="nav-pathway-link d-block text-decoration-none py-2 px-4 #{param['pathway'] == 'food-processing' ? 'active' : ''}">
+                           class="pathway-link d-block text-decoration-none py-2 px-4 ms-3 small text-muted #{param['pathway'] == 'food-processing' ? 'bg-white text-primary fw-semibold border-start border-primary border-3' : ''}">
                             Food Products and Processing Systems
                         </a>
                         <a href="#{searchFilterBean.getPathwayUrl('occupationSearchRevised.xhtml', 'cluster1', 'plant-systems')}" 
-                           class="nav-pathway-link d-block text-decoration-none py-2 px-4 #{param['pathway'] == 'plant-systems' ? 'active' : ''}">
+                           class="pathway-link d-block text-decoration-none py-2 px-4 ms-3 small text-muted #{param['pathway'] == 'plant-systems' ? 'bg-white text-primary fw-semibold border-start border-primary border-3' : ''}">
                             Plant Systems
                         </a>
                         <a href="#{searchFilterBean.getPathwayUrl('occupationSearchRevised.xhtml', 'cluster1', 'animal-systems')}" 
-                           class="nav-pathway-link d-block text-decoration-none py-2 px-4 #{param['pathway'] == 'animal-systems' ? 'active' : ''}">
+                           class="pathway-link d-block text-decoration-none py-2 px-4 ms-3 small text-muted #{param['pathway'] == 'animal-systems' ? 'bg-white text-primary fw-semibold border-start border-primary border-3' : ''}">
                             Animal Systems
                         </a>
                         <a href="#{searchFilterBean.getPathwayUrl('occupationSearchRevised.xhtml', 'cluster1', 'environmental-systems')}" 
-                           class="nav-pathway-link d-block text-decoration-none py-2 px-4 #{param['pathway'] == 'environmental-systems' ? 'active' : ''}">
+                           class="pathway-link d-block text-decoration-none py-2 px-4 ms-3 small text-muted #{param['pathway'] == 'environmental-systems' ? 'bg-white text-primary fw-semibold border-start border-primary border-3' : ''}">
                             Environmental Service Systems
                         </a>
                     </div>
@@ -42,24 +42,24 @@
             </div>
 
             <!-- Architecture Cluster -->
-            <div class="nav-cluster">
+            <div class="border-bottom">
                 <a href="#{searchFilterBean.getClusterUrl('occupationSearchRevised.xhtml', 'cluster2')}" 
-                   class="nav-cluster-link d-block text-decoration-none p-3 #{param['cluster'] == 'cluster2' ? 'active' : ''}"
+                   class="cluster-link d-block text-decoration-none p-3 text-body-secondary fw-medium #{param['cluster'] == 'cluster2' ? 'bg-primary-subtle text-primary border-start border-primary border-4 fw-semibold' : ''}"
                    data-cluster="cluster2">
                     Architecture and Construction
                 </a>
                 <ui:fragment rendered="#{param['cluster'] == 'cluster2'}">
-                    <div class="nav-submenu">
+                    <div class="bg-light border-top">
                         <a href="#{searchFilterBean.getPathwayUrl('occupationSearchRevised.xhtml', 'cluster2', 'design-preconstruction')}" 
-                           class="nav-pathway-link d-block text-decoration-none py-2 px-4 #{param['pathway'] == 'design-preconstruction' ? 'active' : ''}">
+                           class="pathway-link d-block text-decoration-none py-2 px-4 ms-3 small text-muted #{param['pathway'] == 'design-preconstruction' ? 'bg-white text-primary fw-semibold border-start border-primary border-3' : ''}">
                             Design/Pre-Construction
                         </a>
                         <a href="#{searchFilterBean.getPathwayUrl('occupationSearchRevised.xhtml', 'cluster2', 'construction')}" 
-                           class="nav-pathway-link d-block text-decoration-none py-2 px-4 #{param['pathway'] == 'construction' ? 'active' : ''}">
+                           class="pathway-link d-block text-decoration-none py-2 px-4 ms-3 small text-muted #{param['pathway'] == 'construction' ? 'bg-white text-primary fw-semibold border-start border-primary border-3' : ''}">
                             Construction
                         </a>
                         <a href="#{searchFilterBean.getPathwayUrl('occupationSearchRevised.xhtml', 'cluster2', 'maintenance-operations')}" 
-                           class="nav-pathway-link d-block text-decoration-none py-2 px-4 #{param['pathway'] == 'maintenance-operations' ? 'active' : ''}">
+                           class="pathway-link d-block text-decoration-none py-2 px-4 ms-3 small text-muted #{param['pathway'] == 'maintenance-operations' ? 'bg-white text-primary fw-semibold border-start border-primary border-3' : ''}">
                             Maintenance/Operations
                         </a>
                     </div>
@@ -67,28 +67,28 @@
             </div>
 
             <!-- Arts Cluster -->
-            <div class="nav-cluster">
+            <div class="border-bottom">
                 <a href="#{searchFilterBean.getClusterUrl('occupationSearchRevised.xhtml', 'cluster3')}" 
-                   class="nav-cluster-link d-block text-decoration-none p-3 #{param['cluster'] == 'cluster3' ? 'active' : ''}"
+                   class="cluster-link d-block text-decoration-none p-3 text-body-secondary fw-medium #{param['cluster'] == 'cluster3' ? 'bg-primary-subtle text-primary border-start border-primary border-4 fw-semibold' : ''}"
                    data-cluster="cluster3">
                     Arts, Audio/Video Technology and Communications
                 </a>
                 <ui:fragment rendered="#{param['cluster'] == 'cluster3'}">
-                    <div class="nav-submenu">
+                    <div class="bg-light border-top">
                         <a href="#{searchFilterBean.getPathwayUrl('occupationSearchRevised.xhtml', 'cluster3', 'audio-video-film')}" 
-                           class="nav-pathway-link d-block text-decoration-none py-2 px-4 #{param['pathway'] == 'audio-video-film' ? 'active' : ''}">
+                           class="pathway-link d-block text-decoration-none py-2 px-4 ms-3 small text-muted #{param['pathway'] == 'audio-video-film' ? 'bg-white text-primary fw-semibold border-start border-primary border-3' : ''}">
                             Audio and Video Technology and Film
                         </a>
                         <a href="#{searchFilterBean.getPathwayUrl('occupationSearchRevised.xhtml', 'cluster3', 'printing-technology')}" 
-                           class="nav-pathway-link d-block text-decoration-none py-2 px-4 #{param['pathway'] == 'printing-technology' ? 'active' : ''}">
+                           class="pathway-link d-block text-decoration-none py-2 px-4 ms-3 small text-muted #{param['pathway'] == 'printing-technology' ? 'bg-white text-primary fw-semibold border-start border-primary border-3' : ''}">
                             Printing Technology
                         </a>
                         <a href="#{searchFilterBean.getPathwayUrl('occupationSearchRevised.xhtml', 'cluster3', 'visual-arts')}" 
-                           class="nav-pathway-link d-block text-decoration-none py-2 px-4 #{param['pathway'] == 'visual-arts' ? 'active' : ''}">
+                           class="pathway-link d-block text-decoration-none py-2 px-4 ms-3 small text-muted #{param['pathway'] == 'visual-arts' ? 'bg-white text-primary fw-semibold border-start border-primary border-3' : ''}">
                             Visual Arts
                         </a>
                         <a href="#{searchFilterBean.getPathwayUrl('occupationSearchRevised.xhtml', 'cluster3', 'performing-arts')}" 
-                           class="nav-pathway-link d-block text-decoration-none py-2 px-4 #{param['pathway'] == 'performing-arts' ? 'active' : ''}">
+                           class="pathway-link d-block text-decoration-none py-2 px-4 ms-3 small text-muted #{param['pathway'] == 'performing-arts' ? 'bg-white text-primary fw-semibold border-start border-primary border-3' : ''}">
                             Performing Arts
                         </a>
                     </div>
@@ -96,28 +96,28 @@
             </div>
 
             <!-- Business Cluster -->
-            <div class="nav-cluster">
+            <div>
                 <a href="#{searchFilterBean.getClusterUrl('occupationSearchRevised.xhtml', 'cluster4')}" 
-                   class="nav-cluster-link d-block text-decoration-none p-3 #{param['cluster'] == 'cluster4' ? 'active' : ''}"
+                   class="cluster-link d-block text-decoration-none p-3 text-body-secondary fw-medium #{param['cluster'] == 'cluster4' ? 'bg-primary-subtle text-primary border-start border-primary border-4 fw-semibold' : ''}"
                    data-cluster="cluster4">
                     Business, Management and Administration
                 </a>
                 <ui:fragment rendered="#{param['cluster'] == 'cluster4'}">
-                    <div class="nav-submenu">
+                    <div class="bg-light border-top">
                         <a href="#{searchFilterBean.getPathwayUrl('occupationSearchRevised.xhtml', 'cluster4', 'management')}" 
-                           class="nav-pathway-link d-block text-decoration-none py-2 px-4 #{param['pathway'] == 'management' ? 'active' : ''}">
+                           class="pathway-link d-block text-decoration-none py-2 px-4 ms-3 small text-muted #{param['pathway'] == 'management' ? 'bg-white text-primary fw-semibold border-start border-primary border-3' : ''}">
                             Management
                         </a>
                         <a href="#{searchFilterBean.getPathwayUrl('occupationSearchRevised.xhtml', 'cluster4', 'financial-management')}" 
-                           class="nav-pathway-link d-block text-decoration-none py-2 px-4 #{param['pathway'] == 'financial-management' ? 'active' : ''}">
+                           class="pathway-link d-block text-decoration-none py-2 px-4 ms-3 small text-muted #{param['pathway'] == 'financial-management' ? 'bg-white text-primary fw-semibold border-start border-primary border-3' : ''}">
                             Business Financial Management
                         </a>
                         <a href="#{searchFilterBean.getPathwayUrl('occupationSearchRevised.xhtml', 'cluster4', 'human-resources')}" 
-                           class="nav-pathway-link d-block text-decoration-none py-2 px-4 #{param['pathway'] == 'human-resources' ? 'active' : ''}">
+                           class="pathway-link d-block text-decoration-none py-2 px-4 ms-3 small text-muted #{param['pathway'] == 'human-resources' ? 'bg-white text-primary fw-semibold border-start border-primary border-3' : ''}">
                             Human Resources
                         </a>
                         <a href="#{searchFilterBean.getPathwayUrl('occupationSearchRevised.xhtml', 'cluster4', 'business-analysis')}" 
-                           class="nav-pathway-link d-block text-decoration-none py-2 px-4 #{param['pathway'] == 'business-analysis' ? 'active' : ''}">
+                           class="pathway-link d-block text-decoration-none py-2 px-4 ms-3 small text-muted #{param['pathway'] == 'business-analysis' ? 'bg-white text-primary fw-semibold border-start border-primary border-3' : ''}">
                             Business Analysis
                         </a>
                     </div>
@@ -125,62 +125,11 @@
             </div>
         </div>
 
-        <!-- Clean, professional navigation styles -->
+        <!-- Minimal CSS - only hover effects -->
         <style type="text/css">
-            .nav-menu-container {
-                box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            }
-
-            .nav-cluster {
-                border-bottom: 1px solid #e9ecef;
-            }
-
-            .nav-cluster:last-child {
-                border-bottom: none;
-            }
-
-            .nav-cluster-link {
-                color: #495057;
-                font-weight: 500;
-                transition: all 0.2s ease;
-                border-left: 4px solid transparent;
-            }
-
-            .nav-cluster-link:hover {
-                background-color: #f8f9fa;
-                color: #0b5d66;
-            }
-
-            .nav-cluster-link.active {
-                background-color: #e7f3ff;
-                color: #0b5d66;
-                border-left-color: #0b5d66;
-                font-weight: 600;
-            }
-
-            .nav-submenu {
-                background-color: #f8f9fa;
-                border-top: 1px solid #e9ecef;
-            }
-
-            .nav-pathway-link {
-                color: #6c757d;
-                font-size: 0.9rem;
-                transition: all 0.2s ease;
-                border-left: 3px solid transparent;
-                margin-left: 1rem;
-            }
-
-            .nav-pathway-link:hover {
-                background-color: #fff;
-                color: #0b5d66;
-            }
-
-            .nav-pathway-link.active {
-                background-color: #fff;
-                color: #0b5d66;
-                border-left-color: #0b5d66;
-                font-weight: 600;
+            .cluster-link:hover, .pathway-link:hover {
+                background-color: var(--bs-gray-100) !important;
+                color: var(--bs-primary) !important;
             }
         </style>
     </div>
