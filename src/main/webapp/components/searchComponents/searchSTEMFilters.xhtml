@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+<ui:composition>
+    <!-- Education Options STEM Discipline Section -->
+    <div class="mb-4">
+        <h5 class="mb-3 fw-semibold">Education Options STEM Discipline</h5>
+
+        <div class="bg-white border rounded-2 shadow-sm overflow-hidden">
+            <!-- Architecture and Engineering -->
+            <div class="border-bottom">
+                <a href="occupationSearchRevised.xhtml?stemDiscipline=architecture-engineering" 
+                   class="cluster-link d-block text-decoration-none p-3 text-body-secondary fw-medium #{param['stemDiscipline'] == 'architecture-engineering' ? 'bg-primary-subtle text-primary border-start border-primary border-4 fw-semibold' : ''}"
+                   data-discipline="architecture-engineering">
+                    Architecture and Engineering
+                </a>
+            </div>
+
+            <!-- Computer and Mathematical -->
+            <div class="border-bottom">
+                <a href="occupationSearchRevised.xhtml?stemDiscipline=computer-mathematical" 
+                   class="cluster-link d-block text-decoration-none p-3 text-body-secondary fw-medium #{param['stemDiscipline'] == 'computer-mathematical' ? 'bg-primary-subtle text-primary border-start border-primary border-4 fw-semibold' : ''}"
+                   data-discipline="computer-mathematical">
+                    Computer and Mathematical
+                </a>
+            </div>
+
+            <!-- Healthcare Practitioners and Technical -->
+            <div class="border-bottom">
+                <a href="occupationSearchRevised.xhtml?stemDiscipline=healthcare-practitioners" 
+                   class="cluster-link d-block text-decoration-none p-3 text-body-secondary fw-medium #{param['stemDiscipline'] == 'healthcare-practitioners' ? 'bg-primary-subtle text-primary border-start border-primary border-4 fw-semibold' : ''}"
+                   data-discipline="healthcare-practitioners">
+                    Healthcare Practitioners and Technical
+                </a>
+            </div>
+
+            <!-- Life, Physical, and Social Science -->
+            <div>
+                <a href="occupationSearchRevised.xhtml?stemDiscipline=life-social-science" 
+                   class="cluster-link d-block text-decoration-none p-3 text-body-secondary fw-medium #{param['stemDiscipline'] == 'life-social-science' ? 'bg-primary-subtle text-primary border-start border-primary border-4 fw-semibold' : ''}"
+                   data-discipline="life-social-science">
+                    Life, Physical, and Social Science
+                </a>
+            </div>
+        </div>
+    </div>
+</ui:composition>
+</html> 

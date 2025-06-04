@@ -9,25 +9,14 @@
 <ui:composition>
     <!-- Filters Sidebar -->
     <div class="col-12 col-lg-4 mb-4">
-        <div class="card shadow-sm">
-            <div class="card-header bg-light border-bottom">
-                <i class="pi pi-filter me-2"></i>Filter Results
-            </div>
-            <div class="card-body">
-                <h5 class="fw-bold mb-4">Advanced Search</h5>
+        <!-- Section 1: Career Path Options -->
+        <ui:include src="/components/searchComponents/searchCareerPathFilters.xhtml" />
 
-                <!-- Career Path Options Section -->
-                <ui:include src="/components/searchComponents/searchCareerPathFilters.xhtml" />
+        <!-- Section 2: Education Options Cluster -->
+        <ui:include src="/components/searchComponents/searchEducationFilters.xhtml" />
 
-                <!-- Education Options Section -->
-                <ui:include src="/components/searchComponents/searchEducationFilters.xhtml" />
-
-                <!-- Other Options Section -->
-                <ui:include src="/components/searchComponents/searchOtherFilters.xhtml" />
-
-                <!-- No global search button needed as filters are immediately applied -->
-            </div>
-        </div>
+        <!-- Section 3: Education Options STEM Discipline -->
+        <ui:include src="/components/searchComponents/searchSTEMFilters.xhtml" />
     </div>
 </ui:composition>
 </html>

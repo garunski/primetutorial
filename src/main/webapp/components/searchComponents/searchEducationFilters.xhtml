@@ -7,71 +7,45 @@
       xmlns:p="http://primefaces.org/ui">
 
 <ui:composition>
-    <!-- Education Options Section -->
+    <!-- Education Options Cluster Section -->
     <div class="mb-4">
-        <h5 class="mb-3">Education Options</h5>
+        <h5 class="mb-3 fw-semibold">Education Options Cluster</h5>
 
-        <div class="mb-3">
-            <label class="form-label mb-2">Cluster:</label>
-            <div class="form-check mb-2">
-                <h:selectBooleanCheckbox id="eduCluster1"
-                                         value="#{searchFilterBean.artsHumanities}"
-                                         styleClass="form-check-input"
-                                         onchange="applyFilter('artsHumanities', this.checked)" />
-                <h:outputLabel for="eduCluster1" value="Arts and Humanities" styleClass="form-check-label ms-2" />
+        <div class="bg-white border rounded-2 shadow-sm overflow-hidden">
+            <!-- Arts and Humanities -->
+            <div class="border-bottom">
+                <a href="occupationSearchRevised.xhtml?eduCluster=arts-humanities" 
+                   class="cluster-link d-block text-decoration-none p-3 text-body-secondary fw-medium #{param['eduCluster'] == 'arts-humanities' ? 'bg-primary-subtle text-primary border-start border-primary border-4 fw-semibold' : ''}"
+                   data-cluster="arts-humanities">
+                    Arts and Humanities
+                </a>
             </div>
-            <div class="form-check mb-2">
-                <h:selectBooleanCheckbox id="eduCluster2"
-                                         value="#{searchFilterBean.businessInfoSystems}"
-                                         styleClass="form-check-input"
-                                         onchange="applyFilter('businessInfoSystems', this.checked)" />
-                <h:outputLabel for="eduCluster2" value="Business and Information Systems" styleClass="form-check-label ms-2" />
-            </div>
-            <div class="form-check mb-2">
-                <h:selectBooleanCheckbox id="eduCluster3"
-                                         value="#{searchFilterBean.engineeringTech}"
-                                         styleClass="form-check-input"
-                                         onchange="applyFilter('engineeringTech', this.checked)" />
-                <h:outputLabel for="eduCluster3" value="Engineering and Technology" styleClass="form-check-label ms-2" />
-            </div>
-            <div class="form-check mb-2">
-                <h:selectBooleanCheckbox id="eduCluster4"
-                                         value="#{searchFilterBean.healthServices}"
-                                         styleClass="form-check-input"
-                                         onchange="applyFilter('healthServices', this.checked)" />
-                <h:outputLabel for="eduCluster4" value="Health Services" styleClass="form-check-label ms-2" />
-            </div>
-        </div>
 
-        <div class="mb-3">
-            <label class="form-label mb-2">STEM Discipline:</label>
-            <div class="form-check mb-2">
-                <h:selectBooleanCheckbox id="stem1"
-                                         value="#{searchFilterBean.architectureEngineering}"
-                                         styleClass="form-check-input"
-                                         onchange="applyFilter('architectureEngineering', this.checked)" />
-                <h:outputLabel for="stem1" value="Architecture and Engineering" styleClass="form-check-label ms-2" />
+            <!-- Business and Information Systems -->
+            <div class="border-bottom">
+                <a href="occupationSearchRevised.xhtml?eduCluster=business-info-systems" 
+                   class="cluster-link d-block text-decoration-none p-3 text-body-secondary fw-medium #{param['eduCluster'] == 'business-info-systems' ? 'bg-primary-subtle text-primary border-start border-primary border-4 fw-semibold' : ''}"
+                   data-cluster="business-info-systems">
+                    Business and Information Systems
+                </a>
             </div>
-            <div class="form-check mb-2">
-                <h:selectBooleanCheckbox id="stem2"
-                                         value="#{searchFilterBean.computerMathematical}"
-                                         styleClass="form-check-input"
-                                         onchange="applyFilter('computerMathematical', this.checked)" />
-                <h:outputLabel for="stem2" value="Computer and Mathematical" styleClass="form-check-label ms-2" />
+
+            <!-- Engineering and Technology -->
+            <div class="border-bottom">
+                <a href="occupationSearchRevised.xhtml?eduCluster=engineering-tech" 
+                   class="cluster-link d-block text-decoration-none p-3 text-body-secondary fw-medium #{param['eduCluster'] == 'engineering-tech' ? 'bg-primary-subtle text-primary border-start border-primary border-4 fw-semibold' : ''}"
+                   data-cluster="engineering-tech">
+                    Engineering and Technology
+                </a>
             </div>
-            <div class="form-check mb-2">
-                <h:selectBooleanCheckbox id="stem3"
-                                         value="#{searchFilterBean.healthcarePractitioners}"
-                                         styleClass="form-check-input"
-                                         onchange="applyFilter('healthcarePractitioners', this.checked)" />
-                <h:outputLabel for="stem3" value="Healthcare Practitioners and Technical" styleClass="form-check-label ms-2" />
-            </div>
-            <div class="form-check mb-2">
-                <h:selectBooleanCheckbox id="stem4"
-                                         value="#{searchFilterBean.lifeSocialScience}"
-                                         styleClass="form-check-input"
-                                         onchange="applyFilter('lifeSocialScience', this.checked)" />
-                <h:outputLabel for="stem4" value="Life, Physical, and Social Science" styleClass="form-check-label ms-2" />
+
+            <!-- Health Services -->
+            <div>
+                <a href="occupationSearchRevised.xhtml?eduCluster=health-services" 
+                   class="cluster-link d-block text-decoration-none p-3 text-body-secondary fw-medium #{param['eduCluster'] == 'health-services' ? 'bg-primary-subtle text-primary border-start border-primary border-4 fw-semibold' : ''}"
+                   data-cluster="health-services">
+                    Health Services
+                </a>
             </div>
         </div>
     </div>
