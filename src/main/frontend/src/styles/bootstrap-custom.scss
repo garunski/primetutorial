@@ -51,111 +51,19 @@ $bootstrap-icons-font-dir: "bootstrap-icons/font/fonts";
 @import "components/career";
 @import "components/search";
 
-// Minimal Bootstrap class prefixes to avoid conflicts with Foundation CSS and PrimeFaces 12
-// Only includes classes that actually exist in Bootstrap 5.3.3 that conflict with Foundation/PrimeFaces
+// Add a prefix to Bootstrap classes to avoid conflicts with Foundation
+// Note: Most bs- prefixed classes have been replaced with native Bootstrap classes
+// This section is kept for backward compatibility with any remaining bs- classes
 .bs {
-  // Apply Bootstrap's container styles to elements with .bs class
-  @extend .container-fluid;
-  
-  // Grid system conflicts with Foundation
-  &-container { @extend .container; }
-  &-container-fluid { @extend .container-fluid; }
-  &-container-sm { @extend .container-sm; }
-  &-container-md { @extend .container-md; }
-  &-container-lg { @extend .container-lg; }
-  &-container-xl { @extend .container-xl; }
-  &-container-xxl { @extend .container-xxl; }
-  &-row { @extend .row; }
-  &-col { @extend .col; }
-  &-col-1 { @extend .col-1; }
-  &-col-2 { @extend .col-2; }
-  &-col-3 { @extend .col-3; }
-  &-col-4 { @extend .col-4; }
-  &-col-5 { @extend .col-5; }
-  &-col-6 { @extend .col-6; }
-  &-col-7 { @extend .col-7; }
-  &-col-8 { @extend .col-8; }
-  &-col-9 { @extend .col-9; }
-  &-col-10 { @extend .col-10; }
-  &-col-11 { @extend .col-11; }
-  &-col-12 { @extend .col-12; }
-  &-col-auto { @extend .col-auto; }
-  
-  // Button conflicts with Foundation and PrimeFaces
-  &-btn { @extend .btn; }
-  &-btn-primary { @extend .btn-primary; }
-  &-btn-secondary { @extend .btn-secondary; }
-  &-btn-success { @extend .btn-success; }
-  &-btn-danger { @extend .btn-danger; }
-  &-btn-warning { @extend .btn-warning; }
-  &-btn-info { @extend .btn-info; }
-  &-btn-light { @extend .btn-light; }
-  &-btn-dark { @extend .btn-dark; }
-  &-btn-outline-primary { @extend .btn-outline-primary; }
-  &-btn-outline-secondary { @extend .btn-outline-secondary; }
-  &-btn-lg { @extend .btn-lg; }
-  &-btn-sm { @extend .btn-sm; }
-  
-  // Form conflicts with Foundation and PrimeFaces
-  &-form-control { @extend .form-control; }
-  &-form-group { @extend .form-group; }
-  &-form-label { @extend .form-label; }
-  &-form-select { @extend .form-select; }
-  &-form-check { @extend .form-check; }
-  &-form-check-input { @extend .form-check-input; }
-  &-form-check-label { @extend .form-check-label; }
-  &-input-group { @extend .input-group; }
-  &-input-group-text { @extend .input-group-text; }
-  
-  // Table conflicts with Foundation
-  &-table { @extend .table; }
-  &-table-striped { @extend .table-striped; }
-  &-table-bordered { @extend .table-bordered; }
-  &-table-hover { @extend .table-hover; }
-  &-table-sm { @extend .table-sm; }
-  
-  // Navigation conflicts with Foundation
-  &-nav { @extend .nav; }
-  &-nav-link { @extend .nav-link; }
-  &-nav-item { @extend .nav-item; }
-  &-navbar { @extend .navbar; }
-  &-navbar-brand { @extend .navbar-brand; }
-  &-navbar-nav { @extend .navbar-nav; }
-  &-navbar-toggler { @extend .navbar-toggler; }
-  
-  // Card component (unique to Bootstrap, potential conflict)
-  &-card { @extend .card; }
-  &-card-body { @extend .card-body; }
-  &-card-header { @extend .card-header; }
-  &-card-footer { @extend .card-footer; }
-  &-card-title { @extend .card-title; }
-  &-card-text { @extend .card-text; }
-  
-  // Alert conflicts with Foundation
-  &-alert { @extend .alert; }
-  &-alert-primary { @extend .alert-primary; }
-  &-alert-secondary { @extend .alert-secondary; }
-  &-alert-success { @extend .alert-success; }
-  &-alert-danger { @extend .alert-danger; }
-  &-alert-warning { @extend .alert-warning; }
-  &-alert-info { @extend .alert-info; }
-  &-alert-light { @extend .alert-light; }
-  &-alert-dark { @extend .alert-dark; }
-  
-  // Badge conflicts with Foundation
-  &-badge { @extend .badge; }
-  &-badge-primary { @extend .badge-primary; }
-  &-badge-secondary { @extend .badge-secondary; }
-  &-badge-success { @extend .badge-success; }
-  &-badge-danger { @extend .badge-danger; }
-  &-badge-warning { @extend .badge-warning; }
-  &-badge-info { @extend .badge-info; }
-  &-badge-light { @extend .badge-light; }
-  &-badge-dark { @extend .badge-dark; }
-  
-  // Dropdown conflicts with Foundation
-  &-dropdown { @extend .dropdown; }
-  &-dropdown-menu { @extend .dropdown-menu; }
-  &-dropdown-item { @extend .dropdown-item; }
-  &-dropdown-toggle { @extend .dropdown-toggle; }
+  &-btn {
+    @extend .btn;
+
+    &-primary {
+      @extend .btn-primary;
+    }
+
+    &-secondary {
+      @extend .btn-secondary;
+    }
+  }
 }
