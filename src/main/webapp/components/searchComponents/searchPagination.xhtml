@@ -16,10 +16,23 @@
                 styleClass="btn btn-outline-primary me-3 #{not jobService.previousPage ? 'disabled' : ''}"
                 disabled="#{not jobService.previousPage}">
             <f:param name="page" value="#{jobService.currentPage - 1}" />
-            <!-- Preserve filters with safe defaults -->
-            <f:param name="cluster" value="#{param['cluster'] eq null ? '' : param['cluster']}" rendered="#{param['cluster'] ne null and param['cluster'] ne ''}" />
-            <f:param name="pathway" value="#{param['pathway'] eq null ? '' : param['pathway']}" rendered="#{param['pathway'] ne null and param['pathway'] ne ''}" />
-            <f:param name="eduCluster" value="#{param['eduCluster'] eq null ? '' : param['eduCluster']}" rendered="#{param['eduCluster'] ne null and param['eduCluster'] ne ''}" />
+            <f:param name="cluster" value="#{param.cluster eq null ? '' : param.cluster}" />
+            <f:param name="pathway" value="#{param.pathway eq null ? '' : param.pathway}" />
+            <f:param name="education" value="#{param.education eq null ? '' : param.education}" />
+            <f:param name="category" value="#{param.category eq null ? '' : param.category}" />
+            <f:param name="eduCluster" value="#{param.eduCluster eq null ? '' : param.eduCluster}" />
+            <f:param name="artsHumanities" value="#{param.artsHumanities eq null ? '' : param.artsHumanities}" />
+            <f:param name="businessInfoSystems" value="#{param.businessInfoSystems eq null ? '' : param.businessInfoSystems}" />
+            <f:param name="engineeringTech" value="#{param.engineeringTech eq null ? '' : param.engineeringTech}" />
+            <f:param name="healthServices" value="#{param.healthServices eq null ? '' : param.healthServices}" />
+            <f:param name="architectureEngineering" value="#{param.architectureEngineering eq null ? '' : param.architectureEngineering}" />
+            <f:param name="computerMathematical" value="#{param.computerMathematical eq null ? '' : param.computerMathematical}" />
+            <f:param name="healthcarePractitioners" value="#{param.healthcarePractitioners eq null ? '' : param.healthcarePractitioners}" />
+            <f:param name="lifeSocialScience" value="#{param.lifeSocialScience eq null ? '' : param.lifeSocialScience}" />
+            <f:param name="salary" value="#{param.salary eq null ? '' : param.salary}" />
+            <f:param name="brightOutlook" value="#{param.brightOutlook eq null ? '' : param.brightOutlook}" />
+            <f:param name="greenJobs" value="#{param.greenJobs eq null ? '' : param.greenJobs}" />
+            <f:param name="apprenticeship" value="#{param.apprenticeship eq null ? '' : param.apprenticeship}" />
             <i class="bi bi-chevron-left me-1"></i> Previous
         </h:link>
 
@@ -34,10 +47,23 @@
                 styleClass="btn btn-outline-primary ms-3 #{not jobService.nextPage ? 'disabled' : ''}"
                 disabled="#{not jobService.nextPage}">
             <f:param name="page" value="#{jobService.currentPage + 1}" />
-            <!-- Preserve filters with safe defaults -->
-            <f:param name="cluster" value="#{param['cluster'] eq null ? '' : param['cluster']}" rendered="#{param['cluster'] ne null and param['cluster'] ne ''}" />
-            <f:param name="pathway" value="#{param['pathway'] eq null ? '' : param['pathway']}" rendered="#{param['pathway'] ne null and param['pathway'] ne ''}" />
-            <f:param name="eduCluster" value="#{param['eduCluster'] eq null ? '' : param['eduCluster']}" rendered="#{param['eduCluster'] ne null and param['eduCluster'] ne ''}" />
+            <f:param name="cluster" value="#{param.cluster eq null ? '' : param.cluster}" />
+            <f:param name="pathway" value="#{param.pathway eq null ? '' : param.pathway}" />
+            <f:param name="education" value="#{param.education eq null ? '' : param.education}" />
+            <f:param name="category" value="#{param.category eq null ? '' : param.category}" />
+            <f:param name="eduCluster" value="#{param.eduCluster eq null ? '' : param.eduCluster}" />
+            <f:param name="artsHumanities" value="#{param.artsHumanities eq null ? '' : param.artsHumanities}" />
+            <f:param name="businessInfoSystems" value="#{param.businessInfoSystems eq null ? '' : param.businessInfoSystems}" />
+            <f:param name="engineeringTech" value="#{param.engineeringTech eq null ? '' : param.engineeringTech}" />
+            <f:param name="healthServices" value="#{param.healthServices eq null ? '' : param.healthServices}" />
+            <f:param name="architectureEngineering" value="#{param.architectureEngineering eq null ? '' : param.architectureEngineering}" />
+            <f:param name="computerMathematical" value="#{param.computerMathematical eq null ? '' : param.computerMathematical}" />
+            <f:param name="healthcarePractitioners" value="#{param.healthcarePractitioners eq null ? '' : param.healthcarePractitioners}" />
+            <f:param name="lifeSocialScience" value="#{param.lifeSocialScience eq null ? '' : param.lifeSocialScience}" />
+            <f:param name="salary" value="#{param.salary eq null ? '' : param.salary}" />
+            <f:param name="brightOutlook" value="#{param.brightOutlook eq null ? '' : param.brightOutlook}" />
+            <f:param name="greenJobs" value="#{param.greenJobs eq null ? '' : param.greenJobs}" />
+            <f:param name="apprenticeship" value="#{param.apprenticeship eq null ? '' : param.apprenticeship}" />
             Next <i class="bi bi-chevron-right ms-1"></i>
         </h:link>
     </div>

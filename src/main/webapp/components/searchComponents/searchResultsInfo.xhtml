@@ -63,6 +63,7 @@
                     <h:link outcome="occupationSearchRevised"
                           styleClass="btn btn-outline-light btn-sm"
                           rendered="#{not empty param['cluster'] or not empty param['pathway'] or not empty param['education'] or not empty param['artsHumanities'] or not empty param['businessInfoSystems'] or not empty param['engineeringTech'] or not empty param['healthServices'] or not empty param['architectureEngineering'] or not empty param['computerMathematical'] or not empty param['healthcarePractitioners'] or not empty param['lifeSocialScience']}">
+                        <f:param name="page" value="1" />
                         <i class="bi bi-x-circle me-1"></i> Clear Filters
                     </h:link>
                 </div>
@@ -114,14 +115,32 @@
                     <div>
                         <label class="form-label fw-semibold d-block mb-2">Quick Filters</label>
                         <div class="d-flex flex-wrap gap-2">
-                            <h:selectBooleanCheckbox id="brightOutlook" styleClass="btn-check" onchange="applyFilter('brightOutlook', this.checked)" />
-                            <h:outputLabel for="brightOutlook" value="Bright Outlook" styleClass="btn btn-outline-primary btn-sm" />
+                            <ui:include src="navLink.xhtml">
+                                <ui:param name="targetPage" value="#{param['page'] ne null ? param['page'] : '1'}" />
+                                <ui:param name="enabled" value="true" />
+                                <ui:param name="buttonText" value="Bright Outlook" />
+                                <ui:param name="iconClass" value="#{not empty param['brightOutlook'] ? 'bi bi-check-circle-fill text-warning' : 'bi bi-circle text-warning'}" />
+                                <ui:param name="styleClass" value="#{not empty param['brightOutlook'] ? 'btn-outline-warning bg-warning bg-opacity-10 text-dark' : 'btn-light border-secondary text-dark'} btn-sm rounded-pill px-3 py-2" />
+                                <ui:param name="filterParam" value="brightOutlook" />
+                            </ui:include>
                             
-                            <h:selectBooleanCheckbox id="greenJobs" styleClass="btn-check" onchange="applyFilter('greenJobs', this.checked)" />
-                            <h:outputLabel for="greenJobs" value="Green Jobs" styleClass="btn btn-outline-success btn-sm" />
+                            <ui:include src="navLink.xhtml">
+                                <ui:param name="targetPage" value="#{param['page'] ne null ? param['page'] : '1'}" />
+                                <ui:param name="enabled" value="true" />
+                                <ui:param name="buttonText" value="Green Jobs" />
+                                <ui:param name="iconClass" value="#{not empty param['greenJobs'] ? 'bi bi-check-circle-fill text-success' : 'bi bi-circle text-success'}" />
+                                <ui:param name="styleClass" value="#{not empty param['greenJobs'] ? 'btn-outline-success bg-success bg-opacity-10 text-dark' : 'btn-light border-secondary text-dark'} btn-sm rounded-pill px-3 py-2" />
+                                <ui:param name="filterParam" value="greenJobs" />
+                            </ui:include>
                             
-                            <h:selectBooleanCheckbox id="apprenticeship" styleClass="btn-check" onchange="applyFilter('apprenticeship', this.checked)" />
-                            <h:outputLabel for="apprenticeship" value="Apprenticeship" styleClass="btn btn-outline-info btn-sm" />
+                            <ui:include src="navLink.xhtml">
+                                <ui:param name="targetPage" value="#{param['page'] ne null ? param['page'] : '1'}" />
+                                <ui:param name="enabled" value="true" />
+                                <ui:param name="buttonText" value="Apprenticeship" />
+                                <ui:param name="iconClass" value="#{not empty param['apprenticeship'] ? 'bi bi-check-circle-fill text-primary' : 'bi bi-circle text-primary'}" />
+                                <ui:param name="styleClass" value="#{not empty param['apprenticeship'] ? 'btn-outline-primary bg-primary bg-opacity-10 text-dark' : 'btn-light border-secondary text-dark'} btn-sm rounded-pill px-3 py-2" />
+                                <ui:param name="filterParam" value="apprenticeship" />
+                            </ui:include>
                         </div>
                     </div>
                 </div>
