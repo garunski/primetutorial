@@ -9,21 +9,11 @@
     <ui:define name="title">CareerZone - Occupation Search</ui:define>
 
     <ui:define name="head">
-        <!-- View parameters automatically preserve filter state -->
+        <!-- View parameters for filter state preservation -->
         <f:metadata>
             <f:viewParam name="page" value="#{jobService.currentPage}" />
             <f:viewParam name="cluster" value="#{searchFilterBean.cluster}" />
             <f:viewParam name="pathway" value="#{searchFilterBean.pathway}" />
-            <f:viewParam name="education" value="#{searchFilterBean.educationLevel}" />
-            <f:viewParam name="category" value="#{searchFilterBean.category}" />
-            <f:viewParam name="artsHumanities" value="#{searchFilterBean.artsHumanities}" />
-            <f:viewParam name="businessInfoSystems" value="#{searchFilterBean.businessInfoSystems}" />
-            <f:viewParam name="engineeringTech" value="#{searchFilterBean.engineeringTech}" />
-            <f:viewParam name="healthServices" value="#{searchFilterBean.healthServices}" />
-            <f:viewParam name="architectureEngineering" value="#{searchFilterBean.architectureEngineering}" />
-            <f:viewParam name="computerMathematical" value="#{searchFilterBean.computerMathematical}" />
-            <f:viewParam name="healthcarePractitioners" value="#{searchFilterBean.healthcarePractitioners}" />
-            <f:viewParam name="lifeSocialScience" value="#{searchFilterBean.lifeSocialScience}" />
         </f:metadata>
     </ui:define>
 

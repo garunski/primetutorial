@@ -31,7 +31,7 @@
                             <h:link outcome="occupationSearchRevised" 
                                     styleClass="text-decoration-none text-muted category-link"
                                     value="#{categoryPart}">
-                                <f:param name="category" value="#{categoryPart}" />
+                                <f:param name="category" value="#{categoryPart eq null ? '' : categoryPart}" rendered="#{categoryPart ne null and categoryPart ne ''}" />
                             </h:link>
                             <h:outputText value=" | " 
                                           styleClass="text-muted" 
@@ -62,7 +62,7 @@
 
                     <div class="text-end">
                         <h:button value="View Details" outcome="careerDetails" styleClass="btn btn-primary btn-sm">
-                            <f:param name="jobId" value="#{job.id}" />
+                            <f:param name="jobId" value="#{job.id eq null ? '' : job.id}" rendered="#{job.id ne null}" />
                         </h:button>
                     </div>
                 </div>

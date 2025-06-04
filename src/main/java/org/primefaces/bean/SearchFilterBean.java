@@ -233,7 +233,7 @@ public class SearchFilterBean implements Serializable {
      * @return The URL with the cluster parameter and preserved filter parameters
      */
     public String getClusterUrl(String outcome, String clusterValue) {
-        return outcome + ".xhtml?cluster=" + clusterValue;
+        return outcome + "?cluster=" + clusterValue;
     }
 
     /**
@@ -245,7 +245,7 @@ public class SearchFilterBean implements Serializable {
      * @return The URL with the cluster and pathway parameters and preserved filter parameters
      */
     public String getPathwayUrl(String outcome, String clusterValue, String pathwayValue) {
-        return outcome + ".xhtml?cluster=" + clusterValue + "&pathway=" + pathwayValue;
+        return outcome + "?cluster=" + clusterValue + "&pathway=" + pathwayValue;
     }
 
     /**
@@ -256,6 +256,6 @@ public class SearchFilterBean implements Serializable {
      * @return The URL with the page parameter and preserved filter parameters
      */
     public String getPaginationUrl(String outcome, int page) {
-        return outcome + ".xhtml?page=" + page;
+        return outcome + "?page=" + page;
     }
 }
