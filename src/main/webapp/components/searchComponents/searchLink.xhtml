@@ -8,7 +8,8 @@
 <ui:composition>
     <h:link outcome="occupationSearchRevised" 
             styleClass="btn #{styleClass} #{not enabled ? 'disabled' : ''}"
-            disabled="#{not enabled}">
+            disabled="#{not enabled}"
+            fragment="#{anchor}">
         
         <!-- Always include page param -->
         <f:param name="page" value="#{targetPage eq null ? '1' : targetPage}" />
@@ -34,8 +35,13 @@
         <f:param name="greenJobs" value="#{filterParam eq 'greenJobs' ? (empty param.greenJobs ? 'true' : '') : (param.greenJobs eq null ? '' : param.greenJobs)}" />
         <f:param name="apprenticeship" value="#{filterParam eq 'apprenticeship' ? (empty param.apprenticeship ? 'true' : '') : (param.apprenticeship eq null ? '' : param.apprenticeship)}" />
         
-        <i class="#{iconClass} me-2" rendered="#{not empty iconClass}"></i>
+        <ui:fragment rendered="#{not empty iconClass and iconPosition != 'after'}">
+            <i class="#{iconClass} me-2"></i>
+        </ui:fragment>
         <h:outputText value="#{buttonText}" escape="false" />
+        <ui:fragment rendered="#{not empty iconClass and iconPosition == 'after'}">
+            <i class="#{iconClass} ms-2"></i>
+        </ui:fragment>
     </h:link>
 </ui:composition>
 </html> 

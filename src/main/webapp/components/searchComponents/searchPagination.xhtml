@@ -12,29 +12,14 @@
          rendered="#{jobService.totalPages > 1}">
         
         <!-- Previous Button -->
-        <h:link outcome="occupationSearchRevised" 
-                styleClass="btn btn-outline-primary me-3 #{not jobService.previousPage ? 'disabled' : ''}"
-                disabled="#{not jobService.previousPage}">
-            <f:param name="page" value="#{jobService.currentPage - 1}" />
-            <f:param name="cluster" value="#{param.cluster eq null ? '' : param.cluster}" />
-            <f:param name="pathway" value="#{param.pathway eq null ? '' : param.pathway}" />
-            <f:param name="education" value="#{param.education eq null ? '' : param.education}" />
-            <f:param name="category" value="#{param.category eq null ? '' : param.category}" />
-            <f:param name="eduCluster" value="#{param.eduCluster eq null ? '' : param.eduCluster}" />
-            <f:param name="artsHumanities" value="#{param.artsHumanities eq null ? '' : param.artsHumanities}" />
-            <f:param name="businessInfoSystems" value="#{param.businessInfoSystems eq null ? '' : param.businessInfoSystems}" />
-            <f:param name="engineeringTech" value="#{param.engineeringTech eq null ? '' : param.engineeringTech}" />
-            <f:param name="healthServices" value="#{param.healthServices eq null ? '' : param.healthServices}" />
-            <f:param name="architectureEngineering" value="#{param.architectureEngineering eq null ? '' : param.architectureEngineering}" />
-            <f:param name="computerMathematical" value="#{param.computerMathematical eq null ? '' : param.computerMathematical}" />
-            <f:param name="healthcarePractitioners" value="#{param.healthcarePractitioners eq null ? '' : param.healthcarePractitioners}" />
-            <f:param name="lifeSocialScience" value="#{param.lifeSocialScience eq null ? '' : param.lifeSocialScience}" />
-            <f:param name="salary" value="#{param.salary eq null ? '' : param.salary}" />
-            <f:param name="brightOutlook" value="#{param.brightOutlook eq null ? '' : param.brightOutlook}" />
-            <f:param name="greenJobs" value="#{param.greenJobs eq null ? '' : param.greenJobs}" />
-            <f:param name="apprenticeship" value="#{param.apprenticeship eq null ? '' : param.apprenticeship}" />
-            <i class="bi bi-chevron-left me-1"></i> Previous
-        </h:link>
+        <ui:include src="searchLink.xhtml">
+            <ui:param name="targetPage" value="#{jobService.currentPage - 1}" />
+            <ui:param name="enabled" value="#{jobService.previousPage}" />
+            <ui:param name="buttonText" value="Previous" />
+            <ui:param name="iconClass" value="bi bi-chevron-left" />
+            <ui:param name="styleClass" value="btn-outline-primary me-3" />
+            <ui:param name="anchor" value="searchResults" />
+        </ui:include>
 
         <!-- Page Info -->
         <span class="mx-4 text-muted page-info">
@@ -43,29 +28,15 @@
         </span>
 
         <!-- Next Button -->
-        <h:link outcome="occupationSearchRevised" 
-                styleClass="btn btn-outline-primary ms-3 #{not jobService.nextPage ? 'disabled' : ''}"
-                disabled="#{not jobService.nextPage}">
-            <f:param name="page" value="#{jobService.currentPage + 1}" />
-            <f:param name="cluster" value="#{param.cluster eq null ? '' : param.cluster}" />
-            <f:param name="pathway" value="#{param.pathway eq null ? '' : param.pathway}" />
-            <f:param name="education" value="#{param.education eq null ? '' : param.education}" />
-            <f:param name="category" value="#{param.category eq null ? '' : param.category}" />
-            <f:param name="eduCluster" value="#{param.eduCluster eq null ? '' : param.eduCluster}" />
-            <f:param name="artsHumanities" value="#{param.artsHumanities eq null ? '' : param.artsHumanities}" />
-            <f:param name="businessInfoSystems" value="#{param.businessInfoSystems eq null ? '' : param.businessInfoSystems}" />
-            <f:param name="engineeringTech" value="#{param.engineeringTech eq null ? '' : param.engineeringTech}" />
-            <f:param name="healthServices" value="#{param.healthServices eq null ? '' : param.healthServices}" />
-            <f:param name="architectureEngineering" value="#{param.architectureEngineering eq null ? '' : param.architectureEngineering}" />
-            <f:param name="computerMathematical" value="#{param.computerMathematical eq null ? '' : param.computerMathematical}" />
-            <f:param name="healthcarePractitioners" value="#{param.healthcarePractitioners eq null ? '' : param.healthcarePractitioners}" />
-            <f:param name="lifeSocialScience" value="#{param.lifeSocialScience eq null ? '' : param.lifeSocialScience}" />
-            <f:param name="salary" value="#{param.salary eq null ? '' : param.salary}" />
-            <f:param name="brightOutlook" value="#{param.brightOutlook eq null ? '' : param.brightOutlook}" />
-            <f:param name="greenJobs" value="#{param.greenJobs eq null ? '' : param.greenJobs}" />
-            <f:param name="apprenticeship" value="#{param.apprenticeship eq null ? '' : param.apprenticeship}" />
-            Next <i class="bi bi-chevron-right ms-1"></i>
-        </h:link>
+        <ui:include src="searchLink.xhtml">
+            <ui:param name="targetPage" value="#{jobService.currentPage + 1}" />
+            <ui:param name="enabled" value="#{jobService.nextPage}" />
+            <ui:param name="buttonText" value="Next" />
+            <ui:param name="iconClass" value="bi bi-chevron-right" />
+            <ui:param name="iconPosition" value="after" />
+            <ui:param name="styleClass" value="btn-outline-primary ms-3" />
+            <ui:param name="anchor" value="searchResults" />
+        </ui:include>
     </div>
 </ui:composition>
 </html>
