@@ -32,8 +32,12 @@ $(document).ready(function() {
     // Set salary dropdown value if present in URL
     var salaryValue = params.get('salary');
     if (salaryValue) {
-        $('#salarySelect').val(salaryValue);
+        $('#salarySlider').val(salaryValue);
+        $('#salaryValue').text(`$${Number(salaryValue).toLocaleString()}`);
         console.log("Set salary value:", salaryValue);
+    } else {
+        // Set initial salary value display
+        $('#salaryValue').text(`$${$('#salarySlider').val()}`);
     }
 
     // Set checkbox values if present in URL
@@ -52,6 +56,22 @@ $(document).ready(function() {
 
     // Initialize career path links to use our link builder
     initializeCareerPathLinks();
+
+    // jQuery event listeners for select and slider
+    $('#educationSelect').on('change', function() {
+        applyFilter('education', $(this).val());
+    });
+    $('#sortBySelect').on('change', function() {
+        applyFilter('sort', $(this).val());
+    });
+    $('#salarySlider').on('input', function() {
+        // Update the salary value display live
+        $('#salaryValue').text(`$${Number($(this).val()).toLocaleString()}`);
+    });
+    $('#salarySlider').on('change', function() {
+        // Apply filter when slider is released
+        applyFilter('salary', $(this).val());
+    });
 
     console.log("Search filters initialization completed");
 });
