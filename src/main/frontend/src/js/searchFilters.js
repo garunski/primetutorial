@@ -22,6 +22,13 @@ $(document).ready(function() {
         console.log("Set education value:", educationValue);
     }
 
+    // Set sort by dropdown value if present in URL
+    var sortValue = params.get('sort');
+    if (sortValue) {
+        $('#sortBySelect').val(sortValue);
+        console.log("Set sort by value:", sortValue);
+    }
+
     // Set salary dropdown value if present in URL
     var salaryValue = params.get('salary');
     if (salaryValue) {

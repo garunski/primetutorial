@@ -54,7 +54,12 @@
                         </div>
                         <div class="d-inline-block me-4 mb-2">
                             <span class="fw-semibold text-secondary me-2">Preparation:</span>
-                            <span class="text-muted">#{job.educationRequired}</span>
+                            <ui:include src="/components/searchComponents/searchLink.xhtml">
+                                <ui:param name="styleClass" value="text-muted p-0 border-0 text-decoration-underline" />
+                                <ui:param name="enabled" value="true" />
+                                <ui:param name="buttonText" value="#{job.educationRequired}" />
+                                <ui:param name="filterParam" value="education" />
+                            </ui:include>
                         </div>
                     </div>
 
