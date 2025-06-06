@@ -35,6 +35,7 @@ public class SearchFilterBean implements Serializable {
     // Other filters
     private String salary;
     private String category;
+    private String query;
 
     /**
      * Default constructor
@@ -77,6 +78,7 @@ public class SearchFilterBean implements Serializable {
         // Other filters
         this.salary = params.get("salary");
         this.category = params.get("category");
+        this.query = params.get("query");
     }
 
     /**
@@ -257,5 +259,13 @@ public class SearchFilterBean implements Serializable {
      */
     public String getPaginationUrl(String outcome, int page) {
         return outcome + "?page=" + page;
+    }
+
+    public String getQuery() {
+        return query;
+    }
+
+    public void setQuery(String query) {
+        this.query = query;
     }
 }

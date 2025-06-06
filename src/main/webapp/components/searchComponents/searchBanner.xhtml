@@ -18,16 +18,49 @@
                     <div class="col-12 col-md-9">
                         <h:inputText id="searchInput"
                                      styleClass="form-control"
-                                     value="#{searchBean.searchQuery}">
+                                     value="#{searchFilterBean.query}">
                             <f:passThroughAttribute name="placeholder" value="Search occupations (e.g., Software Developer, Nurse, Teacher...)" />
                         </h:inputText>
                     </div>
                     <div class="col-12 col-md-3">
-                        <h:commandButton value="Search"
-                                         styleClass="btn btn-primary search-button" />
+                        <button type="button" 
+                                onclick="performSearch();"
+                                class="btn btn-primary search-button">Search</button>
                     </div>
                 </div>
             </div>
+            
+            <script>
+                function performSearch() {
+                    // Find the input by class or name since JSF changes IDs
+                    var searchInput = document.querySelector('input[class*="form-control"]') || 
+                                     document.querySelector('input[type="text"]');
+                    
+                    if (searchInput) {
+                        var query = searchInput.value.trim();
+                        
+                        if (query) {
+                            window.location.href = 'occupationSearchRevised.xhtml?query=' + encodeURIComponent(query);
+                        } else {
+                            window.location.href = 'occupationSearchRevised.xhtml';
+                        }
+                    }
+                }
+                
+                // Allow Enter key to trigger search
+                document.addEventListener('DOMContentLoaded', function() {
+                    var searchInput = document.querySelector('input[class*="form-control"]') || 
+                                     document.querySelector('input[type="text"]');
+                    if (searchInput) {
+                        searchInput.addEventListener('keypress', function(e) {
+                            if (e.key === 'Enter') {
+                                performSearch();
+                                e.preventDefault();
+                            }
+                        });
+                    }
+                });
+            </script>
         </div>
     </div>
 </ui:composition>
