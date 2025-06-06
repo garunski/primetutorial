@@ -24,41 +24,34 @@
                     </div>
                     <div class="col-12 col-md-3">
                         <button type="button" 
-                                onclick="performSearch();"
                                 class="btn btn-primary search-button">Search</button>
                     </div>
                 </div>
             </div>
             
             <script>
-                function performSearch() {
-                    // Find the input by class or name since JSF changes IDs
-                    var searchInput = document.querySelector('input[class*="form-control"]') || 
-                                     document.querySelector('input[type="text"]');
-                    
-                    if (searchInput) {
-                        var query = searchInput.value.trim();
+                $(document).ready(function() {
+                    function performSearch() {
+                        var query = $('.form-control').val().trim();
+                        var url = 'occupationSearchRevised.xhtml';
                         
                         if (query) {
-                            window.location.href = 'occupationSearchRevised.xhtml?query=' + encodeURIComponent(query);
-                        } else {
-                            window.location.href = 'occupationSearchRevised.xhtml';
+                            url += '?query=' + encodeURIComponent(query);
                         }
+                        
+                        window.location.href = url;
                     }
-                }
-                
-                // Allow Enter key to trigger search
-                document.addEventListener('DOMContentLoaded', function() {
-                    var searchInput = document.querySelector('input[class*="form-control"]') || 
-                                     document.querySelector('input[type="text"]');
-                    if (searchInput) {
-                        searchInput.addEventListener('keypress', function(e) {
-                            if (e.key === 'Enter') {
-                                performSearch();
-                                e.preventDefault();
-                            }
-                        });
-                    }
+                    
+                    // Handle search button click
+                    $('.search-button').on('click', performSearch);
+                    
+                    // Handle Enter key press
+                    $('.form-control').on('keypress', function(e) {
+                        if (e.key === 'Enter') {
+                            e.preventDefault();
+                            performSearch();
+                        }
+                    });
                 });
             </script>
         </div>
