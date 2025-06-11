@@ -8,77 +8,124 @@
 
 <ui:composition>
     <!-- Search Results Info Box with Integrated Filters -->
-    <div class="card mb-4">
+    <div class="card shadow-sm mb-4">
         <!-- Results Summary Header -->
-        <div class="card-header bg-primary text-white">
-            <div class="d-flex justify-content-between align-items-center">
+        <div class="card-header bg-white border-bottom">
+            <div class="d-flex justify-content-between align-items-start">
                 <div>
-                    <h5 class="mb-0">Search Results</h5>
-                    <small>
-                        <h:outputText value="Showing all jobs" rendered="#{empty param['cluster'] and empty param['pathway'] and empty param['education'] and empty param['category'] and empty param['artsHumanities'] and empty param['businessInfoSystems'] and empty param['engineeringTech'] and empty param['healthServices'] and empty param['architectureEngineering'] and empty param['computerMathematical'] and empty param['healthcarePractitioners'] and empty param['lifeSocialScience']}" />
+                    <div class="d-flex align-items-center gap-2">
+                        <h5 class="mb-0 text-primary">Search Results</h5>
+                        <span class="badge bg-primary rounded-pill">
+                            #{jobService.totalFilteredResults}
+                            <span class="visually-hidden">results found</span>
+                        </span>
+                        <h:outputText value="(showing #{jobService.startResult}-#{jobService.endResult})" 
+                                    rendered="#{jobService.totalPages > 1}"
+                                    styleClass="text-muted small" />
+                    </div>
+                    
+                    <div class="mt-2 d-flex flex-wrap gap-2">
+                        <!-- Active Filter Pills -->
+                        <h:panelGroup rendered="#{not empty param['cluster']}">
+                            <span class="badge rounded-pill bg-light text-dark border">
+                                <i class="bi bi-diagram-3 me-1"></i>
+                                #{param['cluster']}
+                                <h:link outcome="occupationSearchRevised" styleClass="ms-1 text-decoration-none">
+                                    <f:param name="page" value="1" />
+                                    <i class="bi bi-x-circle"></i>
+                                </h:link>
+                            </span>
+                        </h:panelGroup>
 
-                        <!-- Career filters -->
-                        <h:outputText value="Showing jobs in #{param['cluster']} cluster" rendered="#{not empty param['cluster'] and empty param['pathway']}" />
-                        <h:outputText value="Showing jobs in #{param['pathway']} pathway" rendered="#{not empty param['pathway']}" />
+                        <h:panelGroup rendered="#{not empty param['pathway']}">
+                            <span class="badge rounded-pill bg-light text-dark border">
+                                <i class="bi bi-signpost-2 me-1"></i>
+                                #{param['pathway']}
+                                <h:link outcome="occupationSearchRevised" styleClass="ms-1 text-decoration-none">
+                                    <f:param name="page" value="1" />
+                                    <i class="bi bi-x-circle"></i>
+                                </h:link>
+                            </span>
+                        </h:panelGroup>
 
-                        <!-- Category filter -->
-                        <h:outputText value="Showing jobs in #{param['category']} category"
-                                      rendered="#{not empty param['category'] and empty param['cluster'] and empty param['pathway'] and empty param['education']}" />
-                        <h:outputText value=" in #{param['category']} category"
-                                      rendered="#{not empty param['category'] and (not empty param['cluster'] or not empty param['pathway'] or not empty param['education'])}" />
+                        <h:panelGroup rendered="#{not empty param['education']}">
+                            <span class="badge rounded-pill bg-light text-dark border">
+                                <i class="bi bi-mortarboard me-1"></i>
+                                #{param['education']} Education
+                                <h:link outcome="occupationSearchRevised" styleClass="ms-1 text-decoration-none">
+                                    <f:param name="page" value="1" />
+                                    <i class="bi bi-x-circle"></i>
+                                </h:link>
+                            </span>
+                        </h:panelGroup>
 
-                        <!-- Education level -->
-                        <h:outputText value="Showing jobs with #{param['education']} education"
-                                      rendered="#{not empty param['education'] and empty param['cluster'] and empty param['pathway'] and empty param['category']}" />
-                        <h:outputText value=" and #{param['education']} education"
-                                      rendered="#{not empty param['education'] and (not empty param['cluster'] or not empty param['pathway'] or not empty param['category'])}" />
+                        <h:panelGroup rendered="#{not empty param['salary']}">
+                            <span class="badge rounded-pill bg-light text-dark border">
+                                <i class="bi bi-currency-dollar me-1"></i>
+                                #{param['salary']}+
+                                <h:link outcome="occupationSearchRevised" styleClass="ms-1 text-decoration-none">
+                                    <f:param name="page" value="1" />
+                                    <i class="bi bi-x-circle"></i>
+                                </h:link>
+                            </span>
+                        </h:panelGroup>
 
-                        <!-- Education clusters -->
-                        <h:outputText value="Showing jobs in education clusters: "
-                                      rendered="#{(empty param['cluster'] and empty param['pathway'] and empty param['education']) and (not empty param['artsHumanities'] or not empty param['businessInfoSystems'] or not empty param['engineeringTech'] or not empty param['healthServices'])}" />
-                        <h:outputText value="Arts &amp; Humanities " rendered="#{not empty param['artsHumanities']}" />
-                        <h:outputText value="Business &amp; Info Systems " rendered="#{not empty param['businessInfoSystems']}" />
-                        <h:outputText value="Engineering &amp; Tech " rendered="#{not empty param['engineeringTech']}" />
-                        <h:outputText value="Health Services " rendered="#{not empty param['healthServices']}" />
+                        <h:panelGroup rendered="#{not empty param['brightOutlook']}">
+                            <span class="badge rounded-pill bg-warning bg-opacity-10 text-dark border border-warning">
+                                <i class="bi bi-sun me-1"></i>
+                                Bright Outlook
+                                <h:link outcome="occupationSearchRevised" styleClass="ms-1 text-decoration-none">
+                                    <f:param name="page" value="1" />
+                                    <i class="bi bi-x-circle"></i>
+                                </h:link>
+                            </span>
+                        </h:panelGroup>
 
-                        <!-- STEM disciplines -->
-                        <h:outputText value="Showing jobs in STEM disciplines: "
-                                      rendered="#{(empty param['cluster'] and empty param['pathway'] and empty param['education'] and empty param['artsHumanities'] and empty param['businessInfoSystems'] and empty param['engineeringTech'] and empty param['healthServices']) and (not empty param['architectureEngineering'] or not empty param['computerMathematical'] or not empty param['healthcarePractitioners'] or not empty param['lifeSocialScience'])}" />
-                        <h:outputText value="Architecture &amp; Engineering " rendered="#{not empty param['architectureEngineering']}" />
-                        <h:outputText value="Computer &amp; Mathematical " rendered="#{not empty param['computerMathematical']}" />
-                        <h:outputText value="Healthcare Practitioners " rendered="#{not empty param['healthcarePractitioners']}" />
-                        <h:outputText value="Life &amp; Social Science " rendered="#{not empty param['lifeSocialScience']}" />
+                        <h:panelGroup rendered="#{not empty param['greenJobs']}">
+                            <span class="badge rounded-pill bg-success bg-opacity-10 text-dark border border-success">
+                                <i class="bi bi-leaf me-1"></i>
+                                Green Jobs
+                                <h:link outcome="occupationSearchRevised" styleClass="ms-1 text-decoration-none">
+                                    <f:param name="page" value="1" />
+                                    <i class="bi bi-x-circle"></i>
+                                </h:link>
+                            </span>
+                        </h:panelGroup>
 
-                        <h:outputText value=" (#{jobService.totalFilteredResults} results found" />
-                        <h:outputText value=", showing #{jobService.startResult}-#{jobService.endResult}" 
-                                      rendered="#{jobService.totalPages > 1}" />
-                        <h:outputText value=")" />
-                    </small>
+                        <h:panelGroup rendered="#{not empty param['apprenticeship']}">
+                            <span class="badge rounded-pill bg-primary bg-opacity-10 text-dark border border-primary">
+                                <i class="bi bi-tools me-1"></i>
+                                Apprenticeship
+                                <h:link outcome="occupationSearchRevised" styleClass="ms-1 text-decoration-none">
+                                    <f:param name="page" value="1" />
+                                    <i class="bi bi-x-circle"></i>
+                                </h:link>
+                            </span>
+                        </h:panelGroup>
+                    </div>
                 </div>
-                <div>
-                    <h:commandButton value="Save Search"
-                                   styleClass="btn btn-light btn-sm me-2"
-                                   rendered="#{not empty param['cluster'] or not empty param['pathway'] or not empty param['education'] or not empty param['artsHumanities'] or not empty param['businessInfoSystems'] or not empty param['engineeringTech'] or not empty param['healthServices'] or not empty param['architectureEngineering'] or not empty param['computerMathematical'] or not empty param['healthcarePractitioners'] or not empty param['lifeSocialScience']}" />
 
-                    <h:link outcome="occupationSearchRevised"
-                          styleClass="btn btn-outline-light btn-sm"
-                          rendered="#{not empty param['cluster'] or not empty param['pathway'] or not empty param['education'] or not empty param['artsHumanities'] or not empty param['businessInfoSystems'] or not empty param['engineeringTech'] or not empty param['healthServices'] or not empty param['architectureEngineering'] or not empty param['computerMathematical'] or not empty param['healthcarePractitioners'] or not empty param['lifeSocialScience']}">
-                        <f:param name="page" value="1" />
-                        <i class="bi bi-x-circle me-1"></i> Clear Filters
-                    </h:link>
-                </div>
+                <!-- Clear All Filters -->
+                <h:link outcome="occupationSearchRevised"
+                       styleClass="btn btn-outline-secondary btn-sm"
+                       rendered="#{not empty param['cluster'] or not empty param['pathway'] or not empty param['education'] or not empty param['salary'] or not empty param['brightOutlook'] or not empty param['greenJobs'] or not empty param['apprenticeship']}">
+                    <f:param name="page" value="1" />
+                    <i class="bi bi-x-circle me-1"></i> Clear Filters
+                </h:link>
             </div>
         </div>
 
-        <!-- Horizontal Filters Panel -->
+        <!-- Filters Panel -->
         <div class="card-body bg-light border-bottom">
             <div class="row g-4">
                 <!-- Preparation Filter -->
-                <div class="col-md-3">
+                <div class="col-md-4">
                     <div>
-                        <label class="form-label fw-semibold d-block mb-2">Preparation</label>
-                        <select id="educationSelect"
-                                class="form-select form-select-sm">
+                        <label class="form-label fw-semibold d-block mb-2">
+                            <i class="bi bi-mortarboard me-1"></i>
+                            Required Preparation
+                        </label>
+                        <select id="educationSelect" class="form-select form-select-sm">
                             <option value="">Select One</option>
                             <option value="jobzone1">No Experience Required - Start Right Away</option>
                             <option value="jobzone2">Short-Term Training (Few Months)</option>
@@ -90,27 +137,34 @@
                 </div>
 
                 <!-- Salary Filter -->
-                <div class="col-md-3">
+                <div class="col-md-4">
                     <div>
-                        <label class="form-label fw-semibold d-block mb-2">Minimum Salary</label>
-                        <div class="d-flex align-items-center mb-1">
-                            <small class="text-muted me-2">$0</small>
-                            <input type="range" id="salarySlider"
-                                   class="form-range flex-grow-1 mx-2"
-                                   min="0"
-                                   max="100000"
-                                   step="5000"
-                                   value="0" />
-                            <small class="text-muted ms-2">$100k+</small>
-                        </div>
-                        <small class="text-primary fw-semibold" id="salaryValue">$0</small>
+                        <label class="form-label fw-semibold d-block mb-2">
+                            <i class="bi bi-currency-dollar me-1"></i>
+                            Minimum Salary
+                        </label>
+                        <select id="salarySelect" class="form-select form-select-sm">
+                            <option value="">Any Salary</option>
+                            <option value="30000">$30,000+</option>
+                            <option value="40000">$40,000+</option>
+                            <option value="50000">$50,000+</option>
+                            <option value="60000">$60,000+</option>
+                            <option value="70000">$70,000+</option>
+                            <option value="80000">$80,000+</option>
+                            <option value="90000">$90,000+</option>
+                            <option value="100000">$100,000+</option>
+                            <option value="150000">$150,000+</option>
+                        </select>
                     </div>
                 </div>
 
                 <!-- Quick Filters -->
-                <div class="col-md-3">
+                <div class="col-md-4">
                     <div>
-                        <span class="form-label fw-semibold d-block mb-2">Quick Filters</span>
+                        <span class="form-label fw-semibold d-block mb-2">
+                            <i class="bi bi-tags me-1"></i>
+                            Quick Filters
+                        </span>
                         <div class="d-flex flex-wrap gap-2">
                             <ui:include src="searchLink.xhtml">
                                 <ui:param name="targetPage" value="#{param['page'] ne null ? param['page'] : '1'}" />
@@ -139,19 +193,6 @@
                                 <ui:param name="filterParam" value="apprenticeship" />
                             </ui:include>
                         </div>
-                    </div>
-                </div>
-
-                <!-- Sort By Filter -->
-                <div class="col-md-3">
-                    <div>
-                        <label class="form-label fw-semibold d-block mb-2">Sort By</label>
-                        <select id="sortBySelect"
-                                class="form-select form-select-sm">
-                            <option value="name">Name</option>
-                            <option value="salary">Salary</option>
-                            <option value="job_zone">Job Zone</option>
-                        </select>
                     </div>
                 </div>
             </div>
