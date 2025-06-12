@@ -7,21 +7,104 @@
       xmlns:p="http://primefaces.org/ui">
 
 <ui:composition>
-    <!-- Filters Sidebar -->
-    <div class="col-12 col-lg-4 mb-4">
-        <!-- Search Input -->
-        <div class="mb-4">
-            <ui:include src="/components/searchComponents/searchInput.xhtml" />
+    <!-- Mobile Filter Toggle Button -->
+    <div class="d-lg-none mb-3">
+        <button class="btn btn-primary w-100" type="button" onclick="document.body.classList.toggle('filters-open')">
+            <i class="bi bi-funnel-fill me-2"></i>
+            Show Filters
+        </button>
+    </div>
+
+    <!-- Filters Column - Single Source -->
+    <div class="filters-panel col-12 col-lg-4 mb-4">
+        <!-- Mobile Header -->
+        <div class="d-lg-none filter-header border-bottom p-3">
+            <div class="d-flex align-items-center justify-content-between">
+                <h5 class="m-0">Search Filters</h5>
+                <button type="button" class="btn-close" onclick="document.body.classList.remove('filters-open')" aria-label="Close"></button>
+            </div>
         </div>
 
-        <!-- Section 1: Career Path Options -->
-        <ui:include src="/components/searchComponents/searchCareerPathFilters.xhtml" />
+        <!-- Filter Content -->
+        <div class="filter-content">
+            <!-- Search Input -->
+            <div class="mb-4">
+                <ui:include src="/components/searchComponents/searchInput.xhtml" />
+            </div>
 
-        <!-- Section 2: Education Options Cluster -->
-        <ui:include src="/components/searchComponents/searchEducationFilters.xhtml" />
+            <!-- Section 1: Career Path Options -->
+            <ui:include src="/components/searchComponents/searchCareerPathFilters.xhtml" />
 
-        <!-- Section 3: Education Options STEM Discipline -->
-        <ui:include src="/components/searchComponents/searchSTEMFilters.xhtml" />
+            <!-- Section 2: Education Options Cluster -->
+            <ui:include src="/components/searchComponents/searchEducationFilters.xhtml" />
+
+            <!-- Section 3: Education Options STEM Discipline -->
+            <ui:include src="/components/searchComponents/searchSTEMFilters.xhtml" />
+        </div>
     </div>
+
+    <!-- Mobile Overlay -->
+    <div class="filter-overlay" onclick="document.body.classList.remove('filters-open')"></div>
+
+    <style>
+        /* Mobile Filters Panel */
+        @media (max-width: 991.98px) {
+            .filters-panel {
+                position: fixed;
+                top: 0;
+                left: 0;
+                bottom: 0;
+                width: 90%;
+                max-width: 400px;
+                background: white;
+                z-index: 1045;
+                transform: translateX(-100%);
+                transition: transform 0.3s ease-in-out;
+                overflow-y: auto;
+            }
+
+            .filters-open .filters-panel {
+                transform: translateX(0);
+            }
+
+            .filter-overlay {
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: rgba(0, 0, 0, 0.5);
+                z-index: 1040;
+                opacity: 0;
+                visibility: hidden;
+                transition: opacity 0.3s ease-in-out;
+            }
+
+            .filters-open .filter-overlay {
+                opacity: 1;
+                visibility: visible;
+            }
+
+            .filter-content {
+                padding: 1rem;
+            }
+        }
+
+        /* Desktop Filters Panel */
+        @media (min-width: 992px) {
+            .filters-panel {
+                position: sticky;
+                top: 1rem;
+            }
+
+            .filter-overlay {
+                display: none;
+            }
+
+            .filter-header {
+                display: none;
+            }
+        }
+    </style>
 </ui:composition>
 </html>
