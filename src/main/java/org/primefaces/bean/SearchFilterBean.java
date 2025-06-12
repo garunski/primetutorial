@@ -36,6 +36,7 @@ public class SearchFilterBean implements Serializable {
     private String salary;
     private String category;
     private String query;
+    private boolean favoritesOnly;
 
     /**
      * Default constructor
@@ -79,6 +80,7 @@ public class SearchFilterBean implements Serializable {
         this.salary = params.get("salary");
         this.category = params.get("category");
         this.query = params.get("query");
+        this.favoritesOnly = "true".equals(params.get("favorites"));
     }
 
     /**
@@ -227,11 +229,26 @@ public class SearchFilterBean implements Serializable {
         this.category = category;
     }
 
+    public String getQuery() {
+        return query;
+    }
+
+    public void setQuery(String query) {
+        this.query = query;
+    }
+
+    public boolean isFavoritesOnly() {
+        return favoritesOnly;
+    }
+
+    public void setFavoritesOnly(boolean favoritesOnly) {
+        this.favoritesOnly = favoritesOnly;
+    }
+
     /**
-     * Builds a URL for a career cluster, preserving other filter parameters.
-     *
-     * @param outcome The JSF outcome (page name)
-     * @param clusterValue The cluster value
+     * Builds a URL for a cluster filter, preserving other filter parameters.
+     * @param outcome The outcome page
+     * @param clusterValue The cluster value to filter by
      * @return The URL with the cluster parameter and preserved filter parameters
      */
     public String getClusterUrl(String outcome, String clusterValue) {
@@ -239,11 +256,10 @@ public class SearchFilterBean implements Serializable {
     }
 
     /**
-     * Builds a URL for a career pathway, preserving other filter parameters.
-     *
-     * @param outcome The JSF outcome (page name)
-     * @param clusterValue The cluster value
-     * @param pathwayValue The pathway value
+     * Builds a URL for a pathway filter, preserving other filter parameters.
+     * @param outcome The outcome page
+     * @param clusterValue The cluster value to filter by
+     * @param pathwayValue The pathway value to filter by
      * @return The URL with the cluster and pathway parameters and preserved filter parameters
      */
     public String getPathwayUrl(String outcome, String clusterValue, String pathwayValue) {
@@ -251,21 +267,12 @@ public class SearchFilterBean implements Serializable {
     }
 
     /**
-     * Builds a URL for pagination, preserving all current filter parameters.
-     *
-     * @param outcome The JSF outcome (page name)
+     * Builds a URL for pagination, preserving all filter parameters.
+     * @param outcome The outcome page
      * @param page The page number
      * @return The URL with the page parameter and preserved filter parameters
      */
     public String getPaginationUrl(String outcome, int page) {
         return outcome + "?page=" + page;
-    }
-
-    public String getQuery() {
-        return query;
-    }
-
-    public void setQuery(String query) {
-        this.query = query;
     }
 }

@@ -13,100 +13,94 @@
         <ui:include src="/components/searchComponents/searchResultsInfo.xhtml" />
 
         <!-- No Results Message -->
-        <h:panelGroup layout="block" styleClass="alert alert-warning" rendered="#{empty jobService.filteredJobs}">
-            <h5 class="alert-heading">No Results Found</h5>
-            <p class="mb-0">Try adjusting your search criteria or browse all jobs.</p>
-            <div class="mt-3">
-                <h:link outcome="occupationSearchRevised" styleClass="btn btn-outline-primary btn-sm">
-                    View All Jobs
-                </h:link>
-            </div>
+        <h:panelGroup layout="block" rendered="#{empty jobService.filteredJobs}">
+            <ui:include src="/components/searchComponents/noSearchResults.xhtml" />
         </h:panelGroup>
 
         <!-- Result Cards -->
-        <ui:repeat value="#{jobService.filteredJobs}" var="job">
-            <div class="card shadow-sm mb-4">
-                <div class="card-body position-relative">
-                    <!-- Career Cluster Icon -->
-                    <div class="position-absolute top-0 end-0 mt-2 me-3">
-                        <i class="bi #{job.category.toLowerCase().contains('agriculture') ? 'bi-tree text-success' : 
-                                     job.category.toLowerCase().contains('technology') ? 'bi-cpu text-primary' :
-                                     job.category.toLowerCase().contains('healthcare') ? 'bi-heart-pulse text-danger' :
-                                     job.category.toLowerCase().contains('business') ? 'bi-briefcase text-info' :
-                                     job.category.toLowerCase().contains('engineering') ? 'bi-gear text-secondary' :
-                                     job.category.toLowerCase().contains('education') ? 'bi-book text-warning' :
-                                     'bi-diagram-3 text-primary'} fs-4"></i>
-                    </div>
-                    
-                    <h3 class="text-primary fw-semibold fs-4 mb-2">
-                        <h:link outcome="careerDetails" styleClass="text-primary text-decoration-none" value="#{job.title}">
-                            <f:param name="jobId" value="#{job.id eq null ? '' : job.id}" rendered="#{job.id ne null}" />
-                        </h:link>
-                    </h3>
-                    <div class="text-muted small mb-3">
-                        <ui:repeat value="#{searchFilterBean.getCategoryParts(job.category)}" var="categoryPart" varStatus="status">
-                            <h:link outcome="occupationSearchRevised" 
-                                    styleClass="text-decoration-none text-muted category-link"
-                                    value="#{categoryPart}">
-                                <f:param name="category" value="#{categoryPart eq null ? '' : categoryPart}" rendered="#{categoryPart ne null and categoryPart ne ''}" />
-                            </h:link>
-                            <h:outputText value=" | " 
-                                          styleClass="text-muted" 
-                                          rendered="#{not status.last}" />
-                        </ui:repeat>
-                    </div>
-
-                    <div class="text-secondary mb-3">
-                        <p>#{job.description}</p>
-                    </div>
-
-                    <div class="mb-3">
-                        <i class="bi bi-mortarboard-fill text-secondary me-1"></i>
-                        <span class="text-muted">Preparation: </span>
-                        <ui:include src="/components/searchComponents/searchLink.xhtml">
-                            <ui:param name="styleClass" value="text-primary text-decoration-none" />
-                            <ui:param name="enabled" value="true" />
-                            <ui:param name="buttonText" value="#{job.educationRequired}" />
-                            <ui:param name="filterParam" value="education" />
-                        </ui:include>
-                    </div>
-
-                    <div class="d-flex justify-content-between align-items-center">
-                        <div>
-                            <!-- Job Attributes -->
-                            <h:panelGroup rendered="#{job.title.toLowerCase().contains('engineer') or job.title.toLowerCase().contains('scientist') or job.title.toLowerCase().contains('developer') or job.title.toLowerCase().contains('analyst') or job.title.toLowerCase().contains('manager') or job.category.toLowerCase().contains('technology') or job.category.toLowerCase().contains('healthcare')}">
-                                <span class="pe-none btn btn-outline-warning bg-warning bg-opacity-10 text-dark rounded-pill px-2 py-1 me-1 mb-1" style="font-size: 0.75rem;">
-                                    <i class="bi bi-check-circle-fill text-warning me-1"></i>
-                                    Bright Outlook
-                                </span>
-                            </h:panelGroup>
-                            
-                            <h:panelGroup rendered="#{job.title.toLowerCase().contains('scientist') or job.category.toLowerCase().contains('agriculture') or job.category.toLowerCase().contains('science') or job.title.toLowerCase().contains('engineer')}">
-                                <span class="pe-none btn btn-outline-success bg-success bg-opacity-10 text-dark rounded-pill px-2 py-1 me-1 mb-1" style="font-size: 0.75rem;">
-                                    <i class="bi bi-check-circle-fill text-success me-1"></i>
-                                    Green Job
-                                </span>
-                            </h:panelGroup>
-                            
-                            <h:panelGroup>
-                                <span class="pe-none btn btn-outline-primary bg-primary bg-opacity-10 text-dark rounded-pill px-2 py-1 me-1 mb-1" style="font-size: 0.75rem;">
-                                    <i class="bi bi-check-circle-fill text-primary me-1"></i>
-                                    Apprenticeship
-                                </span>
-                            </h:panelGroup>
+        <h:panelGroup rendered="#{not empty jobService.filteredJobs}">
+            <ui:repeat value="#{jobService.filteredJobs}" var="job">
+                <div class="card shadow-sm mb-4">
+                    <div class="card-body position-relative">
+                        <!-- Career Cluster Icon -->
+                        <div class="position-absolute top-0 end-0 mt-2 me-3">
+                            <i class="bi #{job.category.toLowerCase().contains('agriculture') ? 'bi-tree text-success' : 
+                                         job.category.toLowerCase().contains('technology') ? 'bi-cpu text-primary' :
+                                         job.category.toLowerCase().contains('healthcare') ? 'bi-heart-pulse text-danger' :
+                                         job.category.toLowerCase().contains('business') ? 'bi-briefcase text-info' :
+                                         job.category.toLowerCase().contains('engineering') ? 'bi-gear text-secondary' :
+                                         job.category.toLowerCase().contains('education') ? 'bi-book text-warning' :
+                                         'bi-diagram-3 text-primary'} fs-4"></i>
                         </div>
-                        <div>
-                            <h:button value="View Details" outcome="careerDetails" styleClass="btn btn-primary btn-sm">
+                        
+                        <h3 class="text-primary fw-semibold fs-4 mb-2">
+                            <h:link outcome="careerDetails" styleClass="text-primary text-decoration-none" value="#{job.title}">
                                 <f:param name="jobId" value="#{job.id eq null ? '' : job.id}" rendered="#{job.id ne null}" />
-                            </h:button>
+                            </h:link>
+                        </h3>
+                        <div class="text-muted small mb-3">
+                            <ui:repeat value="#{searchFilterBean.getCategoryParts(job.category)}" var="categoryPart" varStatus="status">
+                                <h:link outcome="occupationSearchRevised" 
+                                        styleClass="text-decoration-none text-muted category-link"
+                                        value="#{categoryPart}">
+                                    <f:param name="category" value="#{categoryPart eq null ? '' : categoryPart}" rendered="#{categoryPart ne null and categoryPart ne ''}" />
+                                </h:link>
+                                <h:outputText value=" | " 
+                                              styleClass="text-muted" 
+                                              rendered="#{not status.last}" />
+                            </ui:repeat>
+                        </div>
+
+                        <div class="text-secondary mb-3">
+                            <p>#{job.description}</p>
+                        </div>
+
+                        <div class="mb-3">
+                            <i class="bi bi-mortarboard-fill text-secondary me-1"></i>
+                            <span class="text-muted">Preparation: </span>
+                            <ui:include src="/components/searchComponents/searchLink.xhtml">
+                                <ui:param name="styleClass" value="text-primary text-decoration-none" />
+                                <ui:param name="enabled" value="true" />
+                                <ui:param name="buttonText" value="#{job.educationRequired}" />
+                                <ui:param name="filterParam" value="education" />
+                            </ui:include>
+                        </div>
+
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <!-- Job Attributes -->
+                                <h:panelGroup rendered="#{job.title.toLowerCase().contains('engineer') or job.title.toLowerCase().contains('scientist') or job.title.toLowerCase().contains('developer') or job.title.toLowerCase().contains('analyst') or job.title.toLowerCase().contains('manager') or job.category.toLowerCase().contains('technology') or job.category.toLowerCase().contains('healthcare')}">
+                                    <span class="pe-none btn btn-outline-warning bg-warning bg-opacity-10 text-dark rounded-pill px-2 py-1 me-1 mb-1" style="font-size: 0.75rem;">
+                                        <i class="bi bi-check-circle-fill text-warning me-1"></i>
+                                        Bright Outlook
+                                    </span>
+                                </h:panelGroup>
+                                
+                                <h:panelGroup rendered="#{job.title.toLowerCase().contains('scientist') or job.category.toLowerCase().contains('agriculture') or job.category.toLowerCase().contains('science') or job.title.toLowerCase().contains('engineer')}">
+                                    <span class="pe-none btn btn-outline-success bg-success bg-opacity-10 text-dark rounded-pill px-2 py-1 me-1 mb-1" style="font-size: 0.75rem;">
+                                        <i class="bi bi-check-circle-fill text-success me-1"></i>
+                                        Green Job
+                                    </span>
+                                </h:panelGroup>
+                                
+                                <h:panelGroup>
+                                    <span class="pe-none btn btn-outline-primary bg-primary bg-opacity-10 text-dark rounded-pill px-2 py-1 me-1 mb-1" style="font-size: 0.75rem;">
+                                        <i class="bi bi-check-circle-fill text-primary me-1"></i>
+                                        Apprenticeship
+                                    </span>
+                                </h:panelGroup>
+                            </div>
+                            <div>
+                                <h:button value="View Details" outcome="careerDetails" styleClass="btn btn-primary btn-sm">
+                                    <f:param name="jobId" value="#{job.id eq null ? '' : job.id}" rendered="#{job.id ne null}" />
+                                </h:button>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </ui:repeat>
+            </ui:repeat>
 
-        <!-- Pagination Component -->
-        <h:panelGroup layout="block" rendered="#{not empty jobService.filteredJobs}">
+            <!-- Pagination Component -->
             <ui:include src="/components/searchComponents/searchPagination.xhtml" />
         </h:panelGroup>
     </div>

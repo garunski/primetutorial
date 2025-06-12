@@ -20,6 +20,7 @@ public class Job implements Serializable {
     private String educationRequired;
     private List<String> skills;
     private String videoId;
+    private boolean favorite;
 
     public Job() {
     }
@@ -36,6 +37,7 @@ public class Job implements Serializable {
         this.educationRequired = educationRequired;
         this.skills = skills;
         this.videoId = null; // Default to null
+        this.favorite = false; // Default to false
     }
 
     public Job(String id, String title, String category, String cluster, String pathway,
@@ -51,6 +53,7 @@ public class Job implements Serializable {
         this.educationRequired = educationRequired;
         this.skills = skills;
         this.videoId = videoId;
+        this.favorite = false; // Default to false
     }
 
     public String getId() {
@@ -131,5 +134,13 @@ public class Job implements Serializable {
 
     public void setVideoId(String videoId) {
         this.videoId = videoId;
+    }
+
+    public boolean isFavorite() {
+        return favorite;
+    }
+
+    public void setFavorite(boolean favorite) {
+        this.favorite = favorite;
     }
 }

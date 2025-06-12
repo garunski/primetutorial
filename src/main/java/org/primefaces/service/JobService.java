@@ -243,7 +243,7 @@ public class JobService implements Serializable {
                             healthcarePractitioners || lifeSocialScience;
 
         if (!hasFilters) {
-            return allJobs;
+            return new ArrayList<>();
         }
 
         List<Job> result = allJobs;
