@@ -9,6 +9,8 @@
 <ui:composition>
     <!-- Results Section -->
     <div class="col-12 col-lg-8" id="searchResults">
+        <!-- Results Info and Filters -->
+        <ui:include src="/components/searchComponents/searchResultsInfo.xhtml" />
 
         <!-- No Results Message -->
         <h:panelGroup layout="block" styleClass="alert alert-warning" rendered="#{empty jobService.filteredJobs}">
@@ -72,7 +74,6 @@
                     <div class="d-flex justify-content-between align-items-center">
                         <div>
                             <!-- Job Attributes -->
-                            <!-- Bright Outlook: Jobs with good growth/outlook in their title or category -->
                             <h:panelGroup rendered="#{job.title.toLowerCase().contains('engineer') or job.title.toLowerCase().contains('scientist') or job.title.toLowerCase().contains('developer') or job.title.toLowerCase().contains('analyst') or job.title.toLowerCase().contains('manager') or job.category.toLowerCase().contains('technology') or job.category.toLowerCase().contains('healthcare')}">
                                 <span class="pe-none btn btn-outline-warning bg-warning bg-opacity-10 text-dark rounded-pill px-2 py-1 me-1 mb-1" style="font-size: 0.75rem;">
                                     <i class="bi bi-check-circle-fill text-warning me-1"></i>
@@ -80,7 +81,6 @@
                                 </span>
                             </h:panelGroup>
                             
-                            <!-- Green Jobs: Jobs related to environment, sustainability, etc. -->
                             <h:panelGroup rendered="#{job.title.toLowerCase().contains('scientist') or job.category.toLowerCase().contains('agriculture') or job.category.toLowerCase().contains('science') or job.title.toLowerCase().contains('engineer')}">
                                 <span class="pe-none btn btn-outline-success bg-success bg-opacity-10 text-dark rounded-pill px-2 py-1 me-1 mb-1" style="font-size: 0.75rem;">
                                     <i class="bi bi-check-circle-fill text-success me-1"></i>
@@ -88,7 +88,6 @@
                                 </span>
                             </h:panelGroup>
                             
-                            <!-- Apprenticeship: Jobs that typically have apprenticeship programs (moderate training, trades) -->
                             <h:panelGroup>
                                 <span class="pe-none btn btn-outline-primary bg-primary bg-opacity-10 text-dark rounded-pill px-2 py-1 me-1 mb-1" style="font-size: 0.75rem;">
                                     <i class="bi bi-check-circle-fill text-primary me-1"></i>
@@ -106,7 +105,7 @@
             </div>
         </ui:repeat>
 
-        <!-- Pagination Component (only show if we have results) -->
+        <!-- Pagination Component -->
         <h:panelGroup layout="block" rendered="#{not empty jobService.filteredJobs}">
             <ui:include src="/components/searchComponents/searchPagination.xhtml" />
         </h:panelGroup>

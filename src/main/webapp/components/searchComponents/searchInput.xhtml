@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+<ui:composition>
+    <div class="mb-3">
+        <div class="row g-0">
+            <div class="col-9">
+                <div class="position-relative">
+                    <i class="bi bi-search position-absolute top-50 start-0 translate-middle-y ms-3 text-muted"></i>
+                    <h:inputText id="searchInput"
+                                styleClass="form-control ps-5"
+                                value="#{searchFilterBean.query}">
+                        <f:passThroughAttribute name="placeholder" value="Search occupations..." />
+                    </h:inputText>
+                </div>
+            </div>
+            <div class="col-3">
+                <button type="button" class="btn btn-primary search-button w-100">Search</button>
+            </div>
+        </div>
+    </div>
+</ui:composition>
+</html> 

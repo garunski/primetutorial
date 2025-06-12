@@ -7,14 +7,14 @@
       xmlns:p="http://primefaces.org/ui">
 
 <ui:composition>
-    <!-- Search Results Info Box with Integrated Filters -->
-    <div class="card shadow-sm mb-4">
+    <!-- Search Results Info Box -->
+    <div class="card shadow-sm mb-3">
         <!-- Results Summary Header -->
-        <div class="card-header bg-white border-bottom">
+        <div class="card-header bg-white border-bottom py-2">
             <div class="d-flex justify-content-between align-items-start">
                 <div>
                     <div class="d-flex align-items-center gap-2">
-                        <h5 class="mb-0 text-primary">Search Results</h5>
+                        <h6 class="mb-0 text-primary">Search Results</h6>
                         <span class="badge bg-primary rounded-pill">
                             #{jobService.totalFilteredResults}
                             <span class="visually-hidden">results found</span>
@@ -24,10 +24,10 @@
                                     styleClass="text-muted small" />
                     </div>
                     
-                    <div class="mt-2 d-flex flex-wrap gap-2">
+                    <div class="mt-2 d-flex flex-wrap gap-1">
                         <!-- Active Filter Pills -->
                         <h:panelGroup rendered="#{not empty param['cluster']}">
-                            <span class="badge rounded-pill bg-light text-dark border">
+                            <span class="badge rounded-pill bg-light text-dark border small">
                                 <i class="bi bi-diagram-3 me-1"></i>
                                 #{param['cluster']}
                                 <h:link outcome="occupationSearchRevised" styleClass="ms-1 text-decoration-none">
@@ -38,7 +38,7 @@
                         </h:panelGroup>
 
                         <h:panelGroup rendered="#{not empty param['pathway']}">
-                            <span class="badge rounded-pill bg-light text-dark border">
+                            <span class="badge rounded-pill bg-light text-dark border small">
                                 <i class="bi bi-signpost-2 me-1"></i>
                                 #{param['pathway']}
                                 <h:link outcome="occupationSearchRevised" styleClass="ms-1 text-decoration-none">
@@ -49,7 +49,7 @@
                         </h:panelGroup>
 
                         <h:panelGroup rendered="#{not empty param['education']}">
-                            <span class="badge rounded-pill bg-light text-dark border">
+                            <span class="badge rounded-pill bg-light text-dark border small">
                                 <i class="bi bi-mortarboard me-1"></i>
                                 #{param['education']} Education
                                 <h:link outcome="occupationSearchRevised" styleClass="ms-1 text-decoration-none">
@@ -60,7 +60,7 @@
                         </h:panelGroup>
 
                         <h:panelGroup rendered="#{not empty param['salary']}">
-                            <span class="badge rounded-pill bg-light text-dark border">
+                            <span class="badge rounded-pill bg-light text-dark border small">
                                 <i class="bi bi-currency-dollar me-1"></i>
                                 #{param['salary']}+
                                 <h:link outcome="occupationSearchRevised" styleClass="ms-1 text-decoration-none">
@@ -71,7 +71,7 @@
                         </h:panelGroup>
 
                         <h:panelGroup rendered="#{not empty param['brightOutlook']}">
-                            <span class="badge rounded-pill bg-warning bg-opacity-10 text-dark border border-warning">
+                            <span class="badge rounded-pill bg-warning bg-opacity-10 text-dark border border-warning small">
                                 <i class="bi bi-sun me-1"></i>
                                 Bright Outlook
                                 <h:link outcome="occupationSearchRevised" styleClass="ms-1 text-decoration-none">
@@ -82,7 +82,7 @@
                         </h:panelGroup>
 
                         <h:panelGroup rendered="#{not empty param['greenJobs']}">
-                            <span class="badge rounded-pill bg-success bg-opacity-10 text-dark border border-success">
+                            <span class="badge rounded-pill bg-success bg-opacity-10 text-dark border border-success small">
                                 <i class="bi bi-leaf me-1"></i>
                                 Green Jobs
                                 <h:link outcome="occupationSearchRevised" styleClass="ms-1 text-decoration-none">
@@ -93,7 +93,7 @@
                         </h:panelGroup>
 
                         <h:panelGroup rendered="#{not empty param['apprenticeship']}">
-                            <span class="badge rounded-pill bg-primary bg-opacity-10 text-dark border border-primary">
+                            <span class="badge rounded-pill bg-primary bg-opacity-10 text-dark border border-primary small">
                                 <i class="bi bi-tools me-1"></i>
                                 Apprenticeship
                                 <h:link outcome="occupationSearchRevised" styleClass="ms-1 text-decoration-none">
@@ -107,7 +107,7 @@
 
                 <!-- Clear All Filters -->
                 <h:link outcome="occupationSearchRevised"
-                       styleClass="btn btn-outline-secondary btn-sm"
+                       styleClass="btn btn-outline-secondary btn-sm py-1 px-2"
                        rendered="#{not empty param['cluster'] or not empty param['pathway'] or not empty param['education'] or not empty param['salary'] or not empty param['brightOutlook'] or not empty param['greenJobs'] or not empty param['apprenticeship']}">
                     <f:param name="page" value="1" />
                     <i class="bi bi-x-circle me-1"></i> Clear Filters
@@ -116,83 +116,82 @@
         </div>
 
         <!-- Filters Panel -->
-        <div class="card-body bg-light border-bottom">
-            <div class="row g-4">
-                <!-- Preparation Filter -->
-                <div class="col-md-4">
-                    <div>
-                        <label class="form-label fw-semibold d-block mb-2">
-                            <i class="bi bi-mortarboard me-1"></i>
-                            Required Preparation
-                        </label>
-                        <select id="educationSelect" class="form-select form-select-sm">
-                            <option value="">Select One</option>
-                            <option value="jobzone1">No Experience Required - Start Right Away</option>
-                            <option value="jobzone2">Short-Term Training (Few Months)</option>
-                            <option value="jobzone3">Moderate Training (1-2 Years)</option>
-                            <option value="jobzone4">College Degree Required (4+ Years)</option>
-                            <option value="jobzone5">Advanced Degree Required (6+ Years)</option>
-                        </select>
-                    </div>
-                </div>
-
-                <!-- Salary Filter -->
-                <div class="col-md-4">
-                    <div>
-                        <label class="form-label fw-semibold d-block mb-2">
-                            <i class="bi bi-currency-dollar me-1"></i>
-                            Minimum Salary
-                        </label>
-                        <select id="salarySelect" class="form-select form-select-sm">
-                            <option value="">Any Salary</option>
-                            <option value="30000">$30,000+</option>
-                            <option value="40000">$40,000+</option>
-                            <option value="50000">$50,000+</option>
-                            <option value="60000">$60,000+</option>
-                            <option value="70000">$70,000+</option>
-                            <option value="80000">$80,000+</option>
-                            <option value="90000">$90,000+</option>
-                            <option value="100000">$100,000+</option>
-                            <option value="150000">$150,000+</option>
-                        </select>
-                    </div>
-                </div>
-
-                <!-- Quick Filters -->
-                <div class="col-md-4">
-                    <div>
-                        <span class="form-label fw-semibold d-block mb-2">
-                            <i class="bi bi-tags me-1"></i>
-                            Quick Filters
-                        </span>
-                        <div class="d-flex flex-wrap gap-2">
-                            <ui:include src="searchLink.xhtml">
-                                <ui:param name="targetPage" value="#{param['page'] ne null ? param['page'] : '1'}" />
-                                <ui:param name="enabled" value="true" />
-                                <ui:param name="buttonText" value="Bright Outlook" />
-                                <ui:param name="iconClass" value="#{not empty param['brightOutlook'] ? 'bi bi-check-circle-fill text-warning' : 'bi bi-circle text-warning'}" />
-                                <ui:param name="styleClass" value="#{not empty param['brightOutlook'] ? 'btn-outline-warning bg-warning bg-opacity-10 text-dark' : 'btn-light border-secondary text-dark'} btn-sm rounded-pill px-3 py-2" />
-                                <ui:param name="filterParam" value="brightOutlook" />
-                            </ui:include>
-                            
-                            <ui:include src="searchLink.xhtml">
-                                <ui:param name="targetPage" value="#{param['page'] ne null ? param['page'] : '1'}" />
-                                <ui:param name="enabled" value="true" />
-                                <ui:param name="buttonText" value="Green Jobs" />
-                                <ui:param name="iconClass" value="#{not empty param['greenJobs'] ? 'bi bi-check-circle-fill text-success' : 'bi bi-circle text-success'}" />
-                                <ui:param name="styleClass" value="#{not empty param['greenJobs'] ? 'btn-outline-success bg-success bg-opacity-10 text-dark' : 'btn-light border-secondary text-dark'} btn-sm rounded-pill px-3 py-2" />
-                                <ui:param name="filterParam" value="greenJobs" />
-                            </ui:include>
-                            
-                            <ui:include src="searchLink.xhtml">
-                                <ui:param name="targetPage" value="#{param['page'] ne null ? param['page'] : '1'}" />
-                                <ui:param name="enabled" value="true" />
-                                <ui:param name="buttonText" value="Apprenticeship" />
-                                <ui:param name="iconClass" value="#{not empty param['apprenticeship'] ? 'bi bi-check-circle-fill text-primary' : 'bi bi-circle text-primary'}" />
-                                <ui:param name="styleClass" value="#{not empty param['apprenticeship'] ? 'btn-outline-primary bg-primary bg-opacity-10 text-dark' : 'btn-light border-secondary text-dark'} btn-sm rounded-pill px-3 py-2" />
-                                <ui:param name="filterParam" value="apprenticeship" />
-                            </ui:include>
+        <div class="card-body bg-light border-bottom py-2">
+            <div class="row g-2">
+                <!-- Column 1: Dropdowns -->
+                <div class="col-md-6">
+                    <div class="row g-2">
+                        <!-- Preparation Filter -->
+                        <div class="col-12">
+                            <label class="form-label fw-semibold small mb-1">
+                                <i class="bi bi-mortarboard me-1"></i>
+                                Required Preparation
+                            </label>
+                            <select id="educationSelect" class="form-select form-select-sm">
+                                <option value="">Select One</option>
+                                <option value="jobzone1">No Experience Required - Start Right Away</option>
+                                <option value="jobzone2">Short-Term Training (Few Months)</option>
+                                <option value="jobzone3">Moderate Training (1-2 Years)</option>
+                                <option value="jobzone4">College Degree Required (4+ Years)</option>
+                                <option value="jobzone5">Advanced Degree Required (6+ Years)</option>
+                            </select>
                         </div>
+
+                        <!-- Salary Filter -->
+                        <div class="col-12">
+                            <label class="form-label fw-semibold small mb-1">
+                                <i class="bi bi-currency-dollar me-1"></i>
+                                Minimum Salary
+                            </label>
+                            <select id="salarySelect" class="form-select form-select-sm">
+                                <option value="">Any Salary</option>
+                                <option value="30000">$30,000+</option>
+                                <option value="40000">$40,000+</option>
+                                <option value="50000">$50,000+</option>
+                                <option value="60000">$60,000+</option>
+                                <option value="70000">$70,000+</option>
+                                <option value="80000">$80,000+</option>
+                                <option value="90000">$90,000+</option>
+                                <option value="100000">$100,000+</option>
+                                <option value="150000">$150,000+</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Column 2: Quick Filters -->
+                <div class="col-md-6">
+                    <label class="form-label fw-semibold small mb-1">
+                        <i class="bi bi-tags me-1"></i>
+                        Quick Filters
+                    </label>
+                    <div class="d-flex flex-wrap gap-1">
+                        <ui:include src="searchLink.xhtml">
+                            <ui:param name="targetPage" value="#{param['page'] ne null ? param['page'] : '1'}" />
+                            <ui:param name="enabled" value="true" />
+                            <ui:param name="buttonText" value="Bright Outlook" />
+                            <ui:param name="iconClass" value="#{not empty param['brightOutlook'] ? 'bi bi-check-circle-fill text-warning' : 'bi bi-circle text-warning'}" />
+                            <ui:param name="styleClass" value="#{not empty param['brightOutlook'] ? 'btn-outline-warning bg-warning bg-opacity-10 text-dark' : 'btn-light border-secondary text-dark'} btn-sm py-1 px-2 rounded-pill" />
+                            <ui:param name="filterParam" value="brightOutlook" />
+                        </ui:include>
+                        
+                        <ui:include src="searchLink.xhtml">
+                            <ui:param name="targetPage" value="#{param['page'] ne null ? param['page'] : '1'}" />
+                            <ui:param name="enabled" value="true" />
+                            <ui:param name="buttonText" value="Green Jobs" />
+                            <ui:param name="iconClass" value="#{not empty param['greenJobs'] ? 'bi bi-check-circle-fill text-success' : 'bi bi-circle text-success'}" />
+                            <ui:param name="styleClass" value="#{not empty param['greenJobs'] ? 'btn-outline-success bg-success bg-opacity-10 text-dark' : 'btn-light border-secondary text-dark'} btn-sm py-1 px-2 rounded-pill" />
+                            <ui:param name="filterParam" value="greenJobs" />
+                        </ui:include>
+                        
+                        <ui:include src="searchLink.xhtml">
+                            <ui:param name="targetPage" value="#{param['page'] ne null ? param['page'] : '1'}" />
+                            <ui:param name="enabled" value="true" />
+                            <ui:param name="buttonText" value="Apprenticeship" />
+                            <ui:param name="iconClass" value="#{not empty param['apprenticeship'] ? 'bi bi-check-circle-fill text-primary' : 'bi bi-circle text-primary'}" />
+                            <ui:param name="styleClass" value="#{not empty param['apprenticeship'] ? 'btn-outline-primary bg-primary bg-opacity-10 text-dark' : 'btn-light border-secondary text-dark'} btn-sm py-1 px-2 rounded-pill" />
+                            <ui:param name="filterParam" value="apprenticeship" />
+                        </ui:include>
                     </div>
                 </div>
             </div>

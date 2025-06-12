@@ -147,9 +147,14 @@
 </ui:composition>
 
 <style>
-.career-path-nav .rotate-90 {
-    transform: rotate(90deg);
+.career-path-nav .bi-chevron-right::before {
+    display: inline-block;
+    transform-origin: center;
     transition: transform 0.2s ease-in-out;
+}
+
+.career-path-nav .rotate-90::before {
+    transform: rotate(90deg);
 }
 
 .career-path-nav .list-group-item-action:hover {
