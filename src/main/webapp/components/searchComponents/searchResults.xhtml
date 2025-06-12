@@ -14,7 +14,27 @@
 
         <!-- No Results Message -->
         <h:panelGroup layout="block" rendered="#{empty jobService.filteredJobs}">
-            <ui:include src="/components/searchComponents/noSearchResults.xhtml" />
+            <!-- Show different message based on whether filters are applied -->
+            <h:panelGroup rendered="#{not empty param['cluster'] or not empty param['pathway'] or 
+                                    not empty param['education'] or not empty param['salary'] or 
+                                    not empty param['brightOutlook'] or not empty param['greenJobs'] or 
+                                    not empty param['apprenticeship'] or not empty param['favorites'] or
+                                    searchFilterBean.artsHumanities or searchFilterBean.businessInfoSystems or 
+                                    searchFilterBean.engineeringTech or searchFilterBean.healthServices or
+                                    searchFilterBean.architectureEngineering or searchFilterBean.computerMathematical or
+                                    searchFilterBean.healthcarePractitioners or searchFilterBean.lifeSocialScience}">
+                <ui:include src="/components/searchComponents/noFilteredResults.xhtml" />
+            </h:panelGroup>
+            <h:panelGroup rendered="#{empty param['cluster'] and empty param['pathway'] and 
+                                    empty param['education'] and empty param['salary'] and 
+                                    empty param['brightOutlook'] and empty param['greenJobs'] and 
+                                    empty param['apprenticeship'] and empty param['favorites'] and
+                                    not searchFilterBean.artsHumanities and not searchFilterBean.businessInfoSystems and 
+                                    not searchFilterBean.engineeringTech and not searchFilterBean.healthServices and
+                                    not searchFilterBean.architectureEngineering and not searchFilterBean.computerMathematical and
+                                    not searchFilterBean.healthcarePractitioners and not searchFilterBean.lifeSocialScience}">
+                <ui:include src="/components/searchComponents/noSearchResults.xhtml" />
+            </h:panelGroup>
         </h:panelGroup>
 
         <!-- Result Cards -->
