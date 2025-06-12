@@ -17,140 +17,118 @@
             <div class="w-10">
                 <hr class="border-primary m-0" />
             </div>
-            <button class="btn btn-link btn-sm text-primary p-0 d-lg-none ms-3" 
-                    type="button" 
-                    data-bs-toggle="collapse" 
-                    data-bs-target="#careerPathNav" 
-                    aria-expanded="true" 
-                    aria-controls="careerPathNav">
-                <i class="bi bi-chevron-down"></i>
-            </button>
         </div>
 
-        <div class="collapse show" id="careerPathNav">
-            <div class="list-group list-group-flush rounded-2 border">
-                <!-- Agriculture Cluster -->
-                <div class="list-group-item p-0">
-                    <a href="#{searchFilterBean.getClusterUrl('occupationSearchRevised.xhtml', 'cluster1')}" 
-                       class="d-flex align-items-center text-decoration-none p-3 #{param['cluster'] == 'cluster1' ? 'bg-primary-subtle text-primary fw-semibold' : 'text-body-secondary'}"
-                       data-cluster="cluster1">
-                        <i class="bi bi-tree me-2"></i>
-                        <span>Agriculture, Food and Natural Resources</span>
-                        <i class="bi bi-chevron-right ms-auto #{param['cluster'] == 'cluster1' ? 'rotate-90' : ''}"></i>
+        <div class="list-group list-group-flush rounded-2 border">
+            <!-- Agriculture Cluster -->
+            <div class="list-group-item p-0">
+                <a href="#{searchFilterBean.getClusterUrl('occupationSearchRevised.xhtml', 'cluster1')}" 
+                   class="d-flex align-items-center text-decoration-none p-3 #{param['cluster'] == 'cluster1' ? 'bg-primary-subtle text-primary fw-semibold' : 'text-body-secondary'}"
+                   data-cluster="cluster1">
+                    <i class="bi bi-tree me-2"></i>
+                    <span>Agriculture, Food and Natural Resources</span>
+                </a>
+                
+                <div class="list-group list-group-flush border-top">
+                    <a href="#{searchFilterBean.getPathwayUrl('occupationSearchRevised.xhtml', 'cluster1', 'food-processing')}" 
+                       class="list-group-item list-group-item-action border-0 py-2 ps-4 #{param['pathway'] == 'food-processing' ? 'active' : ''}">
+                        <small>Food Products and Processing Systems</small>
                     </a>
-                    
-                    <div class="collapse #{param['cluster'] == 'cluster1' ? 'show' : ''}" id="cluster1Pathways">
-                        <div class="list-group list-group-flush border-top">
-                            <a href="#{searchFilterBean.getPathwayUrl('occupationSearchRevised.xhtml', 'cluster1', 'food-processing')}" 
-                               class="list-group-item list-group-item-action border-0 py-2 ps-4 #{param['pathway'] == 'food-processing' ? 'active' : ''}">
-                                <small>Food Products and Processing Systems</small>
-                            </a>
-                            <a href="#{searchFilterBean.getPathwayUrl('occupationSearchRevised.xhtml', 'cluster1', 'plant-systems')}" 
-                               class="list-group-item list-group-item-action border-0 py-2 ps-4 #{param['pathway'] == 'plant-systems' ? 'active' : ''}">
-                                <small>Plant Systems</small>
-                            </a>
-                            <a href="#{searchFilterBean.getPathwayUrl('occupationSearchRevised.xhtml', 'cluster1', 'animal-systems')}" 
-                               class="list-group-item list-group-item-action border-0 py-2 ps-4 #{param['pathway'] == 'animal-systems' ? 'active' : ''}">
-                                <small>Animal Systems</small>
-                            </a>
-                            <a href="#{searchFilterBean.getPathwayUrl('occupationSearchRevised.xhtml', 'cluster1', 'environmental-systems')}" 
-                               class="list-group-item list-group-item-action border-0 py-2 ps-4 #{param['pathway'] == 'environmental-systems' ? 'active' : ''}">
-                                <small>Environmental Service Systems</small>
-                            </a>
-                        </div>
-                    </div>
+                    <a href="#{searchFilterBean.getPathwayUrl('occupationSearchRevised.xhtml', 'cluster1', 'plant-systems')}" 
+                       class="list-group-item list-group-item-action border-0 py-2 ps-4 #{param['pathway'] == 'plant-systems' ? 'active' : ''}">
+                        <small>Plant Systems</small>
+                    </a>
+                    <a href="#{searchFilterBean.getPathwayUrl('occupationSearchRevised.xhtml', 'cluster1', 'animal-systems')}" 
+                       class="list-group-item list-group-item-action border-0 py-2 ps-4 #{param['pathway'] == 'animal-systems' ? 'active' : ''}">
+                        <small>Animal Systems</small>
+                    </a>
+                    <a href="#{searchFilterBean.getPathwayUrl('occupationSearchRevised.xhtml', 'cluster1', 'environmental-systems')}" 
+                       class="list-group-item list-group-item-action border-0 py-2 ps-4 #{param['pathway'] == 'environmental-systems' ? 'active' : ''}">
+                        <small>Environmental Service Systems</small>
+                    </a>
                 </div>
+            </div>
 
-                <!-- Architecture Cluster -->
-                <div class="list-group-item p-0">
-                    <a href="#{searchFilterBean.getClusterUrl('occupationSearchRevised.xhtml', 'cluster2')}" 
-                       class="d-flex align-items-center text-decoration-none p-3 #{param['cluster'] == 'cluster2' ? 'bg-primary-subtle text-primary fw-semibold' : 'text-body-secondary'}"
-                       data-cluster="cluster2">
-                        <i class="bi bi-building me-2"></i>
-                        <span>Architecture and Construction</span>
-                        <i class="bi bi-chevron-right ms-auto #{param['cluster'] == 'cluster2' ? 'rotate-90' : ''}"></i>
+            <!-- Architecture Cluster -->
+            <div class="list-group-item p-0">
+                <a href="#{searchFilterBean.getClusterUrl('occupationSearchRevised.xhtml', 'cluster2')}" 
+                   class="d-flex align-items-center text-decoration-none p-3 #{param['cluster'] == 'cluster2' ? 'bg-primary-subtle text-primary fw-semibold' : 'text-body-secondary'}"
+                   data-cluster="cluster2">
+                    <i class="bi bi-building me-2"></i>
+                    <span>Architecture and Construction</span>
+                </a>
+                
+                <div class="list-group list-group-flush border-top">
+                    <a href="#{searchFilterBean.getPathwayUrl('occupationSearchRevised.xhtml', 'cluster2', 'design-preconstruction')}" 
+                       class="list-group-item list-group-item-action border-0 py-2 ps-4 #{param['pathway'] == 'design-preconstruction' ? 'active' : ''}">
+                        <small>Design/Pre-Construction</small>
                     </a>
-                    
-                    <div class="collapse #{param['cluster'] == 'cluster2' ? 'show' : ''}" id="cluster2Pathways">
-                        <div class="list-group list-group-flush border-top">
-                            <a href="#{searchFilterBean.getPathwayUrl('occupationSearchRevised.xhtml', 'cluster2', 'design-preconstruction')}" 
-                               class="list-group-item list-group-item-action border-0 py-2 ps-4 #{param['pathway'] == 'design-preconstruction' ? 'active' : ''}">
-                                <small>Design/Pre-Construction</small>
-                            </a>
-                            <a href="#{searchFilterBean.getPathwayUrl('occupationSearchRevised.xhtml', 'cluster2', 'construction')}" 
-                               class="list-group-item list-group-item-action border-0 py-2 ps-4 #{param['pathway'] == 'construction' ? 'active' : ''}">
-                                <small>Construction</small>
-                            </a>
-                            <a href="#{searchFilterBean.getPathwayUrl('occupationSearchRevised.xhtml', 'cluster2', 'maintenance-operations')}" 
-                               class="list-group-item list-group-item-action border-0 py-2 ps-4 #{param['pathway'] == 'maintenance-operations' ? 'active' : ''}">
-                                <small>Maintenance/Operations</small>
-                            </a>
-                        </div>
-                    </div>
+                    <a href="#{searchFilterBean.getPathwayUrl('occupationSearchRevised.xhtml', 'cluster2', 'construction')}" 
+                       class="list-group-item list-group-item-action border-0 py-2 ps-4 #{param['pathway'] == 'construction' ? 'active' : ''}">
+                        <small>Construction</small>
+                    </a>
+                    <a href="#{searchFilterBean.getPathwayUrl('occupationSearchRevised.xhtml', 'cluster2', 'maintenance-operations')}" 
+                       class="list-group-item list-group-item-action border-0 py-2 ps-4 #{param['pathway'] == 'maintenance-operations' ? 'active' : ''}">
+                        <small>Maintenance/Operations</small>
+                    </a>
                 </div>
+            </div>
 
-                <!-- Arts Cluster -->
-                <div class="list-group-item p-0">
-                    <a href="#{searchFilterBean.getClusterUrl('occupationSearchRevised.xhtml', 'cluster3')}" 
-                       class="d-flex align-items-center text-decoration-none p-3 #{param['cluster'] == 'cluster3' ? 'bg-primary-subtle text-primary fw-semibold' : 'text-body-secondary'}"
-                       data-cluster="cluster3">
-                        <i class="bi bi-palette me-2"></i>
-                        <span>Arts, Audio/Video Technology and Communications</span>
-                        <i class="bi bi-chevron-right ms-auto #{param['cluster'] == 'cluster3' ? 'rotate-90' : ''}"></i>
+            <!-- Arts Cluster -->
+            <div class="list-group-item p-0">
+                <a href="#{searchFilterBean.getClusterUrl('occupationSearchRevised.xhtml', 'cluster3')}" 
+                   class="d-flex align-items-center text-decoration-none p-3 #{param['cluster'] == 'cluster3' ? 'bg-primary-subtle text-primary fw-semibold' : 'text-body-secondary'}"
+                   data-cluster="cluster3">
+                    <i class="bi bi-palette me-2"></i>
+                    <span>Arts, Audio/Video Technology and Communications</span>
+                </a>
+                
+                <div class="list-group list-group-flush border-top">
+                    <a href="#{searchFilterBean.getPathwayUrl('occupationSearchRevised.xhtml', 'cluster3', 'audio-video-film')}" 
+                       class="list-group-item list-group-item-action border-0 py-2 ps-4 #{param['pathway'] == 'audio-video-film' ? 'active' : ''}">
+                        <small>Audio and Video Technology and Film</small>
                     </a>
-                    
-                    <div class="collapse #{param['cluster'] == 'cluster3' ? 'show' : ''}" id="cluster3Pathways">
-                        <div class="list-group list-group-flush border-top">
-                            <a href="#{searchFilterBean.getPathwayUrl('occupationSearchRevised.xhtml', 'cluster3', 'audio-video-film')}" 
-                               class="list-group-item list-group-item-action border-0 py-2 ps-4 #{param['pathway'] == 'audio-video-film' ? 'active' : ''}">
-                                <small>Audio and Video Technology and Film</small>
-                            </a>
-                            <a href="#{searchFilterBean.getPathwayUrl('occupationSearchRevised.xhtml', 'cluster3', 'printing-technology')}" 
-                               class="list-group-item list-group-item-action border-0 py-2 ps-4 #{param['pathway'] == 'printing-technology' ? 'active' : ''}">
-                                <small>Printing Technology</small>
-                            </a>
-                            <a href="#{searchFilterBean.getPathwayUrl('occupationSearchRevised.xhtml', 'cluster3', 'visual-arts')}" 
-                               class="list-group-item list-group-item-action border-0 py-2 ps-4 #{param['pathway'] == 'visual-arts' ? 'active' : ''}">
-                                <small>Visual Arts</small>
-                            </a>
-                            <a href="#{searchFilterBean.getPathwayUrl('occupationSearchRevised.xhtml', 'cluster3', 'performing-arts')}" 
-                               class="list-group-item list-group-item-action border-0 py-2 ps-4 #{param['pathway'] == 'performing-arts' ? 'active' : ''}">
-                                <small>Performing Arts</small>
-                            </a>
-                        </div>
-                    </div>
+                    <a href="#{searchFilterBean.getPathwayUrl('occupationSearchRevised.xhtml', 'cluster3', 'printing-technology')}" 
+                       class="list-group-item list-group-item-action border-0 py-2 ps-4 #{param['pathway'] == 'printing-technology' ? 'active' : ''}">
+                        <small>Printing Technology</small>
+                    </a>
+                    <a href="#{searchFilterBean.getPathwayUrl('occupationSearchRevised.xhtml', 'cluster3', 'visual-arts')}" 
+                       class="list-group-item list-group-item-action border-0 py-2 ps-4 #{param['pathway'] == 'visual-arts' ? 'active' : ''}">
+                        <small>Visual Arts</small>
+                    </a>
+                    <a href="#{searchFilterBean.getPathwayUrl('occupationSearchRevised.xhtml', 'cluster3', 'performing-arts')}" 
+                       class="list-group-item list-group-item-action border-0 py-2 ps-4 #{param['pathway'] == 'performing-arts' ? 'active' : ''}">
+                        <small>Performing Arts</small>
+                    </a>
                 </div>
+            </div>
 
-                <!-- Business Cluster -->
-                <div class="list-group-item p-0">
-                    <a href="#{searchFilterBean.getClusterUrl('occupationSearchRevised.xhtml', 'cluster4')}" 
-                       class="d-flex align-items-center text-decoration-none p-3 #{param['cluster'] == 'cluster4' ? 'bg-primary-subtle text-primary fw-semibold' : 'text-body-secondary'}"
-                       data-cluster="cluster4">
-                        <i class="bi bi-briefcase me-2"></i>
-                        <span>Business, Management and Administration</span>
-                        <i class="bi bi-chevron-right ms-auto #{param['cluster'] == 'cluster4' ? 'rotate-90' : ''}"></i>
+            <!-- Business Cluster -->
+            <div class="list-group-item p-0">
+                <a href="#{searchFilterBean.getClusterUrl('occupationSearchRevised.xhtml', 'cluster4')}" 
+                   class="d-flex align-items-center text-decoration-none p-3 #{param['cluster'] == 'cluster4' ? 'bg-primary-subtle text-primary fw-semibold' : 'text-body-secondary'}"
+                   data-cluster="cluster4">
+                    <i class="bi bi-briefcase me-2"></i>
+                    <span>Business, Management and Administration</span>
+                </a>
+                
+                <div class="list-group list-group-flush border-top">
+                    <a href="#{searchFilterBean.getPathwayUrl('occupationSearchRevised.xhtml', 'cluster4', 'management')}" 
+                       class="list-group-item list-group-item-action border-0 py-2 ps-4 #{param['pathway'] == 'management' ? 'active' : ''}">
+                        <small>Management</small>
                     </a>
-                    
-                    <div class="collapse #{param['cluster'] == 'cluster4' ? 'show' : ''}" id="cluster4Pathways">
-                        <div class="list-group list-group-flush border-top">
-                            <a href="#{searchFilterBean.getPathwayUrl('occupationSearchRevised.xhtml', 'cluster4', 'management')}" 
-                               class="list-group-item list-group-item-action border-0 py-2 ps-4 #{param['pathway'] == 'management' ? 'active' : ''}">
-                                <small>Management</small>
-                            </a>
-                            <a href="#{searchFilterBean.getPathwayUrl('occupationSearchRevised.xhtml', 'cluster4', 'financial-management')}" 
-                               class="list-group-item list-group-item-action border-0 py-2 ps-4 #{param['pathway'] == 'financial-management' ? 'active' : ''}">
-                                <small>Business Financial Management</small>
-                            </a>
-                            <a href="#{searchFilterBean.getPathwayUrl('occupationSearchRevised.xhtml', 'cluster4', 'human-resources')}" 
-                               class="list-group-item list-group-item-action border-0 py-2 ps-4 #{param['pathway'] == 'human-resources' ? 'active' : ''}">
-                                <small>Human Resources</small>
-                            </a>
-                            <a href="#{searchFilterBean.getPathwayUrl('occupationSearchRevised.xhtml', 'cluster4', 'business-analysis')}" 
-                               class="list-group-item list-group-item-action border-0 py-2 ps-4 #{param['pathway'] == 'business-analysis' ? 'active' : ''}">
-                                <small>Business Analysis</small>
-                            </a>
-                        </div>
-                    </div>
+                    <a href="#{searchFilterBean.getPathwayUrl('occupationSearchRevised.xhtml', 'cluster4', 'financial-management')}" 
+                       class="list-group-item list-group-item-action border-0 py-2 ps-4 #{param['pathway'] == 'financial-management' ? 'active' : ''}">
+                        <small>Business Financial Management</small>
+                    </a>
+                    <a href="#{searchFilterBean.getPathwayUrl('occupationSearchRevised.xhtml', 'cluster4', 'human-resources')}" 
+                       class="list-group-item list-group-item-action border-0 py-2 ps-4 #{param['pathway'] == 'human-resources' ? 'active' : ''}">
+                        <small>Human Resources</small>
+                    </a>
+                    <a href="#{searchFilterBean.getPathwayUrl('occupationSearchRevised.xhtml', 'cluster4', 'business-analysis')}" 
+                       class="list-group-item list-group-item-action border-0 py-2 ps-4 #{param['pathway'] == 'business-analysis' ? 'active' : ''}">
+                        <small>Business Analysis</small>
+                    </a>
                 </div>
             </div>
         </div>

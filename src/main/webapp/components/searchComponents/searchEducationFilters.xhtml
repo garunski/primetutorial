@@ -8,7 +8,7 @@
 
 <ui:composition>
     <!-- Education Options Cluster Section -->
-    <div class="mb-4">
+    <div class="education-cluster-nav mb-4">
         <div class="d-flex align-items-center justify-content-center mb-3">
             <div class="w-10">
                 <hr class="border-primary m-0" />
@@ -23,7 +23,7 @@
             <!-- Arts and Humanities -->
             <div class="border-bottom">
                 <a href="occupationSearchRevised.xhtml?eduCluster=arts-humanities" 
-                   class="cluster-link d-block text-decoration-none p-3 text-body-secondary fw-medium #{param['eduCluster'] == 'arts-humanities' ? 'bg-primary-subtle text-primary border-start border-primary border-4 fw-semibold' : ''}"
+                   class="cluster-link d-block text-decoration-none p-3 text-body-secondary fw-medium #{param['eduCluster'] == 'arts-humanities' ? 'active' : ''}"
                    data-cluster="arts-humanities">
                     Arts and Humanities
                 </a>
@@ -32,7 +32,7 @@
             <!-- Business and Information Systems -->
             <div class="border-bottom">
                 <a href="occupationSearchRevised.xhtml?eduCluster=business-info-systems" 
-                   class="cluster-link d-block text-decoration-none p-3 text-body-secondary fw-medium #{param['eduCluster'] == 'business-info-systems' ? 'bg-primary-subtle text-primary border-start border-primary border-4 fw-semibold' : ''}"
+                   class="cluster-link d-block text-decoration-none p-3 text-body-secondary fw-medium #{param['eduCluster'] == 'business-info-systems' ? 'active' : ''}"
                    data-cluster="business-info-systems">
                     Business and Information Systems
                 </a>
@@ -41,7 +41,7 @@
             <!-- Engineering and Technology -->
             <div class="border-bottom">
                 <a href="occupationSearchRevised.xhtml?eduCluster=engineering-tech" 
-                   class="cluster-link d-block text-decoration-none p-3 text-body-secondary fw-medium #{param['eduCluster'] == 'engineering-tech' ? 'bg-primary-subtle text-primary border-start border-primary border-4 fw-semibold' : ''}"
+                   class="cluster-link d-block text-decoration-none p-3 text-body-secondary fw-medium #{param['eduCluster'] == 'engineering-tech' ? 'active' : ''}"
                    data-cluster="engineering-tech">
                     Engineering and Technology
                 </a>
@@ -50,7 +50,7 @@
             <!-- Health Services -->
             <div>
                 <a href="occupationSearchRevised.xhtml?eduCluster=health-services" 
-                   class="cluster-link d-block text-decoration-none p-3 text-body-secondary fw-medium #{param['eduCluster'] == 'health-services' ? 'bg-primary-subtle text-primary border-start border-primary border-4 fw-semibold' : ''}"
+                   class="cluster-link d-block text-decoration-none p-3 text-body-secondary fw-medium #{param['eduCluster'] == 'health-services' ? 'active' : ''}"
                    data-cluster="health-services">
                     Health Services
                 </a>
@@ -58,4 +58,18 @@
         </div>
     </div>
 </ui:composition>
+
+<style>
+.education-cluster-nav {
+    position: relative;
+    z-index: 1;
+}
+
+@media (max-width: 991.98px) {
+    .education-cluster-nav {
+        position: relative;
+        z-index: 1;
+    }
+}
+</style>
 </html>

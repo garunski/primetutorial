@@ -8,7 +8,7 @@
 
 <ui:composition>
     <!-- Education Options STEM Discipline Section -->
-    <div class="mb-4">
+    <div class="stem-discipline-nav mb-4">
         <div class="d-flex align-items-center justify-content-center mb-3">
             <div class="w-10">
                 <hr class="border-primary m-0" />
@@ -23,7 +23,7 @@
             <!-- Architecture and Engineering -->
             <div class="border-bottom">
                 <a href="occupationSearchRevised.xhtml?stemDiscipline=architecture-engineering" 
-                   class="cluster-link d-block text-decoration-none p-3 text-body-secondary fw-medium #{param['stemDiscipline'] == 'architecture-engineering' ? 'bg-primary-subtle text-primary border-start border-primary border-4 fw-semibold' : ''}"
+                   class="cluster-link d-block text-decoration-none p-3 text-body-secondary fw-medium #{param['stemDiscipline'] == 'architecture-engineering' ? 'active' : ''}"
                    data-discipline="architecture-engineering">
                     Architecture and Engineering
                 </a>
@@ -32,7 +32,7 @@
             <!-- Computer and Mathematical -->
             <div class="border-bottom">
                 <a href="occupationSearchRevised.xhtml?stemDiscipline=computer-mathematical" 
-                   class="cluster-link d-block text-decoration-none p-3 text-body-secondary fw-medium #{param['stemDiscipline'] == 'computer-mathematical' ? 'bg-primary-subtle text-primary border-start border-primary border-4 fw-semibold' : ''}"
+                   class="cluster-link d-block text-decoration-none p-3 text-body-secondary fw-medium #{param['stemDiscipline'] == 'computer-mathematical' ? 'active' : ''}"
                    data-discipline="computer-mathematical">
                     Computer and Mathematical
                 </a>
@@ -41,7 +41,7 @@
             <!-- Healthcare Practitioners and Technical -->
             <div class="border-bottom">
                 <a href="occupationSearchRevised.xhtml?stemDiscipline=healthcare-practitioners" 
-                   class="cluster-link d-block text-decoration-none p-3 text-body-secondary fw-medium #{param['stemDiscipline'] == 'healthcare-practitioners' ? 'bg-primary-subtle text-primary border-start border-primary border-4 fw-semibold' : ''}"
+                   class="cluster-link d-block text-decoration-none p-3 text-body-secondary fw-medium #{param['stemDiscipline'] == 'healthcare-practitioners' ? 'active' : ''}"
                    data-discipline="healthcare-practitioners">
                     Healthcare Practitioners and Technical
                 </a>
@@ -50,7 +50,7 @@
             <!-- Life, Physical, and Social Science -->
             <div>
                 <a href="occupationSearchRevised.xhtml?stemDiscipline=life-social-science" 
-                   class="cluster-link d-block text-decoration-none p-3 text-body-secondary fw-medium #{param['stemDiscipline'] == 'life-social-science' ? 'bg-primary-subtle text-primary border-start border-primary border-4 fw-semibold' : ''}"
+                   class="cluster-link d-block text-decoration-none p-3 text-body-secondary fw-medium #{param['stemDiscipline'] == 'life-social-science' ? 'active' : ''}"
                    data-discipline="life-social-science">
                     Life, Physical, and Social Science
                 </a>
@@ -58,4 +58,18 @@
         </div>
     </div>
 </ui:composition>
+
+<style>
+.stem-discipline-nav {
+    position: relative;
+    z-index: 1;
+}
+
+@media (max-width: 991.98px) {
+    .stem-discipline-nav {
+        position: relative;
+        z-index: 1;
+    }
+}
+</style>
 </html> 

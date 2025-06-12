@@ -51,10 +51,46 @@ $bootstrap-icons-font-dir: "bootstrap-icons/font/fonts";
 @import "occupations/details";
 @import "occupations/search";
 
-// Career Path Navigation Styles
-.cluster-link:hover, .pathway-link:hover {
-  background-color: var(--bs-gray-100) !important;
-  color: var(--bs-primary) !important;
+// Shared Filter Navigation Styles
+.filter-nav {
+  position: relative;
+  z-index: 1;
+
+  .cluster-link, .pathway-link {
+    &:hover {
+      background-color: var(--bs-gray-100) !important;
+      color: var(--bs-primary) !important;
+    }
+
+    &.active {
+      background-color: var(--bs-primary-bg-subtle);
+      color: var(--bs-primary);
+      border-color: transparent;
+    }
+  }
+
+  // Horizontal lines in headers
+  .w-10 {
+    width: 10%;
+    hr {
+      opacity: 0.75;
+    }
+  }
+}
+
+// Career Path specific styles
+.career-path-nav {
+  @extend .filter-nav;
+}
+
+// Education Cluster specific styles
+.education-cluster-nav {
+  @extend .filter-nav;
+}
+
+// STEM Discipline specific styles
+.stem-discipline-nav {
+  @extend .filter-nav;
 }
 
 // Add a prefix to Bootstrap classes to avoid conflicts with Foundation
