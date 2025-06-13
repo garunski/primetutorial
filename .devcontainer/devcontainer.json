@@ -28,8 +28,7 @@
                 "FlipWarthog.faces-intellisense",
                 "yigitfindikli.primeflexsnippets",
                 "redhat.vscode-community-server-connector",
-                "pflannery.vscode-versionlens",
-                "augment.vscode-augment"
+                "pflannery.vscode-versionlens"
             ]
         }
     },

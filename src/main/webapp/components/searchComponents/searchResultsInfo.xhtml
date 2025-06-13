@@ -156,41 +156,47 @@
         <div class="card-body p-0">
             <!-- Quick Filters -->
             <div class="p-3 border-bottom bg-white">
-                <div class="d-flex flex-wrap align-items-center justify-content-between">
-                    <div class="d-flex gap-2">
+                <div class="row g-2">
+                    <div class="col-6">
                         <ui:include src="searchLink.xhtml">
                             <ui:param name="targetPage" value="#{param['page'] ne null ? param['page'] : '1'}" />
                             <ui:param name="enabled" value="true" />
                             <ui:param name="buttonText" value="Favorites" />
                             <ui:param name="iconClass" value="#{not empty param['favorites'] ? 'bi bi-check-circle-fill text-danger' : 'bi bi-circle text-danger'}" />
-                            <ui:param name="styleClass" value="#{not empty param['favorites'] ? 'btn-outline-danger bg-danger bg-opacity-10 text-dark fs-5 px-5 py-3' : 'btn-light border-secondary text-dark btn-sm'} rounded-pill" />
+                            <ui:param name="styleClass" value="#{not empty param['favorites'] ? 'btn-outline-danger bg-danger bg-opacity-10 text-dark fs-5 px-5 py-3' : 'btn-light border-secondary text-dark btn-sm'} rounded-pill w-100" />
                             <ui:param name="filterParam" value="favorites" />
                         </ui:include>
+                    </div>
 
+                    <div class="col-6">
                         <ui:include src="searchLink.xhtml">
                             <ui:param name="targetPage" value="#{param['page'] ne null ? param['page'] : '1'}" />
                             <ui:param name="enabled" value="true" />
                             <ui:param name="buttonText" value="Bright Outlook" />
                             <ui:param name="iconClass" value="#{not empty param['brightOutlook'] ? 'bi bi-check-circle-fill text-warning' : 'bi bi-circle text-warning'}" />
-                            <ui:param name="styleClass" value="#{not empty param['brightOutlook'] ? 'btn-outline-warning bg-warning bg-opacity-10 text-dark fs-5 px-5 py-3' : 'btn-light border-secondary text-dark btn-sm'} rounded-pill" />
+                            <ui:param name="styleClass" value="#{not empty param['brightOutlook'] ? 'btn-outline-warning bg-warning bg-opacity-10 text-dark fs-5 px-5 py-3' : 'btn-light border-secondary text-dark btn-sm'} rounded-pill w-100" />
                             <ui:param name="filterParam" value="brightOutlook" />
                         </ui:include>
-                        
+                    </div>
+                    
+                    <div class="col-6">
                         <ui:include src="searchLink.xhtml">
                             <ui:param name="targetPage" value="#{param['page'] ne null ? param['page'] : '1'}" />
                             <ui:param name="enabled" value="true" />
                             <ui:param name="buttonText" value="Green Jobs" />
                             <ui:param name="iconClass" value="#{not empty param['greenJobs'] ? 'bi bi-check-circle-fill text-success' : 'bi bi-circle text-success'}" />
-                            <ui:param name="styleClass" value="#{not empty param['greenJobs'] ? 'btn-outline-success bg-success bg-opacity-10 text-dark fs-5 px-5 py-3' : 'btn-light border-secondary text-dark btn-sm'} rounded-pill" />
+                            <ui:param name="styleClass" value="#{not empty param['greenJobs'] ? 'btn-outline-success bg-success bg-opacity-10 text-dark fs-5 px-5 py-3' : 'btn-light border-secondary text-dark btn-sm'} rounded-pill w-100" />
                             <ui:param name="filterParam" value="greenJobs" />
                         </ui:include>
-                        
+                    </div>
+                    
+                    <div class="col-6">
                         <ui:include src="searchLink.xhtml">
                             <ui:param name="targetPage" value="#{param['page'] ne null ? param['page'] : '1'}" />
                             <ui:param name="enabled" value="true" />
                             <ui:param name="buttonText" value="Apprenticeship" />
                             <ui:param name="iconClass" value="#{not empty param['apprenticeship'] ? 'bi bi-check-circle-fill text-primary' : 'bi bi-circle text-primary'}" />
-                            <ui:param name="styleClass" value="#{not empty param['apprenticeship'] ? 'btn-outline-primary bg-primary bg-opacity-10 text-dark fs-5 px-5 py-3' : 'btn-light border-secondary text-dark btn-sm'} rounded-pill" />
+                            <ui:param name="styleClass" value="#{not empty param['apprenticeship'] ? 'btn-outline-primary bg-primary bg-opacity-10 text-dark fs-5 px-5 py-3' : 'btn-light border-secondary text-dark btn-sm'} rounded-pill w-100" />
                             <ui:param name="filterParam" value="apprenticeship" />
                         </ui:include>
                     </div>
