@@ -6,7 +6,7 @@
       xmlns:p="http://primefaces.org/ui">
 
 <ui:composition template="/WEB-INF/template.xhtml">
-    <ui:define name="title">CareerZone - Actors Career Details</ui:define>
+    <ui:define name="title">CareerZone - Career Details</ui:define>
 
     <ui:define name="head">
         <!-- Include Chart.js -->
@@ -17,55 +17,61 @@
     </ui:define>
 
     <ui:define name="content">
-        <!-- Career Header Component -->
-        <ui:include src="/components/career/careerHeader.xhtml" />
+        <h:panelGroup rendered="#{not careerView.careerExists}">
+            <ui:include src="/components/career/careerNotFound.xhtml" />
+        </h:panelGroup>
 
-        <div class="container py-4">
-            <div class="row g-4">
-                <div class="col-md-3">
-                    <!-- Left Navigation Component -->
-                    <ui:include src="/components/career/careerNavigation.xhtml" />
-                </div>
+        <h:panelGroup rendered="#{careerView.careerExists}">
+            <!-- Career Header Component -->
+            <ui:include src="/components/career/careerHeader.xhtml" />
 
-                <div class="col-md-9">
-                    <!-- Overview Section Component -->
-                    <ui:include src="/components/career/careerOverview.xhtml" />
+            <div class="container py-4">
+                <div class="row g-4">
+                    <div class="col-md-3">
+                        <!-- Left Navigation Component -->
+                        <ui:include src="/components/career/careerNavigation.xhtml" />
+                    </div>
 
-                    <!-- Video Section Component -->
-                    <!-- <ui:include src="/components/career/careerVideo.xhtml" /> -->
+                    <div class="col-md-9">
+                        <!-- Overview Section Component -->
+                        <ui:include src="/components/career/careerOverview.xhtml" />
 
-                    <!-- Skills Section Component -->
-                    <ui:include src="/components/career/careerSkills.xhtml" />
+                        <!-- Video Section Component -->
+                        <!-- <ui:include src="/components/career/careerVideo.xhtml" /> -->
 
-                    <!-- Tasks Section Component -->
-                    <ui:include src="/components/career/careerTasks.xhtml" />
+                        <!-- Skills Section Component -->
+                        <ui:include src="/components/career/careerSkills.xhtml" />
 
-                    <!-- Tools and Technology Section Component -->
-                    <ui:include src="/components/career/careerTools.xhtml" />
+                        <!-- Tasks Section Component -->
+                        <ui:include src="/components/career/careerTasks.xhtml" />
 
-                    <!-- Knowledge Section Component -->
-                    <ui:include src="/components/career/careerKnowledge.xhtml" />
+                        <!-- Tools and Technology Section Component -->
+                        <ui:include src="/components/career/careerTools.xhtml" />
 
-                    <!-- Work Environment Section Component -->
-                    <ui:include src="/components/career/careerEnvironment.xhtml" />
+                        <!-- Knowledge Section Component -->
+                        <ui:include src="/components/career/careerKnowledge.xhtml" />
 
-                    <!-- Work Context Section Component -->
-                    <ui:include src="/components/career/careerContext.xhtml" />
+                        <!-- Work Environment Section Component -->
+                        <ui:include src="/components/career/careerEnvironment.xhtml" />
 
-                    <!-- Work Styles Section Component -->
-                    <ui:include src="/components/career/careerStyles.xhtml" />
+                        <!-- Work Context Section Component -->
+                        <ui:include src="/components/career/careerContext.xhtml" />
 
-                    <!-- Education Section Component -->
-                    <ui:include src="/components/career/careerEducation.xhtml" />
+                        <!-- Work Styles Section Component -->
+                        <ui:include src="/components/career/careerStyles.xhtml" />
 
-                    <!-- Salary Section Component -->
-                    <ui:include src="/components/career/careerSalary.xhtml" />
+                        <!-- Education Section Component -->
+                        <ui:include src="/components/career/careerEducation.xhtml" />
 
-                    <!-- Related Careers Section Component -->
-                    <ui:include src="/components/career/careerRelated.xhtml" />
+                        <!-- Salary Section Component -->
+                        <ui:include src="/components/career/careerSalary.xhtml" />
+
+                        <!-- Related Careers Section Component -->
+                        <ui:include src="/components/career/careerRelated.xhtml" />
+                    </div>
                 </div>
             </div>
-        </div>
+        </h:panelGroup>
     </ui:define>
 </ui:composition>
 </html>

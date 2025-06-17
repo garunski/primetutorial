@@ -22,6 +22,7 @@ public class CareerView implements Serializable {
     
     private Actor actor;
     private Long actorId;
+    private boolean careerExists;
 
     @PostConstruct
     public void init() {
@@ -41,20 +42,24 @@ public class CareerView implements Serializable {
             
             if (actorService == null) {
                 logger.severe("ActorService is null - CDI injection failed");
+                careerExists = false;
                 return;
             }
             
             actor = actorService.findById(actorId);
-            logger.info("Actor loaded: " + (actor != null));
+            careerExists = (actor != null);
+            logger.info("Actor loaded: " + careerExists);
             
             if (actor != null && actor.getSkills() != null) {
                 logger.info("Number of skills loaded: " + actor.getSkills().size());
             }
         } catch (NumberFormatException e) {
             logger.severe("Invalid ID format: " + idParam);
+            careerExists = false;
         } catch (Exception e) {
             logger.severe("Error loading actor: " + e.getMessage());
             e.printStackTrace();
+            careerExists = false;
         }
     }
 
@@ -72,5 +77,9 @@ public class CareerView implements Serializable {
 
     public void setActorId(Long actorId) {
         this.actorId = actorId;
+    }
+
+    public boolean isCareerExists() {
+        return careerExists;
     }
 } 
