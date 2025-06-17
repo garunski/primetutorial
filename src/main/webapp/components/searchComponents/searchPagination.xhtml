@@ -1,16 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:p="http://primefaces.org/ui">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html" xmlns:p="http://primefaces.org/ui">
 
 <ui:composition>
     <!-- Pagination -->
-    <div class="d-flex justify-content-center align-items-center mt-5 pagination-container" 
-         rendered="#{jobService.totalPages > 1}">
-        
+    <div class="d-flex justify-content-center align-items-center mt-5 pagination-container"
+        rendered="#{jobService.totalPages > 1}">
+
         <!-- Previous Button -->
         <ui:include src="searchLink.xhtml">
             <ui:param name="targetPage" value="#{jobService.currentPage - 1}" />
@@ -22,10 +19,10 @@
         </ui:include>
 
         <!-- Page Info -->
-        <span class="mx-4 text-muted page-info">
-            Page #{jobService.currentPage} of #{jobService.totalPages} 
-            (#{jobService.startResult}-#{jobService.endResult} of #{jobService.totalFilteredResults} results)
-        </span>
+        <div class="mx-4 text-muted page-info d-flex flex-column align-items-center flex-shrink-1">
+            <div>Page #{jobService.currentPage} of #{jobService.totalPages}</div>
+            <small>(#{jobService.totalFilteredResults} results)</small>
+        </div>
 
         <!-- Next Button -->
         <ui:include src="searchLink.xhtml">
@@ -39,4 +36,5 @@
         </ui:include>
     </div>
 </ui:composition>
+
 </html>

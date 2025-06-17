@@ -12,8 +12,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const skillsRadarChartCanvas = document.getElementById('skills-radar-chart');
     console.log("Skills radar chart canvas found:", !!skillsRadarChartCanvas);
 
-    const skillsDataElements = document.querySelectorAll('#skills-data .skill-data');
-    console.log("Skills data elements found:", skillsDataElements.length);
+    const skillsDataElement = document.getElementById('skills-data');
+    console.log("Skills data element found:", !!skillsDataElement);
 
     const knowledgeRadarChartCanvas = document.getElementById('knowledge-radar-chart');
     console.log("Knowledge radar chart canvas found:", !!knowledgeRadarChartCanvas);
@@ -43,14 +43,28 @@ function initializeSkillsRadarChart() {
       return;
     }
 
-    // Get the skills data from the hidden data elements
-    const skillsDataElements = document.querySelectorAll('#skills-data .skill-data');
-    if (skillsDataElements.length === 0) {
-      console.log("Career Charts: No skills data found on page");
+    // Get the skills data from the JSON script tag
+    const skillsDataElement = document.getElementById('skills-data');
+    if (!skillsDataElement) {
+      console.log("Career Charts: Skills data element not found on page");
       return;
     }
 
-    console.log(`Career Charts: Found ${skillsDataElements.length} skills data elements`);
+    // Parse the JSON data
+    let skillsData;
+    try {
+      skillsData = JSON.parse(skillsDataElement.textContent);
+    } catch (error) {
+      console.error("Career Charts: Error parsing skills JSON data:", error);
+      return;
+    }
+
+    if (!skillsData.skills || !Array.isArray(skillsData.skills)) {
+      console.error("Career Charts: Invalid skills data format");
+      return;
+    }
+
+    console.log(`Career Charts: Found ${skillsData.skills.length} skills in JSON data`);
 
     // Function to normalize values to a 0-1 scale
     function normalizeValue(value, maxValue) {
@@ -68,11 +82,11 @@ function initializeSkillsRadarChart() {
     const MAX_IMPORTANCE = 5;
     const MAX_LEVEL = 7;
 
-    skillsDataElements.forEach((element, index) => {
+    skillsData.skills.forEach((skill, index) => {
       try {
-        const name = element.getAttribute('data-name');
-        const importance = parseFloat(element.getAttribute('data-importance')) || 0;
-        const level = parseFloat(element.getAttribute('data-level')) || 0;
+        const name = skill.name;
+        const importance = parseFloat(skill.importance) || 0;
+        const level = parseFloat(skill.level) || 0;
 
         // Store original values for tooltips
         skillNames.push(name);

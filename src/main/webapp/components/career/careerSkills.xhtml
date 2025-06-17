@@ -123,29 +123,38 @@
                         </div>
                     </div>
 
-                    <!-- Hidden data for the chart -->
-                    <div id="skills-data" class="d-none">
-                        <div class="skill-data"
-                             data-name="Reading Comprehension"
-                             data-importance="3.88"
-                             data-level="3.88"></div>
-                        <div class="skill-data"
-                             data-name="Speaking"
-                             data-importance="3.88"
-                             data-level="4.00"></div>
-                        <div class="skill-data"
-                             data-name="Active Listening"
-                             data-importance="3.75"
-                             data-level="3.62"></div>
-                        <div class="skill-data"
-                             data-name="Social Perceptiveness"
-                             data-importance="3.75"
-                             data-level="3.75"></div>
-                        <div class="skill-data"
-                             data-name="Writing"
-                             data-importance="2.88"
-                             data-level="3.38"></div>
-                    </div>
+                    <!-- Skills data in JSON format -->
+                    <script type="application/json" id="skills-data">
+                        {
+                            "skills": [
+                                {
+                                    "name": "Reading Comprehension",
+                                    "importance": 3.88,
+                                    "level": 3.88
+                                },
+                                {
+                                    "name": "Speaking",
+                                    "importance": 3.88,
+                                    "level": 4.00
+                                },
+                                {
+                                    "name": "Active Listening",
+                                    "importance": 3.75,
+                                    "level": 3.62
+                                },
+                                {
+                                    "name": "Social Perceptiveness",
+                                    "importance": 3.75,
+                                    "level": 3.75
+                                },
+                                {
+                                    "name": "Writing",
+                                    "importance": 2.88,
+                                    "level": 3.38
+                                }
+                            ]
+                        }
+                    </script>
 
                     <p class="small text-muted mt-2">* Skill importance is measured on a five point scale, where one means 'slightly important' and five means 'extremely important'.<br/>
                     * Skill level is measured on a seven point scale, where one means 'some competence required' and seven means 'a high level of expertise required'.</p>
