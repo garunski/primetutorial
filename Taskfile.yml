@@ -37,3 +37,16 @@ tasks:
     desc: Show project dependencies
     cmds:
       - mvn dependency:tree
+
+  frontend:build:
+    desc: Build the frontend assets with Vite
+    dir: src/main/frontend
+    cmds:
+      - npm run clean
+      - npm run build
+
+  frontend:watch:
+    desc: Watch and rebuild frontend assets with Vite
+    dir: src/main/frontend
+    cmds:
+      - npm run watch

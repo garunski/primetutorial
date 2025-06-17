@@ -39,128 +39,45 @@ function initializeSkillsRadarChart() {
     // Get the radar chart canvas element
     const radarChartCanvas = document.getElementById('skills-radar-chart');
     if (!radarChartCanvas) {
-      console.log("Career Charts: Skills radar chart canvas not found on page");
+      console.warn("Career Charts: Skills radar chart canvas not found");
       return;
     }
 
-    // Get the skills data from the JSON script tag
+    // Get and parse the chart configuration
     const skillsDataElement = document.getElementById('skills-data');
     if (!skillsDataElement) {
-      console.log("Career Charts: Skills data element not found on page");
+      console.warn("Career Charts: Skills data element not found");
       return;
     }
 
-    // Parse the JSON data
-    let skillsData;
+    let chartConfig;
     try {
-      skillsData = JSON.parse(skillsDataElement.textContent);
-    } catch (error) {
-      console.error("Career Charts: Error parsing skills JSON data:", error);
-      return;
-    }
-
-    if (!skillsData.skills || !Array.isArray(skillsData.skills)) {
-      console.error("Career Charts: Invalid skills data format");
-      return;
-    }
-
-    console.log(`Career Charts: Found ${skillsData.skills.length} skills in JSON data`);
-
-    // Function to normalize values to a 0-1 scale
-    function normalizeValue(value, maxValue) {
-      return value / maxValue;
-    }
-
-    // Extract the data for the chart
-    const skillNames = [];
-    const importanceValues = [];
-    const levelValues = [];
-    const normalizedImportanceValues = [];
-    const normalizedLevelValues = [];
-
-    // Maximum values for each scale
-    const MAX_IMPORTANCE = 5;
-    const MAX_LEVEL = 7;
-
-    skillsData.skills.forEach((skill, index) => {
-      try {
-        const name = skill.name;
-        const importance = parseFloat(skill.importance) || 0;
-        const level = parseFloat(skill.level) || 0;
-
-        // Store original values for tooltips
-        skillNames.push(name);
-        importanceValues.push(importance);
-        levelValues.push(level);
-
-        // Store normalized values for the chart (0-1 scale)
-        normalizedImportanceValues.push(normalizeValue(importance, MAX_IMPORTANCE));
-        normalizedLevelValues.push(normalizeValue(level, MAX_LEVEL));
-
-        console.log(`Career Charts: Processed skill ${name} with importance ${importance}/${MAX_IMPORTANCE} (normalized: ${normalizeValue(importance, MAX_IMPORTANCE).toFixed(2)}) and level ${level}/${MAX_LEVEL} (normalized: ${normalizeValue(level, MAX_LEVEL).toFixed(2)})`);
-      } catch (error) {
-        console.error(`Career Charts: Error processing skill data element ${index}:`, error);
+      const data = JSON.parse(skillsDataElement.textContent);
+      if (!data.chartConfig || !data.chartConfig.datasets || !Array.isArray(data.chartConfig.datasets)) {
+        console.error("Career Charts: Invalid chart configuration format");
+        return;
       }
-    });
+      chartConfig = data.chartConfig;
+    } catch (error) {
+      console.error("Career Charts: Error parsing chart configuration:", error);
+      return;
+    }
 
-    // Create the radar chart
+    // Create the radar chart with the provided configuration
     new Chart(radarChartCanvas, {
       type: 'radar',
       data: {
-        labels: skillNames,
-        datasets: [
-          {
-            label: 'Importance (out of 5)',
-            data: normalizedImportanceValues,
-            backgroundColor: 'rgba(11, 93, 102, 0.2)',
-            borderColor: 'rgba(11, 93, 102, 1)',
-            borderWidth: 2,
-            pointBackgroundColor: 'rgba(11, 93, 102, 1)',
-            pointBorderColor: '#fff',
-            pointHoverBackgroundColor: '#fff',
-            pointHoverBorderColor: 'rgba(11, 93, 102, 1)',
-            // Store original values for tooltips
-            originalData: importanceValues,
-            maxValue: MAX_IMPORTANCE
-          },
-          {
-            label: 'Level (out of 7)',
-            data: normalizedLevelValues,
-            backgroundColor: 'rgba(31, 41, 55, 0.2)',
-            borderColor: 'rgba(31, 41, 55, 1)',
-            borderWidth: 2,
-            pointBackgroundColor: 'rgba(31, 41, 55, 1)',
-            pointBorderColor: '#fff',
-            pointHoverBackgroundColor: '#fff',
-            pointHoverBorderColor: 'rgba(31, 41, 55, 1)',
-            // Store original values for tooltips
-            originalData: levelValues,
-            maxValue: MAX_LEVEL
-          }
-        ]
+        labels: chartConfig.labels,
+        datasets: chartConfig.datasets.map(dataset => ({
+          ...dataset,
+          data: dataset.normalizedData, // Use pre-normalized data
+          originalData: dataset.data // Keep original data for tooltips
+        }))
       },
       options: {
+        ...chartConfig.options,
         responsive: true,
         maintainAspectRatio: false,
-        scales: {
-          r: {
-            min: 0,
-            max: 1, // Normalized scale from 0 to 1
-            ticks: {
-              stepSize: 0.2,
-              callback: function(value) {
-                // Display percentages on the scale
-                return Math.round(value * 100) + '%';
-              }
-            },
-            pointLabels: {
-              font: {
-                size: 14,
-                weight: 'bold'
-              }
-            }
-          }
-        },
         plugins: {
           legend: {
             position: 'bottom'
@@ -168,13 +85,11 @@ function initializeSkillsRadarChart() {
           tooltip: {
             callbacks: {
               label: function(context) {
-                // Use the original values for tooltips
-                const datasetLabel = context.dataset.label || '';
+                const dataset = context.dataset;
                 const index = context.dataIndex;
-                const originalValue = context.dataset.originalData[index];
-                const maxValue = context.dataset.maxValue;
-
-                return `${datasetLabel}: ${originalValue}/${maxValue} (${Math.round(context.raw * 100)}%)`;
+                const originalValue = dataset.originalData[index];
+                const maxValue = dataset.maxValue;
+                return `${dataset.label}: ${originalValue}`;
               }
             }
           }
@@ -182,7 +97,6 @@ function initializeSkillsRadarChart() {
       }
     });
 
-    console.log("Career Charts: Created skills radar chart");
   } catch (error) {
     console.error("Career Charts: Error initializing skills radar chart:", error);
   }
@@ -317,7 +231,7 @@ function initializeKnowledgeRadarChart() {
                 const originalValue = context.dataset.originalData[index];
                 const maxValue = context.dataset.maxValue;
 
-                return `${datasetLabel}: ${originalValue}/${maxValue} (${Math.round(context.raw * 100)}%)`;
+                return `${datasetLabel}: ${originalValue}`;
               }
             }
           }

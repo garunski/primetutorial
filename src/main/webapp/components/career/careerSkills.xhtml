@@ -23,136 +23,129 @@
                     <div class="mt-4">
                         <div class="row">
                             <div class="col-md-6">
-                                <div class="card shadow-sm mb-4 p-3">
-                                    <h4 class="fs-5 fw-semibold text-dark mb-2">Reading Comprehension</h4>
-                                    <p class="text-muted small mb-3">Understanding written sentences and paragraphs in work-related documents</p>
+                                <ui:repeat value="#{careerView.actor.skills}" var="skill" varStatus="status">
+                                    <h:panelGroup rendered="#{status.index lt 3}">
+                                        <div class="card shadow-sm mb-4 p-3">
+                                            <h4 class="fs-5 fw-semibold text-dark mb-2">#{skill.name}</h4>
+                                            <p class="text-muted small mb-3">#{skill.description}</p>
 
-                                    <div class="d-flex flex-wrap gap-3 mt-2">
-                                        <!-- Importance Badge -->
-                                        <span class="badge bg-primary-subtle text-primary px-3 py-2 fs-6">
-                                            <i class="bi bi-lightning-charge-fill me-1"></i>
-                                            Importance: <strong>3.88</strong><span class="small">/5</span>
-                                        </span>
+                                            <div class="d-flex flex-wrap gap-3 mt-2">
+                                                <!-- Importance Badge -->
+                                                <span class="badge bg-primary-subtle text-primary px-3 py-2 fs-6">
+                                                    <i class="bi bi-lightning-charge-fill me-1"></i>
+                                                    Importance: <strong>#{skill.importance}</strong><span class="small">/5</span>
+                                                </span>
 
-                                        <!-- Level Badge -->
-                                        <span class="badge bg-info-subtle text-info px-3 py-2 fs-6">
-                                            <i class="bi bi-bar-chart-fill me-1"></i>
-                                            Level: <strong>3.88</strong><span class="small">/7</span>
-                                        </span>
-                                    </div>
-                                </div>
-
-                                <div class="card shadow-sm mb-4 p-3">
-                                    <h4 class="fs-5 fw-semibold text-dark mb-2">Speaking</h4>
-                                    <p class="text-muted small mb-3">Talking to others to convey information effectively</p>
-
-                                    <div class="d-flex flex-wrap gap-3 mt-2">
-                                        <!-- Importance Badge -->
-                                        <span class="badge bg-primary-subtle text-primary px-3 py-2 fs-6">
-                                            <i class="bi bi-lightning-charge-fill me-1"></i>
-                                            Importance: <strong>3.88</strong><span class="small">/5</span>
-                                        </span>
-
-                                        <!-- Level Badge -->
-                                        <span class="badge bg-info-subtle text-info px-3 py-2 fs-6">
-                                            <i class="bi bi-bar-chart-fill me-1"></i>
-                                            Level: <strong>4.00</strong><span class="small">/7</span>
-                                        </span>
-                                    </div>
-                                </div>
-
-                                <div class="card shadow-sm mb-4 p-3">
-                                    <h4 class="fs-5 fw-semibold text-dark mb-2">Active Listening</h4>
-                                    <p class="text-muted small mb-3">Giving full attention to what other people are saying, taking time to understand the points being made</p>
-
-                                    <div class="d-flex flex-wrap gap-3 mt-2">
-                                        <!-- Importance Badge -->
-                                        <span class="badge bg-primary-subtle text-primary px-3 py-2 fs-6">
-                                            <i class="bi bi-lightning-charge-fill me-1"></i>
-                                            Importance: <strong>3.75</strong><span class="small">/5</span>
-                                        </span>
-
-                                        <!-- Level Badge -->
-                                        <span class="badge bg-info-subtle text-info px-3 py-2 fs-6">
-                                            <i class="bi bi-bar-chart-fill me-1"></i>
-                                            Level: <strong>3.62</strong><span class="small">/7</span>
-                                        </span>
-                                    </div>
-                                </div>
+                                                <!-- Level Badge -->
+                                                <span class="badge bg-info-subtle text-info px-3 py-2 fs-6">
+                                                    <i class="bi bi-bar-chart-fill me-1"></i>
+                                                    Level: <strong>#{skill.level}</strong><span class="small">/7</span>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </h:panelGroup>
+                                </ui:repeat>
                             </div>
 
                             <div class="col-md-6">
-                                <div class="card shadow-sm mb-4 p-3">
-                                    <h4 class="fs-5 fw-semibold text-dark mb-2">Social Perceptiveness</h4>
-                                    <p class="text-muted small mb-3">Being aware of others' reactions and understanding why they react as they do</p>
+                                <ui:repeat value="#{careerView.actor.skills}" var="skill" varStatus="status">
+                                    <h:panelGroup rendered="#{status.index ge 3}">
+                                        <div class="card shadow-sm mb-4 p-3">
+                                            <h4 class="fs-5 fw-semibold text-dark mb-2">#{skill.name}</h4>
+                                            <p class="text-muted small mb-3">#{skill.description}</p>
 
-                                    <div class="d-flex flex-wrap gap-3 mt-2">
-                                        <!-- Importance Badge -->
-                                        <span class="badge bg-primary-subtle text-primary px-3 py-2 fs-6">
-                                            <i class="bi bi-lightning-charge-fill me-1"></i>
-                                            Importance: <strong>3.75</strong><span class="small">/5</span>
-                                        </span>
+                                            <div class="d-flex flex-wrap gap-3 mt-2">
+                                                <!-- Importance Badge -->
+                                                <span class="badge bg-primary-subtle text-primary px-3 py-2 fs-6">
+                                                    <i class="bi bi-lightning-charge-fill me-1"></i>
+                                                    Importance: <strong>#{skill.importance}</strong><span class="small">/5</span>
+                                                </span>
 
-                                        <!-- Level Badge -->
-                                        <span class="badge bg-info-subtle text-info px-3 py-2 fs-6">
-                                            <i class="bi bi-bar-chart-fill me-1"></i>
-                                            Level: <strong>3.75</strong><span class="small">/7</span>
-                                        </span>
-                                    </div>
-                                </div>
-
-                                <div class="card shadow-sm mb-4 p-3">
-                                    <h4 class="fs-5 fw-semibold text-dark mb-2">Writing</h4>
-                                    <p class="text-muted small mb-3">Communicating effectively in writing as appropriate for the needs of the audience</p>
-
-                                    <div class="d-flex flex-wrap gap-3 mt-2">
-                                        <!-- Importance Badge -->
-                                        <span class="badge bg-primary-subtle text-primary px-3 py-2 fs-6">
-                                            <i class="bi bi-lightning-charge-fill me-1"></i>
-                                            Importance: <strong>2.88</strong><span class="small">/5</span>
-                                        </span>
-
-                                        <!-- Level Badge -->
-                                        <span class="badge bg-info-subtle text-info px-3 py-2 fs-6">
-                                            <i class="bi bi-bar-chart-fill me-1"></i>
-                                            Level: <strong>3.38</strong><span class="small">/7</span>
-                                        </span>
-                                    </div>
-                                </div>
+                                                <!-- Level Badge -->
+                                                <span class="badge bg-info-subtle text-info px-3 py-2 fs-6">
+                                                    <i class="bi bi-bar-chart-fill me-1"></i>
+                                                    Level: <strong>#{skill.level}</strong><span class="small">/7</span>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </h:panelGroup>
+                                </ui:repeat>
                             </div>
                         </div>
                     </div>
-
                     <!-- Skills data in JSON format -->
                     <script type="application/json" id="skills-data">
                         {
-                            "skills": [
-                                {
-                                    "name": "Reading Comprehension",
-                                    "importance": 3.88,
-                                    "level": 3.88
-                                },
-                                {
-                                    "name": "Speaking",
-                                    "importance": 3.88,
-                                    "level": 4.00
-                                },
-                                {
-                                    "name": "Active Listening",
-                                    "importance": 3.75,
-                                    "level": 3.62
-                                },
-                                {
-                                    "name": "Social Perceptiveness",
-                                    "importance": 3.75,
-                                    "level": 3.75
-                                },
-                                {
-                                    "name": "Writing",
-                                    "importance": 2.88,
-                                    "level": 3.38
+                            "chartConfig": {
+                                "labels": [
+                                    <ui:repeat value="#{careerView.actor.skills}" var="skill" varStatus="status">
+                                        "#{skill.name}"#{!status.last ? ',' : ''}
+                                    </ui:repeat>
+                                ],
+                                "datasets": [
+                                    {
+                                        "label": "Importance (out of 5)",
+                                        "data": [
+                                            <ui:repeat value="#{careerView.actor.skills}" var="skill" varStatus="status">
+                                                #{skill.importance}#{!status.last ? ',' : ''}
+                                            </ui:repeat>
+                                        ],
+                                        "normalizedData": [
+                                            <ui:repeat value="#{careerView.actor.skills}" var="skill" varStatus="status">
+                                                #{skill.importance / 5.0}#{!status.last ? ',' : ''}
+                                            </ui:repeat>
+                                        ],
+                                        "maxValue": 5,
+                                        "backgroundColor": "rgba(11, 93, 102, 0.2)",
+                                        "borderColor": "rgba(11, 93, 102, 1)",
+                                        "borderWidth": 2,
+                                        "pointBackgroundColor": "rgba(11, 93, 102, 1)",
+                                        "pointBorderColor": "#fff",
+                                        "pointHoverBackgroundColor": "#fff",
+                                        "pointHoverBorderColor": "rgba(11, 93, 102, 1)"
+                                    },
+                                    {
+                                        "label": "Level (out of 7)",
+                                        "data": [
+                                            <ui:repeat value="#{careerView.actor.skills}" var="skill" varStatus="status">
+                                                #{skill.level}#{!status.last ? ',' : ''}
+                                            </ui:repeat>
+                                        ],
+                                        "normalizedData": [
+                                            <ui:repeat value="#{careerView.actor.skills}" var="skill" varStatus="status">
+                                                #{skill.level / 7.0}#{!status.last ? ',' : ''}
+                                            </ui:repeat>
+                                        ],
+                                        "maxValue": 7,
+                                        "backgroundColor": "rgba(31, 41, 55, 0.2)",
+                                        "borderColor": "rgba(31, 41, 55, 1)",
+                                        "borderWidth": 2,
+                                        "pointBackgroundColor": "rgba(31, 41, 55, 1)",
+                                        "pointBorderColor": "#fff",
+                                        "pointHoverBackgroundColor": "#fff",
+                                        "pointHoverBorderColor": "rgba(31, 41, 55, 1)"
+                                    }
+                                ],
+                                "options": {
+                                    "scales": {
+                                        "r": {
+                                            "min": 0,
+                                            "max": 1,
+                                            "ticks": {
+                                                "stepSize": 0.2,
+                                                "display": false
+                                            }
+                                        }
+                                    },
+                                    "plugins": {
+                                        "tooltip": {
+                                            "callbacks": {
+                                                "label": "function(context) { return context.dataset.label + ': ' + context.raw; }"
+                                            }
+                                        }
+                                    }
                                 }
-                            ]
+                            }
                         }
                     </script>
 
@@ -163,14 +156,9 @@
 
             <h3 class="fs-4 fw-semibold mb-3">Key Abilities</h3>
             <div class="mb-3">
-                <span class="badge bg-light text-secondary me-2 mb-2">Oral Expression</span>
-                <span class="badge bg-light text-secondary me-2 mb-2">Oral Comprehension</span>
-                <span class="badge bg-light text-secondary me-2 mb-2">Memorization</span>
-                <span class="badge bg-light text-secondary me-2 mb-2">Speech Clarity</span>
-                <span class="badge bg-light text-secondary me-2 mb-2">Written Comprehension</span>
-                <span class="badge bg-light text-secondary me-2 mb-2">Originality</span>
-                <span class="badge bg-light text-secondary me-2 mb-2">Problem Sensitivity</span>
-                <span class="badge bg-light text-secondary me-2 mb-2">Fluency of Ideas</span>
+                <ui:repeat value="#{careerView.actor.keyAbilities}" var="ability">
+                    <span class="badge bg-light text-secondary me-2 mb-2">#{ability}</span>
+                </ui:repeat>
             </div>
         </div>
     </div>
