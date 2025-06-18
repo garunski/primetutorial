@@ -15,108 +15,39 @@
             <h:panelGroup rendered="#{careerView.occupation.hasWorkContextFlag and careerView.occupation.workContext != null and careerView.occupation.workContext.size() > 0}">
                 <div class="row mb-4">
                     <div class="col-md-12">
-                        <!-- Bar chart container -->
-                        <div class="work-context-chart-container bg-white p-3 rounded shadow-sm mx-auto position-relative mb-4">
-                            <h4 class="fs-5 fw-semibold text-center mb-3">Work Context Importance Levels</h4>
-                            <canvas id="work-context-bar-chart" style="max-height: 400px;"></canvas>
-                        </div>
-
-                        <!-- Work Context cards and descriptions -->
-                        <div class="mt-4">
-                            <div class="row">
+                        <!-- Tag cloud container -->
+                        <div class="work-context-tag-cloud bg-light p-4 rounded shadow-sm mx-auto position-relative mb-4">
+                            <h4 class="fs-5 fw-semibold text-center mb-4">Work Context Factors</h4>
+                            <div class="d-flex flex-wrap justify-content-center align-items-center gap-3" style="min-height: 200px;">
                                 <ui:repeat value="#{careerView.occupation.workContext}" var="context" varStatus="status">
-                                    <div class="col-md-6 mb-3">
-                                        <div class="card shadow-sm h-100">
-                                            <div class="card-body">
-                                                <h5 class="card-title fw-semibold text-dark">#{context.name}</h5>
-                                                <h:panelGroup rendered="#{context.hasDescription and context.description != null}">
-                                                    <p class="card-text text-muted small">#{context.description}</p>
-                                                </h:panelGroup>
-                                                <h:panelGroup rendered="#{context.value != null}">
-                                                    <div class="mt-2">
-                                                        <span class="badge bg-primary-subtle text-primary">
-                                                            <i class="bi bi-bar-chart-fill me-1"></i>
-                                                            Importance: #{context.value}/5
-                                                        </span>
-                                                    </div>
-                                                </h:panelGroup>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    <span class="work-context-tag badge text-dark bg-primary-subtle border border-primary-subtle rounded-pill px-3 py-2 
+                                                 #{context.value >= 4.8 ? 'size-xl' : context.value >= 4.6 ? 'size-lg' : context.value >= 4.4 ? 'size-md' : context.value >= 4.2 ? 'size-sm' : 'size-xs'}"
+                                          data-bs-toggle="tooltip" 
+                                          data-bs-placement="top" 
+                                          data-bs-html="true"
+                                          title="#{context.hasDescription and context.description != null ? context.description : 'No description available'}&lt;br&gt;&lt;strong&gt;Importance: #{context.value}/5&lt;/strong&gt;">
+                                        #{context.name}
+                                        <small class="ms-2">(#{context.value})</small>
+                                    </span>
                                 </ui:repeat>
                             </div>
                         </div>
 
-                        <!-- Work Context data in JSON format for the chart -->
-                        <script type="application/json" id="work-context-data">
-                            {
-                                "chartConfig": {
-                                    "type": "bar",
-                                    "labels": [
-                                        <ui:repeat value="#{careerView.occupation.workContext}" var="context" varStatus="status">
-                                            "#{context.name}"#{!status.last ? ',' : ''}
-                                        </ui:repeat>
-                                    ],
-                                    "datasets": [
-                                        {
-                                            "label": "Importance Level",
-                                            "data": [
-                                                <ui:repeat value="#{careerView.occupation.workContext}" var="context" varStatus="status">
-                                                    #{context.value != null ? context.value : 0}#{!status.last ? ',' : ''}
-                                                </ui:repeat>
-                                            ],
-                                            "backgroundColor": [
-                                                <ui:repeat value="#{careerView.occupation.workContext}" var="context" varStatus="status">
-                                                    "rgba(108, 117, 125, 0.8)"#{!status.last ? ',' : ''}
-                                                </ui:repeat>
-                                            ],
-                                            "borderColor": [
-                                                <ui:repeat value="#{careerView.occupation.workContext}" var="context" varStatus="status">
-                                                    "rgba(108, 117, 125, 1)"#{!status.last ? ',' : ''}
-                                                </ui:repeat>
-                                            ],
-                                            "borderWidth": 1
-                                        }
-                                    ],
-                                    "options": {
-                                        "indexAxis": "y",
-                                        "responsive": true,
-                                        "maintainAspectRatio": false,
-                                        "scales": {
-                                            "x": {
-                                                "beginAtZero": true,
-                                                "max": 5,
-                                                "ticks": {
-                                                    "stepSize": 1
-                                                },
-                                                "title": {
-                                                    "display": true,
-                                                    "text": "Importance Level (1-5)"
-                                                }
-                                            },
-                                            "y": {
-                                                "title": {
-                                                    "display": true,
-                                                    "text": "Work Context Factors"
-                                                }
-                                            }
-                                        },
-                                        "plugins": {
-                                            "legend": {
-                                                "display": false
-                                            },
-                                            "tooltip": {
-                                                "callbacks": {
-                                                    "label": "function(context) { return 'Importance: ' + context.parsed.x + '/5'; }"
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            }
+                        <!-- Initialize tooltips -->
+                        <script>
+                            document.addEventListener('DOMContentLoaded', function() {
+                                // Initialize Bootstrap tooltips only
+                                var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+                                var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+                                    return new bootstrap.Tooltip(tooltipTriggerEl);
+                                });
+                            });
                         </script>
 
-                        <p class="small text-muted mt-2">* Work Contexts are measured by how important the factor is to this occupation, where one is 'not important' and five is 'very important'.</p>
+                        <p class="small text-muted mt-3 text-center">
+                            <i class="bi bi-info-circle me-1"></i>
+                            Hover over each factor to see its description. Tag size reflects importance level (4-5 scale).
+                        </p>
                     </div>
                 </div>
             </h:panelGroup>

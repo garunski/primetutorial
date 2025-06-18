@@ -47,6 +47,54 @@
   border-radius: $border-radius-sm;
 }
 
+// Work Context Tag Cloud Styles
+.work-context-tag-cloud {
+  .work-context-tag {
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+    
+    &:hover {
+      transform: scale(1.1);
+      background-color: $primary !important;
+      color: white !important;
+      z-index: 10;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    }
+    
+    // Size variations based on importance values (4-5 range)
+    &.size-xs {
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+    
+    &.size-sm {
+      font-size: 1rem;
+      font-weight: 500;
+    }
+    
+    &.size-md {
+      font-size: 1.1rem;
+      font-weight: 600;
+    }
+    
+    &.size-lg {
+      font-size: 1.2rem;
+      font-weight: 600;
+    }
+    
+    &.size-xl {
+      font-size: 1.4rem;
+      font-weight: 600;
+    }
+    
+    small {
+      opacity: 0.75;
+    }
+  }
+}
+
 // Custom tag styling
 .tag-primary {
   background-color: rgba($primary, 0.1);
