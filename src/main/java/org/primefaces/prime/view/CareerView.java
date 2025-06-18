@@ -8,8 +8,8 @@ import javax.inject.Named;
 import java.io.Serializable;
 import java.util.logging.Logger;
 
-import org.primefaces.prime.domain.Actor;
-import org.primefaces.prime.service.ActorService;
+import org.primefaces.prime.domain.Occupation;
+import org.primefaces.prime.service.OccupationService;
 
 @Named
 @ViewScoped
@@ -18,65 +18,65 @@ public class CareerView implements Serializable {
     private static final Logger logger = Logger.getLogger(CareerView.class.getName());
     
     @Inject
-    private ActorService actorService;
+    private OccupationService occupationService;
     
-    private Actor actor;
-    private Long actorId;
+    private Occupation occupation;
+    private String onet;
     private boolean careerExists;
 
     @PostConstruct
     public void init() {
         logger.info("CareerView initialized");
         
-        // For testing, default to ID 1 if no parameter is provided
-        String idParam = FacesContext.getCurrentInstance()
+        // Get ONET parameter from request, or use default
+        String onetParam = FacesContext.getCurrentInstance()
             .getExternalContext()
             .getRequestParameterMap()
-            .get("id");
+            .get("onet");
             
-        logger.info("ID parameter: " + idParam);
+        logger.info("ONET parameter: " + onetParam);
         
         try {
-            actorId = (idParam != null) ? Long.parseLong(idParam) : 1L;
-            logger.info("Looking up actor with ID: " + actorId);
+            onet = (onetParam != null) ? onetParam : "11912100"; // Default ONET from JSON
+            logger.info("Looking up occupation with ONET: " + onet);
             
-            if (actorService == null) {
-                logger.severe("ActorService is null - CDI injection failed");
+            if (occupationService == null) {
+                logger.severe("OccupationService is null - CDI injection failed");
                 careerExists = false;
                 return;
             }
             
-            actor = actorService.findById(actorId);
-            careerExists = (actor != null);
-            logger.info("Actor loaded: " + careerExists);
+            // Load occupation data from JSON
+            occupation = occupationService.getOccupation();
+            careerExists = (occupation != null);
+            logger.info("Occupation loaded: " + careerExists);
             
-            if (actor != null && actor.getSkills() != null) {
-                logger.info("Number of skills loaded: " + actor.getSkills().size());
+            if (occupation != null) {
+                logger.info("Occupation title: " + occupation.getTitle());
+                logger.info("Number of tasks: " + (occupation.getTasks() != null ? occupation.getTasks().size() : 0));
+                logger.info("Number of skills: " + (occupation.getSkills() != null ? occupation.getSkills().size() : 0));
             }
-        } catch (NumberFormatException e) {
-            logger.severe("Invalid ID format: " + idParam);
-            careerExists = false;
         } catch (Exception e) {
-            logger.severe("Error loading actor: " + e.getMessage());
+            logger.severe("Error loading occupation: " + e.getMessage());
             e.printStackTrace();
             careerExists = false;
         }
     }
 
-    public Actor getActor() {
-        return actor;
+    public Occupation getOccupation() {
+        return occupation;
     }
 
-    public void setActor(Actor actor) {
-        this.actor = actor;
+    public void setOccupation(Occupation occupation) {
+        this.occupation = occupation;
     }
 
-    public Long getActorId() {
-        return actorId;
+    public String getOnet() {
+        return onet;
     }
 
-    public void setActorId(Long actorId) {
-        this.actorId = actorId;
+    public void setOnet(String onet) {
+        this.onet = onet;
     }
 
     public boolean isCareerExists() {

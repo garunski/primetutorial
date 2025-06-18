@@ -11,20 +11,16 @@
         <div class="card-body">
             <h2 class="fs-2 fw-semibold text-primary mb-3 pb-2 border-bottom">Tasks &amp; Responsibilities</h2>
             <p class="mb-3">The list below outlines occupation specific tasks that a worker in this occupation is called upon to do regularly.</p>
-            <ul class="list-group list-group-flush">
-                <li class="list-group-item border-bottom py-2">Collaborate with other actors as part of an ensemble</li>
-                <li class="list-group-item border-bottom py-2">Portray and interpret roles, using speech, gestures, and body movements, to entertain, inform, or instruct radio, film, television, or live audiences</li>
-                <li class="list-group-item border-bottom py-2">Work closely with directors, other actors, and playwrights to find the interpretation most suited to the role</li>
-                <li class="list-group-item border-bottom py-2">Perform humorous and serious interpretations of emotions, actions, and situations, using body movements, facial expressions, and gestures</li>
-                <li class="list-group-item border-bottom py-2">Study and rehearse roles from scripts to interpret, learn and memorize lines, stunts, and cues as directed</li>
-                <li class="list-group-item border-bottom py-2">Learn about characters in scripts and their relationships to each other to develop role interpretations</li>
-                <li class="list-group-item border-bottom py-2">Attend auditions and casting calls to audition for roles</li>
-                <li class="list-group-item border-bottom py-2">Sing or dance during dramatic or comedic performances</li>
-                <li class="list-group-item border-bottom py-2">Work with other crew members responsible for lighting, costumes, make-up, and props</li>
-                <li class="list-group-item border-bottom py-2">Tell jokes, perform comic dances, songs and skits, impersonate mannerisms and voices of others</li>
-                <li class="list-group-item border-bottom py-2">Read from scripts or books to narrate action or to inform or entertain audiences</li>
-                <li class="list-group-item py-2">Promote productions using means such as interviews about plays or movies</li>
-            </ul>
+            <h:panelGroup rendered="#{careerView.occupation.hasTasksFlag and careerView.occupation.tasks != null}">
+                <ul class="list-group list-group-flush">
+                    <ui:repeat value="#{careerView.occupation.tasks}" var="task" varStatus="status">
+                        <li class="list-group-item #{!status.last ? 'border-bottom' : ''} py-2">#{task}</li>
+                    </ui:repeat>
+                </ul>
+            </h:panelGroup>
+            <h:panelGroup rendered="#{!careerView.occupation.hasTasksFlag or careerView.occupation.tasks == null}">
+                <p class="text-muted">Task information is not available for this occupation.</p>
+            </h:panelGroup>
         </div>
     </div>
 </ui:composition>

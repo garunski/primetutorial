@@ -15,28 +15,29 @@
             <div class="row">
                 <div class="col-md-6">
                     <h3 class="fs-4 fw-semibold mb-3">Tools</h3>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item border-bottom py-2">Digital still cameras</li>
-                        <li class="list-group-item border-bottom py-2">Digital video recorders</li>
-                        <li class="list-group-item border-bottom py-2">Laptop computers</li>
-                        <li class="list-group-item border-bottom py-2">MP3 digital voice recorders</li>
-                        <li class="list-group-item border-bottom py-2">Personal computers</li>
-                        <li class="list-group-item border-bottom py-2">Photography tripods</li>
-                        <li class="list-group-item py-2">Tablet computers</li>
-                    </ul>
+                    <h:panelGroup rendered="#{careerView.occupation.hasToolsFlag and careerView.occupation.tools != null}">
+                        <ul class="list-group list-group-flush">
+                            <ui:repeat value="#{careerView.occupation.tools}" var="tool" varStatus="status">
+                                <li class="list-group-item #{!status.last ? 'border-bottom' : ''} py-2">#{tool.name}</li>
+                            </ui:repeat>
+                        </ul>
+                    </h:panelGroup>
+                    <h:panelGroup rendered="#{!careerView.occupation.hasToolsFlag or careerView.occupation.tools == null}">
+                        <p class="text-muted">Tool information is not available for this occupation.</p>
+                    </h:panelGroup>
                 </div>
                 <div class="col-md-6">
                     <h3 class="fs-4 fw-semibold mb-3">Technology</h3>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item border-bottom py-2">Apple Final Cut Pro</li>
-                        <li class="list-group-item border-bottom py-2">Email software</li>
-                        <li class="list-group-item border-bottom py-2">Social media (Facebook, Twitter, Instagram, LinkedIn)</li>
-                        <li class="list-group-item border-bottom py-2">FileMaker Pro</li>
-                        <li class="list-group-item border-bottom py-2">Microsoft Office (Word, Excel, PowerPoint, Outlook)</li>
-                        <li class="list-group-item border-bottom py-2">Motion capture software</li>
-                        <li class="list-group-item border-bottom py-2">Web browser software</li>
-                        <li class="list-group-item py-2">Website development software</li>
-                    </ul>
+                    <h:panelGroup rendered="#{careerView.occupation.hasTechnologiesFlag and careerView.occupation.technologies != null}">
+                        <ul class="list-group list-group-flush">
+                            <ui:repeat value="#{careerView.occupation.technologies}" var="technology" varStatus="status">
+                                <li class="list-group-item #{!status.last ? 'border-bottom' : ''} py-2">#{technology.name}</li>
+                            </ui:repeat>
+                        </ul>
+                    </h:panelGroup>
+                    <h:panelGroup rendered="#{!careerView.occupation.hasTechnologiesFlag or careerView.occupation.technologies == null}">
+                        <p class="text-muted">Technology information is not available for this occupation.</p>
+                    </h:panelGroup>
                 </div>
             </div>
         </div>

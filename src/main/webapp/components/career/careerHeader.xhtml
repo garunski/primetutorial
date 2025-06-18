@@ -11,33 +11,42 @@
         <div class="container">
             <div class="row g-3 align-items-start">
                 <div class="col-md-8">
-                    <h1 class="display-4">Actors <span class="badge bright-outlook">Bright Outlook</span></h1>
-                    <div class="text-muted mb-3">Arts, Audio/Video Technology and Communications | Performing Arts</div>
+                    <h1 class="display-4">#{careerView.occupation.title}
+                        <h:panelGroup rendered="#{careerView.occupation.brightFlag}">
+                            <span class="badge bright-outlook">Bright Outlook</span>
+                        </h:panelGroup>
+                        <h:panelGroup rendered="#{careerView.occupation.greenFlag}">
+                            <span class="badge green-outlook">Green Outlook</span>
+                        </h:panelGroup>
+                    </h1>
+                    <div class="text-muted mb-3">#{careerView.occupation.sedClusterDesc}</div>
                     <div class="fs-5">
-                        Play parts in stage, television, radio, video, or film productions, or other settings for entertainment, information, or instruction. Interpret serious or comic role by speech, gesture, and body movement to entertain or inform audience. May dance and sing.
+                        #{careerView.occupation.description}
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="d-flex flex-column gap-2">
-                        <div class="bg-white rounded p-2 border-start career-stat-box salary-box">
-                            <div class="d-flex align-items-center">
-                                <div class="me-2 text-primary">
-                                    <i class="bi bi-currency-dollar"></i>
-                                </div>
-                                <div>
-                                    <div class="small text-muted">Average Salary (NY)</div>
-                                    <div class="fw-semibold">$44,630 - $116,730</div>
+                        <h:panelGroup rendered="#{careerView.occupation.hasWageFlag}">
+                            <div class="bg-white rounded p-2 border-start career-stat-box salary-box">
+                                <div class="d-flex align-items-center">
+                                    <div class="me-2 text-primary">
+                                        <i class="bi bi-currency-dollar"></i>
+                                    </div>
+                                    <div>
+                                        <div class="small text-muted">Median Salary</div>
+                                        <div class="fw-semibold">#{careerView.occupation.wages.median}</div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        </h:panelGroup>
                         <div class="bg-white rounded p-2 border-start career-stat-box outlook-box">
                             <div class="d-flex align-items-center">
                                 <div class="me-2 text-success">
                                     <i class="bi bi-graph-up-arrow"></i>
                                 </div>
                                 <div>
-                                    <div class="small text-muted">Job Outlook</div>
-                                    <div class="fw-semibold">Very Favorable</div>
+                                    <div class="small text-muted">Job Zone</div>
+                                    <div class="fw-semibold">#{careerView.occupation.jobZoneName}</div>
                                 </div>
                             </div>
                         </div>

@@ -10,8 +10,22 @@
     <div id="overview" class="card shadow-sm mb-4">
         <div class="card-body">
             <h2 class="fs-2 fw-semibold text-primary mb-3 pb-2 border-bottom">Overview</h2>
-            <p class="mb-2">Actors play parts in stage, television, radio, video, or film productions, or other settings for entertainment, information, or instruction. They interpret serious or comic roles by speech, gesture, and body movement to entertain or inform audiences. Many work in films, theaters, television shows, commercials, and other performing arts venues.</p>
-            <p class="mb-0">Acting requires a wide range of skills, including the ability to memorize lines, understand dramatic techniques, work with directors and other actors, and perform in front of an audience or camera.</p>
+            <p class="mb-2">#{careerView.occupation.description}</p>
+            
+            <h:panelGroup rendered="#{careerView.occupation.jobZoneExperience != null}">
+                <h4 class="fs-5 fw-semibold mt-4 mb-2">Experience Requirements</h4>
+                <p class="mb-2">#{careerView.occupation.jobZoneExperience}</p>
+            </h:panelGroup>
+            
+            <h:panelGroup rendered="#{careerView.occupation.jobZoneEducation != null}">
+                <h4 class="fs-5 fw-semibold mt-4 mb-2">Education Requirements</h4>
+                <p class="mb-2">#{careerView.occupation.jobZoneEducation}</p>
+            </h:panelGroup>
+            
+            <h:panelGroup rendered="#{careerView.occupation.jobZoneTraining != null}">
+                <h4 class="fs-5 fw-semibold mt-4 mb-2">Training Requirements</h4>
+                <p class="mb-0">#{careerView.occupation.jobZoneTraining}</p>
+            </h:panelGroup>
         </div>
     </div>
 </ui:composition>

@@ -1,0 +1,1535 @@
+{
+  "onet": "11912100",
+  "detailOkFlag": true,
+  "jobZoneFlag": false,
+  "formattedOnet": "11-9121.00",
+  "title": "Natural Sciences Managers",
+  "description": "Plan, direct, or coordinate activities in such fields as life sciences, physical sciences, mathematics, statistics, and research and development in these fields.",
+  "iconName": "i-hus_small.gif",
+  "hasDataFlag": true,
+  "hasVideoFlag": true,
+  "jobZone": "5",
+  "jobZoneName": "Job Zone Five: Extensive Preparation Needed",
+  "jobZoneExperience": "Extensive skill, knowledge, and experience are needed for these occupations. Many require more than five years of experience. For example, surgeons must complete four years of college and an additional five to seven years of specialized medical training to be able to do their job.",
+  "jobZoneEducation": "Most of these occupations require graduate school. For example, they may require a master\u0027s degree, and some require a Ph.D., M.D., or J.D. (law degree).",
+  "jobZoneTraining": "Employees may need some on-the-job training, but most of these occupations assume that the person will already have the required skills, knowledge, work-related experience, and/or training.",
+  "jobZoneExamples": "These occupations often involve coordinating, training, supervising, or managing the activities of others to accomplish goals. Very advanced communication and organizational skills are required. Examples include pharmacists, lawyers, astronomers, biologists, clergy, physician assistants, and veterinarians.",
+  "sedClusterCode": "5",
+  "sedClusterDesc": "Human and Public Services",
+  "sedClusterLongDesc": "People working in this field provide protective, social, education and community services. They provide assistance to individuals or families in periods of need throughout their lives.",
+  "brightFlag": false,
+  "layTitle": "Agricultural Research Director, Agriculture Research Director, Analytical Services Manager, Chemical Engineer Supervisor, Chemical Plant Technical Director",
+  "greenFlag": false,
+  "moreJobsFlag": false,
+  "interests": [
+    {
+      "name": "Investigative",
+      "description": "Investigative occupations frequently involve working with ideas, and require an extensive amount of thinking. These occupations can involve searching for facts and figuring out problems mentally.",
+      "separator": " ",
+      "hasDescription": true
+    },
+    {
+      "name": "Enterprising",
+      "description": "Enterprising occupations frequently involve starting up and carrying out projects. These occupations can involve leading people and making many decisions. Sometimes they require risk taking and often deal with business.",
+      "separator": " ",
+      "hasDescription": true
+    }
+  ],
+  "hasInterestsFlag": true,
+  "workValues": [
+    {
+      "name": "Achievement",
+      "description": "Occupations that satisfy this work value are results oriented and allow employees to use their strongest abilities, giving them a feeling of accomplishment. Corresponding needs are Ability Utilization and Achievement.",
+      "separator": " ",
+      "hasDescription": true
+    },
+    {
+      "name": "Working Conditions",
+      "description": "Occupations that satisfy this work value offer job security and good working conditions. Corresponding needs are Activity, Compensation, Independence, Security, Variety and Working Conditions.",
+      "separator": " ",
+      "hasDescription": true
+    },
+    {
+      "name": "Independence",
+      "description": "Occupations that satisfy this work value allow employees to work on their own and make decisions. Corresponding needs are Creativity, Responsibility and Autonomy.",
+      "separator": " ",
+      "hasDescription": true
+    }
+  ],
+  "hasWorkValuesFlag": true,
+  "tasks": [
+    "Hire, supervise, or evaluate engineers, technicians, researchers, or other staff.",
+    "Design or coordinate successive phases of problem analysis, solution proposals, or testing.",
+    "Plan or direct research, development, or production activities.",
+    "Provide for stewardship of plant or animal resources or habitats, studying land use, monitoring animal populations, or providing shelter, resources, or medical treatment for animals.",
+    "Review project activities and prepare and review research, testing, or operational reports.",
+    "Confer with scientists, engineers, regulators, or others to plan or review projects or to provide technical assistance.",
+    "Develop client relationships and communicate with clients to explain proposals, present research findings, establish specifications, or discuss project status.",
+    "Determine scientific or technical goals within broad outlines provided by top management and make detailed plans to accomplish these goals.",
+    "Prepare project proposals.",
+    "Develop or implement policies, standards, or procedures for the architectural, scientific, or technical work performed to ensure regulatory compliance or operations enhancement.",
+    "Recruit personnel or oversee the development or maintenance of staff competence.",
+    "Prepare and administer budgets, approve and review expenditures, and prepare financial reports.",
+    "Conduct own research in field of expertise.",
+    "Develop innovative technology or train staff for its implementation.",
+    "Make presentations at professional meetings to further knowledge in the field.",
+    "Advise or assist in obtaining patents or meeting other legal requirements."
+  ],
+  "hasTasksFlag": true,
+  "duties": [
+    {
+      "name": "Performing for people or dealing directly with the public. This includes serving customers in restaurants and stores, and receiving clients or guests.",
+      "exampleList": [
+        "answer customer or public inquiries"
+      ]
+    },
+    {
+      "name": "Performing day-to-day administrative tasks such as maintaining information files and processing paperwork.",
+      "exampleList": [
+        "prepare reports",
+        "write administrative procedures services manual",
+        "prepare technical reports identifying results of research"
+      ]
+    },
+    {
+      "name": "Providing guidance and expert advice to management or other groups on technical, systems-, or process-related topics.",
+      "exampleList": [
+        "advise clients or customers"
+      ]
+    },
+    {
+      "name": "Identifying the educational needs of others, developing formal educational or training programs or classes, and teaching or instructing others.",
+      "exampleList": [
+        "conduct training for personnel"
+      ]
+    },
+    {
+      "name": "Recruiting, interviewing, selecting, hiring, and promoting employees in an organization.",
+      "exampleList": [
+        "recruit employees",
+        "hire, discharge, transfer, or promote workers"
+      ]
+    },
+    {
+      "name": "Estimating sizes, distances, and quantities; or determining time, costs, resources, or materials needed to perform a work activity.",
+      "exampleList": [
+        "estimate time needed for project"
+      ]
+    },
+    {
+      "name": "Monitoring and controlling resources and overseeing the spending of money.",
+      "exampleList": [
+        "develop budgets",
+        "monitor operational budget",
+        "examine expenditures to ensure activities are within budget"
+      ]
+    },
+    {
+      "name": "Providing guidance and direction to subordinates, including setting performance standards and monitoring performance.",
+      "exampleList": [
+        "assign work to staff or employees",
+        "evaluate performance of employees or contract personnel"
+      ]
+    },
+    {
+      "name": "Communicating with people outside the organization, representing the organization to customers, the public, government, and other external sources. This information can be exchanged in person, in writing, or by telephone or e-mail.",
+      "exampleList": [
+        "communicate technical information",
+        "make presentations",
+        "confer with scientists"
+      ]
+    },
+    {
+      "name": "Using relevant information and individual judgment to determine whether events or processes comply with laws, regulations, or standards.",
+      "exampleList": [
+        "adhere to safety procedures"
+      ]
+    },
+    {
+      "name": "Compiling, coding, categorizing, calculating, tabulating, auditing, or verifying information or data.",
+      "exampleList": [
+        "compile data for financial reports"
+      ]
+    },
+    {
+      "name": "Translating or explaining what information means and how it can be used.",
+      "exampleList": [
+        "explain complex mathematical information",
+        "present research papers or dissertations on physical science issues"
+      ]
+    },
+    {
+      "name": "Getting members of a group to work together to accomplish tasks.",
+      "exampleList": [
+        "oversee execution of organizational or program policies",
+        "coordinate employee continuing education programs"
+      ]
+    },
+    {
+      "name": "Establishing long-range objectives and specifying the strategies and actions to achieve them.",
+      "exampleList": [
+        "write research or project grant proposals",
+        "develop policies, procedures, methods, or standards",
+        "develop plans for programs or projects"
+      ]
+    },
+    {
+      "name": "Identifying the underlying principles, reasons, or facts of information by breaking down information or data into separate parts.",
+      "exampleList": [
+        "analyze scientific research data or investigative findings",
+        "analyze operational or management reports or records",
+        "perform statistical analysis in physical science or geological research",
+        "prepare budget reports"
+      ]
+    },
+    {
+      "name": "Developing constructive and cooperative working relationships with others, and maintaining them over time.",
+      "exampleList": [
+        "maintain relationships with clients"
+      ]
+    },
+    {
+      "name": "Keeping up-to-date technically and applying new knowledge to your job.",
+      "exampleList": [
+        "use scientific research methodology",
+        "use public speaking techniques",
+        "use long or short term production planning techniques",
+        "use physical science research techniques",
+        "use project management techniques",
+        "use library or online Internet research techniques"
+      ]
+    },
+    {
+      "name": "Developing specific goals and plans to prioritize, organize, and accomplish your work.",
+      "exampleList": [
+        "prepare long term or short term plans"
+      ]
+    },
+    {
+      "name": "Monitoring and reviewing information from materials, events, or the environment, to detect or assess problems.",
+      "exampleList": [
+        "identify problems or improvements",
+        "monitor animal health or quality"
+      ]
+    },
+    {
+      "name": "Analyzing information and evaluating results to choose the best solution and solve problems.",
+      "exampleList": [
+        "resolve engineering or science problems"
+      ]
+    }
+  ],
+  "hasDutiesFlag": true,
+  "tools": [
+    {
+      "id": "43212107",
+      "name": "Color plotters",
+      "exampleList": [
+        "Color plotters"
+      ]
+    },
+    {
+      "id": "43211507",
+      "name": "Desktop computers",
+      "exampleList": [
+        "Desktop computers"
+      ]
+    },
+    {
+      "id": "43211503",
+      "name": "Laptop computers",
+      "exampleList": [
+        "Laptop computers"
+      ]
+    },
+    {
+      "id": "45111614",
+      "name": "Liquid crystal display LCD video projectors",
+      "exampleList": [
+        "Liquid crystal display LCD video projectors"
+      ]
+    },
+    {
+      "id": "43211508",
+      "name": "Personal computers",
+      "exampleList": [
+        "Personal computers"
+      ]
+    }
+  ],
+  "hasToolsFlag": true,
+  "technologies": [
+    {
+      "id": "43232202",
+      "name": "Adobe Systems Adobe Acrobat",
+      "exampleList": [
+        "Adobe Systems Adobe Acrobat"
+      ]
+    },
+    {
+      "id": "43232102",
+      "name": "Adobe Systems Adobe Photoshop",
+      "exampleList": [
+        "Adobe Systems Adobe Photoshop"
+      ]
+    },
+    {
+      "id": "43232510",
+      "name": "ESRI ArcGIS software",
+      "exampleList": [
+        "ESRI ArcGIS software"
+      ]
+    },
+    {
+      "id": "43232102",
+      "name": "Graphics software",
+      "exampleList": [
+        "Graphics software"
+      ]
+    },
+    {
+      "id": "43232110",
+      "name": "IBM Lotus 1-2-3",
+      "exampleList": [
+        "IBM Lotus 1-2-3"
+      ]
+    },
+    {
+      "id": "43232605",
+      "name": "IBM SPSS Statistics",
+      "exampleList": [
+        "IBM SPSS Statistics"
+      ]
+    },
+    {
+      "id": "43232402",
+      "name": "Integrated development environment IDE software",
+      "exampleList": [
+        "Integrated development environment IDE software"
+      ]
+    },
+    {
+      "id": "43232605",
+      "name": "Laboratory information management system LIMS",
+      "exampleList": [
+        "Laboratory information management system LIMS"
+      ]
+    },
+    {
+      "id": "43232306",
+      "name": "Microsoft Access",
+      "exampleList": [
+        "Microsoft Access"
+      ]
+    },
+    {
+      "id": "43232110",
+      "name": "Microsoft Excel",
+      "exampleList": [
+        "Microsoft Excel"
+      ]
+    },
+    {
+      "id": "43231513",
+      "name": "Microsoft Office",
+      "exampleList": [
+        "Microsoft Office"
+      ]
+    },
+    {
+      "id": "43233501",
+      "name": "Microsoft Outlook",
+      "exampleList": [
+        "Microsoft Outlook"
+      ]
+    },
+    {
+      "id": "43232106",
+      "name": "Microsoft PowerPoint",
+      "exampleList": [
+        "Microsoft PowerPoint"
+      ]
+    },
+    {
+      "id": "43231507",
+      "name": "Microsoft Project",
+      "exampleList": [
+        "Microsoft Project"
+      ]
+    },
+    {
+      "id": "43233513",
+      "name": "Microsoft SharePoint",
+      "exampleList": [
+        "Microsoft SharePoint"
+      ]
+    },
+    {
+      "id": "43231518",
+      "name": "Microsoft Visio",
+      "exampleList": [
+        "Microsoft Visio"
+      ]
+    }
+  ],
+  "hasTechnologiesFlag": true,
+  "skills": [
+    {
+      "elementId": "2.A.1.f",
+      "skill": "Science",
+      "description": "Using scientific rules and methods to solve problems.",
+      "impValue": "4.12",
+      "levelValue": "4.88"
+    },
+    {
+      "elementId": "2.A.1.a",
+      "skill": "Reading Comprehension",
+      "description": "Understanding written sentences and paragraphs in work-related documents.",
+      "impValue": "4",
+      "levelValue": "5"
+    },
+    {
+      "elementId": "2.A.1.b",
+      "skill": "Active Listening",
+      "description": "Giving full attention to what other people are saying, taking time to understand the points being made, asking questions as appropriate, and not interrupting at inappropriate times.",
+      "impValue": "4",
+      "levelValue": "4.75"
+    },
+    {
+      "elementId": "2.A.1.c",
+      "skill": "Writing",
+      "description": "Communicating effectively in writing as appropriate for the needs of the audience.",
+      "impValue": "3.88",
+      "levelValue": "5"
+    }
+  ],
+  "hasSkillsFlag": true,
+  "knowledge": [
+    {
+      "elementId": "2.C.4.d",
+      "skill": "Biology",
+      "description": "Knowledge of plant and animal organisms, their tissues, cells, functions, interdependencies, and interactions with each other and the environment.",
+      "impValue": "4.03",
+      "levelValue": "5.07"
+    },
+    {
+      "elementId": "2.C.7.a",
+      "skill": "English Language",
+      "description": "Knowledge of the structure and content of the English language including the meaning and spelling of words, rules of composition, and grammar.",
+      "impValue": "3.99",
+      "levelValue": "4.68"
+    },
+    {
+      "elementId": "2.C.1.a",
+      "skill": "Administration and Management",
+      "description": "Knowledge of business and management principles involved in strategic planning, resource allocation, human resources modeling, leadership technique, production methods, and coordination of people and resources.",
+      "impValue": "3.82",
+      "levelValue": "4.22"
+    },
+    {
+      "elementId": "2.C.3.a",
+      "skill": "Computers and Electronics",
+      "description": "Knowledge of circuit boards, processors, chips, electronic equipment, and computer hardware and software, including applications and programming.",
+      "impValue": "3.66",
+      "levelValue": "4.61"
+    },
+    {
+      "elementId": "2.C.1.b",
+      "skill": "Administrative",
+      "description": "Knowledge of administrative and office procedures and systems such as word processing, managing files and records, stenography and transcription, designing forms, and workplace terminology.",
+      "impValue": "3.57",
+      "levelValue": "4.89"
+    },
+    {
+      "elementId": "2.C.4.c",
+      "skill": "Chemistry",
+      "description": "Knowledge of the chemical composition, structure, and properties of substances and of the chemical processes and transformations that they undergo. This includes uses of chemicals and their interactions, danger signs, production techniques, and disposal methods.",
+      "impValue": "3.5",
+      "levelValue": "4.45"
+    },
+    {
+      "elementId": "2.C.4.a",
+      "skill": "Mathematics",
+      "description": "Knowledge of arithmetic, algebra, geometry, calculus, statistics, and their applications.",
+      "impValue": "3.48",
+      "levelValue": "4.5"
+    },
+    {
+      "elementId": "2.C.1.e",
+      "skill": "Customer and Personal Service",
+      "description": "Knowledge of principles and processes for providing customer and personal services. This includes customer needs assessment, meeting quality standards for services, and evaluation of customer satisfaction.",
+      "impValue": "3.14",
+      "levelValue": "4.06"
+    }
+  ],
+  "hasKnowledgeFlag": true,
+  "workContext": [
+    {
+      "name": "Electronic Mail",
+      "description": "How often do you use electronic mail in this job?",
+      "separator": " ",
+      "value": "5",
+      "hasDescription": true
+    },
+    {
+      "name": "Indoors, Environmentally Controlled",
+      "description": "How often does this job require working indoors in environmentally controlled conditions?",
+      "separator": " ",
+      "value": "4.88",
+      "hasDescription": true
+    },
+    {
+      "name": "Face-to-Face Discussions",
+      "description": "How often do you have to have face-to-face discussions with individuals or teams in this job?",
+      "separator": " ",
+      "value": "4.84",
+      "hasDescription": true
+    },
+    {
+      "name": "Work With Work Group or Team",
+      "description": "How important is it to work with others in a group or team in this job?",
+      "separator": " ",
+      "value": "4.68",
+      "hasDescription": true
+    },
+    {
+      "name": "Importance of Being Exact or Accurate",
+      "description": "How important is being very exact or highly accurate in performing this job?",
+      "separator": " ",
+      "value": "4.44",
+      "hasDescription": true
+    },
+    {
+      "name": "Telephone",
+      "description": "How often do you have telephone conversations in this job?",
+      "separator": " ",
+      "value": "4.42",
+      "hasDescription": true
+    },
+    {
+      "name": "Structured versus Unstructured Work",
+      "description": "To what extent is this job structured for the worker, rather than allowing the worker to determine tasks, priorities, and goals?",
+      "separator": " ",
+      "value": "4.39",
+      "hasDescription": true
+    },
+    {
+      "name": "Responsibility for Outcomes and Results",
+      "description": "How responsible is the worker for work outcomes and results of other workers?",
+      "separator": " ",
+      "value": "4.22",
+      "hasDescription": true
+    },
+    {
+      "name": "Freedom to Make Decisions",
+      "description": "How much decision making freedom, without supervision, does the job offer?",
+      "separator": " ",
+      "value": "4.13",
+      "hasDescription": true
+    },
+    {
+      "name": "Spend Time Sitting",
+      "description": "How much does this job require sitting?",
+      "separator": " ",
+      "value": "4.08",
+      "hasDescription": true
+    }
+  ],
+  "hasWorkContextFlag": true,
+  "workStyles": [
+    {
+      "name": "Integrity",
+      "description": "Job requires being honest and ethical.",
+      "separator": " ",
+      "value": "4.65",
+      "hasDescription": true
+    },
+    {
+      "name": "Attention to Detail",
+      "description": "Job requires being careful about detail and thorough in completing work tasks.",
+      "separator": " ",
+      "value": "4.47",
+      "hasDescription": true
+    },
+    {
+      "name": "Persistence",
+      "description": "Job requires persistence in the face of obstacles.",
+      "separator": " ",
+      "value": "4.4",
+      "hasDescription": true
+    },
+    {
+      "name": "Dependability",
+      "description": "Job requires being reliable, responsible, and dependable, and fulfilling obligations.",
+      "separator": " ",
+      "value": "4.38",
+      "hasDescription": true
+    },
+    {
+      "name": "Cooperation",
+      "description": "Job requires being pleasant with others on the job and displaying a good-natured, cooperative attitude.",
+      "separator": " ",
+      "value": "4.36",
+      "hasDescription": true
+    },
+    {
+      "name": "Initiative",
+      "description": "Job requires a willingness to take on responsibilities and challenges.",
+      "separator": " ",
+      "value": "4.34",
+      "hasDescription": true
+    },
+    {
+      "name": "Leadership",
+      "description": "Job requires a willingness to lead, take charge, and offer opinions and direction.",
+      "separator": " ",
+      "value": "4.32",
+      "hasDescription": true
+    },
+    {
+      "name": "Analytical Thinking",
+      "description": "Job requires analyzing information and using logic to address work-related issues and problems.",
+      "separator": " ",
+      "value": "4.32",
+      "hasDescription": true
+    },
+    {
+      "name": "Adaptability/Flexibility",
+      "description": "Job requires being open to change (positive or negative) and to considerable variety in the workplace.",
+      "separator": " ",
+      "value": "4.31",
+      "hasDescription": true
+    },
+    {
+      "name": "Self-Control",
+      "description": "Job requires maintaining composure, keeping emotions in check, controlling anger, and avoiding aggressive behavior, even in very difficult situations.",
+      "separator": " ",
+      "value": "4.27",
+      "hasDescription": true
+    }
+  ],
+  "hasWorkStylesFlag": true,
+  "schoolPrograms": [
+    {
+      "cip": "400809",
+      "name": "Acoustics.",
+      "description": "A program that focuses on the scientific study of sound, and the properties and behavior of acoustic wave phenomena under different conditions.  Includes instruction in wave theory, the acoustic wave equation, energy transformation, vibration phenomena, sound reflection and transmission, scattering and surface wave phenomena, singularity expansion theory, ducting, and applications to specific research problems such as underwater acoustics, crystallography, and health diagnostics."
+    },
+    {
+      "cip": "260912",
+      "name": "Aerospace Physiology and Medicine.",
+      "description": "A program that focuses on the scientific study of the physiological processes involved in low and high-altitude flight and living in space and related low-pressure and low-gravity environments, including sensorimotor interactions, response mechanisms, and the effects of injury, disease, and disability.  Includes instruction in anatomy, molecular and cellular basis of muscle contraction,  fuel utilization, neurophysiology of motor mechanics, systemic physiological responses (respiration, blood flow, endocrine secretions, and others), fatigue and exhaustion, systemic environmental pathologies, muscle and body training, physiology of specific exercises and activities, physiology of injury, and the effects of disabilities and disease."
+    },
+    {
+      "cip": "270102",
+      "name": "Algebra and Number Theory.",
+      "description": "A program that focuses on the expression of quantities and their relationships by means of symbols, vectors, matrices, and equations, and the properties of integers.  Includes instruction in algebraic structures, quadratic and automorphic forms, combinatorics, linear algebra, and algebraic geometry."
+    },
+    {
+      "cip": "270103",
+      "name": "Analysis and Functional Analysis.",
+      "description": "A program that focuses on the properties and behavior of equations, multivariate solutions, functions, and dynamic systems.  Includes instruction in differential equations, variation, approximations, complex variables, integrals, harmonic analysis and wavelet theory, dynamic systems, and applications to mathematical physics."
+    },
+    {
+      "cip": "400502",
+      "name": "Analytical Chemistry.",
+      "description": "A program that focuses on the scientific study of techniques for analyzing and describing matter, including its precise composition and the interrelationships of constituent elements and compounds.  Includes instruction in spectroscopy, chromatography, atomic absorption, photometry, chemical modeling, mathematical analysis, laboratory analysis procedures and equipment maintenance, and applications to specific research, industrial and health problems."
+    },
+    {
+      "cip": "260403",
+      "name": "Anatomy.",
+      "description": "A program that focuses on the scientific study of organ systems, tissue structures, and whole bodies together with their cellular and structural components and dynamics.  Includes instruction in cell biology and histology, structural biology, molecular mechanics, regional and gross anatomy, embryology, neuroanatomy, endocrinology and secretory dynamics, and applications to such topics as aging and disease conditions."
+    },
+    {
+      "cip": "260804",
+      "name": "Animal Genetics.",
+      "description": "A program that focuses on the scientific study of the genetics of multicellular animal life forms from the experimental, comparative, and clinical (veterinary and medical) viewpoints.  Includes instruction in molecular genetics, gene expression, gene regulation, genomics, epigenetic phenomena, DNA recombination and repair, genetic interactions at the microbial and higher levels, and molecular evolution."
+    },
+    {
+      "cip": "260707",
+      "name": "Animal Physiology.",
+      "description": "A program that focuses on the scientific study of function, morphology, regulation, and intercellular communications and dynamics within vertebrate and invertebrate in animal species, with comparative applications to homo sapiens and its relatives and antecedents.  Includes instruction in reproduction, growth, lactation, digestion, performance, behavioral adaptation, sensory perception, motor action, phylogenetics, biotic and abiotic function, membrane biology, and related aspects of biochemistry and biophysics."
+    },
+    {
+      "cip": "303401",
+      "name": "Anthrozoology.",
+      "description": "A program of study that combines anthropology and zoology in order to examine the relationship between animals and humans. Includes instruction in animal behavior and communication, animal welfare, animal conservation, animal training, animal-assisted therapy techniques, biology, ethics, and education."
+    },
+    {
+      "cip": "270301",
+      "name": "Applied Mathematics, General.",
+      "description": "A program that focuses on the application of mathematics to the solution of functional problems in fields such as engineering and the applied sciences.  Includes instruction in natural phenomena modeling continuum mechanics, reaction-diffusion, wave propagation, dynamic systems, numerical analysis, controlled theory, asymptotic methods, variation, optimization theory, inverse problems, and applications to specific scientific and industrial topics."
+    },
+    {
+      "cip": "270399",
+      "name": "Applied Mathematics, Other.",
+      "description": "Any instructional program in applied mathematics not listed above."
+    },
+    {
+      "cip": "270601",
+      "name": "Applied Statistics, General.",
+      "description": "A program that focuses on the application of statistics to the solution of functional problems in fields such as business, engineering, medicine, and the applied sciences. Includes instruction in the principles in inference, probability theory, regression analysis, descriptive statistics, stochastic processes, Monte Carlo method, Bayesian statistics, non-parametric statistics, sampling theory, statistical computing, and statistical techniques."
+    },
+    {
+      "cip": "400299",
+      "name": "Astronomy and Astrophysics, Other.",
+      "description": "Any instructional program in astronomy and astrophysics not listed above."
+    },
+    {
+      "cip": "400201",
+      "name": "Astronomy.",
+      "description": "A general program that focuses on the planetary, galactic, and stellar phenomena occurring in outer space.  Includes instruction in celestial mechanics, cosmology, stellar physics, galactic evolution, quasars, stellar distribution and motion, interstellar medium, atomic and molecular constituents of astronomical phenomena, planetary science, solar system evolution, and specific methodologies such as optical astronomy, radioastronomy, and theoretical astronomy."
+    },
+    {
+      "cip": "400202",
+      "name": "Astrophysics.",
+      "description": "A program that focuses on the theoretical and observational study of the structure, properties, and behavior of stars, star systems and clusters, stellar life cycles, and related phenomena.  Includes instruction in cosmology, plasma kinetics, stellar physics, convolution and non-equilibrium radiation transfer theory, non-Euclidean geometries, mathematical modeling, galactic structure theory, and relativistic astronomy."
+    },
+    {
+      "cip": "400402",
+      "name": "Atmospheric Chemistry and Climatology.",
+      "description": "A program that focuses on the scientific study of atmospheric constituents, reactions, measurement techniques, and processes in predictive, current, and historical contexts.  Includes instruction in climate modeling, gases and aerosols, trace gases, aqueous phase chemistry, sinks, transport mechanisms, computer measurement, climate variability, paleoclimatology, climate diagnosis, numerical modeling and data analysis, ionization, recombination, photoemission, and plasma chemistry."
+    },
+    {
+      "cip": "400403",
+      "name": "Atmospheric Physics and Dynamics.",
+      "description": "A program that focuses on the scientific study of the processes governing the interactions, movement, and behavior of atmospheric phenomena and related terrestrial and solar phenomena.  Includes instruction in cloud and precipitation physics, solar radiation transfer, active and passive remote sensing, atmospheric electricity and acoustics, atmospheric wave phenomena, turbulence and boundary layers, solar wind, geomagnetic storms, coupling, natural plasma, and energization."
+    },
+    {
+      "cip": "400401",
+      "name": "Atmospheric Sciences and Meteorology, General.",
+      "description": "A general program that focuses on the scientific study of the composition and behavior of the atmospheric envelopes surrounding the earth, the effect of earth\u0027s atmosphere on terrestrial weather, and related problems of environment and climate.  Includes instruction in atmospheric chemistry and physics, atmospheric dynamics, climatology and climate change, weather simulation, weather forecasting, climate modeling and mathematical theory; and studies of specific phenomena such as clouds, weather systems, storms, and precipitation patterns."
+    },
+    {
+      "cip": "400499",
+      "name": "Atmospheric Sciences and Meteorology, Other.",
+      "description": "Any instructional program in atmospheric sciences and meteorology not listed above."
+    },
+    {
+      "cip": "400802",
+      "name": "Atomic/Molecular Physics.",
+      "description": "A program that focuses on the scientific study of the behavior of matter-energy phenomena at the level of atoms and molecules. Includes instruction in chemical physics, atomic forces and structure, molecular orbital theory, magnetic resonance, molecular bonding, phase equilibria, quantum theory of solids, and applications to the study of specific elements and higher compounds."
+    },
+    {
+      "cip": "260210",
+      "name": "Biochemistry and Molecular Biology.",
+      "description": "A program of study that combines the biological sub-disciplines of biochemistry and molecular biology. Includes instruction in general biology, general and organic chemistry, physics, biochemistry, molecular biology, immunology, microbiology, genetics, and cellular biology."
+    },
+    {
+      "cip": "260299",
+      "name": "Biochemistry, Biophysics and Molecular Biology, Other.",
+      "description": "Any instructional program in biochemistry, biophysics and molecular biology not listed above."
+    },
+    {
+      "cip": "260202",
+      "name": "Biochemistry.",
+      "description": "A program that focuses on the scientific study of the chemistry of living systems, their fundamental chemical substances and reactions, and their chemical pathways and information transfer systems, with particular reference to carbohydrates, proteins, lipids, and nucleic acids.  Includes instruction in bio-organic chemistry, protein chemistry, bioanalytical chemistry, bioseparations, regulatory biochemistry, enzymology, hormonal chemistry, calorimetry, and research methods and equipment operation."
+    },
+    {
+      "cip": "269999",
+      "name": "Biological and Biomedical Sciences, Other.",
+      "description": "Any instructional program in the biological and biomedical sciences not listed above."
+    },
+    {
+      "cip": "300101",
+      "name": "Biological and Physical Sciences.",
+      "description": "A program that is either a general synthesis of one or more of the biological and physical sciences, or a specialization which draws from the biological and physical sciences."
+    },
+    {
+      "cip": "260101",
+      "name": "Biology/Biological Sciences, General.",
+      "description": "A general program of biology at the introductory, basic level or a program in biology or the biological sciences that is undifferentiated as to title or content.  Includes instruction in general biology and programs covering a variety of biological specializations."
+    },
+    {
+      "cip": "261199",
+      "name": "Biomathematics, Bioinformatics, and Computational Biology, Other.",
+      "description": "Any instructional program in biomathematics, bioinformatics, and computational biology not listed above."
+    },
+    {
+      "cip": "261101",
+      "name": "Biometry/Biometrics.",
+      "description": "A program that focuses on the application of statistics and other computational methods to the study of problems in the biological sciences and related fields in agriculture and natural resources.  Includes instruction in computational biology, mathematical statistics, matrix algebra, applied calculus, experimental design, linear modeling, sampling theory, stochastic processes, spatial and temporal analysis, longitudinal analysis, sparse/unbalanced data and complex error, and applications to such topics as population genetics, animal breeding, forest genetics, population dynamics, wildlife biometry, ecology, and agricultural and natural resource management."
+    },
+    {
+      "cip": "260203",
+      "name": "Biophysics.",
+      "description": "A program that focuses on the application of physics principles to the scientific study of the mechanisms of biological processes and assemblies at all levels of complexity.  Includes instruction in research methods and equipment operation and applications to subjects such as bioenergetics, biophysical theory and modeling, electrophysics, membrane biology, channels, receptors and transporters, contractility and muscle function, protein shaping and folding, molecular and supramolecular structures and assemblies, and computational science."
+    },
+    {
+      "cip": "301001",
+      "name": "Biopsychology.",
+      "description": "A program that focuses on biological and psychological linkages, especially the linkages between biochemical and biophysical activity and the functioning of the central nervous system."
+    },
+    {
+      "cip": "261102",
+      "name": "Biostatistics.",
+      "description": "A program that focuses on the application of descriptive and inferential statistics to biomedical research and clinical, public health, and industrial issues related to human populations.  Includes instruction in mathematical statistics, modeling, clinical trials methodology, disease and survival analysis, longitudinal analysis, missing data analysis, spatial analysis, computer tomography, biostatistics consulting, and applications to such topics as genetics, oncology, pharmacokinetics, physiology, neurobiology, and biophysics."
+    },
+    {
+      "cip": "261201",
+      "name": "Biotechnology.",
+      "description": "A program that focuses on the application of the biological sciences, biochemistry, and genetics to the preparation of new and enhanced agricultural, environmental, clinical, and industrial products, including the commercial exploitation of microbes, plants, and animals.  Includes instruction in bioinformatics, gene identification, phylogenetics and comparative genomics, bioinorganic chemistry, immunoassaying, DNA sequencing, xenotransplantation, genetic engineering, industrial microbiology, drug and biologic development, enzyme-based production processes, patent law, biotechnology management and marketing, applicable regulations, and biotechnology ethics."
+    },
+    {
+      "cip": "260399",
+      "name": "Botany/Plant Biology, Other.",
+      "description": "Any instructional program in botany/plant biology not listed above."
+    },
+    {
+      "cip": "260301",
+      "name": "Botany/Plant Biology.",
+      "description": "A program that focuses on the scientific study of plants, related microbial organisms, and plant habitats and ecosystem relations.  Includes instruction in plant anatomy and structure, phytochemistry, cytology, plant genetics, plant morphology and physiology, plant ecology, plant taxonomy and systematics, paleobotany, and applications of biophysics and molecular biology."
+    },
+    {
+      "cip": "260499",
+      "name": "Cell/Cellular Biology and Anatomical Sciences, Other.",
+      "description": "Any instructional program in cell/cellular biology and anatomical sciences not listed above."
+    },
+    {
+      "cip": "260401",
+      "name": "Cell/Cellular Biology and Histology.",
+      "description": "A program that focuses on the scientific study of the structure, function, and regulation of cells as individual units and as components of larger systems.  Includes instruction in cell chemistry, cellular dynamics, cellular replication and reproduction, cell anatomy, membrane function, organelles, cell adhesion and extracellular matrices, cell dynamics and motility, meiosis and mytosis, signal transduction, regulation, recognition and defense mechanisms, the cell cycle, cell metabolism and respiration, gene expression, and studies of cell types and characteristics."
+    },
+    {
+      "cip": "260406",
+      "name": "Cell/Cellular and Molecular Biology.",
+      "description": "An integrated, combined program that focuses on the scientific study of cells, cellular systems, and the molecular basis of cell structure and function.  Includes instruction in cell biology, cell chemistry, molecular biology, biophysics, and structural biology."
+    },
+    {
+      "cip": "400508",
+      "name": "Chemical Physics.",
+      "description": "A program that focuses on the scientific study of structural phenomena combining the disciplines of physical chemistry and atomic/molecular physics. Includes instruction in heterogeneous structures, alignment and surface phenomena, quantum theory, mathematical physics, statistical and classical mechanics, chemical kinetics, and laser physics."
+    },
+    {
+      "cip": "400512",
+      "name": "Cheminformatics/Chemistry Informatics.",
+      "description": "A program that focuses on applying computer science approaches in the representation, analysis, design, and modeling of chemical structures and associated metadata, such as biological activity endpoints and physicochemical properties. Includes instruction in chemical information technology, computational chemistry, computer science, database design, molecular modeling, scientific computing, and statistics."
+    },
+    {
+      "cip": "400501",
+      "name": "Chemistry, General.",
+      "description": "A general program that focuses on the scientific study of the composition and behavior of matter, including its micro- and macro-structure, the processes of chemical change, and the theoretical description and laboratory simulation of these phenomena."
+    },
+    {
+      "cip": "400599",
+      "name": "Chemistry, Other.",
+      "description": "Any instructional program in chemistry not listed above."
+    },
+    {
+      "cip": "303501",
+      "name": "Climate Science.",
+      "description": "A program that focuses on the scientific study of the climate system of the earth with emphasis on the physical, dynamical, and chemical interactions of the atmosphere, ocean, land, ice, and the terrestrial and marine biospheres. Includes instruction in biology, chemistry, climate analysis, climate change adaptation/mitigation, climate policy, ecology, energy development, environmental impacts, marine chemistry, meteorology, and oceanography."
+    },
+    {
+      "cip": "512006",
+      "name": "Clinical and Industrial Drug Development.",
+      "description": "A program that focuses on the scientific application of pharmacology, pharmaceutics, and industrial management to the development, production, marketing, and distribution of pharmaceutical products.  Includes instruction in industrial microbiology, plasmids, expression vectors, protein chemistry, assay and evaluation, drug synthesis and purification, quality control, industrial management, production security, patent procedures, intellectual property regulations and issues, patent enforcement and defense, and research design and testing."
+    },
+    {
+      "cip": "302501",
+      "name": "Cognitive Science, General.",
+      "description": "A program that focuses on the study of the mind and the nature of intelligence from the interdisciplinary perspectives of computer science, philosophy, mathematics, psychology, neuroscience, and other disciplines.  Includes instruction in mathematics and logic, cognitive process modeling, dynamic systems, learning theories, brain and cognition, neural networking, programming, and applications to topics such as language acquisition, computer systems, and perception and behavior."
+    },
+    {
+      "cip": "302599",
+      "name": "Cognitive Science, Other.",
+      "description": "Any instructional program in cognitive science not listed above."
+    },
+    {
+      "cip": "261104",
+      "name": "Computational Biology.",
+      "description": "A program that focuses on computational theoretical approaches to understanding biological systems, including computational models of biological processes, computational management of large-scale projects, database development and data-algorithm development, and high-performance computing, as well as statistical and mathematical analyses."
+    },
+    {
+      "cip": "270303",
+      "name": "Computational Mathematics.",
+      "description": "A program that focuses on the application of mathematics to the theory, architecture, and design of computers, computational techniques, and algorithms.  Includes instruction in computer theory,  cybernetics, numerical analysis, algorithm development, binary structures, combinatorics, advanced statistics, and related topics."
+    },
+    {
+      "cip": "303001",
+      "name": "Computational Science.",
+      "description": "A program that focuses on the study of scientific computing and its application.  Includes instruction in scientific visualization, multi-scale analysis, grid generation, data analysis, applied mathematics, numerical algorithms, high performance parallel computing, and numerical modeling and simulation with applications in science, engineering and other disciplines in which computation plays an integral role."
+    },
+    {
+      "cip": "270304",
+      "name": "Computational and Applied Mathematics.",
+      "description": "A program that focuses on the application of a broad range of mathematical and computational methods to modeling, analysis, algorithm development, and simulation for the solution of complex scientific and engineering problems. Includes instruction in numerical analysis, discrete mathematics, operations research, optimization, differential equations, statistics, scientific computation, and applications to specific scientific and industrial topics."
+    },
+    {
+      "cip": "400808",
+      "name": "Condensed Matter and Materials Physics.",
+      "description": "A program that focuses on the scientific study of macroscopic physical phenomena and properties that arise from basic microscopic interactions.  Includes instruction in low-temperature and solid-state physics, x-ray physics, liquids and soft materials, including the study of semiconductors, metals, superliquids, magnets, superconductors, glasses, gels, polymers, colloids, neural networks, and macromolecules."
+    },
+    {
+      "cip": "307001",
+      "name": "Data Science, General.",
+      "description": "A program that focuses on the analysis of large scale data sources from the interdisciplinary perspectives of applied statistics, computer science, data storage, data representation, data modeling, mathematics, and statistics. Includes instruction in computer algorithms, computer programming, data management, data mining, information policy, information retrieval, mathematical modeling, quantitative analysis, statistics, trend spotting, and visual analytics."
+    },
+    {
+      "cip": "307099",
+      "name": "Data Science, Other.",
+      "description": "Any instructional program in data science not listed above."
+    },
+    {
+      "cip": "303801",
+      "name": "Earth Systems Science.",
+      "description": "A program that focuses on the interaction of the Earth\u0027s oceanographic, atmospheric, and terrestrial systems. Includes instruction in biogeochemistry, climate dynamics, geographical information science (GIS), geophysics, hydrology, landscape ecology, meteorology, and satellite remote sensing analysis."
+    },
+    {
+      "cip": "261310",
+      "name": "Ecology and Evolutionary Biology.",
+      "description": "A program that focuses on the scientific study of the relationships and interactions across levels of biological organization--genes and genomes, organisms, species, and ecosystems--and how these change over time, including the origins and history of species, the processes by which biodiversity has evolved, and the ecological context in which this evolution takes place. Includes instruction in animal, plant, population, functional, evolutionary, and ecosystem ecology; ecological and evolutionary genetics; molecular evolution; population and conservation biology; animal and plant diversity; biometry; and scientific and research ethics."
+    },
+    {
+      "cip": "261399",
+      "name": "Ecology, Evolution, Systematics and Population Biology, Other.",
+      "description": "Any instructional program in ecology, evolution, and systematics not listed above."
+    },
+    {
+      "cip": "261301",
+      "name": "Ecology.",
+      "description": "A program that focuses on the scientific study of the relationships and interactions of small-scale biological systems, such as organisms, to each other, to complex and whole systems, and to the physical and other non-biological aspects of their environments.  Includes instruction in biogeochemistry; landscape and/or marine/aquatic dynamics; decomposition; global and regional elemental budgets; biotic and abiotic regulation of nutrient cycles; ecophysiology; ecosystem resilience, disturbance, and succession; community and habitat dynamics; organismal interactions (co-evolution, competition, predation); paleoecology; and evolutionary ecology."
+    },
+    {
+      "cip": "400804",
+      "name": "Elementary Particle Physics.",
+      "description": "A program that focuses on the scientific study of the basic constituents of sub-atomic matter and energy, and the forces governing fundamental processes.  Includes instruction in quantum theory, field theory, single-particle systems, perturbation and scattering theory, matter-radiation interaction, symmetry, quarks, capture, Schroedinger mechanics, methods for detecting particle emission and absorption, and research equipment operation and maintenance."
+    },
+    {
+      "cip": "141201",
+      "name": "Engineering Physics/Applied Physics.",
+      "description": "A program focusing on the use of physics principles in the analysis and evaluation of engineering problems and other scientific applications. Includes instruction in high- and low-temperature phenomena, computational physics, superconductivity, applied thermodynamics, molecular and particle physics applications, and space science research."
+    },
+    {
+      "cip": "260702",
+      "name": "Entomology.",
+      "description": "A program that focuses on the scientific study of insect species and populations in respect of their life cycles, morphology, genetics, physiology, ecology, taxonomy, population dynamics, and environmental and economic impacts.  Includes instruction in applicable biological and physical sciences as well as insect toxicology and the biochemical control of insect populations."
+    },
+    {
+      "cip": "400509",
+      "name": "Environmental Chemistry.",
+      "description": "A program that focuses on the scientific study of natural systems (air, water, and soil) through the use of chemical techniques and instrumentation, with an emphasis on the movement and fate of pollutants and chemical aspects of contaminant remediation. Includes instruction in analytical, inorganic, organic, and physical chemistry; aquatic, soil, and atmospheric chemistry; environmental engineering; environmental toxicology; and analytical methods."
+    },
+    {
+      "cip": "304101",
+      "name": "Environmental Geosciences.",
+      "description": "A program that focuses on the scientific study of the environmental implications of geological processes and human activities on Earth. Includes instruction in environmental/natural resource management, geographic information systems (GIS), geology, hydrology, regulatory agency compliance, hazard identification and mitigation, environmental law, environmental policy, and sustainability studies."
+    },
+    {
+      "cip": "261311",
+      "name": "Epidemiology and Biostatistics.",
+      "description": "A program with a general synthesis of epidemiology and biostatistics or a specialization which draws from epidemiology and biostatistics. Includes instruction in biostatistics, disease and injury determinants, epidemiology, health services research, pathology, spatial analysis, and statistics."
+    },
+    {
+      "cip": "261303",
+      "name": "Evolutionary Biology.",
+      "description": "A program that focuses on the scientific study of the genetic, developmental, functional, and morphological patterns and processes, and theoretical principles; and the emergence and mutation of organisms over time.  Includes instruction in molecular and morphological systematics; genetics and development; evolutionary transformation; paleobiology and paleontology; morphogenesis; mutation; locomotor, biomechanical and craniodental form and function; evolutionary theory; and systematic biology."
+    },
+    {
+      "cip": "270305",
+      "name": "Financial Mathematics.",
+      "description": "A program that focuses on the application of mathematics and statistics to the finance industry, including the development, critique, and use of various financial models. Includes instruction in probability theory, statistical analysis, numerical methods, computation and simulation methods, stochastic processes, economics, and financial markets and applications."
+    },
+    {
+      "cip": "400510",
+      "name": "Forensic Chemistry.",
+      "description": "A program that focuses on the application of chemical techniques and instrumentation to the analysis and evaluation of physical evidence to aid in criminal investigations. Includes instruction in analytical, inorganic, organic, and physical chemistry; biochemistry; forensic toxicology; instrumental analysis; crime scene processing; criminal investigation; forensic laboratory technology; and applicable law."
+    },
+    {
+      "cip": "260899",
+      "name": "Genetics, Other.",
+      "description": "Any instructional program in genetics not listed above."
+    },
+    {
+      "cip": "260807",
+      "name": "Genome Sciences/Genomics.",
+      "description": "A program that focuses on the scientific study of whole genome sequences and patterns of gene expression. Includes instruction in molecular and cellular biology, genetics, protein technologies, genomic sciences and techniques, bioinformatics, and scientific and research ethics."
+    },
+    {
+      "cip": "304301",
+      "name": "Geobiology.",
+      "description": "A program that focuses on the scientific study of how living things interact with geological systems. Includes instruction in evolution of Earth systems, geochemistry, geology, geomicrobiology, marine chemistry, paleobiology, paleoecology, paleontology, and petrology."
+    },
+    {
+      "cip": "400606",
+      "name": "Geochemistry and Petrology.",
+      "description": "A program that focuses on the scientific study of the igneous, metamorphic, and hydrothermal processes within the earth and the mineral, fluid, rock, and ore deposits resulting from them.  Includes instruction in mineralogy, crystallography, petrology, volcanology, economic geology, meteoritics, geochemical reactions, deposition, compound transformation, core studies, theoretical geochemistry, computer applications, and laboratory studies."
+    },
+    {
+      "cip": "400602",
+      "name": "Geochemistry.",
+      "description": "A program that focuses on the scientific study of the chemical properties and behavior of the silicates and other substances forming, and formed by geomorphological processes of the earth and other planets.  Includes instruction in chemical thermodynamics, equilibrium in silicate systems, atomic bonding, isotopic fractionation, geochemical modeling, specimen analysis, and studies of specific organic and inorganic substances."
+    },
+    {
+      "cip": "304401",
+      "name": "Geography and Environmental Studies.",
+      "description": "A program that focuses on interactions between people and the natural and built environments. Includes instruction in climate science, sustainability, environmental science and policy, research methods, geographic information systems (GIS), human geography, physical geography, remote sensing, and public policy."
+    },
+    {
+      "cip": "400699",
+      "name": "Geological and Earth Sciences/Geosciences, Other.",
+      "description": "Any instructional program in geological and related sciences not listed above."
+    },
+    {
+      "cip": "400601",
+      "name": "Geology/Earth Science, General.",
+      "description": "A program that focuses on the scientific study of the earth; the forces acting upon it; and the behavior of the solids, liquids and gases comprising it.  Includes instruction in historical geology, geomorphology, and sedimentology, the chemistry of rocks and soils, stratigraphy, mineralogy, petrology, geostatistics, volcanology, glaciology, geophysical principles, and applications to research and industrial problems."
+    },
+    {
+      "cip": "270104",
+      "name": "Geometry/Geometric Analysis.",
+      "description": "A program that focuses on the properties, measurements, and relationships pertaining to points, lines, angles, surfaces, and solids.  Includes instruction in global analysis, differential geometry, Euclidian and Non-Euclidian geometry, set theory, manifolds, integral geometry, and applications to algebra and other topics."
+    },
+    {
+      "cip": "400603",
+      "name": "Geophysics and Seismology.",
+      "description": "A program that focuses on the scientific study of the physics of solids and its application to the study of the earth and other planets.  Includes instruction in gravimetric, seismology, earthquake forecasting, magnetrometry, electrical properties of solid bodies, plate tectonics, active deformation, thermodynamics, remote sensing, geodesy, and laboratory simulations of geological processes."
+    },
+    {
+      "cip": "540104",
+      "name": "History and Philosophy of Science and Technology.",
+      "description": "A program that focuses on the historical evolution of scientific theories, science applications and technologies, and the scientific, medical, and technological disciplines, as well as the philosophy of science and its historical socio-economic context. Includes instruction in the concepts and methods of philosophical inquiry; historiography of science; history of science, medicine, and technology; and research methods in the history of the scientific and engineering disciplines, including mathematics."
+    },
+    {
+      "cip": "302701",
+      "name": "Human Biology.",
+      "description": "An interdisciplinary program that focuses on understanding the human being from the biological, social science, and humanities perspectives and that addresses contemporary issues related to biology and society, such as global health and disease, environmental policy, bioethics, and biotechnology."
+    },
+    {
+      "cip": "400605",
+      "name": "Hydrology and Water Resources Science.",
+      "description": "A program that focuses on the scientific study of the occurrence, circulation, distribution, chemical and physical properties, and environmental interaction of surface and subsurface waters, including groundwater.  Includes instruction in geophysics, thermodynamics, fluid mechanics, chemical physics, geomorphology, mathematical modeling, hydrologic analysis, continental water processes, global water balance, and environmental science."
+    },
+    {
+      "cip": "260507",
+      "name": "Immunology.",
+      "description": "A program that focuses on scientific study of the biological mechanisms involved in the pathogenesis of disease, host-pathogen interactions, and host response to disease.  Includes instruction in antigen and antibody structure and function, effector mechanisms, receptors, histocompatibility, host-pathogen recognition, disease modeling, autoimmune systems, antibody formation, cytotoxic responses, regulation of immune response, virulence determinants, intercellular signaling, immunosuppression, immunotherapy, immunogenetics, disease markers, transplantation, antibody humanization, and microbial pathogenesis."
+    },
+    {
+      "cip": "400503",
+      "name": "Inorganic Chemistry.",
+      "description": "A program that focuses on the scientific study of the elements and their compounds, other than the hydrocarbons and their derivatives.  Includes instruction in the characterization and synthesis of non-carbon molecules, including their structure and their bonding, conductivity, and reactive properties; research techniques such as spectroscopy, X-ray diffraction, and photoelectron analysis; and the study of specific compounds, such as transition metals, and compounds composed of inorganic and organic molecules."
+    },
+    {
+      "cip": "380102",
+      "name": "Logic.",
+      "description": "A program that focuses on the systematic study of valid inference, argument, and sound reasoning.  Includes instruction in Classical logic, properties of argument, validity, proof, fallacies, formal and material logic, symbolic and mathematical logic, analysis, specific schools of logic, and applications to problems in other academic disciplines and professional fields."
+    },
+    {
+      "cip": "261302",
+      "name": "Marine Biology and Biological Oceanography.",
+      "description": "A program that focuses on the scientific study of the ecology and behavior of microbes, plants, and animals inhabiting oceans, coastal waters, and saltwater wetlands and their interactions with the physical environment.  Includes instruction in chemical, physical, and geological oceanography; molecular, cellular, and biochemical studies; marine microbiology; marine botany; ichthyology; mammalogy; marine population dynamics and biodiversity; reproductive biology; studies of specific species, phyla, habitats, and ecosystems; marine paleocology and palentology; and applications to fields such as fisheries science and biotechnology."
+    },
+    {
+      "cip": "303201",
+      "name": "Marine Sciences.",
+      "description": "A program that focuses on the study of biology, chemistry, geology and physics applied to marine, estuarine and coastal environments.  Includes instruction in marine biogeochemistry, atmosphere and ocean dynamics, coastal ecology, coastal ocean processes, microbial ecology, marine ecosystem modeling, and polar microbiology."
+    },
+    {
+      "cip": "401002",
+      "name": "Materials Chemistry.",
+      "description": "A program that focuses on the synthesis and study of organic or inorganic materials and their electronic, magnetic, optical or mechanical properties. Includes instruction in advanced materials for photonics, lasers, chemical sensors and arrays or nanochemistry; semiconductor nanowires; and molecular electronics."
+    },
+    {
+      "cip": "401099",
+      "name": "Materials Sciences, Other.",
+      "description": "Any instructional program in materials sciences not listed above."
+    },
+    {
+      "cip": "270306",
+      "name": "Mathematical Biology.",
+      "description": "A program that focuses on the application of mathematics to genomics, molecular modeling, structural biology, ecology, evolutionary biology and systems of analysis of neurobiology, physiology, and metabolism.  Includes instruction in computational mathematics, chaos and nonlinear systems, perturbation methods, evolutionary biology, molecular biology, bioinformatics, and neurobiology."
+    },
+    {
+      "cip": "304901",
+      "name": "Mathematical Economics.",
+      "description": "A program that focuses on the application of mathematical methods to the development of economic theory, models, and quantitative analysis. Includes instruction in data analysis, applied business economics, calculus, econometrics, linear algebra, microeconomic theory, probability, and statistical methods."
+    },
+    {
+      "cip": "305001",
+      "name": "Mathematics and Atmospheric/Oceanic Science.",
+      "description": "A program that focuses on the application of mathematics to atmospheric and oceanic problems. Includes instruction in chemistry, physics, atmospheric/ocean dynamics, climatology, weather simulation, climate modeling, mathematics, oceanography, and atmospheric science."
+    },
+    {
+      "cip": "300801",
+      "name": "Mathematics and Computer Science.",
+      "description": "A program with a general synthesis of mathematics and computer science or a specialization which draws from mathematics and computer science."
+    },
+    {
+      "cip": "279999",
+      "name": "Mathematics and Statistics, Other.",
+      "description": "Any instructional program in mathematics and  statistics not listed above."
+    },
+    {
+      "cip": "270503",
+      "name": "Mathematics and Statistics.",
+      "description": "A program with a general synthesis of mathematics and statistics or a specialization which draws from mathematics and statistics. Includes instruction in calculus, linear algebra, numerical analysis and partial differential equations, discrete mathematics, probability theory, statistics, computing, and other related topics."
+    },
+    {
+      "cip": "270101",
+      "name": "Mathematics, General.",
+      "description": "A general program that focuses on the analysis of quantities, magnitudes, forms, and their relationships, using symbolic logic and language.  Includes instruction in algebra, calculus, functional analysis, geometry, number theory, logic, topology and other mathematical specializations."
+    },
+    {
+      "cip": "270199",
+      "name": "Mathematics, Other.",
+      "description": "Any program in mathematics not listed above."
+    },
+    {
+      "cip": "260503",
+      "name": "Medical Microbiology and Bacteriology.",
+      "description": "A program that focuses on the scientific study of pathogenic bacteria that are significant factors in causing or facilitating human disease.  Includes instruction in the pathogenesis of bacterial diseases, bacterial genetics and physiology, bacterial anatomy and structure, antigens, bacterial reproduction, bacterial adhesion, phagocytes, and the identification of new or mutated bacteria and bacterial agents."
+    },
+    {
+      "cip": "511401",
+      "name": "Medical Science/Scientist.",
+      "description": "An undifferentiated clinical science program that prepares clinicians to conduct clinical and translational research in various areas. Note: programs that prepare clinicians to conduct research in specific scientific fields should report under the relevant CIP code series (e.g., Series 26 Biological and Biomedical Sciences)."
+    },
+    {
+      "cip": "400404",
+      "name": "Meteorology.",
+      "description": "A program that focuses on the scientific study of the prediction of atmospheric motion and climate change.  Includes instruction in general circulation patterns, weather phenomena, atmospheric predictability, parameterization, numerical and statistical analysis, large- and mesoscale phenomena, kinematic structures, precipitation processes, and forecasting techniques."
+    },
+    {
+      "cip": "260599",
+      "name": "Microbiological Sciences and Immunology, Other.",
+      "description": "Any instructional program in the microbiological sciences and immunology not listed above."
+    },
+    {
+      "cip": "260508",
+      "name": "Microbiology and Immunology.",
+      "description": "A program that focuses on the scientific study of the microorganisms that cause disease and the host immune response to them. Includes instruction in microbiology, microbial genetics, molecular virology, pathogenic bacteriology, disease mechanisms, immunology, immunogenetics, autoimmunity, and bioinformatics."
+    },
+    {
+      "cip": "260502",
+      "name": "Microbiology, General.",
+      "description": "A program that focuses on the scientific study of unicellular organisms and colonies, and subcellular genetic matter and their ecological interactions with human beings and other life.  Includes instruction in microbial genetics, cell biology, cell physiology, virology, pathogenic microbiology, environmental microbiology, immunology, biostatistics, bioinformatics, and laboratory methods including microscopy."
+    },
+    {
+      "cip": "260205",
+      "name": "Molecular Biochemistry.",
+      "description": "A program that focuses on the scientific relationship of physiological function to the structure and actions of macromolecules and supramolecular assemblies such as multienzyme complexes, membranes, and viruses.  Includes instruction in the chemical mechanisms of regulation and catalysis, protein synthesis and other syntheses, and biomolecular chemical reactions."
+    },
+    {
+      "cip": "260204",
+      "name": "Molecular Biology.",
+      "description": "A program that focuses on the scientific study of the structure and function of biological macromolecules and the role of molecular constituents and mechanisms in supramolecular assemblies and cells.  Includes instruction in such topics as molecular signaling and transduction, regulation of cell growth, enzyme substrates and mechanisms of enzyme action, DNA-protein interaction, and applications to fields such as biotechnology, genetics, cell biology, and physiology."
+    },
+    {
+      "cip": "260206",
+      "name": "Molecular Biophysics.",
+      "description": "A scientific program that focuses on the dynamics and interactions of macromolecules and other three-dimensional ultrastructures, the architecture of supramolecular structures, and energy transfer in biomolecular systems.  Includes instruction in energy transduction, structural dynamics, mechanisms of electron and proton transfer in biological systems, bioinformatics, automated analysis, and specialized research techniques."
+    },
+    {
+      "cip": "260802",
+      "name": "Molecular Genetics.",
+      "description": "A program that focuses on the scientific study of genetic structures and mechanisms of organisms, including bacteria, phages, and viruses.  Includes instruction in the replication, expression, transfer, structure, maintenance, and stability of heritable information in DNA, RNA, and proteins; the regulation of these processes; and neurogenetics."
+    },
+    {
+      "cip": "261401",
+      "name": "Molecular Medicine.",
+      "description": "A program that focuses on the scientific study of the molecular and cellular basis of disease, and the application of this knowledge to the development of new clinical and diagnostic tools, medications, and therapies. Includes instruction in cell biology, molecular biology, physiology, pharmacology, biochemistry, genetics, pathology, molecular immunology, research and quantitative methods, and biomedical research computing."
+    },
+    {
+      "cip": "301801",
+      "name": "Natural Sciences.",
+      "description": "A program with a combined or undifferentiated focus on one or more of the physical and biological sciences."
+    },
+    {
+      "cip": "261502",
+      "name": "Neuroanatomy.",
+      "description": "A program that focuses on the scientific study of the structure of the central and peripheral nervous system in vertebrates or the nervous system of invertebrates. Includes instruction in cellular and circuit anatomy, mapping of neuronal pathways, anatomical distribution and mapping of neuronal signaling molecules and their receptors, and the anatomical basis of central nervous system diseases and disorders."
+    },
+    {
+      "cip": "261503",
+      "name": "Neurobiology and Anatomy.",
+      "description": "A program that focuses on the scientific study of the structure and function of the central and peripheral nervous system in vertebrates and invertebrates. Includes instruction in molecular and cellular studies of neuronal and glial cells and circuits, neural transmitters and receptors, neuronal signaling processes, membrane and synapse structure and communication, autonomic function, nervous system circuitry and mapping, and anatomical and functional basis of central nervous system diseases and disorders."
+    },
+    {
+      "cip": "261504",
+      "name": "Neurobiology and Behavior.",
+      "description": "A program that focuses on the scientific study of the structure and function of the central and peripheral nervous system in vertebrates and invertebrates as it relates to control of behavior. Includes instruction in neuronal systems and circuits, higher level studies of behavior and cognition, computational neurobiology, and behavioral manifestations of central nervous system diseases and disorders."
+    },
+    {
+      "cip": "261599",
+      "name": "Neurobiology and Neurosciences, Other.",
+      "description": "Any instructional program in neurobiology and neurosciences not listed above."
+    },
+    {
+      "cip": "261501",
+      "name": "Neuroscience.",
+      "description": "A program that focuses on the interdisciplinary scientific study of the molecular, structural, physiologic, cognitive, and behavioral aspects of the brain and nervous system.  Includes instruction in molecular and cellular neuroscience, brain science, anatomy and physiology of the central nervous system, molecular and biochemical bases of information processing, behavioral neuroscience, biology of neuropsychiatric disorders, and applications to the clinical sciences and biomedical engineering."
+    },
+    {
+      "cip": "400806",
+      "name": "Nuclear Physics.",
+      "description": "A program that focuses on the scientific study of the properties and behavior of atomic nuclei.  Includes instruction in nuclear reaction theory, quantum mechanics, energy conservation, nuclear fission and fusion, strong and weak forces, nuclear modeling, nuclear decay, nucleon scattering, pairing, photon and electron reactions, the physics of nuclear effects, statistical methods, and research equipment operation and maintenance."
+    },
+    {
+      "cip": "301901",
+      "name": "Nutrition Sciences.",
+      "description": "A scientific program that focuses on the utilization of food for human growth and metabolism, in both normal and dysfunctional states, from the interdisciplinary perspective of the agricultural, human, biological, and biomedical sciences.  Includes instruction in food science, biochemistry, physiology, dietetics, food and nutrition studies, biotechnology, biophysics, and the clinical sciences."
+    },
+    {
+      "cip": "400607",
+      "name": "Oceanography, Chemical and Physical.",
+      "description": "A program that focuses on the scientific study of the chemical components, mechanisms, structure, and movement of ocean waters and their interaction with terrestrial and atmospheric phenomena.  Includes instruction in material inputs and outputs, chemical and biochemical transformations in marine systems, equilibria studies, inorganic and organic ocean chemistry, oceanographic processes, sediment transport, zone processes, circulation, mixing, tidal movements, wave properties, and seawater properties."
+    },
+    {
+      "cip": "143701",
+      "name": "Operations Research.",
+      "description": "A program that focuses on the development and application of complex mathematical or simulation models to solve problems involving operational systems, where the system concerned is subject to human intervention.  Includes instruction in advanced multivariate analysis, application of judgment and statistical tests, optimization theory and techniques, resource allocation theory, mathematical modeling, control theory, statistical analysis, and applications to specific research problems."
+    },
+    {
+      "cip": "400807",
+      "name": "Optics/Optical Sciences.",
+      "description": "A program that focuses on the scientific study of light energy, including its structure, properties and behavior under different conditions.  Includes instruction in wave theory, wave mechanics, electromagnetic theory, physical optics, geometric optics, quantum theory of light, photon detecting, laser theory, wall and beam properties, chaotic light, non-linear optics, harmonic generation, optical systems theory, and applications to engineering problems."
+    },
+    {
+      "cip": "400504",
+      "name": "Organic Chemistry.",
+      "description": "A program that focuses on the scientific study of the properties and behavior of hydrocarbon compounds and their derivatives. Includes instruction in molecular conversion and synthesis, molecular synthesis and design, the molecular structure of living cells and systems, the mutual reactivity of organic and inorganic compounds in combination, the spectroscopic analysis of hydrocarbon compounds, and applications to specific problems in research, industry, and health."
+    },
+    {
+      "cip": "400604",
+      "name": "Paleontology.",
+      "description": "A program that focuses on the scientific study of extinct life forms and associated fossil remains, and the reconstruction and analysis of ancient life forms, ecosystems, and geologic processes. Includes instruction in sedimentation and fossilization processes, fossil chemistry, evolutionary biology, paleoecology, paleoclimatology, trace fossils, micropaleontology, invertebrate paleontology, vertebrate paleontology, paleobotany, field research methods, and laboratory research and conservation methods."
+    },
+    {
+      "cip": "260505",
+      "name": "Parasitology.",
+      "description": "A program that focuses on the scientific study of biological organisms living in ecologically exploitative and competitive relationships with host organisms, and the role of parasites in causing injury, disease, and environmental damage.  Includes instruction in vector biology, immunoparasitology, medical parasitology, molecular biology of parasitical associations, veterinary and comparative parasitology, chemotherapeutics, and ecological and systematic parasitology."
+    },
+    {
+      "cip": "260910",
+      "name": "Pathology/Experimental Pathology.",
+      "description": "A program that focuses on the scientific study of the expression, initiation, maintenance and progression of tissue injury and disease, including death, and the relationship of pathogenesis to fundamental molecular and cellular mechanisms.  Includes instruction in immunology, microbiology, gene expression, inflammation, cell injury, apoptosis, immunopathology, molecular markers of disease and toxins, neoplasia, growth regulation, and organ- and system-specific investigations."
+    },
+    {
+      "cip": "261001",
+      "name": "Pharmacology.",
+      "description": "A program that focuses on the scientific study of drug interactions on biological systems and organisms and the sources, chemical properties, biological effects, and therapeutic uses of drugs.  Includes instruction in pharmacodynamics, pharmacokinetics, toxicology, drug therapeutics, drug action, bodily responses to drug events, biochemical proliferation and differentiation, apoptosis, cell biology, medicinal chemistry, and studies of specific drugs and drug interactions."
+    },
+    {
+      "cip": "260208",
+      "name": "Photobiology.",
+      "description": "A program that focuses on the scientific study of the effects of light energy on living organisms, the manufacture and processing of luminescence by organisms, and the uses of light in biological research.  Includes instruction in bioluminescence, chronobiology, photomedicine, environmental photobiology, organic photochemistry, photomorphogenesis, photoreceptors and photosensitization, molecular mechanics of photosynthesis, phototechnology, vision, ultraviolet radiation, radiation physics, and spectral research methods."
+    },
+    {
+      "cip": "400506",
+      "name": "Physical Chemistry.",
+      "description": "A program that focuses on the scientific study of understanding and predicting the behavior of chemical systems ranging from nuclear particles to atoms, molecules, clusters, biological materials and macroscopic assemblies.  Includes instruction in quantum mechanics, spectroscopy, thermodynamics, statistical mechanics, reaction dynamics, group theory, collision theory, and polymer science."
+    },
+    {
+      "cip": "400101",
+      "name": "Physical Sciences, General.",
+      "description": "A program that focuses on the major topics, concepts, processes, and interrelationships of physical phenomena as studied in any combination of physical science disciplines."
+    },
+    {
+      "cip": "409999",
+      "name": "Physical Sciences, Other.",
+      "description": "Any instructional program in physical sciences not listed above."
+    },
+    {
+      "cip": "401101",
+      "name": "Physics and Astronomy.",
+      "description": "A program that focuses on the scientific study of the theories that explain the fundamental structure of our world and the universe and which draws from physics and astronomy. Includes instruction in astronomy, calculus, cosmology, differential equations, electricity, magnetism, data analysis, physics, quantum mechanics, space science, spectroscopy, and thermal physics."
+    },
+    {
+      "cip": "400801",
+      "name": "Physics, General.",
+      "description": "A general program that focuses on the scientific study of matter and energy, and the formulation and testing of the laws governing the behavior of the matter-energy continuum.  Includes instruction in classical and modern physics, electricity and magnetism, thermodynamics, mechanics, wave properties, nuclear processes, relativity and quantum theory, quantitative methods, and laboratory methods."
+    },
+    {
+      "cip": "400899",
+      "name": "Physics, Other.",
+      "description": "Any instructional program in physics not listed above."
+    },
+    {
+      "cip": "400203",
+      "name": "Planetary Astronomy and Science.",
+      "description": "A program that focuses on the scientific study of planets, small objects, and related gravitational systems.  Includes instruction in the structure and composition of planetary surfaces and interiors, planetary atmospheres, satellites, orbital mechanics, asteroids and comets, solar system evolution and dynamics, planetary evolution, gravitational physics, and radiation physics."
+    },
+    {
+      "cip": "260805",
+      "name": "Plant Genetics.",
+      "description": "A program that focuses on the scientific study of the genetics of multicellular plants and fungi as related to botanical research as well as to applications in comparative genetics, ecology and evolutionary studies, clinical studies, and industrial research.  Includes instruction in molecular genetics, gene expression, gene regulation, genomics, epigenetic phenomena, DNA recombination and repair, genetic interactions at the microbial and higher levels, and molecular evolution."
+    },
+    {
+      "cip": "260305",
+      "name": "Plant Pathology/Phytopathology.",
+      "description": "A program that focuses on the scientific study of plant diseases and plant health, and the development of disease control mechanisms.  Includes instruction in plant anatomy and physiology, pathogenesis, molecular plant virology, molecular genetics, bacterial epidemiology, causal agent identification, host/agent interactions, disease resistance and response mechanisms, developing plant disease treatments, disease prevention, and disease physiology and control."
+    },
+    {
+      "cip": "260307",
+      "name": "Plant Physiology.",
+      "description": "A program that focuses on the scientific study of plant internal dynamics and systems, plant-environment interaction, and plant life cycles and processes.  Includes instruction in cell and molecular biology; plant nutrition; plant respiration; plant growth, behavior, and reproduction; photosynthesis; plant systemics; and ecology."
+    },
+    {
+      "cip": "400805",
+      "name": "Plasma and High-Temperature Physics.",
+      "description": "A program that focuses on the scientific study of properties and behavior of matter at high temperatures, such that molecular and atomic structures are in a disassociated ionic or electronic state.  Includes instruction in magnetohydrodynamics, free electron phenomena, fusion theory, electromagnetic fields and dynamics, plasma and non-linear wave theory, instability theory, plasma shock phenomena, quantitative modeling, and research equipment operation and maintenance."
+    },
+    {
+      "cip": "400507",
+      "name": "Polymer Chemistry.",
+      "description": "A program that focuses on the scientific study of synthesized macromolecules and their interactions with other substances.  Includes instruction in molecular bonding theory, polymerization, properties and behavior of unstable compounds, the development of tailored polymers, transition phenomena, and applications to specific industrial problems and technologies."
+    },
+    {
+      "cip": "260209",
+      "name": "Radiation Biology/Radiobiology.",
+      "description": "A program that focuses on the  effects of radiation on organisms and biological systems.  Includes instruction in particle physics, ionization, and biophysics of radiation perturbations, cellular and organismic repair systems, genetic and pathological effects of radiation, and the measurement of radiation dosages."
+    },
+    {
+      "cip": "520214",
+      "name": "Research Administration.",
+      "description": "A program designed to prepare formally trained, advanced-level personnel for research administration leadership positions at colleges and universities, government agencies, hospitals, nonprofit agencies, and in industry. Includes instruction in bioethics, biostatistics, ethical, legal and regulatory consideration in clinical investigation, financial analysis, grant writing, managing and monitoring clinical trials, project management, strategic planning, and team building."
+    },
+    {
+      "cip": "520210",
+      "name": "Research and Development Management.",
+      "description": "A program that prepares individuals to manage projects, programs and organizations involving basic and applied research, or specialized technology applications, in the public or private sectors.  Includes instruction in all aspects of business management applied to the leadership and control of scientific, clinical, engineering and social scientific enterprises; the management of related operational, security and logistical issues; and technical competence in one or more research disciplines."
+    },
+    {
+      "cip": "301501",
+      "name": "Science, Technology and Society.",
+      "description": "A program that focuses on the contemporary social and public policy ramifications of science and technology, the interrelationship of science and engineering with the public policy process, and the social and ethical dimensions of scientific and technological enterprises."
+    },
+    {
+      "cip": "520216",
+      "name": "Science/Technology Management.",
+      "description": "A program that prepares individuals to develop science, technical, and business skills required for management of people and systems in technology-based industries, government agencies, and non-profit organizations. Includes instruction in computer applications, general management principles, production and operations management, project management, quality control, safety and health issues, and statistics."
+    },
+    {
+      "cip": "270501",
+      "name": "Statistics, General.",
+      "description": "A general program that focuses on the relationships between groups of measurements, and similarities and differences, using probability theory and techniques derived from it.  Includes instruction in the principles in probability theory, binomial distribution, regression analysis, standard deviation, stochastic processes, Monte Carlo method, Bayesian statistics, non-parametric statistics, sampling theory, and statistical techniques."
+    },
+    {
+      "cip": "270599",
+      "name": "Statistics, Other.",
+      "description": "Any instructional program in statistics not listed above."
+    },
+    {
+      "cip": "260207",
+      "name": "Structural Biology.",
+      "description": "A program that focuses on the scientific study of submolecular and molecular components and assemblies of living systems and how they are organized into functional units such as cells and anatomic tissues.  Includes instruction in glycoprotein, carbohydrate, protein, and nucleic acid structures and chemistry; cytoskeletal structure; nuclear and intracellular structures; molecular recognition; molecular chaperones; transcription and folding; multicellular organization; microtubules and microfilaments; cell differentiation; immunophysics; and DNA sequencing."
+    },
+    {
+      "cip": "303301",
+      "name": "Sustainability Studies.",
+      "description": "A program that focuses on the concept of sustainability from an interdisciplinary perspective. Includes instruction in sustainable development, environmental policies, ethics, ecology, landscape architecture, city and regional planning, economics, natural resources, sociology, and anthropology."
+    },
+    {
+      "cip": "400511",
+      "name": "Theoretical Chemistry.",
+      "description": "A program that focuses on the study of mathematical and computational methods and fundamental laws of physics to describe chemical phenomena and to develop empirical models of molecules and their interactions. Includes instruction in properties of small, isolated molecules; dynamics of elementary chemical processes; reaction pathways of organic molecules; hydrogen bonding patterns in liquids; reaction rates of biological pathways; and advanced computational techniques."
+    },
+    {
+      "cip": "400810",
+      "name": "Theoretical and Mathematical Physics.",
+      "description": "A program that focuses on the scientific and mathematical formulation and evaluation of the physical laws governing, and models describing, matter-energy phenomena, and the analysis of related experimental designs and results.  Includes instruction in classical and quantum theory, relativity theory, field theory, mathematics of infinite series, vector and coordinate analysis, wave and particle theory, advanced applied calculus and geometry, analyses of continuum, cosmology, and statistical theory and analysis."
+    },
+    {
+      "cip": "270105",
+      "name": "Topology and Foundations.",
+      "description": "A program that focuses on the properties of unaltered geometric configurations under conditions of continuous, multi-directional transformations.  Includes instruction in mathematical logic, proof theory, model theory, set theory, combinatorics, continua, homotopy, homology, links, and transformation actions."
+    },
+    {
+      "cip": "261004",
+      "name": "Toxicology.",
+      "description": "A program that focuses on the scientific study of poisons and other biohazards; their interactions with organisms and their food and respiratory systems; and their prevention, management, and counteraction.  Includes instruction in toxicological biochemistry, toxic agents and transporters, toxin fate, toxicokinetics and metabolism, toxin classification, molecular toxic mechanisms, extracellular matrices and cell function, bacterial pathogenesis and mutagenesis, pathophysiology and apoptosis, cell stress and injury, studies of specific toxins, and studies of specific organ systems and physiological functions in relation to toxicological problems."
+    },
+    {
+      "cip": "260504",
+      "name": "Virology.",
+      "description": "A program that focuses on the scientific study of subcellular pieces of genetic material, called viruses, that inhabit living cells in parasitical relationships and their role in disease.  Includes instruction in virus taxonomy and systematics, viral structures, viral genetics, prions, virus/host cell interaction, viral pathogenesis, and applications to specific topics such as cancer biology."
+    },
+    {
+      "cip": "260799",
+      "name": "Zoology/Animal Biology, Other.",
+      "description": "Any instructional program in zoology/animal biology not listed above."
+    },
+    {
+      "cip": "260701",
+      "name": "Zoology/Animal Biology.",
+      "description": "A general program that focuses on the scientific study of the biology of animal species and phyla, with reference to their molecular and cellular systems, anatomy, physiology, and behavior.  Includes instruction in molecular and cell biology, microbiology, anatomy and physiology, ecology and behavior, evolutionary biology, and applications to specific species and phyla."
+    }
+  ],
+  "hasSchoolsFlag": true,
+  "wages": {
+    "onet": "11912100",
+    "state": "NY",
+    "regionID": 10,
+    "regionName": "Capital District",
+    "onetLevelOverrideFlag": false,
+    "resultScore": 3.0,
+    "socToOnetCount": 3,
+    "socLevelOverrideFlag": false,
+    "commonEmplBaseYear": 2018,
+    "commonEmplProjYear": 2030,
+    "commonWageAnnualFlag": false,
+    "commonWageHourlyFlag": false,
+    "commonWageYear": 2022,
+    "nationalHasDataFlag": true,
+    "stateHasDataFlag": true,
+    "regionHasDataFlag": false,
+    "nationalAnnualOpeningsGrowthAmount": 460,
+    "regionAnnualOpeningsGrowthAmount": 2,
+    "stateAnnualOpeningsGrowthAmount": 43,
+    "nationalAnnualOpeningsReplaceAmount": 6400,
+    "regionAnnualOpeningsReplaceAmount": 10,
+    "stateAnnualOpeningsReplaceAmount": 120,
+    "nationalAnnualOpeningsReplacePercent": 7.9,
+    "regionAnnualOpeningsReplacePercent": 55.6,
+    "stateAnnualOpeningsReplacePercent": 73.2,
+    "nationalAnnualOpeningsTotalAmount": 6860,
+    "regionAnnualOpeningsTotalAmount": 18,
+    "stateAnnualOpeningsTotalAmount": 164,
+    "nationalEduPctBachelors": 33.8,
+    "nationalEduPctDoctoralProf": 20.6,
+    "nationalEduPctHighSchool": 2.8,
+    "nationalEduPctLessThanHs": 0.4,
+    "nationalEduPctMasters": 34.8,
+    "nationalEduPctSomeCollege": 3.7,
+    "nationalEmplBaseAmount": 78800,
+    "regionEmplBaseAmount": 170,
+    "stateEmplBaseAmount": 1540,
+    "nationalEmplChangeAmount": 4600,
+    "regionEmplChangeAmount": 20,
+    "stateEmplChangeAmount": 430,
+    "nationalEmplChangePercent": 5.9,
+    "regionEmplChangePercent": 0.1,
+    "stateEmplChangePercent": 0.3,
+    "nationalEmplProjAmount": 83400,
+    "regionEmplProjAmount": 190,
+    "stateEmplProjAmount": 1970,
+    "nationalEteRequiredEducation": "Bachelor\u0027s degree",
+    "nationalEteRequiredExperience": "5 years or more",
+    "nationalEteRequiredTraining": "None",
+    "stateEteUsualEduAttained": "Master\u0027s degree",
+    "regionOnetEmpProspectCode": 4,
+    "stateOnetEmpProspectCode": 5,
+    "regionOnetEmpProspectDesc": "Favorable",
+    "stateOnetEmpProspectDesc": "Very Favorable",
+    "nationalWageAnnualMeanAmount": 163610,
+    "regionWageAnnualMeanAmount": 174500,
+    "stateWageAnnualMeanAmount": 184450,
+    "nationalWageAnnualPct25EntryAmount": 103780,
+    "regionWageAnnualPct25EntryAmount": 114190,
+    "stateWageAnnualPct25EntryAmount": 115850,
+    "nationalWageAnnualPct50MedianAmount": 144440,
+    "regionWageAnnualPct50MedianAmount": 171140,
+    "stateWageAnnualPct50MedianAmount": 168940,
+    "nationalWageAnnualPct75ExperAmount": 210330,
+    "regionWageAnnualPct75ExperAmount": 204660,
+    "stateWageAnnualPct75ExperAmount": 218760
+  },
+  "hasWageFlag": true,
+  "hasLicenseFlag": false,
+  "resources": [
+    {
+      "name": "American Museum of Natural History Courses, Institutes and Evenings for Educators",
+      "description": "The American Museum of Natural History offers an extensive program of professional development in a variety of formats that provide educators at all levels with opportunities to deepen their content knowledge and address national and local performance standards in the natural and social sciences through interactions with scientists and educators and use of AMNH research, exhibitions, and print and online resources.",
+      "separator": " ",
+      "url": "http://www.amnh.org/education/pd/programs.html",
+      "hasDescription": true
+    },
+    {
+      "name": "Cornell University Summer College Program: Focus on the Sciences",
+      "description": "Focus on the Sciences is designed especially for students who are passionate about subjects from astronomy to biology and who just can\u0027t wait to get to college to undertake in-depth scientific exploration. You?ll earn an average of six to eight credits and get advanced lab work under your lab coat while maybe figuring out what you want to study in college.",
+      "separator": " ",
+      "url": "http://www.sce.cornell.edu/sc/explorations/medicine_focus.php",
+      "hasDescription": true
+    },
+    {
+      "name": "Darwin Day 2007 - Darwin\u0027s Trunk an Evolution Workshop for Teachers",
+      "description": "Darwin Day 2007 is a five day series of panel discussions, film screenings, speakers, and workshops, that are aimed at increasing awareness of Darwin\u0027s theory and its relevance today in the Ithaca community and beyond. Speakers and discussion about how K12 teachers can approach the subject of evolution in their classrooms co-sponsored by TST BOCES is highlighted.",
+      "separator": " ",
+      "url": "http://www.priweb.org/dd2007/about.html",
+      "hasDescription": true
+    },
+    {
+      "name": "Engineering and natural sciences managers",
+      "description": "Visit this link for additional information on this career from the Occupational Outlook Handbook; a publication produced and maintained by the United States Department of Labor.",
+      "separator": " ",
+      "url": "http://www.bls.gov/oco/ocos009.htm",
+      "hasDescription": true
+    },
+    {
+      "name": "Great Plant Escape",
+      "description": "Getting kids to think about plants and plant life is an important part of The Great Plant Escape. This site will have the students helping Detective LePlant and his partners Bud and Sprout unlock the amazing mysteries of plant life.",
+      "separator": " ",
+      "url": "http://www.urbanext.uiuc.edu/gpe/index.html",
+      "hasDescription": true
+    },
+    {
+      "name": "ScienCentral News: Making Sense of Science",
+      "description": "From broadcast news features to educational products, ScienCentral News not only knows how to communicate complex ideas about medicine, health, technology, and the environment, but they also know how to tell a good story!",
+      "separator": " ",
+      "url": "http://www.sciencentral.com/index.php3",
+      "hasDescription": true
+    },
+    {
+      "name": "Walk in the Woods",
+      "description": "A Walk in the Woods is designed for third through fifth grade students to gain an appreciation of nature. Sometimes students are not able to go to a forest preserve or woods, so this brings the woods to them in a multi-media way.",
+      "separator": " ",
+      "url": "http://www.urbanext.uiuc.edu/woods/",
+      "hasDescription": true
+    }
+  ],
+  "hasResourcesFlag": true,
+  "apprenticeships": [],
+  "hasApprenticeshipFlag": false,
+  "apprenticeableFlag": false,
+  "relatedOccs": [
+    {
+      "onet": "13108200",
+      "occTitle": "Project Management Specialists",
+      "occDescription": "Analyze and coordinate the schedule, timeline, procurement, staffing, and budget of a product or service on a per project basis. Lead and guide the work of technical staff. May serve as a point of contact for the client or customer."
+    },
+    {
+      "onet": "15205100",
+      "occTitle": "Data Scientists",
+      "occDescription": "Develop and implement a set of techniques or analytics applications to transform raw data into meaningful information using data-oriented programming languages and visualization software. Apply data mining, data modeling, natural language processing, and machine learning to extract and analyze information from large structured and unstructured datasets. Visualize, interpret, and report data findings. May create dynamic data reports."
+    },
+    {
+      "onet": "17203100",
+      "occTitle": "Biomedical Engineers",
+      "occDescription": "Apply knowledge of engineering, biology, and biomechanical principles to the design, development, and evaluation of biological and health systems and products, such as artificial organs, prostheses, instrumentation, medical information systems, and health management and care delivery systems."
+    },
+    {
+      "onet": "19102902",
+      "occTitle": "Molecular and Cellular Biologists",
+      "occDescription": "Research and study cellular molecules and organelles to understand cell function and organization."
+    },
+    {
+      "onet": "25105300",
+      "occTitle": "Environmental Science Teachers, Postsecondary",
+      "occDescription": "Teach courses in environmental science. Includes both teachers primarily engaged in teaching and those who do a combination of teaching and research."
+    }
+  ],
+  "hasRelatedOccsFlag": true,
+  "jobs": [],
+  "hasJobsFlag": false,
+  "jobCount": 0,
+  "rowPage": 10,
+  "relatedOccupationString": "Career Changers",
+  "clusterLinkID": "jzopCareerSearchLink",
+  "careerClusters": [
+    {
+      "clusterID": "1",
+      "clusterName": "Agriculture, Food and Natural Resources",
+      "careerPathwayList": [
+        {
+          "description": "Natural Resources Systems",
+          "separator": " ",
+          "value": "15",
+          "hasDescription": true
+        }
+      ],
+      "hasPathwayFlag": true
+    }
+  ],
+  "hasClustersFlag": true
+}

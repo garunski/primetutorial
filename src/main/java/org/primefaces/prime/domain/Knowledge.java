@@ -1,6 +1,6 @@
 package org.primefaces.prime.domain;
 
-public class Skill {
+public class Knowledge {
     private String elementId;
     private String skill;
     private String description;
@@ -8,7 +8,16 @@ public class Skill {
     private String levelValue;
 
     // Default constructor
-    public Skill() {}
+    public Knowledge() {}
+
+    // Constructor with parameters
+    public Knowledge(String elementId, String skill, String description, String impValue, String levelValue) {
+        this.elementId = elementId;
+        this.skill = skill;
+        this.description = description;
+        this.impValue = impValue;
+        this.levelValue = levelValue;
+    }
 
     // Getters and Setters
     public String getElementId() { return elementId; }
