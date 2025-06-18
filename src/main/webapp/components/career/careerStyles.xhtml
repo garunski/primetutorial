@@ -10,31 +10,120 @@
     <div id="styles" class="card shadow-sm mb-4">
         <div class="card-body">
             <h2 class="fs-2 fw-semibold text-primary mb-3 pb-2 border-bottom">Work Styles</h2>
-            <p class="mb-4">Included in the list below are the personal work style characteristics that can affect how well a worker is likely to perform in this occupation.</p>
+            <p class="mb-4">These are personal characteristics that can affect how well someone performs a job.</p>
 
-            <div class="row mb-4">
-                <div class="col-md-6">
-                    <h3 class="fs-4 fw-semibold mb-3">Personal Characteristics</h3>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item border-bottom py-2"><span class="fw-semibold">Cooperation</span> - Being pleasant with others and displaying a good-natured, cooperative attitude</li>
-                        <li class="list-group-item border-bottom py-2"><span class="fw-semibold">Self-Control</span> - Maintaining composure, keeping emotions in check, controlling anger, and avoiding aggressive behavior</li>
-                        <li class="list-group-item border-bottom py-2"><span class="fw-semibold">Stress Tolerance</span> - Accepting criticism and dealing calmly with high-stress situations</li>
-                        <li class="list-group-item border-bottom py-2"><span class="fw-semibold">Adaptability/Flexibility</span> - Being open to change and to considerable variety in the workplace</li>
-                        <li class="list-group-item py-2"><span class="fw-semibold">Dependability</span> - Being reliable, responsible, and dependable, and fulfilling obligations</li>
-                    </ul>
+            <h:panelGroup rendered="#{careerView.occupation.hasWorkStylesFlag and careerView.occupation.workStyles != null and careerView.occupation.workStyles.size() > 0}">
+                <div class="row mb-4">
+                    <div class="col-md-12">
+                        <!-- Bar chart container -->
+                        <div class="work-styles-chart-container bg-white p-3 rounded shadow-sm mx-auto position-relative mb-4">
+                            <h4 class="fs-5 fw-semibold text-center mb-3">Work Styles Importance Levels</h4>
+                            <canvas id="work-styles-bar-chart" style="max-height: 400px;"></canvas>
+                        </div>
+
+                        <!-- Work Styles cards and descriptions -->
+                        <div class="mt-4">
+                            <div class="row">
+                                <ui:repeat value="#{careerView.occupation.workStyles}" var="style" varStatus="status">
+                                    <div class="col-md-6 mb-3">
+                                        <div class="card shadow-sm h-100">
+                                            <div class="card-body">
+                                                <h5 class="card-title fw-semibold text-dark">#{style.name}</h5>
+                                                <h:panelGroup rendered="#{style.hasDescription and style.description != null}">
+                                                    <p class="card-text text-muted small">#{style.description}</p>
+                                                </h:panelGroup>
+                                                <h:panelGroup rendered="#{style.value != null}">
+                                                    <div class="mt-2">
+                                                        <span class="badge bg-danger-subtle text-danger">
+                                                            <i class="bi bi-bar-chart-fill me-1"></i>
+                                                            Importance: #{style.value}/5
+                                                        </span>
+                                                    </div>
+                                                </h:panelGroup>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </ui:repeat>
+                            </div>
+                        </div>
+
+                        <!-- Work Styles data in JSON format for the chart -->
+                        <script type="application/json" id="work-styles-data">
+                            {
+                                "chartConfig": {
+                                    "type": "bar",
+                                    "labels": [
+                                        <ui:repeat value="#{careerView.occupation.workStyles}" var="style" varStatus="status">
+                                            "#{style.name}"#{!status.last ? ',' : ''}
+                                        </ui:repeat>
+                                    ],
+                                    "datasets": [
+                                        {
+                                            "label": "Importance Level",
+                                            "data": [
+                                                <ui:repeat value="#{careerView.occupation.workStyles}" var="style" varStatus="status">
+                                                    #{style.value != null ? style.value : 0}#{!status.last ? ',' : ''}
+                                                </ui:repeat>
+                                            ],
+                                            "backgroundColor": [
+                                                <ui:repeat value="#{careerView.occupation.workStyles}" var="style" varStatus="status">
+                                                    "rgba(220, 53, 69, 0.8)"#{!status.last ? ',' : ''}
+                                                </ui:repeat>
+                                            ],
+                                            "borderColor": [
+                                                <ui:repeat value="#{careerView.occupation.workStyles}" var="style" varStatus="status">
+                                                    "rgba(220, 53, 69, 1)"#{!status.last ? ',' : ''}
+                                                </ui:repeat>
+                                            ],
+                                            "borderWidth": 1
+                                        }
+                                    ],
+                                    "options": {
+                                        "indexAxis": "y",
+                                        "responsive": true,
+                                        "maintainAspectRatio": false,
+                                        "scales": {
+                                            "x": {
+                                                "beginAtZero": true,
+                                                "max": 5,
+                                                "ticks": {
+                                                    "stepSize": 1
+                                                },
+                                                "title": {
+                                                    "display": true,
+                                                    "text": "Importance Level (1-5)"
+                                                }
+                                            },
+                                            "y": {
+                                                "title": {
+                                                    "display": true,
+                                                    "text": "Work Style Characteristics"
+                                                }
+                                            }
+                                        },
+                                        "plugins": {
+                                            "legend": {
+                                                "display": false
+                                            },
+                                            "tooltip": {
+                                                "callbacks": {
+                                                    "label": "function(context) { return 'Importance: ' + context.parsed.x + '/5'; }"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        </script>
+
+                        <p class="small text-muted mt-2">* Work Styles are measured by how important the characteristic is to this occupation, where one is 'not important' and five is 'very important'.</p>
+                    </div>
                 </div>
-                <div class="col-md-6">
-                    <h3 class="fs-4 fw-semibold mb-3">Work Approach</h3>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item border-bottom py-2"><span class="fw-semibold">Persistence</span> - Persistence in the face of obstacles</li>
-                        <li class="list-group-item border-bottom py-2"><span class="fw-semibold">Initiative</span> - Willingness to take on responsibilities and challenges</li>
-                        <li class="list-group-item border-bottom py-2"><span class="fw-semibold">Leadership</span> - Willingness to lead, take charge, and offer opinions and direction</li>
-                        <li class="list-group-item border-bottom py-2"><span class="fw-semibold">Achievement/Effort</span> - Establishing and maintaining personally challenging goals and exerting effort toward mastering tasks</li>
-                        <li class="list-group-item py-2"><span class="fw-semibold">Innovation</span> - Creativity and alternative thinking to develop new ideas and answers to work-related problems</li>
-                    </ul>
-                </div>
-            </div>
-            <p class="small text-muted">* Work Styles are measured by how important the style is to this occupation, where one is 'not important' and five is 'very important'.</p>
+            </h:panelGroup>
+            
+            <h:panelGroup rendered="#{!careerView.occupation.hasWorkStylesFlag or careerView.occupation.workStyles == null or careerView.occupation.workStyles.size() == 0}">
+                <p class="text-muted">Work styles information is not available for this occupation.</p>
+            </h:panelGroup>
         </div>
     </div>
 </ui:composition>

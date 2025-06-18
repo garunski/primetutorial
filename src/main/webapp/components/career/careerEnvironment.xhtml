@@ -10,15 +10,63 @@
     <div id="environment" class="card shadow-sm mb-4">
         <div class="card-body">
             <h2 class="fs-2 fw-semibold text-primary mb-3 pb-2 border-bottom">Work Environment</h2>
-            <p class="mb-3">Actors work in various settings, including theaters, movie studios, theme parks, or on location. Their work may involve:</p>
-            <ul class="list-group list-group-flush">
-                <li class="list-group-item border-bottom py-2">Working with a team or ensemble</li>
-                <li class="list-group-item border-bottom py-2">Irregular work schedules, often including evenings, weekends, and holidays</li>
-                <li class="list-group-item border-bottom py-2">Periods of unemployment between projects</li>
-                <li class="list-group-item border-bottom py-2">Physical demands, including standing for long periods and performing physically demanding tasks</li>
-                <li class="list-group-item border-bottom py-2">Travel for performances or filming</li>
-                <li class="list-group-item py-2">High levels of competition for roles</li>
-            </ul>
+            <p class="mb-3">#{careerView.occupation.title} work in various settings depending on their specific role and industry focus.</p>
+            
+            <div class="row">
+                <div class="col-md-6">
+                    <h4 class="fs-5 fw-semibold mb-3">
+                        <i class="bi bi-building me-2 text-primary"></i>Typical Work Settings
+                    </h4>
+                    <ul class="list-group list-group-flush mb-4">
+                        <li class="list-group-item border-bottom py-2">
+                            <i class="bi bi-check-circle text-success me-2"></i>Office environments
+                        </li>
+                        <li class="list-group-item border-bottom py-2">
+                            <i class="bi bi-check-circle text-success me-2"></i>Remote work opportunities
+                        </li>
+                        <li class="list-group-item border-bottom py-2">
+                            <i class="bi bi-check-circle text-success me-2"></i>Client locations
+                        </li>
+                        <li class="list-group-item py-2">
+                            <i class="bi bi-check-circle text-success me-2"></i>Industry-specific facilities
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="col-md-6">
+                    <h4 class="fs-5 fw-semibold mb-3">
+                        <i class="bi bi-clock me-2 text-primary"></i>Work Schedule
+                    </h4>
+                    <ul class="list-group list-group-flush mb-4">
+                        <li class="list-group-item border-bottom py-2">
+                            <i class="bi bi-calendar-week text-info me-2"></i>Standard business hours (may vary)
+                        </li>
+                        <li class="list-group-item border-bottom py-2">
+                            <i class="bi bi-moon text-info me-2"></i>Some evening or weekend work may be required
+                        </li>
+                        <li class="list-group-item border-bottom py-2">
+                            <i class="bi bi-laptop text-info me-2"></i>Flexibility for remote work in many positions
+                        </li>
+                        <li class="list-group-item py-2">
+                            <i class="bi bi-people text-info me-2"></i>Team collaboration and client meetings
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="alert alert-light border">
+                <h5 class="alert-heading">
+                    <i class="bi bi-lightbulb me-2 text-warning"></i>Work Environment Considerations
+                </h5>
+                <p class="mb-2">The specific work environment can vary significantly based on:</p>
+                <ul class="mb-0">
+                    <li>Industry sector and company size</li>
+                    <li>Geographic location and local market conditions</li>
+                    <li>Level of experience and seniority</li>
+                    <li>Specific role responsibilities and specialization</li>
+                    <li>Company culture and organizational structure</li>
+                </ul>
+            </div>
         </div>
     </div>
 </ui:composition>

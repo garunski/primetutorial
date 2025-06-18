@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+<ui:composition>
+    <div id="duties" class="card shadow-sm mb-4">
+        <div class="card-body">
+            <h2 class="fs-2 fw-semibold text-primary mb-3 pb-2 border-bottom">Job Duties</h2>
+            <p class="mb-4">The following outlines the main categories of duties and responsibilities for this occupation.</p>
+
+            <h:panelGroup rendered="#{careerView.occupation.hasDutiesFlag and careerView.occupation.duties != null and careerView.occupation.duties.size() > 0}">
+                <div class="accordion" id="dutiesAccordion">
+                    <ui:repeat value="#{careerView.occupation.duties}" var="duty" varStatus="status">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="heading#{status.index}">
+                                <button class="accordion-button #{status.index != 0 ? 'collapsed' : ''}" type="button" 
+                                        data-bs-toggle="collapse" data-bs-target="#collapse#{status.index}" 
+                                        aria-expanded="#{status.index == 0 ? 'true' : 'false'}" aria-controls="collapse#{status.index}">
+                                    <i class="bi bi-list-task me-2"></i>
+                                    #{duty.name}
+                                </button>
+                            </h2>
+                            <div id="collapse#{status.index}" class="accordion-collapse collapse #{status.index == 0 ? 'show' : ''}" 
+                                 aria-labelledby="heading#{status.index}" data-bs-parent="#dutiesAccordion">
+                                <div class="accordion-body">
+                                    <h:panelGroup rendered="#{duty.exampleList != null and duty.exampleList.size() > 0}">
+                                        <ul class="list-group list-group-flush">
+                                            <ui:repeat value="#{duty.exampleList}" var="example" varStatus="exampleStatus">
+                                                <li class="list-group-item #{!exampleStatus.last ? 'border-bottom' : ''} py-2">
+                                                    <i class="bi bi-arrow-right-short text-primary me-2"></i>#{example}
+                                                </li>
+                                            </ui:repeat>
+                                        </ul>
+                                    </h:panelGroup>
+                                    <h:panelGroup rendered="#{duty.exampleList == null or duty.exampleList.size() == 0}">
+                                        <p class="text-muted mb-0">No specific examples available for this duty category.</p>
+                                    </h:panelGroup>
+                                </div>
+                            </div>
+                        </div>
+                    </ui:repeat>
+                </div>
+            </h:panelGroup>
+            
+            <h:panelGroup rendered="#{!careerView.occupation.hasDutiesFlag or careerView.occupation.duties == null or careerView.occupation.duties.size() == 0}">
+                <p class="text-muted">Job duties information is not available for this occupation.</p>
+            </h:panelGroup>
+        </div>
+    </div>
+</ui:composition>
+</html> 

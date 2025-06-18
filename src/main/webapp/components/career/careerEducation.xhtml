@@ -17,53 +17,76 @@
                 <div class="table-responsive">
                     <table class="table table-bordered">
                         <tbody>
-                            <tr>
-                                <th class="bg-light" style="width: 40%">Time to Prepare</th>
-                                <td>Moderate Training (1-2 Years)</td>
-                            </tr>
-                            <tr>
-                                <th class="bg-light">Experience</th>
-                                <td>Previous work-related skill, knowledge, or experience is required for these occupations. For example, an electrician must have completed three or four years of apprenticeship or several years of vocational training, and often must have passed a licensing exam, in order to perform the job.</td>
-                            </tr>
-                            <tr>
-                                <th class="bg-light">Typical Path</th>
-                                <td>Most occupations at this level require training in vocational schools, related on-the-job experience, or an associate's degree. This usually takes 1-2 years of focused preparation.</td>
-                            </tr>
-                            <tr>
-                                <th class="bg-light">Training Details</th>
-                                <td>Employees in these occupations usually need one or two years of training involving both on-the-job experience and informal training with experienced workers. A recognized apprenticeship program may be associated with these occupations.</td>
-                            </tr>
-                            <tr>
-                                <th class="bg-light">Similar Occupations</th>
-                                <td>These occupations usually involve using communication and organizational skills to coordinate, supervise, manage, or train others to accomplish goals. Examples include food service managers, electricians, agricultural technicians, legal secretaries, interviewers, and insurance sales agents.</td>
-                            </tr>
+                            <h:panelGroup rendered="#{careerView.occupation.jobZoneName != null}">
+                                <tr>
+                                    <th class="bg-light" style="width: 40%">Job Zone</th>
+                                    <td>#{careerView.occupation.jobZoneName}</td>
+                                </tr>
+                            </h:panelGroup>
+                            <h:panelGroup rendered="#{careerView.occupation.jobZoneExperience != null}">
+                                <tr>
+                                    <th class="bg-light">Experience</th>
+                                    <td>#{careerView.occupation.jobZoneExperience}</td>
+                                </tr>
+                            </h:panelGroup>
+                            <h:panelGroup rendered="#{careerView.occupation.jobZoneEducation != null}">
+                                <tr>
+                                    <th class="bg-light">Education Requirements</th>
+                                    <td>#{careerView.occupation.jobZoneEducation}</td>
+                                </tr>
+                            </h:panelGroup>
+                            <h:panelGroup rendered="#{careerView.occupation.jobZoneTraining != null}">
+                                <tr>
+                                    <th class="bg-light">Training Details</th>
+                                    <td>#{careerView.occupation.jobZoneTraining}</td>
+                                </tr>
+                            </h:panelGroup>
+                            <h:panelGroup rendered="#{careerView.occupation.jobZoneExamples != null}">
+                                <tr>
+                                    <th class="bg-light">Similar Occupations</th>
+                                    <td>#{careerView.occupation.jobZoneExamples}</td>
+                                </tr>
+                            </h:panelGroup>
                         </tbody>
                     </table>
                 </div>
             </div>
 
-            <h3 class="fs-4 fw-semibold mb-3">Educational Paths</h3>
-            <p class="mb-3">Many actors enhance their skills through formal dramatic education. Common educational paths include:</p>
-            <ul class="list-group list-group-flush mb-4">
-                <li class="list-group-item border-bottom py-2">High school drama classes</li>
-                <li class="list-group-item border-bottom py-2">Bachelor's degree in theater arts, drama, or related field</li>
-                <li class="list-group-item border-bottom py-2">Master of Fine Arts (MFA) in acting</li>
-                <li class="list-group-item border-bottom py-2">Acting conservatories or specialized acting schools</li>
-                <li class="list-group-item py-2">Workshops and continuing education classes</li>
-            </ul>
+            <h:panelGroup rendered="#{careerView.occupation.hasSchoolsFlag and careerView.occupation.schools != null and careerView.occupation.schools.size() > 0}">
+                <h3 class="fs-4 fw-semibold mb-3">Educational Institutions</h3>
+                <p class="mb-3">Educational institutions that offer relevant programs:</p>
+                <ul class="list-group list-group-flush mb-4">
+                    <ui:repeat value="#{careerView.occupation.schools}" var="school" varStatus="status">
+                        <li class="list-group-item #{!status.last ? 'border-bottom' : ''} py-2">#{school.name}</li>
+                    </ui:repeat>
+                </ul>
+            </h:panelGroup>
 
-            <h3 class="fs-4 fw-semibold mb-3">School Programs</h3>
-            <p class="mb-3">The following programs are applicable to this occupation:</p>
-            <ul class="list-group list-group-flush mb-4">
-                <li class="list-group-item border-bottom py-2">Drama and Dramatics/Theatre Arts</li>
-                <li class="list-group-item border-bottom py-2">Acting</li>
-                <li class="list-group-item border-bottom py-2">Directing and Theatrical Production</li>
-                <li class="list-group-item border-bottom py-2">Playwriting and Screenwriting</li>
-                <li class="list-group-item border-bottom py-2">Theatre/Theatre Arts Management</li>
-                <li class="list-group-item py-2">Dramatic/Theatre Arts and Stagecraft</li>
-            </ul>
+            <h:panelGroup rendered="#{careerView.occupation.schoolPrograms != null and careerView.occupation.schoolPrograms.size() > 0}">
+                <h3 class="fs-4 fw-semibold mb-3">School Programs</h3>
+                <p class="mb-3">The following programs are applicable to this occupation:</p>
+                <ul class="list-group list-group-flush mb-4">
+                    <ui:repeat value="#{careerView.occupation.schoolPrograms}" var="program" varStatus="status">
+                        <li class="list-group-item #{!status.last ? 'border-bottom' : ''} py-2">#{program.name}</li>
+                    </ui:repeat>
+                </ul>
+            </h:panelGroup>
 
-            <p>Many actors also gain experience through community theater, school productions, or acting workshops before pursuing professional roles. Practical experience is highly valued in this field.</p>
+            <h:panelGroup rendered="#{careerView.occupation.hasLicenseFlag}">
+                <h3 class="fs-4 fw-semibold mb-3">Licensing Requirements</h3>
+                <div class="alert alert-info">
+                    <i class="bi bi-info-circle me-2"></i>
+                    This occupation may require specific licenses or certifications. Check with local and state requirements for your area.
+                </div>
+            </h:panelGroup>
+
+            <h:panelGroup rendered="#{careerView.occupation.hasApprenticeshipFlag and careerView.occupation.apprenticeableFlag}">
+                <h3 class="fs-4 fw-semibold mb-3">Apprenticeship Opportunities</h3>
+                <div class="alert alert-success">
+                    <i class="bi bi-award me-2"></i>
+                    This occupation offers apprenticeship opportunities which can provide hands-on training and education.
+                </div>
+            </h:panelGroup>
         </div>
     </div>
 </ui:composition>

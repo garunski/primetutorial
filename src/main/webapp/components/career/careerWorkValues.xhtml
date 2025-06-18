@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+<ui:composition>
+    <div id="work-values" class="card shadow-sm mb-4">
+        <div class="card-body">
+            <h2 class="fs-2 fw-semibold text-primary mb-3 pb-2 border-bottom">Work Values</h2>
+            <p class="mb-4">The following work values are important in this occupation and reflect what workers find fulfilling and motivating.</p>
+
+            <h:panelGroup rendered="#{careerView.occupation.hasWorkValuesFlag and careerView.occupation.workValues != null and careerView.occupation.workValues.size() > 0}">
+                <div class="row">
+                    <ui:repeat value="#{careerView.occupation.workValues}" var="workValue" varStatus="status">
+                        <div class="col-md-6 col-lg-4 mb-3">
+                            <div class="card shadow-sm h-100 border-start border-success border-3">
+                                <div class="card-body">
+                                    <h5 class="card-title fw-semibold text-success mb-2">
+                                        <i class="bi bi-star-fill me-2"></i>#{workValue.name}
+                                    </h5>
+                                    <h:panelGroup rendered="#{workValue.hasDescription and workValue.description != null}">
+                                        <p class="card-text text-muted">#{workValue.description}</p>
+                                    </h:panelGroup>
+                                </div>
+                            </div>
+                        </div>
+                    </ui:repeat>
+                </div>
+            </h:panelGroup>
+            
+            <h:panelGroup rendered="#{!careerView.occupation.hasWorkValuesFlag or careerView.occupation.workValues == null or careerView.occupation.workValues.size() == 0}">
+                <p class="text-muted">Work values information is not available for this occupation.</p>
+            </h:panelGroup>
+        </div>
+    </div>
+</ui:composition>
+</html> 

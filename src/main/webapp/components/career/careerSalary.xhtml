@@ -11,21 +11,119 @@
         <div class="card-body">
             <h2 class="fs-2 fw-semibold text-primary mb-3 pb-2 border-bottom">Salary &amp; Job Outlook</h2>
 
-            <h3 class="fs-4 fw-semibold mb-3">Salary Information</h3>
-            <p class="mb-3">In New York State, the average annual wage for actors is:</p>
-            <ul class="list-group list-group-flush mb-3">
-                <li class="list-group-item border-bottom py-2"><strong>Entry level:</strong> $44,630</li>
-                <li class="list-group-item py-2"><strong>Experienced:</strong> $116,730</li>
-            </ul>
-            <p class="text-muted mb-4">Wages shown here are calculated from an average hourly rate paid full time over a one year period. As these positions do not typically follow a 40-hour work week for the duration of a year, actual annual salaries may vary widely.</p>
+            <h:panelGroup rendered="#{careerView.occupation.hasWageFlag and careerView.occupation.wages != null}">
+                <h3 class="fs-4 fw-semibold mb-3">Salary Information</h3>
+                
+                <h:panelGroup rendered="#{careerView.occupation.wages.state != null}">
+                    <p class="mb-3">In #{careerView.occupation.wages.state}, the average annual wage for #{careerView.occupation.title} is:</p>
+                </h:panelGroup>
+                <h:panelGroup rendered="#{careerView.occupation.wages.state == null}">
+                    <p class="mb-3">Average annual wage information:</p>
+                </h:panelGroup>
+                
+                <ul class="list-group list-group-flush mb-3">
+                    <h:panelGroup rendered="#{careerView.occupation.wages.stateWageAnnualPct25EntryAmount != null}">
+                        <li class="list-group-item border-bottom py-2">
+                            <strong>Entry level:</strong> 
+                            <h:outputText value="#{careerView.occupation.wages.stateWageAnnualPct25EntryAmount}">
+                                <f:convertNumber type="currency" currencySymbol="$" />
+                            </h:outputText>
+                        </li>
+                    </h:panelGroup>
+                    <h:panelGroup rendered="#{careerView.occupation.wages.stateWageAnnualPct50MedianAmount != null}">
+                        <li class="list-group-item border-bottom py-2">
+                            <strong>Median:</strong> 
+                            <h:outputText value="#{careerView.occupation.wages.stateWageAnnualPct50MedianAmount}">
+                                <f:convertNumber type="currency" currencySymbol="$" />
+                            </h:outputText>
+                        </li>
+                    </h:panelGroup>
+                    <h:panelGroup rendered="#{careerView.occupation.wages.stateWageAnnualPct75ExperAmount != null}">
+                        <li class="list-group-item py-2">
+                            <strong>Experienced:</strong> 
+                            <h:outputText value="#{careerView.occupation.wages.stateWageAnnualPct75ExperAmount}">
+                                <f:convertNumber type="currency" currencySymbol="$" />
+                            </h:outputText>
+                        </li>
+                    </h:panelGroup>
+                    
+                    <!-- Fallback to national data if state data not available -->
+                    <h:panelGroup rendered="#{careerView.occupation.wages.stateWageAnnualPct25EntryAmount == null and careerView.occupation.wages.nationalWageAnnualPct25EntryAmount != null}">
+                        <li class="list-group-item border-bottom py-2">
+                            <strong>Entry level (National):</strong> 
+                            <h:outputText value="#{careerView.occupation.wages.nationalWageAnnualPct25EntryAmount}">
+                                <f:convertNumber type="currency" currencySymbol="$" />
+                            </h:outputText>
+                        </li>
+                    </h:panelGroup>
+                    <h:panelGroup rendered="#{careerView.occupation.wages.stateWageAnnualPct50MedianAmount == null and careerView.occupation.wages.nationalWageAnnualPct50MedianAmount != null}">
+                        <li class="list-group-item border-bottom py-2">
+                            <strong>Median (National):</strong> 
+                            <h:outputText value="#{careerView.occupation.wages.nationalWageAnnualPct50MedianAmount}">
+                                <f:convertNumber type="currency" currencySymbol="$" />
+                            </h:outputText>
+                        </li>
+                    </h:panelGroup>
+                    <h:panelGroup rendered="#{careerView.occupation.wages.stateWageAnnualPct75ExperAmount == null and careerView.occupation.wages.nationalWageAnnualPct75ExperAmount != null}">
+                        <li class="list-group-item py-2">
+                            <strong>Experienced (National):</strong> 
+                            <h:outputText value="#{careerView.occupation.wages.nationalWageAnnualPct75ExperAmount}">
+                                <f:convertNumber type="currency" currencySymbol="$" />
+                            </h:outputText>
+                        </li>
+                    </h:panelGroup>
+                </ul>
+                
+                <p class="text-muted mb-4">Wages shown here are calculated from an average hourly rate paid full time over a one year period. As these positions do not typically follow a 40-hour work week for the duration of a year, actual annual salaries may vary widely.</p>
 
-            <h3 class="fs-4 fw-semibold mb-3">Job Outlook</h3>
-            <p class="mb-3">Employment prospects for actors in New York State are described as <span class="badge bg-success text-white">Very Favorable</span>.</p>
-            <ul class="list-group list-group-flush">
-                <li class="list-group-item border-bottom py-2">During 2018, there were approximately 7,660 Actors employed in New York State.</li>
-                <li class="list-group-item border-bottom py-2">By 2030, this number is estimated to grow to 11,120, representing an increase of 346 jobs each year.</li>
-                <li class="list-group-item py-2">Total annual job openings: 1,362</li>
-            </ul>
+                <h3 class="fs-4 fw-semibold mb-3">Job Outlook</h3>
+                
+                <h:panelGroup rendered="#{careerView.occupation.wages.stateOnetEmpProspectDesc != null}">
+                    <p class="mb-3">Employment prospects for #{careerView.occupation.title} in #{careerView.occupation.wages.state} are described as 
+                        <span class="badge bg-success text-white">#{careerView.occupation.wages.stateOnetEmpProspectDesc}</span>.
+                    </p>
+                </h:panelGroup>
+                <h:panelGroup rendered="#{careerView.occupation.wages.stateOnetEmpProspectDesc == null and careerView.occupation.wages.regionOnetEmpProspectDesc != null}">
+                    <p class="mb-3">Employment prospects for #{careerView.occupation.title} in this region are described as 
+                        <span class="badge bg-success text-white">#{careerView.occupation.wages.regionOnetEmpProspectDesc}</span>.
+                    </p>
+                </h:panelGroup>
+                
+                <ul class="list-group list-group-flush">
+                    <h:panelGroup rendered="#{careerView.occupation.wages.stateEmplBaseAmount != null and careerView.occupation.wages.commonEmplBaseYear != null}">
+                        <li class="list-group-item border-bottom py-2">
+                            During #{careerView.occupation.wages.commonEmplBaseYear}, there were approximately 
+                            <h:outputText value="#{careerView.occupation.wages.stateEmplBaseAmount}">
+                                <f:convertNumber pattern="#,###" />
+                            </h:outputText> 
+                            #{careerView.occupation.title} employed in #{careerView.occupation.wages.state}.
+                        </li>
+                    </h:panelGroup>
+                    <h:panelGroup rendered="#{careerView.occupation.wages.stateEmplProjAmount != null and careerView.occupation.wages.commonEmplProjYear != null and careerView.occupation.wages.stateAnnualOpeningsGrowthAmount != null}">
+                        <li class="list-group-item border-bottom py-2">
+                            By #{careerView.occupation.wages.commonEmplProjYear}, this number is estimated to grow to 
+                            <h:outputText value="#{careerView.occupation.wages.stateEmplProjAmount}">
+                                <f:convertNumber pattern="#,###" />
+                            </h:outputText>, representing an increase of 
+                            <h:outputText value="#{careerView.occupation.wages.stateAnnualOpeningsGrowthAmount}">
+                                <f:convertNumber pattern="#,###" />
+                            </h:outputText> jobs each year.
+                        </li>
+                    </h:panelGroup>
+                    <h:panelGroup rendered="#{careerView.occupation.wages.stateAnnualOpeningsTotalAmount != null}">
+                        <li class="list-group-item py-2">
+                            Total annual job openings: 
+                            <h:outputText value="#{careerView.occupation.wages.stateAnnualOpeningsTotalAmount}">
+                                <f:convertNumber pattern="#,###" />
+                            </h:outputText>
+                        </li>
+                    </h:panelGroup>
+                </ul>
+            </h:panelGroup>
+            
+            <h:panelGroup rendered="#{!careerView.occupation.hasWageFlag or careerView.occupation.wages == null}">
+                <p class="text-muted">Salary and job outlook information is not available for this occupation.</p>
+            </h:panelGroup>
         </div>
     </div>
 </ui:composition>

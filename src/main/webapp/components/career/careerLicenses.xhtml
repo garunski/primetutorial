@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+<ui:composition>
+    <h:panelGroup rendered="#{careerView.occupation.hasLicenseFlag}">
+        <div id="licenses" class="card shadow-sm mb-4">
+            <div class="card-body">
+                <h2 class="fs-2 fw-semibold text-primary mb-3 pb-2 border-bottom">Licensing &amp; Certification</h2>
+                <div class="alert alert-warning">
+                    <h4 class="alert-heading">
+                        <i class="bi bi-shield-check me-2"></i>License Required
+                    </h4>
+                    <p class="mb-3">This occupation requires specific licenses or certifications to practice legally. Requirements may vary by state and locality.</p>
+                    <hr/>
+                    <p class="mb-0">
+                        <strong>Important:</strong> Always verify current licensing requirements with your state's licensing board or regulatory agency before pursuing this career path.
+                    </p>
+                </div>
+                
+                <div class="row">
+                    <div class="col-md-6">
+                        <h4 class="fs-5 fw-semibold mb-3">Common Requirements</h4>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item border-bottom py-2">
+                                <i class="bi bi-check-circle text-success me-2"></i>
+                                Complete required education/training
+                            </li>
+                            <li class="list-group-item border-bottom py-2">
+                                <i class="bi bi-check-circle text-success me-2"></i>
+                                Pass licensing examination
+                            </li>
+                            <li class="list-group-item border-bottom py-2">
+                                <i class="bi bi-check-circle text-success me-2"></i>
+                                Submit application with fees
+                            </li>
+                            <li class="list-group-item py-2">
+                                <i class="bi bi-check-circle text-success me-2"></i>
+                                Maintain continuing education requirements
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6">
+                        <h4 class="fs-5 fw-semibold mb-3">Next Steps</h4>
+                        <div class="card bg-light">
+                            <div class="card-body">
+                                <p class="mb-2">To learn more about licensing requirements:</p>
+                                <ul class="mb-0">
+                                    <li>Contact your state's licensing board</li>
+                                    <li>Review local regulatory requirements</li>
+                                    <li>Consult with professionals in the field</li>
+                                    <li>Check with educational institutions offering relevant programs</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </h:panelGroup>
+</ui:composition>
+</html> 

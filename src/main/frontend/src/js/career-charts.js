@@ -18,12 +18,26 @@ document.addEventListener('DOMContentLoaded', function() {
     const knowledgeRadarChartCanvas = document.getElementById('knowledge-radar-chart');
     console.log("Knowledge radar chart canvas found:", !!knowledgeRadarChartCanvas);
 
-    const knowledgeDataElements = document.querySelectorAll('#knowledge-data .knowledge-data');
-    console.log("Knowledge data elements found:", knowledgeDataElements.length);
+    const knowledgeDataElement = document.getElementById('knowledge-data');
+    console.log("Knowledge data element found:", !!knowledgeDataElement);
+
+    const workContextBarChartCanvas = document.getElementById('work-context-bar-chart');
+    console.log("Work context bar chart canvas found:", !!workContextBarChartCanvas);
+
+    const workContextDataElement = document.getElementById('work-context-data');
+    console.log("Work context data element found:", !!workContextDataElement);
+
+    const workStylesBarChartCanvas = document.getElementById('work-styles-bar-chart');
+    console.log("Work styles bar chart canvas found:", !!workStylesBarChartCanvas);
+
+    const workStylesDataElement = document.getElementById('work-styles-data');
+    console.log("Work styles data element found:", !!workStylesDataElement);
 
     // Initialize charts
     initializeSkillsRadarChart();
     initializeKnowledgeRadarChart();
+    initializeWorkContextBarChart();
+    initializeWorkStylesBarChart();
 
     console.log("Career Charts: Charts initialized successfully");
   } catch (error) {
@@ -114,89 +128,40 @@ function initializeKnowledgeRadarChart() {
       return;
     }
 
-    // Get the knowledge data from the hidden data elements
-    const knowledgeDataElements = document.querySelectorAll('#knowledge-data .knowledge-data');
-    if (knowledgeDataElements.length === 0) {
-      console.log("Career Charts: No knowledge data found on page");
+    // Get and parse the knowledge chart configuration
+    const knowledgeDataElement = document.getElementById('knowledge-data');
+    if (!knowledgeDataElement) {
+      console.log("Career Charts: Knowledge data element not found on page");
       return;
     }
 
-    console.log(`Career Charts: Found ${knowledgeDataElements.length} knowledge data elements`);
-
-    // Function to normalize values to a 0-1 scale
-    function normalizeValue(value, maxValue) {
-      return value / maxValue;
+    let chartConfig;
+    try {
+      const data = JSON.parse(knowledgeDataElement.textContent);
+      if (!data.chartConfig || !data.chartConfig.datasets || !Array.isArray(data.chartConfig.datasets)) {
+        console.error("Career Charts: Invalid knowledge chart configuration format");
+        return;
+      }
+      chartConfig = data.chartConfig;
+      console.log(`Career Charts: Found knowledge chart configuration with ${chartConfig.labels.length} knowledge areas`);
+    } catch (error) {
+      console.error("Career Charts: Error parsing knowledge chart configuration:", error);
+      return;
     }
 
-    // Extract the data for the chart
-    const knowledgeNames = [];
-    const importanceValues = [];
-    const levelValues = [];
-    const normalizedImportanceValues = [];
-    const normalizedLevelValues = [];
-
-    // Maximum values for each scale
-    const MAX_IMPORTANCE = 5;
-    const MAX_LEVEL = 7;
-
-    knowledgeDataElements.forEach((element, index) => {
-      try {
-        const name = element.getAttribute('data-name');
-        const importance = parseFloat(element.getAttribute('data-importance')) || 0;
-        const level = parseFloat(element.getAttribute('data-level')) || 0;
-
-        // Store original values for tooltips
-        knowledgeNames.push(name);
-        importanceValues.push(importance);
-        levelValues.push(level);
-
-        // Store normalized values for the chart (0-1 scale)
-        normalizedImportanceValues.push(normalizeValue(importance, MAX_IMPORTANCE));
-        normalizedLevelValues.push(normalizeValue(level, MAX_LEVEL));
-
-        console.log(`Career Charts: Processed knowledge ${name} with importance ${importance}/${MAX_IMPORTANCE} (normalized: ${normalizeValue(importance, MAX_IMPORTANCE).toFixed(2)}) and level ${level}/${MAX_LEVEL} (normalized: ${normalizeValue(level, MAX_LEVEL).toFixed(2)})`);
-      } catch (error) {
-        console.error(`Career Charts: Error processing knowledge data element ${index}:`, error);
-      }
-    });
-
-    // Create the radar chart
+    // Create the radar chart with the provided configuration
     new Chart(radarChartCanvas, {
       type: 'radar',
       data: {
-        labels: knowledgeNames,
-        datasets: [
-          {
-            label: 'Importance (out of 5)',
-            data: normalizedImportanceValues,
-            backgroundColor: 'rgba(11, 93, 102, 0.2)',
-            borderColor: 'rgba(11, 93, 102, 1)',
-            borderWidth: 2,
-            pointBackgroundColor: 'rgba(11, 93, 102, 1)',
-            pointBorderColor: '#fff',
-            pointHoverBackgroundColor: '#fff',
-            pointHoverBorderColor: 'rgba(11, 93, 102, 1)',
-            // Store original values for tooltips
-            originalData: importanceValues,
-            maxValue: MAX_IMPORTANCE
-          },
-          {
-            label: 'Level (out of 7)',
-            data: normalizedLevelValues,
-            backgroundColor: 'rgba(31, 41, 55, 0.2)',
-            borderColor: 'rgba(31, 41, 55, 1)',
-            borderWidth: 2,
-            pointBackgroundColor: 'rgba(31, 41, 55, 1)',
-            pointBorderColor: '#fff',
-            pointHoverBackgroundColor: '#fff',
-            pointHoverBorderColor: 'rgba(31, 41, 55, 1)',
-            // Store original values for tooltips
-            originalData: levelValues,
-            maxValue: MAX_LEVEL
-          }
-        ]
+        labels: chartConfig.labels,
+        datasets: chartConfig.datasets.map(dataset => ({
+          ...dataset,
+          data: dataset.normalizedData, // Use pre-normalized data
+          originalData: dataset.data // Keep original data for tooltips
+        }))
       },
       options: {
+        ...chartConfig.options,
         responsive: true,
         maintainAspectRatio: false,
         scales: {
@@ -205,14 +170,11 @@ function initializeKnowledgeRadarChart() {
             max: 1, // Normalized scale from 0 to 1
             ticks: {
               stepSize: 0.2,
-              callback: function(value) {
-                // Display percentages on the scale
-                return Math.round(value * 100) + '%';
-              }
+              display: false // Hide tick labels as per original config
             },
             pointLabels: {
               font: {
-                size: 14,
+                size: 12,
                 weight: 'bold'
               }
             }
@@ -226,12 +188,10 @@ function initializeKnowledgeRadarChart() {
             callbacks: {
               label: function(context) {
                 // Use the original values for tooltips
-                const datasetLabel = context.dataset.label || '';
+                const dataset = context.dataset;
                 const index = context.dataIndex;
-                const originalValue = context.dataset.originalData[index];
-                const maxValue = context.dataset.maxValue;
-
-                return `${datasetLabel}: ${originalValue}`;
+                const originalValue = dataset.originalData[index];
+                return `${dataset.label}: ${originalValue}`;
               }
             }
           }
@@ -239,126 +199,144 @@ function initializeKnowledgeRadarChart() {
       }
     });
 
-    console.log("Career Charts: Created knowledge radar chart");
+    console.log("Career Charts: Created knowledge radar chart successfully");
   } catch (error) {
     console.error("Career Charts: Error initializing knowledge radar chart:", error);
   }
 }
 
 /**
- * Initialize polar charts for knowledge areas (legacy function)
+ * Initialize the work context bar chart
  */
-function initializeKnowledgeCharts() {
+function initializeWorkContextBarChart() {
   try {
-    // Get all knowledge card elements
-    const knowledgeCards = document.querySelectorAll('.knowledge-card');
-    console.log(`Career Charts: Found ${knowledgeCards.length} knowledge cards`);
-
-    if (knowledgeCards.length === 0) {
-      console.log("Career Charts: No knowledge cards found on page");
+    // Get the bar chart canvas element
+    const barChartCanvas = document.getElementById('work-context-bar-chart');
+    if (!barChartCanvas) {
+      console.log("Career Charts: Work context bar chart canvas not found on page");
       return;
     }
 
-    // Process each knowledge card
-    knowledgeCards.forEach((card, index) => {
-      try {
-        // Get knowledge info element
-        const knowledgeHeading = card.querySelector('.knowledge-header h4');
-        if (!knowledgeHeading) {
-          console.warn(`Career Charts: Knowledge heading not found in card ${index}`);
-          return;
-        }
+    // Get and parse the work context chart configuration
+    const workContextDataElement = document.getElementById('work-context-data');
+    if (!workContextDataElement) {
+      console.log("Career Charts: Work context data element not found on page");
+      return;
+    }
 
-        const knowledgeName = knowledgeHeading.textContent;
-
-        // Get knowledge meter values
-        const importanceValueElement = card.querySelector('.knowledge-meter-value:first-of-type');
-        const levelValueElement = card.querySelector('.knowledge-meter-value:last-of-type');
-
-        if (!importanceValueElement || !levelValueElement) {
-          console.warn(`Career Charts: Knowledge meter values not found for ${knowledgeName}`);
-          return;
-        }
-
-        const importanceValue = parseFloat(importanceValueElement.textContent) || 0;
-        const levelValue = parseFloat(levelValueElement.textContent) || 0;
-
-        console.log(`Career Charts: Processing knowledge ${knowledgeName} with importance ${importanceValue} and level ${levelValue}`);
-
-        // Create a canvas element for the chart
-        const chartContainer = document.createElement('div');
-        chartContainer.className = 'knowledge-chart-container';
-        const canvas = document.createElement('canvas');
-        canvas.id = `knowledge-chart-${index}`;
-        chartContainer.appendChild(canvas);
-
-        // Replace the old knowledge meters with the new chart container
-        const oldKnowledgeMeters = card.querySelector('.knowledge-meters');
-        if (!oldKnowledgeMeters) {
-          console.warn(`Career Charts: Knowledge meters element not found for ${knowledgeName}`);
-          return;
-        }
-
-        oldKnowledgeMeters.parentNode.replaceChild(chartContainer, oldKnowledgeMeters);
-
-        // Create the chart
-        new Chart(canvas, {
-          type: 'radar',
-          data: {
-            labels: ['Importance', 'Level'],
-            datasets: [{
-              label: knowledgeName,
-              data: [importanceValue, levelValue],
-              backgroundColor: 'rgba(11, 93, 102, 0.2)',
-              borderColor: 'rgba(11, 93, 102, 1)',
-              borderWidth: 2,
-              pointBackgroundColor: 'rgba(11, 93, 102, 1)',
-              pointBorderColor: '#fff',
-              pointHoverBackgroundColor: '#fff',
-              pointHoverBorderColor: 'rgba(11, 93, 102, 1)'
-            }]
-          },
-          options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            scales: {
-              r: {
-                min: 0,
-                max: 7,
-                ticks: {
-                  stepSize: 1
-                },
-                pointLabels: {
-                  font: {
-                    size: 14,
-                    weight: 'bold'
-                  }
-                }
-              }
-            },
-            plugins: {
-              legend: {
-                position: 'bottom'
-              },
-              tooltip: {
-                callbacks: {
-                  label: function(context) {
-                    const label = context.dataset.label || '';
-                    const value = context.raw || 0;
-                    return `${label}: ${value}`;
-                  }
-                }
-              }
-            }
-          }
-        });
-
-        console.log(`Career Charts: Created chart for knowledge ${knowledgeName}`);
-      } catch (error) {
-        console.error(`Career Charts: Error processing knowledge card ${index}:`, error);
+    let chartConfig;
+    try {
+      const data = JSON.parse(workContextDataElement.textContent);
+      if (!data.chartConfig || !data.chartConfig.datasets || !Array.isArray(data.chartConfig.datasets)) {
+        console.error("Career Charts: Invalid work context chart configuration format");
+        return;
       }
+      chartConfig = data.chartConfig;
+      console.log(`Career Charts: Found work context chart configuration with ${chartConfig.labels.length} work context factors`);
+    } catch (error) {
+      console.error("Career Charts: Error parsing work context chart configuration:", error);
+      return;
+    }
+
+    // Process chart configuration and convert function strings to actual functions
+    const processedOptions = { ...chartConfig.options };
+    if (processedOptions.plugins && processedOptions.plugins.tooltip && processedOptions.plugins.tooltip.callbacks) {
+      const callbacks = processedOptions.plugins.tooltip.callbacks;
+      Object.keys(callbacks).forEach(key => {
+        if (typeof callbacks[key] === 'string' && callbacks[key].startsWith('function')) {
+          try {
+            callbacks[key] = eval('(' + callbacks[key] + ')');
+          } catch (e) {
+            console.warn(`Could not convert tooltip callback ${key} to function:`, e);
+          }
+        }
+      });
+    }
+
+    // Create the bar chart with the processed configuration
+    new Chart(barChartCanvas, {
+      type: chartConfig.type,
+      data: {
+        labels: chartConfig.labels,
+        datasets: chartConfig.datasets
+      },
+      options: processedOptions
     });
+
+    console.log("Career Charts: Created work context bar chart successfully");
   } catch (error) {
-    console.error("Career Charts: Error initializing knowledge charts:", error);
+    console.error("Career Charts: Error initializing work context bar chart:", error);
   }
+}
+
+/**
+ * Initialize the work styles bar chart
+ */
+function initializeWorkStylesBarChart() {
+  try {
+    // Get the bar chart canvas element
+    const barChartCanvas = document.getElementById('work-styles-bar-chart');
+    if (!barChartCanvas) {
+      console.log("Career Charts: Work styles bar chart canvas not found on page");
+      return;
+    }
+
+    // Get and parse the work styles chart configuration
+    const workStylesDataElement = document.getElementById('work-styles-data');
+    if (!workStylesDataElement) {
+      console.log("Career Charts: Work styles data element not found on page");
+      return;
+    }
+
+    let chartConfig;
+    try {
+      const data = JSON.parse(workStylesDataElement.textContent);
+      if (!data.chartConfig || !data.chartConfig.datasets || !Array.isArray(data.chartConfig.datasets)) {
+        console.error("Career Charts: Invalid work styles chart configuration format");
+        return;
+      }
+      chartConfig = data.chartConfig;
+      console.log(`Career Charts: Found work styles chart configuration with ${chartConfig.labels.length} work style factors`);
+    } catch (error) {
+      console.error("Career Charts: Error parsing work styles chart configuration:", error);
+      return;
+    }
+
+    // Process chart configuration and convert function strings to actual functions
+    const processedOptions = { ...chartConfig.options };
+    if (processedOptions.plugins && processedOptions.plugins.tooltip && processedOptions.plugins.tooltip.callbacks) {
+      const callbacks = processedOptions.plugins.tooltip.callbacks;
+      Object.keys(callbacks).forEach(key => {
+        if (typeof callbacks[key] === 'string' && callbacks[key].startsWith('function')) {
+          try {
+            callbacks[key] = eval('(' + callbacks[key] + ')');
+          } catch (e) {
+            console.warn(`Could not convert tooltip callback ${key} to function:`, e);
+          }
+        }
+      });
+    }
+
+    // Create the bar chart with the processed configuration
+    new Chart(barChartCanvas, {
+      type: chartConfig.type,
+      data: {
+        labels: chartConfig.labels,
+        datasets: chartConfig.datasets
+      },
+      options: processedOptions
+    });
+
+    console.log("Career Charts: Created work styles bar chart successfully");
+  } catch (error) {
+    console.error("Career Charts: Error initializing work styles bar chart:", error);
+  }
+}
+
+/**
+ * Initialize polar charts for knowledge areas (legacy function - deprecated)
+ * This function is kept for backward compatibility but is no longer used
+ */
+function initializeKnowledgeCharts() {
+  console.warn("Career Charts: initializeKnowledgeCharts is deprecated. Using dynamic JSON-based approach instead.");
 }

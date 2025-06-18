@@ -12,82 +12,134 @@
             <h2 class="fs-2 fw-semibold text-primary mb-3 pb-2 border-bottom">Knowledge Areas</h2>
             <p class="mb-4">The list below includes knowledge items, the principles and facts required by this occupation.</p>
 
-            <div class="row mb-4">
-                <div class="col-md-12">
-                    <!-- Radar chart container -->
-                    <div class="knowledge-radar-container bg-white p-3 rounded shadow-sm mx-auto position-relative">
-                        <canvas id="knowledge-radar-chart"></canvas>
-                    </div>
+            <h:panelGroup rendered="#{careerView.occupation.hasKnowledgeFlag and careerView.occupation.knowledge != null and careerView.occupation.knowledge.size() > 0}">
+                <div class="row mb-4">
+                    <div class="col-md-12">
+                        <!-- Radar chart container -->
+                        <div class="knowledge-radar-container bg-white p-3 rounded shadow-sm mx-auto position-relative">
+                            <canvas id="knowledge-radar-chart"></canvas>
+                        </div>
 
-                    <!-- Knowledge legend and descriptions -->
-                    <div class="mt-4">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="card shadow-sm mb-4 p-3">
-                                    <h4 class="fs-5 fw-semibold text-dark mb-2">Fine Arts</h4>
-                                    <p class="text-muted small mb-3">Knowledge of the theory and techniques required to compose, produce, and perform works of music, dance, visual arts, drama, and sculpture.</p>
-                                    <div class="d-flex flex-wrap gap-3">
-                                        <span class="small text-muted">Importance: <strong class="text-primary">4.67</strong>/5</span>
-                                        <span class="small text-muted">Level: <strong class="text-primary">5.85</strong>/7</span>
-                                    </div>
+                        <!-- Knowledge legend and descriptions -->
+                        <div class="mt-4">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <ui:repeat value="#{careerView.occupation.knowledge}" var="knowledge" varStatus="status">
+                                        <h:panelGroup rendered="#{status.index mod 2 == 0}">
+                                            <div class="card shadow-sm mb-4 p-3">
+                                                <h4 class="fs-5 fw-semibold text-dark mb-2">#{knowledge.skill}</h4>
+                                                <p class="text-muted small mb-3">#{knowledge.description}</p>
+                                                <div class="d-flex flex-wrap gap-3">
+                                                    <span class="small text-muted">Importance: <strong class="text-primary">#{knowledge.impValue}</strong>/5</span>
+                                                    <span class="small text-muted">Level: <strong class="text-primary">#{knowledge.levelValue}</strong>/7</span>
+                                                </div>
+                                            </div>
+                                        </h:panelGroup>
+                                    </ui:repeat>
                                 </div>
 
-                                <div class="card shadow-sm mb-4 p-3">
-                                    <h4 class="fs-5 fw-semibold text-dark mb-2">English Language</h4>
-                                    <p class="text-muted small mb-3">Knowledge of the structure and content of the English language including the meaning and spelling of words, and rules of composition and grammar.</p>
-                                    <div class="d-flex flex-wrap gap-3">
-                                        <span class="small text-muted">Importance: <strong class="text-primary">4.25</strong>/5</span>
-                                        <span class="small text-muted">Level: <strong class="text-primary">4.50</strong>/7</span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-md-6">
-                                <div class="card shadow-sm mb-4 p-3">
-                                    <h4 class="fs-5 fw-semibold text-dark mb-2">Communications and Media</h4>
-                                    <p class="text-muted small mb-3">Knowledge of media production, communication, and dissemination techniques and methods.</p>
-                                    <div class="d-flex flex-wrap gap-3">
-                                        <span class="small text-muted">Importance: <strong class="text-primary">3.88</strong>/5</span>
-                                        <span class="small text-muted">Level: <strong class="text-primary">4.12</strong>/7</span>
-                                    </div>
-                                </div>
-
-                                <div class="card shadow-sm mb-4 p-3">
-                                    <h4 class="fs-5 fw-semibold text-dark mb-2">Psychology</h4>
-                                    <p class="text-muted small mb-3">Knowledge of human behavior and performance; individual differences in ability, personality, and interests; learning and motivation.</p>
-                                    <div class="d-flex flex-wrap gap-3">
-                                        <span class="small text-muted">Importance: <strong class="text-primary">3.75</strong>/5</span>
-                                        <span class="small text-muted">Level: <strong class="text-primary">3.88</strong>/7</span>
-                                    </div>
+                                <div class="col-md-6">
+                                    <ui:repeat value="#{careerView.occupation.knowledge}" var="knowledge" varStatus="status">
+                                        <h:panelGroup rendered="#{status.index mod 2 == 1}">
+                                            <div class="card shadow-sm mb-4 p-3">
+                                                <h4 class="fs-5 fw-semibold text-dark mb-2">#{knowledge.skill}</h4>
+                                                <p class="text-muted small mb-3">#{knowledge.description}</p>
+                                                <div class="d-flex flex-wrap gap-3">
+                                                    <span class="small text-muted">Importance: <strong class="text-primary">#{knowledge.impValue}</strong>/5</span>
+                                                    <span class="small text-muted">Level: <strong class="text-primary">#{knowledge.levelValue}</strong>/7</span>
+                                                </div>
+                                            </div>
+                                        </h:panelGroup>
+                                    </ui:repeat>
                                 </div>
                             </div>
                         </div>
-                    </div>
 
-                    <!-- Hidden data for the chart -->
-                    <div id="knowledge-data" class="d-none">
-                        <div class="knowledge-data"
-                             data-name="Fine Arts"
-                             data-importance="4.67"
-                             data-level="5.85"></div>
-                        <div class="knowledge-data"
-                             data-name="English Language"
-                             data-importance="4.25"
-                             data-level="4.50"></div>
-                        <div class="knowledge-data"
-                             data-name="Communications and Media"
-                             data-importance="3.88"
-                             data-level="4.12"></div>
-                        <div class="knowledge-data"
-                             data-name="Psychology"
-                             data-importance="3.75"
-                             data-level="3.88"></div>
-                    </div>
+                        <!-- Knowledge data in JSON format for the chart -->
+                        <script type="application/json" id="knowledge-data">
+                            {
+                                "chartConfig": {
+                                    "labels": [
+                                        <ui:repeat value="#{careerView.occupation.knowledge}" var="knowledge" varStatus="status">
+                                            "#{knowledge.skill}"#{!status.last ? ',' : ''}
+                                        </ui:repeat>
+                                    ],
+                                    "datasets": [
+                                        {
+                                            "label": "Importance (out of 5)",
+                                            "data": [
+                                                <ui:repeat value="#{careerView.occupation.knowledge}" var="knowledge" varStatus="status">
+                                                    #{knowledge.impValue}#{!status.last ? ',' : ''}
+                                                </ui:repeat>
+                                            ],
+                                            "normalizedData": [
+                                                <ui:repeat value="#{careerView.occupation.knowledge}" var="knowledge" varStatus="status">
+                                                    #{knowledge.impValue / 5.0}#{!status.last ? ',' : ''}
+                                                </ui:repeat>
+                                            ],
+                                            "maxValue": 5,
+                                            "backgroundColor": "rgba(11, 93, 102, 0.2)",
+                                            "borderColor": "rgba(11, 93, 102, 1)",
+                                            "borderWidth": 2,
+                                            "pointBackgroundColor": "rgba(11, 93, 102, 1)",
+                                            "pointBorderColor": "#fff",
+                                            "pointHoverBackgroundColor": "#fff",
+                                            "pointHoverBorderColor": "rgba(11, 93, 102, 1)"
+                                        },
+                                        {
+                                            "label": "Level (out of 7)",
+                                            "data": [
+                                                <ui:repeat value="#{careerView.occupation.knowledge}" var="knowledge" varStatus="status">
+                                                    #{knowledge.levelValue}#{!status.last ? ',' : ''}
+                                                </ui:repeat>
+                                            ],
+                                            "normalizedData": [
+                                                <ui:repeat value="#{careerView.occupation.knowledge}" var="knowledge" varStatus="status">
+                                                    #{knowledge.levelValue / 7.0}#{!status.last ? ',' : ''}
+                                                </ui:repeat>
+                                            ],
+                                            "maxValue": 7,
+                                            "backgroundColor": "rgba(31, 41, 55, 0.2)",
+                                            "borderColor": "rgba(31, 41, 55, 1)",
+                                            "borderWidth": 2,
+                                            "pointBackgroundColor": "rgba(31, 41, 55, 1)",
+                                            "pointBorderColor": "#fff",
+                                            "pointHoverBackgroundColor": "#fff",
+                                            "pointHoverBorderColor": "rgba(31, 41, 55, 1)"
+                                        }
+                                    ],
+                                    "options": {
+                                        "scales": {
+                                            "r": {
+                                                "min": 0,
+                                                "max": 1,
+                                                "ticks": {
+                                                    "stepSize": 0.2,
+                                                    "display": false
+                                                }
+                                            }
+                                        },
+                                        "plugins": {
+                                            "tooltip": {
+                                                "callbacks": {
+                                                    "label": "function(context) { return context.dataset.label + ': ' + context.raw; }"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        </script>
 
-                    <p class="small text-muted mt-2">* Knowledge importance is measured on a five point scale, where one means 'slightly important' and five means 'extremely important'.<br/>
-                    * Knowledge level is measured on a seven point scale, where one means 'some competence required' and seven means 'a high level of expertise required'.</p>
+                        <p class="small text-muted mt-2">* Knowledge importance is measured on a five point scale, where one means 'slightly important' and five means 'extremely important'.<br/>
+                        * Knowledge level is measured on a seven point scale, where one means 'some competence required' and seven means 'a high level of expertise required'.</p>
+                    </div>
                 </div>
-            </div>
+            </h:panelGroup>
+            
+            <h:panelGroup rendered="#{!careerView.occupation.hasKnowledgeFlag or careerView.occupation.knowledge == null or careerView.occupation.knowledge.size() == 0}">
+                <p class="text-muted">Knowledge area information is not available for this occupation.</p>
+            </h:panelGroup>
         </div>
     </div>
 </ui:composition>
