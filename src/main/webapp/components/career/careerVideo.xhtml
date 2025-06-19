@@ -9,31 +9,159 @@
 >
   <ui:composition>
     <h:panelGroup id="video" rendered="#{careerView.occupation.hasVideoFlag}">
-      <div class="card shadow-sm mb-4">
-        <div class="card-body">
-          <h2 class="card-title fs-3 fw-semibold text-primary mb-3">Career Video</h2>
+      <div class="video-card mb-4">
+        <!-- Left side: Video -->
+        <div class="video-container">
+          <iframe
+            src="#{careerView.occupation.videoUrl}"
+            title="#{careerView.occupation.title} Career Video"
+            allowfullscreen="true"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            style="width: 600px; height: 300px; border: none;"
+          >
+          </iframe>
+        </div>
+        
+        <!-- Right side: Content -->
+        <div class="content-container">
+          <!-- Title with accent -->
+          <div class="content-header">
+            <div class="accent-line"></div>
+            <h2>Career Video</h2>
+          </div>
           
-          <!-- Video container with fixed size and centered -->
-          <div class="d-flex justify-content-center mb-3">
-            <div style="width: 600px; height: 300px;">
-              <iframe
-                src="#{careerView.occupation.videoUrl}"
-                title="#{careerView.occupation.title} Career Video"
-                allowfullscreen="true"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                class="border-0 rounded-3 shadow-sm"
-                style="width: 100%; height: 100%;"
-              >
-              </iframe>
+          <!-- Occupation pill -->
+          <div class="occupation-pill">
+            #{careerView.occupation.title}
+          </div>
+          
+          <!-- Feature pills -->
+          <div class="feature-pills">
+            <div class="feature-pill">
+              <div class="pill-dot"></div>
+              <span>Day in the life</span>
+            </div>
+            <div class="feature-pill">
+              <div class="pill-dot"></div>
+              <span>Work environment</span>
+            </div>
+            <div class="feature-pill">
+              <div class="pill-dot"></div>
+              <span>Key responsibilities</span>
             </div>
           </div>
           
-          <!-- Simple caption -->
-          <div class="text-center">
-            <p class="text-muted">Learn more about the day-to-day responsibilities of a #{careerView.occupation.title}</p>
+          <!-- Call to action -->
+          <div class="video-cta">
+            Watch to learn more
           </div>
         </div>
       </div>
+      
+      <style>
+        .video-card {
+          display: flex;
+          background: white;
+          border-radius: 8px;
+          box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+          overflow: hidden;
+        }
+        
+        .video-container {
+          flex: 0 0 600px;
+          background: #000;
+        }
+        
+        .content-container {
+          flex: 1;
+          padding: 24px;
+          display: flex;
+          flex-direction: column;
+        }
+        
+        .content-header {
+          display: flex;
+          align-items: center;
+          margin-bottom: 16px;
+        }
+        
+        .accent-line {
+          width: 4px;
+          height: 24px;
+          background: #3498db;
+          margin-right: 12px;
+          border-radius: 2px;
+        }
+        
+        .content-header h2 {
+          margin: 0;
+          font-size: 1.5rem;
+          font-weight: 600;
+          color: #2c3e50;
+        }
+        
+        .occupation-pill {
+          background: #f8f9fa;
+          color: #2c3e50;
+          font-weight: 500;
+          padding: 8px 16px;
+          border-radius: 50px;
+          display: inline-block;
+          margin-bottom: 20px;
+          border: 1px solid #e9ecef;
+        }
+        
+        .feature-pills {
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+          margin-bottom: 24px;
+        }
+        
+        .feature-pill {
+          display: flex;
+          align-items: center;
+        }
+        
+        .pill-dot {
+          width: 8px;
+          height: 8px;
+          background: #3498db;
+          border-radius: 50%;
+          margin-right: 12px;
+        }
+        
+        .feature-pill span {
+          color: #495057;
+        }
+        
+        .video-cta {
+          margin-top: auto;
+          background: #3498db;
+          color: white;
+          padding: 10px 16px;
+          border-radius: 4px;
+          font-weight: 500;
+          text-align: center;
+          font-size: 0.9rem;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 992px) {
+          .video-card {
+            flex-direction: column;
+          }
+          
+          .video-container {
+            flex: auto;
+            width: 100%;
+          }
+          
+          .content-container {
+            padding: 16px;
+          }
+        }
+      </style>
     </h:panelGroup>
   </ui:composition>
 </html>
