@@ -118,3 +118,33 @@
     border-left-color: $success !important;
   }
 }
+
+// Career Video Component Styles
+.career-video-badge {
+  transition: all 0.2s;
+  cursor: help;
+  font-weight: 500;
+  font-size: 1rem;
+  padding: 0.5rem 1rem !important;
+  color: #000 !important; // Black text for better accessibility
+  
+  &.interest-badge {
+    background-color: rgba($primary, 0.15);
+  }
+  
+  &.value-badge {
+    background-color: rgba($warning, 0.15);
+  }
+  
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+}
+
+// Responsive adjustments for career video
+@media (max-width: 768px) {
+  .card-body {
+    flex-direction: column;
+  }
+}
