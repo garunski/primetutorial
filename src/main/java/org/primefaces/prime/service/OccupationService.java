@@ -33,6 +33,10 @@ public class OccupationService {
             
             occupation = objectMapper.readValue(inputStream, Occupation.class);
             logger.info("Successfully loaded occupation: " + occupation.getTitle());
+
+            if (occupation.getHasVideoFlag()) {
+                occupation.setVideoUrl("https://www.youtube.com/embed/yd3MvZEdQi4");
+            }
             
         } catch (IOException e) {
             logger.severe("Error loading occupation data: " + e.getMessage());

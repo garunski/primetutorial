@@ -8,31 +8,33 @@
   xmlns:p="http://primefaces.org/ui"
 >
   <ui:composition>
-    <div id="careerVideo" class="card shadow-sm mb-4">
-      <div class="card-body">
-        <h2 class="fs-2 fw-semibold text-primary mb-3 pb-2 border-bottom">
-          Career Video
-        </h2>
-        <!-- Video container with centered content and responsive sizing -->
-        <div class="d-flex justify-content-center mb-3">
-          <div class="ratio ratio-16x9" style="max-width: 800px; max-height: 450px;">
+    <h:panelGroup id="video" rendered="#{careerView.occupation.hasVideoFlag}">
+      <div class="card shadow-sm mb-4">
+        <div class="card-body">
+          <!-- Header Section -->
+          <div class="d-flex align-items-center mb-3">
+            <div class="bg-primary rounded-circle p-2 me-3">
+              <i class="bi bi-play-fill text-white fs-4"></i>
+            </div>
+            <div>
+              <h2 class="fs-2 fw-semibold text-primary mb-1">Career Video</h2>
+              <p class="text-muted mb-0">See this career in action</p>
+            </div>
+          </div>
+
+          <!-- Responsive Video Embed -->
+          <div class="ratio ratio-16x9">
             <iframe
-              src="https://www.youtube.com/embed/#{empty job.videoId ? 'dQw4w9WgXcQ' : job.videoId}"
-              title="Career Video for #{job.title}"
+              src="#{careerView.occupation.videoUrl}"
+              title="#{careerView.occupation.title} Career Video"
               allowfullscreen="true"
-              class="rounded"
-              width="600"
-              height="300"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              class="border-0 rounded"
             >
             </iframe>
           </div>
         </div>
-        <p class="text-muted">
-          <i class="bi bi-info-circle me-1"></i>
-          This video provides an overview of what it's like to work as
-          #{job.title}.
-        </p>
       </div>
-    </div>
+    </h:panelGroup>
   </ui:composition>
 </html>

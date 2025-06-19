@@ -67,6 +67,7 @@ public class Occupation {
     private String clusterLinkID;
     private List<CareerCluster> careerClusters;
     private Boolean hasClustersFlag;
+    private String videoUrl;
 
     // Default constructor
     public Occupation() {}
@@ -260,4 +261,7 @@ public class Occupation {
 
     public Boolean getHasClustersFlag() { return hasClustersFlag; }
     public void setHasClustersFlag(Boolean hasClustersFlag) { this.hasClustersFlag = hasClustersFlag; }
+
+    public String getVideoUrl() { return videoUrl; }
+    public void setVideoUrl(String videoUrl) { this.videoUrl = videoUrl; }
 } 
