@@ -10,27 +10,27 @@
   <ui:composition>
     <h:panelGroup id="video" rendered="#{careerView.occupation.hasVideoFlag}">
       <div class="video-card mb-4">
-        <!-- Left side: Video -->
+        <!-- Video container -->
         <div class="video-container">
           <iframe
             src="#{careerView.occupation.videoUrl}"
             title="#{careerView.occupation.title} Career Video"
             allowfullscreen="true"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            style="width: 600px; height: 300px; border: none;"
+            style="width: 100%; height: 100%; border: none;"
           >
           </iframe>
         </div>
         
-        <!-- Right side: Content -->
-        <div class="content-container">
-          <!-- Interests with tooltips -->
+        <!-- Content sections -->
+        <div class="info-sections">
+          <!-- Interests section -->
           <h:panelGroup rendered="#{careerView.occupation.hasInterestsFlag}" styleClass="info-section">
-            <h3 class="info-header">Interests</h3>
-            <div class="info-pills">
+            <div class="section-label">INTERESTS</div>
+            <div class="tag-row">
               <ui:repeat value="#{careerView.occupation.interests}" var="interest" varStatus="status">
-                <h:panelGroup rendered="#{status.index lt 4}">
-                  <div class="info-pill interest-pill" data-bs-toggle="tooltip" data-bs-placement="top" title="#{interest.description}">
+                <h:panelGroup rendered="#{status.index lt 3}">
+                  <div class="career-tag interest-tag" data-bs-toggle="tooltip" data-bs-placement="top" title="#{interest.description}">
                     #{interest.name}
                   </div>
                 </h:panelGroup>
@@ -38,13 +38,13 @@
             </div>
           </h:panelGroup>
           
-          <!-- Work Values with tooltips -->
+          <!-- Work Values section -->
           <h:panelGroup rendered="#{careerView.occupation.hasWorkValuesFlag}" styleClass="info-section">
-            <h3 class="info-header">Work Values</h3>
-            <div class="info-pills">
+            <div class="section-label">WORK VALUES</div>
+            <div class="tag-row">
               <ui:repeat value="#{careerView.occupation.workValues}" var="workValue" varStatus="status">
-                <h:panelGroup rendered="#{status.index lt 4}">
-                  <div class="info-pill value-pill" data-bs-toggle="tooltip" data-bs-placement="top" title="#{workValue.description}">
+                <h:panelGroup rendered="#{status.index lt 3}">
+                  <div class="career-tag value-tag" data-bs-toggle="tooltip" data-bs-placement="top" title="#{workValue.description}">
                     #{workValue.name}
                   </div>
                 </h:panelGroup>
@@ -56,88 +56,80 @@
       
       <style>
         .video-card {
-          display: flex;
           background: white;
           border-radius: 8px;
           box-shadow: 0 4px 20px rgba(0,0,0,0.08);
           overflow: hidden;
+          display: flex;
+          flex-direction: column;
         }
         
         .video-container {
-          flex: 0 0 600px;
+          width: 100%;
+          height: 400px;
           background: #000;
         }
         
-        .content-container {
-          flex: 1;
+        .info-sections {
           padding: 24px;
           display: flex;
-          flex-direction: column;
-          max-width: 300px;
-          justify-content: center;
+          gap: 32px;
+          background: white;
         }
         
         .info-section {
-          margin-bottom: 20px;
+          flex: 1;
         }
         
-        .info-section:last-child {
-          margin-bottom: 0;
-        }
-        
-        .info-header {
-          font-size: 1rem;
+        .section-label {
+          font-size: 0.85rem;
           font-weight: 600;
-          margin: 0 0 12px 0;
-          color: #2c3e50;
+          color: #666;
+          margin-bottom: 16px;
+          letter-spacing: 1px;
         }
         
-        .info-pills {
+        .tag-row {
           display: flex;
           flex-wrap: wrap;
-          gap: 8px;
+          gap: 10px;
         }
         
-        .info-pill {
-          padding: 6px 12px;
+        .career-tag {
+          padding: 8px 16px;
           border-radius: 50px;
-          font-size: 0.85rem;
+          font-size: 0.9rem;
+          background: white;
+          box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+          transition: all 0.2s;
           cursor: help;
-          transition: background-color 0.2s;
+          border: 1px solid;
         }
         
-        .interest-pill {
-          background: #e9f7fe;
+        .interest-tag {
+          border-color: #3498db;
           color: #3498db;
         }
         
-        .interest-pill:hover {
-          background: #d0ebf6;
-        }
-        
-        .value-pill {
-          background: #fef5e9;
+        .value-tag {
+          border-color: #e67e22;
           color: #e67e22;
         }
         
-        .value-pill:hover {
-          background: #fdecd0;
+        .career-tag:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 4px 8px rgba(0,0,0,0.1);
         }
         
         /* Responsive adjustments */
-        @media (max-width: 992px) {
-          .video-card {
+        @media (max-width: 768px) {
+          .info-sections {
             flex-direction: column;
+            gap: 24px;
           }
           
           .video-container {
-            flex: auto;
-            width: 100%;
-          }
-          
-          .content-container {
-            padding: 16px;
-            max-width: none;
+            height: 300px;
           }
         }
       </style>
