@@ -11,17 +11,7 @@
     <h:panelGroup id="video" rendered="#{careerView.occupation.hasVideoFlag}">
       <div class="card shadow-sm mb-4">
         <div class="card-body">
-          <!-- Header Section -->
-          <div class="d-flex align-items-center mb-3">
-            <div class="bg-primary rounded-circle p-2 me-3">
-              <i class="bi bi-play-fill text-white fs-4"></i>
-            </div>
-            <div>
-              <h2 class="fs-2 fw-semibold text-primary mb-1">Career Video</h2>
-              <p class="text-muted mb-0">See this career in action</p>
-            </div>
-          </div>
-
+          <h2 class="card-title fs-3 fw-semibold text-primary mb-3">Career Video</h2>
           <!-- Responsive Video Embed -->
           <div class="ratio ratio-16x9">
             <iframe
@@ -29,7 +19,7 @@
               title="#{careerView.occupation.title} Career Video"
               allowfullscreen="true"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              class="border-0 rounded"
+              class="border-0 rounded-3"
             >
             </iframe>
           </div>
