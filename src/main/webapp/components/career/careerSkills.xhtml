@@ -21,56 +21,29 @@
 
                     <!-- Skills legend and descriptions -->
                     <div class="mt-4">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <ui:repeat value="#{careerView.occupation.skills}" var="skill" varStatus="status">
-                                    <h:panelGroup rendered="#{status.index lt 2}">
-                                        <div class="card shadow-sm mb-4 p-3">
-                                            <h4 class="fs-5 fw-semibold text-dark mb-2">#{skill.skill}</h4>
-                                            <p class="text-muted small mb-3">#{skill.description}</p>
+                        <div class="row g-3">
+                            <ui:repeat value="#{careerView.occupation.skills}" var="skill" varStatus="status">
+                                <div class="col-12 col-md-6">
+                                    <div class="card shadow-sm h-100 p-3">
+                                        <h4 class="fs-5 fw-semibold text-dark mb-2">#{skill.skill}</h4>
+                                        <p class="text-muted small mb-3">#{skill.description}</p>
 
-                                            <div class="d-flex flex-wrap gap-3 mt-2">
-                                                <!-- Importance Badge -->
-                                                <span class="badge bg-primary-subtle text-primary px-3 py-2 fs-6">
-                                                    <i class="bi bi-lightning-charge-fill me-1"></i>
-                                                    Importance: <strong>#{skill.impValue}</strong><span class="small">/5</span>
-                                                </span>
+                                        <div class="d-flex flex-wrap gap-3 mt-auto">
+                                            <!-- Importance Badge -->
+                                            <span class="badge bg-primary-subtle text-primary px-3 py-2 fs-6">
+                                                <i class="bi bi-lightning-charge-fill me-1"></i>
+                                                Importance: <strong>#{skill.impValue}</strong><span class="small">/5</span>
+                                            </span>
 
-                                                <!-- Level Badge -->
-                                                <span class="badge bg-info-subtle text-info px-3 py-2 fs-6">
-                                                    <i class="bi bi-bar-chart-fill me-1"></i>
-                                                    Level: <strong>#{skill.levelValue}</strong><span class="small">/7</span>
-                                                </span>
-                                            </div>
+                                            <!-- Level Badge -->
+                                            <span class="badge bg-info-subtle text-info px-3 py-2 fs-6">
+                                                <i class="bi bi-bar-chart-fill me-1"></i>
+                                                Level: <strong>#{skill.levelValue}</strong><span class="small">/7</span>
+                                            </span>
                                         </div>
-                                    </h:panelGroup>
-                                </ui:repeat>
-                            </div>
-
-                            <div class="col-md-6">
-                                <ui:repeat value="#{careerView.occupation.skills}" var="skill" varStatus="status">
-                                    <h:panelGroup rendered="#{status.index ge 2}">
-                                        <div class="card shadow-sm mb-4 p-3">
-                                            <h4 class="fs-5 fw-semibold text-dark mb-2">#{skill.skill}</h4>
-                                            <p class="text-muted small mb-3">#{skill.description}</p>
-
-                                            <div class="d-flex flex-wrap gap-3 mt-2">
-                                                <!-- Importance Badge -->
-                                                <span class="badge bg-primary-subtle text-primary px-3 py-2 fs-6">
-                                                    <i class="bi bi-lightning-charge-fill me-1"></i>
-                                                    Importance: <strong>#{skill.impValue}</strong><span class="small">/5</span>
-                                                </span>
-
-                                                <!-- Level Badge -->
-                                                <span class="badge bg-info-subtle text-info px-3 py-2 fs-6">
-                                                    <i class="bi bi-bar-chart-fill me-1"></i>
-                                                    Level: <strong>#{skill.levelValue}</strong><span class="small">/7</span>
-                                                </span>
-                                            </div>
-                                        </div>
-                                    </h:panelGroup>
-                                </ui:repeat>
-                            </div>
+                                    </div>
+                                </div>
+                            </ui:repeat>
                         </div>
                     </div>
                     <!-- Skills data in JSON format -->
