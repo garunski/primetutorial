@@ -12,9 +12,9 @@
             <h2 class="fs-2 fw-semibold text-primary mb-3 pb-2 border-bottom">Tasks &amp; Responsibilities</h2>
             <p class="mb-3">The list below outlines occupation specific tasks that a worker in this occupation is called upon to do regularly.</p>
             <h:panelGroup rendered="#{careerView.occupation.hasTasksFlag and careerView.occupation.tasks != null}">
-                <ul class="list-group list-group-flush">
+                <ul class="list-unstyled mb-0">
                     <ui:repeat value="#{careerView.occupation.tasks}" var="task" varStatus="status">
-                        <li class="list-group-item #{!status.last ? 'border-bottom' : ''} py-2">#{task}</li>
+                        <li class="p-3 bg-light border-start border-primary border-3 mb-2 rounded">#{task}</li>
                     </ui:repeat>
                 </ul>
             </h:panelGroup>
