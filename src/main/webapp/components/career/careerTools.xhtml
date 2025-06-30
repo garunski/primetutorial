@@ -12,32 +12,50 @@
             <h2 class="fs-2 fw-semibold text-primary mb-3 pb-2 border-bottom">Tools &amp; Technology</h2>
             <p class="mb-4">This list describes the machines, equipment, tools, software, and information technology that workers in this occupation will use.</p>
 
-            <div class="row">
+            <div class="row g-4">
                 <div class="col-md-6">
-                    <h3 class="fs-4 fw-semibold mb-3">Tools</h3>
-                    <h:panelGroup rendered="#{careerView.occupation.hasToolsFlag and careerView.occupation.tools != null}">
-                        <ul class="list-group list-group-flush">
-                            <ui:repeat value="#{careerView.occupation.tools}" var="tool" varStatus="status">
-                                <li class="list-group-item #{!status.last ? 'border-bottom' : ''} py-2">#{tool.name}</li>
-                            </ui:repeat>
-                        </ul>
-                    </h:panelGroup>
-                    <h:panelGroup rendered="#{!careerView.occupation.hasToolsFlag or careerView.occupation.tools == null}">
-                        <p class="text-muted">Tool information is not available for this occupation.</p>
-                    </h:panelGroup>
+                    <div class="card h-100 bg-light border-0">
+                        <div class="card-body">
+                            <div class="d-flex align-items-center mb-3">
+                                <i class="bi bi-tools fs-4 text-primary me-2"></i>
+                                <h3 class="fs-4 fw-semibold mb-0">Tools</h3>
+                            </div>
+                            <h:panelGroup rendered="#{careerView.occupation.hasToolsFlag and careerView.occupation.tools != null}">
+                                <ul class="list-unstyled mb-0">
+                                    <ui:repeat value="#{careerView.occupation.tools}" var="tool" varStatus="status">
+                                        <li class="mb-2">
+                                            <i class="bi bi-check2-circle me-2"></i>#{tool.name}
+                                        </li>
+                                    </ui:repeat>
+                                </ul>
+                            </h:panelGroup>
+                            <h:panelGroup rendered="#{!careerView.occupation.hasToolsFlag or careerView.occupation.tools == null}">
+                                <p class="text-muted mb-0">Tool information is not available for this occupation.</p>
+                            </h:panelGroup>
+                        </div>
+                    </div>
                 </div>
                 <div class="col-md-6">
-                    <h3 class="fs-4 fw-semibold mb-3">Technology</h3>
-                    <h:panelGroup rendered="#{careerView.occupation.hasTechnologiesFlag and careerView.occupation.technologies != null}">
-                        <ul class="list-group list-group-flush">
-                            <ui:repeat value="#{careerView.occupation.technologies}" var="technology" varStatus="status">
-                                <li class="list-group-item #{!status.last ? 'border-bottom' : ''} py-2">#{technology.name}</li>
-                            </ui:repeat>
-                        </ul>
-                    </h:panelGroup>
-                    <h:panelGroup rendered="#{!careerView.occupation.hasTechnologiesFlag or careerView.occupation.technologies == null}">
-                        <p class="text-muted">Technology information is not available for this occupation.</p>
-                    </h:panelGroup>
+                    <div class="card h-100 bg-light border-0">
+                        <div class="card-body">
+                            <div class="d-flex align-items-center mb-3">
+                                <i class="bi bi-cpu fs-4 text-primary me-2"></i>
+                                <h3 class="fs-4 fw-semibold mb-0">Technology</h3>
+                            </div>
+                            <h:panelGroup rendered="#{careerView.occupation.hasTechnologiesFlag and careerView.occupation.technologies != null}">
+                                <ul class="list-unstyled mb-0">
+                                    <ui:repeat value="#{careerView.occupation.technologies}" var="technology" varStatus="status">
+                                        <li class="mb-2">
+                                            <i class="bi bi-check2-circle me-2"></i>#{technology.name}
+                                        </li>
+                                    </ui:repeat>
+                                </ul>
+                            </h:panelGroup>
+                            <h:panelGroup rendered="#{!careerView.occupation.hasTechnologiesFlag or careerView.occupation.technologies == null}">
+                                <p class="text-muted mb-0">Technology information is not available for this occupation.</p>
+                            </h:panelGroup>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
