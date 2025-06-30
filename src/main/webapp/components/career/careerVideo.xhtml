@@ -23,46 +23,48 @@
         </div>
         
         <!-- Content sections -->
-        <div class="card-body d-flex gap-4">
-          <!-- Interests section -->
-          <h:panelGroup rendered="#{careerView.occupation.hasInterestsFlag}" styleClass="flex-grow-1">
-            <div class="text-uppercase fw-semibold mb-3 small text-secondary">INTERESTS</div>
-            <div class="d-flex flex-wrap gap-2">
-              <ui:repeat value="#{careerView.occupation.interests}" var="interest" varStatus="status">
-                <h:panelGroup rendered="#{status.index lt 3}">
-                  <div class="badge rounded-pill career-video-badge interest-badge" data-bs-toggle="tooltip" data-bs-placement="top" title="#{interest.description}">
-                    #{interest.name}
-                  </div>
-                </h:panelGroup>
-              </ui:repeat>
-            </div>
-          </h:panelGroup>
-          
-          <!-- Work Values section -->
-          <h:panelGroup rendered="#{careerView.occupation.hasWorkValuesFlag}" styleClass="flex-grow-1">
-            <div class="text-uppercase fw-semibold mb-3 small text-secondary">WORK VALUES</div>
-            <div class="d-flex flex-wrap gap-2">
-              <ui:repeat value="#{careerView.occupation.workValues}" var="workValue" varStatus="status">
-                <h:panelGroup rendered="#{status.index lt 3}">
-                  <div class="badge rounded-pill career-video-badge value-badge" data-bs-toggle="tooltip" data-bs-placement="top" title="#{workValue.description}">
-                    #{workValue.name}
-                  </div>
-                </h:panelGroup>
-              </ui:repeat>
-            </div>
-          </h:panelGroup>
+        <div class="card-body">
+          <div class="row g-4">
+            <!-- Interests section -->
+            <h:panelGroup rendered="#{careerView.occupation.hasInterestsFlag}" styleClass="col-md-6">
+              <div class="h-100">
+                <h4 class="fs-5 fw-semibold mb-3 text-primary">
+                  <i class="bi bi-heart-fill me-2"></i>Interests
+                </h4>
+                <div class="d-flex flex-column gap-3">
+                  <ui:repeat value="#{careerView.occupation.interests}" var="interest">
+                    <div class="border-start border-primary border-3 ps-3">
+                      <h6 class="fw-semibold mb-1 text-dark">#{interest.name}</h6>
+                      <h:panelGroup rendered="#{interest.hasDescription and interest.description != null}">
+                        <p class="small text-muted mb-0 lh-relaxed">#{interest.description}</p>
+                      </h:panelGroup>
+                    </div>
+                  </ui:repeat>
+                </div>
+              </div>
+            </h:panelGroup>
+            
+            <!-- Work Values section -->
+            <h:panelGroup rendered="#{careerView.occupation.hasWorkValuesFlag}" styleClass="col-md-6">
+              <div class="h-100">
+                <h4 class="fs-5 fw-semibold mb-3 text-success">
+                  <i class="bi bi-star-fill me-2"></i>Work Values
+                </h4>
+                <div class="d-flex flex-column gap-3">
+                  <ui:repeat value="#{careerView.occupation.workValues}" var="workValue">
+                    <div class="border-start border-success border-3 ps-3">
+                      <h6 class="fw-semibold mb-1 text-dark">#{workValue.name}</h6>
+                      <h:panelGroup rendered="#{workValue.hasDescription and workValue.description != null}">
+                        <p class="small text-muted mb-0 lh-relaxed">#{workValue.description}</p>
+                      </h:panelGroup>
+                    </div>
+                  </ui:repeat>
+                </div>
+              </div>
+            </h:panelGroup>
+          </div>
         </div>
       </div>
-      
-      <!-- Initialize tooltips -->
-      <script>
-        document.addEventListener('DOMContentLoaded', function() {
-          var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
-          var tooltipList = tooltipTriggerList.map(function(tooltipTriggerEl) {
-            return new bootstrap.Tooltip(tooltipTriggerEl);
-          });
-        });
-      </script>
     </h:panelGroup>
   </ui:composition>
 </html>
