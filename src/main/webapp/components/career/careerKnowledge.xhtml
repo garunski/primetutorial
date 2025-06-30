@@ -56,8 +56,8 @@
                         </div>
 
                         <!-- Knowledge data in JSON format for the chart -->
-                        <script type="application/json" id="knowledge-data">
-                            {
+                        <script>
+                            window.knowledgeChartData = {
                                 "chartConfig": {
                                     "labels": [
                                         <ui:repeat value="#{careerView.occupation.knowledge}" var="knowledge" varStatus="status">
@@ -128,7 +128,7 @@
                                         }
                                     }
                                 }
-                            }
+                            };
                         </script>
 
                         <p class="small text-muted mt-2">* Knowledge importance is measured on a five point scale, where one means 'slightly important' and five means 'extremely important'.<br/>

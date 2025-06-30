@@ -1,16 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:p="http://primefaces.org/ui">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html" xmlns:p="http://primefaces.org/ui">
 
 <ui:composition>
     <div id="skills" class="card shadow-sm mb-4">
         <div class="card-body">
             <h2 class="fs-2 fw-semibold text-primary mb-3 pb-2 border-bottom">Skills &amp; Abilities</h2>
-            <p class="mb-4">The list below includes the skills required by workers in this occupation; skills are what allow you to learn more quickly and improve your performance.</p>
+            <p class="mb-4">The list below includes the skills required by workers in this occupation; skills are what
+                allow you to learn more quickly and improve your performance.</p>
 
             <div class="row mb-4">
                 <div class="col-md-12">
@@ -32,7 +30,8 @@
                                             <!-- Importance Badge -->
                                             <span class="badge bg-primary-subtle text-primary px-3 py-2 fs-6">
                                                 <i class="bi bi-lightning-charge-fill me-1"></i>
-                                                Importance: <strong>#{skill.impValue}</strong><span class="small">/5</span>
+                                                Importance: <strong>#{skill.impValue}</strong><span
+                                                    class="small">/5</span>
                                             </span>
 
                                             <!-- Level Badge -->
@@ -46,9 +45,9 @@
                             </ui:repeat>
                         </div>
                     </div>
-                    <!-- Skills data in JSON format -->
-                    <script type="application/json" id="skills-data">
-                        {
+                                        <!-- Skills data in JSON format -->
+                    <script>
+                        window.skillsChartData = {
                             "chartConfig": {
                                 "labels": [
                                     <ui:repeat value="#{careerView.occupation.skills}" var="skill" varStatus="status">
@@ -119,11 +118,12 @@
                                     }
                                 }
                             }
-                        }
+                        };
                     </script>
-
-                    <p class="small text-muted mt-2">* Skill importance is measured on a five point scale, where one means 'slightly important' and five means 'extremely important'.<br/>
-                    * Skill level is measured on a seven point scale, where one means 'some competence required' and seven means 'a high level of expertise required'.</p>
+                    <p class="small text-muted mt-2">* Skill importance is measured on a five point scale, where one
+                        means 'slightly important' and five means 'extremely important'.<br />
+                        * Skill level is measured on a seven point scale, where one means 'some competence required' and
+                        seven means 'a high level of expertise required'.</p>
                 </div>
             </div>
 
@@ -138,4 +138,5 @@
         </div>
     </div>
 </ui:composition>
+
 </html>

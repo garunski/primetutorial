@@ -12,8 +12,8 @@ $(document).ready(function() {
  */
 function initializeCharts() {
   try {
-    initializeRadarChart('skills-radar-chart', 'skills-data');
-    initializeRadarChart('knowledge-radar-chart', 'knowledge-data');
+    initializeRadarChart('skills-radar-chart', window.skillsChartData);
+    initializeRadarChart('knowledge-radar-chart', window.knowledgeChartData);
   } catch (error) {
     console.error("Error initializing charts:", error);
   }
@@ -22,16 +22,16 @@ function initializeCharts() {
 /**
  * Generic function to initialize a radar chart
  */
-function initializeRadarChart(canvasId, dataId) {
+function initializeRadarChart(canvasId, chartData) {
   const canvas = $('#' + canvasId);
-  const dataElement = $('#' + dataId);
   
-  if (!canvas.length || !dataElement.length) {
+  if (!canvas.length || !chartData) {
+    console.log(`Chart elements not found: canvas=${canvas.length}, data=${!!chartData}`);
     return; // Skip if chart elements don't exist
   }
 
   try {
-    const chartConfig = JSON.parse(dataElement.text()).chartConfig;
+    const chartConfig = chartData.chartConfig;
     
     if (!chartConfig?.datasets?.length) {
       console.error(`Invalid chart configuration for ${canvasId}`);

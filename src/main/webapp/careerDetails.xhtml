@@ -9,10 +9,11 @@
     <ui:define name="title">CareerZone - Career Details</ui:define>
 
     <ui:define name="head">
-        <!-- Include Chart.js -->
-        <script src="#{request.contextPath}/resources/js/vendor/chart.umd.js"></script>
+        <!-- Chart.js will be loaded from template -->
+    </ui:define>
 
-        <!-- Include our custom charts script -->
+    <ui:define name="page-scripts">
+        <!-- Include our custom charts script after jQuery and Chart.js are loaded -->
         <script src="#{request.contextPath}/resources/js/career-charts.js"></script>
     </ui:define>
 
