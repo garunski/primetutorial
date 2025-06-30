@@ -10,81 +10,92 @@
     <div id="education" class="card shadow-sm mb-4">
         <div class="card-body">
             <h2 class="fs-2 fw-semibold text-primary mb-3 pb-2 border-bottom">Preparation &amp; Training</h2>
-            <p class="mb-4">The list below outlines the prior preparation and experience required to perform in this occupation.</p>
+            <p class="mb-4">The requirements and experience needed to perform in this occupation.</p>
 
-            <div class="mb-4">
-                <h3 class="fs-4 fw-semibold mb-3">Preparation Requirements</h3>
-                <div class="table-responsive">
-                    <table class="table table-bordered">
-                        <tbody>
-                            <h:panelGroup rendered="#{careerView.occupation.jobZoneName != null}">
-                                <tr>
-                                    <th class="bg-light" style="width: 40%">Job Zone</th>
-                                    <td>#{careerView.occupation.jobZoneName}</td>
-                                </tr>
-                            </h:panelGroup>
-                            <h:panelGroup rendered="#{careerView.occupation.jobZoneExperience != null}">
-                                <tr>
-                                    <th class="bg-light">Experience</th>
-                                    <td>#{careerView.occupation.jobZoneExperience}</td>
-                                </tr>
-                            </h:panelGroup>
-                            <h:panelGroup rendered="#{careerView.occupation.jobZoneEducation != null}">
-                                <tr>
-                                    <th class="bg-light">Education Requirements</th>
-                                    <td>#{careerView.occupation.jobZoneEducation}</td>
-                                </tr>
-                            </h:panelGroup>
-                            <h:panelGroup rendered="#{careerView.occupation.jobZoneTraining != null}">
-                                <tr>
-                                    <th class="bg-light">Training Details</th>
-                                    <td>#{careerView.occupation.jobZoneTraining}</td>
-                                </tr>
-                            </h:panelGroup>
-                            <h:panelGroup rendered="#{careerView.occupation.jobZoneExamples != null}">
-                                <tr>
-                                    <th class="bg-light">Similar Occupations</th>
-                                    <td>#{careerView.occupation.jobZoneExamples}</td>
-                                </tr>
-                            </h:panelGroup>
-                        </tbody>
-                    </table>
+            <!-- Job Zone - Featured -->
+            <h:panelGroup rendered="#{careerView.occupation.jobZoneName != null}">
+                <div class="d-flex align-items-center p-3 bg-primary bg-opacity-10 rounded mb-4">
+                    <i class="bi bi-layers-fill text-primary fs-3 me-3"></i>
+                    <h5 class="mb-0 fw-semibold text-primary">#{careerView.occupation.jobZoneName}</h5>
                 </div>
+            </h:panelGroup>
+
+            <!-- Requirements Grid -->
+            <div class="row g-4">
+                <h:panelGroup rendered="#{careerView.occupation.jobZoneExperience != null}">
+                    <div class="col-12">
+                        <div class="border-start border-success border-4 ps-4 py-3">
+                            <div class="d-flex align-items-center mb-2">
+                                <i class="bi bi-briefcase-fill text-success me-2"></i>
+                                <h5 class="mb-0 fw-semibold text-success">Experience Requirements</h5>
+                            </div>
+                            <p class="mb-0 lh-relaxed">#{careerView.occupation.jobZoneExperience}</p>
+                        </div>
+                    </div>
+                </h:panelGroup>
+                
+                <h:panelGroup rendered="#{careerView.occupation.jobZoneEducation != null}">
+                    <div class="col-12">
+                        <div class="border-start border-info border-4 ps-4 py-3">
+                            <div class="d-flex align-items-center mb-2">
+                                <i class="bi bi-book-fill text-info me-2"></i>
+                                <h5 class="mb-0 fw-semibold text-info">Education Requirements</h5>
+                            </div>
+                            <p class="mb-0 lh-relaxed">#{careerView.occupation.jobZoneEducation}</p>
+                        </div>
+                    </div>
+                </h:panelGroup>
+                
+                <h:panelGroup rendered="#{careerView.occupation.jobZoneTraining != null}">
+                    <div class="col-12">
+                        <div class="border-start border-warning border-4 ps-4 py-3">
+                            <div class="d-flex align-items-center mb-2">
+                                <i class="bi bi-tools text-warning me-2"></i>
+                                <h5 class="mb-0 fw-semibold text-warning">Training Details</h5>
+                            </div>
+                            <p class="mb-0 lh-relaxed">#{careerView.occupation.jobZoneTraining}</p>
+                        </div>
+                    </div>
+                </h:panelGroup>
+                
+                <h:panelGroup rendered="#{careerView.occupation.jobZoneExamples != null}">
+                    <div class="col-12">
+                        <div class="border-start border-secondary border-4 ps-4 py-3">
+                            <div class="d-flex align-items-center mb-2">
+                                <i class="bi bi-people-fill text-secondary me-2"></i>
+                                <h5 class="mb-0 fw-semibold text-secondary">Similar Roles &amp; Examples</h5>
+                            </div>
+                            <p class="mb-0 lh-relaxed">#{careerView.occupation.jobZoneExamples}</p>
+                        </div>
+                    </div>
+                </h:panelGroup>
             </div>
 
-            <h:panelGroup rendered="#{careerView.occupation.hasSchoolsFlag and careerView.occupation.schools != null and careerView.occupation.schools.size() > 0}">
-                <h3 class="fs-4 fw-semibold mb-3">Educational Institutions</h3>
-                <p class="mb-3">Educational institutions that offer relevant programs:</p>
-                <ul class="list-group list-group-flush mb-4">
-                    <ui:repeat value="#{careerView.occupation.schools}" var="school" varStatus="status">
-                        <li class="list-group-item #{!status.last ? 'border-bottom' : ''} py-2">#{school.name}</li>
-                    </ui:repeat>
-                </ul>
-            </h:panelGroup>
+            <h:panelGroup rendered="#{careerView.occupation.hasLicenseFlag or (careerView.occupation.hasApprenticeshipFlag and careerView.occupation.apprenticeableFlag)}">
+                <hr class="my-4"/>
+                
+                <div class="row g-3">
+                    <h:panelGroup rendered="#{careerView.occupation.hasLicenseFlag}">
+                        <div class="col-md-6">
+                            <div class="alert alert-info border-start border-info border-4 py-2">
+                                <div class="d-flex align-items-center">
+                                    <i class="bi bi-shield-check me-2 text-info"></i>
+                                    <span class="fw-semibold">Licensing may be required</span>
+                                </div>
+                            </div>
+                        </div>
+                    </h:panelGroup>
 
-            <h:panelGroup rendered="#{careerView.occupation.schoolPrograms != null and careerView.occupation.schoolPrograms.size() > 0}">
-                <h3 class="fs-4 fw-semibold mb-3">School Programs</h3>
-                <p class="mb-3">The following programs are applicable to this occupation:</p>
-                <ul class="list-group list-group-flush mb-4">
-                    <ui:repeat value="#{careerView.occupation.schoolPrograms}" var="program" varStatus="status">
-                        <li class="list-group-item #{!status.last ? 'border-bottom' : ''} py-2">#{program.name}</li>
-                    </ui:repeat>
-                </ul>
-            </h:panelGroup>
-
-            <h:panelGroup rendered="#{careerView.occupation.hasLicenseFlag}">
-                <h3 class="fs-4 fw-semibold mb-3">Licensing Requirements</h3>
-                <div class="alert alert-info">
-                    <i class="bi bi-info-circle me-2"></i>
-                    This occupation may require specific licenses or certifications. Check with local and state requirements for your area.
-                </div>
-            </h:panelGroup>
-
-            <h:panelGroup rendered="#{careerView.occupation.hasApprenticeshipFlag and careerView.occupation.apprenticeableFlag}">
-                <h3 class="fs-4 fw-semibold mb-3">Apprenticeship Opportunities</h3>
-                <div class="alert alert-success">
-                    <i class="bi bi-award me-2"></i>
-                    This occupation offers apprenticeship opportunities which can provide hands-on training and education.
+                    <h:panelGroup rendered="#{careerView.occupation.hasApprenticeshipFlag and careerView.occupation.apprenticeableFlag}">
+                        <div class="col-md-6">
+                            <div class="alert alert-success border-start border-success border-4 py-2">
+                                <div class="d-flex align-items-center">
+                                    <i class="bi bi-award me-2 text-success"></i>
+                                    <span class="fw-semibold">Apprenticeships available</span>
+                                </div>
+                            </div>
+                        </div>
+                    </h:panelGroup>
                 </div>
             </h:panelGroup>
         </div>

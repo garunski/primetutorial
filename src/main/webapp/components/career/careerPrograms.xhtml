@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+<ui:composition>
+    <h:panelGroup rendered="#{careerView.occupation.schoolPrograms != null and careerView.occupation.schoolPrograms.size() > 0}">
+        <div id="schoolPrograms" class="card shadow-sm mb-4">
+            <div class="card-body">
+                <h2 class="fs-2 fw-semibold text-primary mb-3 pb-2 border-bottom">School Programs</h2>
+                <p class="mb-4">Educational programs that prepare students for this occupation.</p>
+                
+                <!-- Programs Container -->
+                <div id="schoolProgramsContainer">
+                    <ui:repeat value="#{careerView.occupation.schoolPrograms}" var="program" varStatus="status">
+                        <div class="program-item border-start border-primary border-4 ps-4 py-3 mb-3" style="display: none;">
+                            <div class="d-flex align-items-start">
+                                <div class="flex-shrink-0 me-3">
+                                    <div class="bg-primary bg-opacity-10 rounded-circle p-2">
+                                        <i class="bi bi-mortarboard-fill text-primary"></i>
+                                    </div>
+                                </div>
+                                <div class="flex-grow-1">
+                                    <h5 class="fw-semibold mb-2 text-dark">#{program.name}</h5>
+                                    <h:panelGroup rendered="#{program.description != null and program.description != ''}">
+                                        <p class="mb-0 text-muted lh-relaxed">#{program.description}</p>
+                                    </h:panelGroup>
+                                </div>
+                            </div>
+                        </div>
+                    </ui:repeat>
+                </div>
+                
+                <!-- Simple Pagination -->
+                <div class="d-flex justify-content-between align-items-center mt-4 pt-3 border-top">
+                    <button type="button" id="prevBtn" class="btn btn-outline-primary" onclick="previousPage()" disabled="disabled">
+                        <i class="bi bi-arrow-left me-1"></i>Previous
+                    </button>
+                    <span id="pageInfo" class="text-muted fw-medium">Page 1 of 1</span>
+                    <button type="button" id="nextBtn" class="btn btn-outline-primary" onclick="nextPage()" disabled="disabled">
+                        Next<i class="bi bi-arrow-right ms-1"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <script type="text/javascript">
+            //<![CDATA[
+            let currentPage = 1;
+            const itemsPerPage = 4;
+            const programItems = document.querySelectorAll('.program-item');
+            const totalPages = Math.ceil(programItems.length / itemsPerPage);
+            
+            function showPage(page) {
+                const start = (page - 1) * itemsPerPage;
+                const end = start + itemsPerPage;
+                
+                programItems.forEach((item, index) => {
+                    if (index >= start && index < end) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+                
+                document.getElementById('pageInfo').textContent = 'Page ' + page + ' of ' + totalPages;
+                document.getElementById('prevBtn').disabled = page === 1;
+                document.getElementById('nextBtn').disabled = page === totalPages;
+            }
+            
+            function nextPage() {
+                if (currentPage < totalPages) {
+                    currentPage++;
+                    showPage(currentPage);
+                }
+            }
+            
+            function previousPage() {
+                if (currentPage > 1) {
+                    currentPage--;
+                    showPage(currentPage);
+                }
+            }
+            
+            // Initialize on page load
+            document.addEventListener('DOMContentLoaded', function() {
+                if (programItems.length > 0) {
+                    showPage(1);
+                }
+            });
+            //]]>
+        </script>
+    </h:panelGroup>
+</ui:composition>
+</html> 
