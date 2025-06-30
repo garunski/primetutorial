@@ -12,117 +12,249 @@
             <h2 class="fs-2 fw-semibold text-primary mb-3 pb-2 border-bottom">Salary &amp; Job Outlook</h2>
 
             <h:panelGroup rendered="#{careerView.occupation.hasWageFlag and careerView.occupation.wages != null}">
-                <h3 class="fs-4 fw-semibold mb-3">Salary Information</h3>
                 
-                <h:panelGroup rendered="#{careerView.occupation.wages.state != null}">
-                    <p class="mb-3">In #{careerView.occupation.wages.state}, the average annual wage for #{careerView.occupation.title} is:</p>
+                <!-- Salary Overview Cards -->
+                <div class="row g-4 mb-4">
+                    <div class="col-md-4">
+                        <div class="card bg-success bg-opacity-10 border-success border-2 h-100">
+                            <div class="card-body text-center">
+                                <i class="bi bi-trophy-fill text-success fs-1 mb-2"></i>
+                                <h5 class="card-title text-success fw-bold">Entry Level</h5>
+                                <h:panelGroup rendered="#{careerView.occupation.wages.stateWageAnnualPct25EntryAmount != null}">
+                                    <h3 class="card-text fw-bold text-dark mb-0">
+                                        <h:outputText value="#{careerView.occupation.wages.stateWageAnnualPct25EntryAmount}">
+                                            <f:convertNumber type="currency" currencySymbol="$" groupingUsed="true" />
+                                        </h:outputText>
+                                    </h3>
+                                    <h:panelGroup rendered="#{careerView.occupation.wages.state != null}">
+                                        <small class="text-success fw-medium">#{careerView.occupation.wages.state}</small>
+                                    </h:panelGroup>
+                                </h:panelGroup>
+                                <h:panelGroup rendered="#{careerView.occupation.wages.stateWageAnnualPct25EntryAmount == null and careerView.occupation.wages.nationalWageAnnualPct25EntryAmount != null}">
+                                    <h3 class="card-text fw-bold text-dark mb-0">
+                                        <h:outputText value="#{careerView.occupation.wages.nationalWageAnnualPct25EntryAmount}">
+                                            <f:convertNumber type="currency" currencySymbol="$" groupingUsed="true" />
+                                        </h:outputText>
+                                    </h3>
+                                    <small class="text-muted">National Average</small>
+                                </h:panelGroup>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-4">
+                        <div class="card bg-primary bg-opacity-10 border-primary border-2 h-100">
+                            <div class="card-body text-center">
+                                <i class="bi bi-bullseye text-primary fs-1 mb-2"></i>
+                                <h5 class="card-title text-primary fw-bold">Median Salary</h5>
+                                <h:panelGroup rendered="#{careerView.occupation.wages.stateWageAnnualPct50MedianAmount != null}">
+                                    <h3 class="card-text fw-bold text-dark mb-0">
+                                        <h:outputText value="#{careerView.occupation.wages.stateWageAnnualPct50MedianAmount}">
+                                            <f:convertNumber type="currency" currencySymbol="$" groupingUsed="true" />
+                                        </h:outputText>
+                                    </h3>
+                                    <h:panelGroup rendered="#{careerView.occupation.wages.state != null}">
+                                        <small class="text-primary fw-medium">#{careerView.occupation.wages.state}</small>
+                                    </h:panelGroup>
+                                </h:panelGroup>
+                                <h:panelGroup rendered="#{careerView.occupation.wages.stateWageAnnualPct50MedianAmount == null and careerView.occupation.wages.nationalWageAnnualPct50MedianAmount != null}">
+                                    <h3 class="card-text fw-bold text-dark mb-0">
+                                        <h:outputText value="#{careerView.occupation.wages.nationalWageAnnualPct50MedianAmount}">
+                                            <f:convertNumber type="currency" currencySymbol="$" groupingUsed="true" />
+                                        </h:outputText>
+                                    </h3>
+                                    <small class="text-muted">National Average</small>
+                                </h:panelGroup>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-4">
+                        <div class="card bg-warning bg-opacity-10 border-warning border-2 h-100">
+                            <div class="card-body text-center">
+                                <i class="bi bi-star-fill text-warning fs-1 mb-2"></i>
+                                <h5 class="card-title text-warning fw-bold">Experienced</h5>
+                                <h:panelGroup rendered="#{careerView.occupation.wages.stateWageAnnualPct75ExperAmount != null}">
+                                    <h3 class="card-text fw-bold text-dark mb-0">
+                                        <h:outputText value="#{careerView.occupation.wages.stateWageAnnualPct75ExperAmount}">
+                                            <f:convertNumber type="currency" currencySymbol="$" groupingUsed="true" />
+                                        </h:outputText>
+                                    </h3>
+                                    <h:panelGroup rendered="#{careerView.occupation.wages.state != null}">
+                                        <small class="text-warning fw-medium">#{careerView.occupation.wages.state}</small>
+                                    </h:panelGroup>
+                                </h:panelGroup>
+                                <h:panelGroup rendered="#{careerView.occupation.wages.stateWageAnnualPct75ExperAmount == null and careerView.occupation.wages.nationalWageAnnualPct75ExperAmount != null}">
+                                    <h3 class="card-text fw-bold text-dark mb-0">
+                                        <h:outputText value="#{careerView.occupation.wages.nationalWageAnnualPct75ExperAmount}">
+                                            <f:convertNumber type="currency" currencySymbol="$" groupingUsed="true" />
+                                        </h:outputText>
+                                    </h3>
+                                    <small class="text-muted">National Average</small>
+                                </h:panelGroup>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+                <!-- National Comparison -->
+                <h:panelGroup rendered="#{careerView.occupation.wages.nationalWageAnnualPct25EntryAmount != null or careerView.occupation.wages.nationalWageAnnualPct50MedianAmount != null or careerView.occupation.wages.nationalWageAnnualPct75ExperAmount != null}">
+                    <div class="bg-light rounded p-3 mb-4">
+                        <h6 class="fw-semibold text-muted mb-3">
+                            <i class="bi bi-flag me-2"></i>National Average for Comparison
+                        </h6>
+                        <div class="row g-3 text-center">
+                            <h:panelGroup rendered="#{careerView.occupation.wages.nationalWageAnnualPct25EntryAmount != null}">
+                                <div class="col-md-4">
+                                    <div class="text-muted small fw-medium mb-1">Entry Level</div>
+                                    <div class="fw-bold">
+                                        <h:outputText value="#{careerView.occupation.wages.nationalWageAnnualPct25EntryAmount}">
+                                            <f:convertNumber type="currency" currencySymbol="$" groupingUsed="true" />
+                                        </h:outputText>
+                                    </div>
+                                </div>
+                            </h:panelGroup>
+                            <h:panelGroup rendered="#{careerView.occupation.wages.nationalWageAnnualPct50MedianAmount != null}">
+                                <div class="col-md-4">
+                                    <div class="text-muted small fw-medium mb-1">Median</div>
+                                    <div class="fw-bold">
+                                        <h:outputText value="#{careerView.occupation.wages.nationalWageAnnualPct50MedianAmount}">
+                                            <f:convertNumber type="currency" currencySymbol="$" groupingUsed="true" />
+                                        </h:outputText>
+                                    </div>
+                                </div>
+                            </h:panelGroup>
+                            <h:panelGroup rendered="#{careerView.occupation.wages.nationalWageAnnualPct75ExperAmount != null}">
+                                <div class="col-md-4">
+                                    <div class="text-muted small fw-medium mb-1">Experienced</div>
+                                    <div class="fw-bold">
+                                        <h:outputText value="#{careerView.occupation.wages.nationalWageAnnualPct75ExperAmount}">
+                                            <f:convertNumber type="currency" currencySymbol="$" groupingUsed="true" />
+                                        </h:outputText>
+                                    </div>
+                                </div>
+                            </h:panelGroup>
+                        </div>
+                    </div>
                 </h:panelGroup>
-                <h:panelGroup rendered="#{careerView.occupation.wages.state == null}">
-                    <p class="mb-3">Average annual wage information:</p>
-                </h:panelGroup>
-                
-                <ul class="list-group list-group-flush mb-3">
-                    <h:panelGroup rendered="#{careerView.occupation.wages.stateWageAnnualPct25EntryAmount != null}">
-                        <li class="list-group-item border-bottom py-2">
-                            <strong>Entry level:</strong> 
-                            <h:outputText value="#{careerView.occupation.wages.stateWageAnnualPct25EntryAmount}">
-                                <f:convertNumber type="currency" currencySymbol="$" />
-                            </h:outputText>
-                        </li>
-                    </h:panelGroup>
-                    <h:panelGroup rendered="#{careerView.occupation.wages.stateWageAnnualPct50MedianAmount != null}">
-                        <li class="list-group-item border-bottom py-2">
-                            <strong>Median:</strong> 
-                            <h:outputText value="#{careerView.occupation.wages.stateWageAnnualPct50MedianAmount}">
-                                <f:convertNumber type="currency" currencySymbol="$" />
-                            </h:outputText>
-                        </li>
-                    </h:panelGroup>
-                    <h:panelGroup rendered="#{careerView.occupation.wages.stateWageAnnualPct75ExperAmount != null}">
-                        <li class="list-group-item py-2">
-                            <strong>Experienced:</strong> 
-                            <h:outputText value="#{careerView.occupation.wages.stateWageAnnualPct75ExperAmount}">
-                                <f:convertNumber type="currency" currencySymbol="$" />
-                            </h:outputText>
-                        </li>
+
+                <!-- Job Outlook Section -->
+                <div class="border-start border-primary border-4 ps-4 mb-4">
+                    <h4 class="fw-semibold mb-3 d-flex align-items-center">
+                        <i class="bi bi-trending-up text-primary me-2"></i>
+                        Job Market Outlook
+                    </h4>
+                    
+                    <h:panelGroup rendered="#{careerView.occupation.wages.stateOnetEmpProspectDesc != null}">
+                        <div class="mb-3">
+                            <span class="text-muted">Employment prospects in #{careerView.occupation.wages.state}:</span>
+                            <h:panelGroup rendered="#{careerView.occupation.wages.stateOnetEmpProspectDesc == 'Very Favorable'}">
+                                <span class="badge bg-success ms-2 fs-6">#{careerView.occupation.wages.stateOnetEmpProspectDesc}</span>
+                            </h:panelGroup>
+                            <h:panelGroup rendered="#{careerView.occupation.wages.stateOnetEmpProspectDesc == 'Favorable'}">
+                                <span class="badge bg-primary ms-2 fs-6">#{careerView.occupation.wages.stateOnetEmpProspectDesc}</span>
+                            </h:panelGroup>
+                            <h:panelGroup rendered="#{careerView.occupation.wages.stateOnetEmpProspectDesc != 'Very Favorable' and careerView.occupation.wages.stateOnetEmpProspectDesc != 'Favorable'}">
+                                <span class="badge bg-secondary ms-2 fs-6">#{careerView.occupation.wages.stateOnetEmpProspectDesc}</span>
+                            </h:panelGroup>
+                        </div>
                     </h:panelGroup>
                     
-                    <!-- Fallback to national data if state data not available -->
-                    <h:panelGroup rendered="#{careerView.occupation.wages.stateWageAnnualPct25EntryAmount == null and careerView.occupation.wages.nationalWageAnnualPct25EntryAmount != null}">
-                        <li class="list-group-item border-bottom py-2">
-                            <strong>Entry level (National):</strong> 
-                            <h:outputText value="#{careerView.occupation.wages.nationalWageAnnualPct25EntryAmount}">
-                                <f:convertNumber type="currency" currencySymbol="$" />
-                            </h:outputText>
-                        </li>
-                    </h:panelGroup>
-                    <h:panelGroup rendered="#{careerView.occupation.wages.stateWageAnnualPct50MedianAmount == null and careerView.occupation.wages.nationalWageAnnualPct50MedianAmount != null}">
-                        <li class="list-group-item border-bottom py-2">
-                            <strong>Median (National):</strong> 
-                            <h:outputText value="#{careerView.occupation.wages.nationalWageAnnualPct50MedianAmount}">
-                                <f:convertNumber type="currency" currencySymbol="$" />
-                            </h:outputText>
-                        </li>
-                    </h:panelGroup>
-                    <h:panelGroup rendered="#{careerView.occupation.wages.stateWageAnnualPct75ExperAmount == null and careerView.occupation.wages.nationalWageAnnualPct75ExperAmount != null}">
-                        <li class="list-group-item py-2">
-                            <strong>Experienced (National):</strong> 
-                            <h:outputText value="#{careerView.occupation.wages.nationalWageAnnualPct75ExperAmount}">
-                                <f:convertNumber type="currency" currencySymbol="$" />
-                            </h:outputText>
-                        </li>
-                    </h:panelGroup>
-                </ul>
-                
-                <p class="text-muted mb-4">Wages shown here are calculated from an average hourly rate paid full time over a one year period. As these positions do not typically follow a 40-hour work week for the duration of a year, actual annual salaries may vary widely.</p>
+                    <div class="row g-3">
+                        <h:panelGroup rendered="#{careerView.occupation.wages.stateEmplBaseAmount != null and careerView.occupation.wages.commonEmplBaseYear != null}">
+                            <div class="col-md-6">
+                                <div class="bg-white rounded border p-3">
+                                    <div class="d-flex align-items-center mb-2">
+                                        <i class="bi bi-people text-primary me-2"></i>
+                                        <h6 class="mb-0 fw-semibold">Current Employment (#{careerView.occupation.wages.commonEmplBaseYear})</h6>
+                                    </div>
+                                    <h4 class="mb-0 text-primary fw-bold">
+                                        <h:outputText value="#{careerView.occupation.wages.stateEmplBaseAmount}">
+                                            <f:convertNumber pattern="#,###" />
+                                        </h:outputText>
+                                    </h4>
+                                    <small class="text-muted">professionals in #{careerView.occupation.wages.state}</small>
+                                </div>
+                            </div>
+                        </h:panelGroup>
+                        
+                        <h:panelGroup rendered="#{careerView.occupation.wages.stateEmplProjAmount != null and careerView.occupation.wages.commonEmplProjYear != null}">
+                            <div class="col-md-6">
+                                <div class="bg-white rounded border p-3">
+                                    <div class="d-flex align-items-center mb-2">
+                                        <i class="bi bi-graph-up text-success me-2"></i>
+                                        <h6 class="mb-0 fw-semibold">Projected Growth (#{careerView.occupation.wages.commonEmplProjYear})</h6>
+                                    </div>
+                                    <h4 class="mb-0 text-success fw-bold">
+                                        <h:outputText value="#{careerView.occupation.wages.stateEmplProjAmount}">
+                                            <f:convertNumber pattern="#,###" />
+                                        </h:outputText>
+                                    </h4>
+                                    <h:panelGroup rendered="#{careerView.occupation.wages.stateAnnualOpeningsGrowthAmount != null}">
+                                        <small class="text-muted">+<h:outputText value="#{careerView.occupation.wages.stateAnnualOpeningsGrowthAmount}">
+                                            <f:convertNumber pattern="#,###" />
+                                        </h:outputText> jobs/year</small>
+                                    </h:panelGroup>
+                                </div>
+                            </div>
+                        </h:panelGroup>
+                        
+                        <h:panelGroup rendered="#{careerView.occupation.wages.stateAnnualOpeningsTotalAmount != null}">
+                            <div class="col-md-6">
+                                <div class="bg-white rounded border p-3">
+                                    <div class="d-flex align-items-center mb-2">
+                                        <i class="bi bi-briefcase text-info me-2"></i>
+                                        <h6 class="mb-0 fw-semibold">Annual Job Openings</h6>
+                                    </div>
+                                    <h4 class="mb-0 text-info fw-bold">
+                                        <h:outputText value="#{careerView.occupation.wages.stateAnnualOpeningsTotalAmount}">
+                                            <f:convertNumber pattern="#,###" />
+                                        </h:outputText>
+                                    </h4>
+                                    <small class="text-muted">new opportunities yearly</small>
+                                </div>
+                            </div>
+                        </h:panelGroup>
+                        
+                        <h:panelGroup rendered="#{careerView.occupation.wages.stateEmplChangePercent != null}">
+                            <div class="col-md-6">
+                                <div class="bg-white rounded border p-3">
+                                    <div class="d-flex align-items-center mb-2">
+                                        <i class="bi bi-arrow-up-circle text-warning me-2"></i>
+                                        <h6 class="mb-0 fw-semibold">Growth Rate</h6>
+                                    </div>
+                                    <h4 class="mb-0 text-warning fw-bold">
+                                        <h:outputText value="#{careerView.occupation.wages.stateEmplChangePercent}">
+                                            <f:convertNumber pattern="#0.0" />
+                                        </h:outputText>%
+                                    </h4>
+                                    <small class="text-muted">projected increase</small>
+                                </div>
+                            </div>
+                        </h:panelGroup>
+                    </div>
+                </div>
 
-                <h3 class="fs-4 fw-semibold mb-3">Job Outlook</h3>
-                
-                <h:panelGroup rendered="#{careerView.occupation.wages.stateOnetEmpProspectDesc != null}">
-                    <p class="mb-3">Employment prospects for #{careerView.occupation.title} in #{careerView.occupation.wages.state} are described as 
-                        <span class="badge bg-success text-white">#{careerView.occupation.wages.stateOnetEmpProspectDesc}</span>.
-                    </p>
-                </h:panelGroup>
-                <h:panelGroup rendered="#{careerView.occupation.wages.stateOnetEmpProspectDesc == null and careerView.occupation.wages.regionOnetEmpProspectDesc != null}">
-                    <p class="mb-3">Employment prospects for #{careerView.occupation.title} in this region are described as 
-                        <span class="badge bg-success text-white">#{careerView.occupation.wages.regionOnetEmpProspectDesc}</span>.
-                    </p>
-                </h:panelGroup>
-                
-                <ul class="list-group list-group-flush">
-                    <h:panelGroup rendered="#{careerView.occupation.wages.stateEmplBaseAmount != null and careerView.occupation.wages.commonEmplBaseYear != null}">
-                        <li class="list-group-item border-bottom py-2">
-                            During #{careerView.occupation.wages.commonEmplBaseYear}, there were approximately 
-                            <h:outputText value="#{careerView.occupation.wages.stateEmplBaseAmount}">
-                                <f:convertNumber pattern="#,###" />
-                            </h:outputText> 
-                            #{careerView.occupation.title} employed in #{careerView.occupation.wages.state}.
-                        </li>
-                    </h:panelGroup>
-                    <h:panelGroup rendered="#{careerView.occupation.wages.stateEmplProjAmount != null and careerView.occupation.wages.commonEmplProjYear != null and careerView.occupation.wages.stateAnnualOpeningsGrowthAmount != null}">
-                        <li class="list-group-item border-bottom py-2">
-                            By #{careerView.occupation.wages.commonEmplProjYear}, this number is estimated to grow to 
-                            <h:outputText value="#{careerView.occupation.wages.stateEmplProjAmount}">
-                                <f:convertNumber pattern="#,###" />
-                            </h:outputText>, representing an increase of 
-                            <h:outputText value="#{careerView.occupation.wages.stateAnnualOpeningsGrowthAmount}">
-                                <f:convertNumber pattern="#,###" />
-                            </h:outputText> jobs each year.
-                        </li>
-                    </h:panelGroup>
-                    <h:panelGroup rendered="#{careerView.occupation.wages.stateAnnualOpeningsTotalAmount != null}">
-                        <li class="list-group-item py-2">
-                            Total annual job openings: 
-                            <h:outputText value="#{careerView.occupation.wages.stateAnnualOpeningsTotalAmount}">
-                                <f:convertNumber pattern="#,###" />
-                            </h:outputText>
-                        </li>
-                    </h:panelGroup>
-                </ul>
+                <!-- Important Note -->
+                <div class="bg-light rounded p-3 border-start border-secondary border-3">
+                    <small class="text-muted">
+                        <i class="bi bi-info-circle me-1"></i>
+                        <strong>Note:</strong> Wages are calculated from average hourly rates for full-time work over one year. 
+                        Actual salaries may vary based on location, experience, and work schedules.
+                    </small>
+                </div>
             </h:panelGroup>
             
             <h:panelGroup rendered="#{!careerView.occupation.hasWageFlag or careerView.occupation.wages == null}">
-                <p class="text-muted">Salary and job outlook information is not available for this occupation.</p>
+                <div class="text-center py-5">
+                    <i class="bi bi-exclamation-triangle text-muted fs-1 mb-3"></i>
+                    <h5 class="text-muted">Salary &amp; Job Outlook Data Unavailable</h5>
+                    <p class="text-muted">Complete salary and employment information is not available for this occupation at this time.</p>
+                </div>
             </h:panelGroup>
         </div>
     </div>
