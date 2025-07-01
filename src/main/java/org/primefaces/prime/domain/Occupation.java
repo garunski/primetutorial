@@ -52,6 +52,7 @@ public class Occupation {
     private Wages wages;
     private Boolean hasWageFlag;
     private Boolean hasLicenseFlag;
+    private List<License> licenses;
     private List<Resource> resources;
     private Boolean hasResourcesFlag;
     private List<Apprenticeship> apprenticeships;
@@ -216,6 +217,9 @@ public class Occupation {
 
     public Boolean getHasLicenseFlag() { return hasLicenseFlag; }
     public void setHasLicenseFlag(Boolean hasLicenseFlag) { this.hasLicenseFlag = hasLicenseFlag; }
+
+    public List<License> getLicenses() { return licenses; }
+    public void setLicenses(List<License> licenses) { this.licenses = licenses; }
 
     public List<Resource> getResources() { return resources; }
     public void setResources(List<Resource> resources) { this.resources = resources; }

@@ -1426,7 +1426,18 @@
     "stateWageAnnualPct75ExperAmount": 218760
   },
   "hasWageFlag": true,
-  "hasLicenseFlag": false,
+  "hasLicenseFlag": true,
+  "licenses": [{
+    "name": "Certified Public Accountant",
+    "url": "https://google.com",
+    "description": "A general program of biology at the introductory, basic level or a program in biology or the biological sciences that is undifferentiated as to title or content.  Includes instruction in general biology and programs covering a variety of biological specializations."
+  },
+  {
+    "name": "Certified Public Accountant 2",
+    "url": "https://google3.com",
+    "description": "instruction in general biology and programs covering a variety of biological specializations."
+  }
+],
   "resources": [
     {
       "name": "American Museum of Natural History Courses, Institutes and Evenings for Educators",
