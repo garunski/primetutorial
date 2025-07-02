@@ -1,59 +1,67 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:p="http://primefaces.org/ui">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets"
+  xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html" xmlns:p="http://primefaces.org/ui">
 
 <ui:composition>
+  <div class="bs-container-fluid mb-4 mt-4 gx-0">
     <div class="bg-light py-4 border-bottom">
-        <div class="container">
-            <div class="row g-3 align-items-start">
-                <div class="col-md-8">
-                    <h1 class="display-4">#{careerView.occupation.title}
-                        <h:panelGroup rendered="#{careerView.occupation.brightFlag}">
-                            <span class="badge bright-outlook">Bright Outlook</span>
-                        </h:panelGroup>
-                        <h:panelGroup rendered="#{careerView.occupation.greenFlag}">
-                            <span class="badge green-outlook">Green Outlook</span>
-                        </h:panelGroup>
-                    </h1>
-                    <div class="text-muted mb-3">#{careerView.occupation.sedClusterDesc}</div>
-                    <div class="fs-5">
-                        #{careerView.occupation.description}
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="d-flex flex-column gap-2">
-                        <h:panelGroup rendered="#{careerView.occupation.hasWageFlag}">
-                            <div class="bg-white rounded p-2 border-start career-stat-box salary-box">
-                                <div class="d-flex align-items-center">
-                                    <div class="me-2 text-primary">
-                                        <i class="bi bi-currency-dollar"></i>
-                                    </div>
-                                    <div>
-                                        <div class="small text-muted">Median Salary</div>
-                                        <div class="fw-semibold">#{careerView.occupation.wages.median}</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </h:panelGroup>
-                        <div class="bg-white rounded p-2 border-start career-stat-box outlook-box">
-                            <div class="d-flex align-items-center">
-                                <div class="me-2 text-success">
-                                    <i class="bi bi-graph-up-arrow"></i>
-                                </div>
-                                <div>
-                                    <div class="small text-muted">Job Zone</div>
-                                    <div class="fw-semibold">#{careerView.occupation.jobZoneName}</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+      <div class="bs-row g-3 align-items-start">
+        <div class="col-md-8">
+          <h1 class="display-4">
+            Accountants and Auditors
+
+            <span class="badge bright-outlook">Bright Outlook</span>
+          </h1>
+          <div class="small mb-1"><a href="/cz/occupations/search.jsf?cluster=6"
+              class="text-decoration-none text-primary category-link text-nowrap">
+              <i class="bi bi-diagram-3 me-1 text-muted" data-toggle="tooltip" data-placement="top"
+                title="Career Cluster"></i>
+              Finance
+            </a>
+            |
+            <a href="/cz/occupations/search.jsf?cluster=6&amp;cluster=61"
+              class="text-decoration-none text-primary category-link text-nowrap">
+              <i class="bi bi-signpost-2 me-1 text-muted" data-toggle="tooltip" data-placement="top"
+                title="Career Pathway"></i>
+              Accounting
+            </a>
+          </div>
+
+          <div class="fs-5">Examine, analyze, and interpret accounting records to prepare financial
+            statements, give advice, or audit and evaluate statements prepared by others. Install or advise
+            on systems of recording costs or other financial and budgetary data.</div>
         </div>
+        <div class="col-md-4">
+          <div class="d-flex flex-column gap-2">
+            <div class="bg-white rounded p-2 border-start career-stat-box salary-box">
+              <div class="d-flex align-items-center">
+                <div class="me-2 text-primary">
+                  <i class="bi bi-currency-dollar"></i>
+                </div>
+                <div>
+                  <div class="small text-muted">New York State Median Salary</div>
+                  <div class="fw-semibold">100,550
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="bg-white rounded p-2 border-start career-stat-box outlook-box">
+              <div class="d-flex align-items-center">
+                <div class="me-2 text-success">
+                  <i class="bi bi-graph-up-arrow"></i>
+                </div>
+                <div>
+                  <div class="small text-muted">Preparation</div>
+                  <div class="fw-semibold">Job Zone Four: Considerable Preparation Needed</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
 </ui:composition>
+
 </html>
