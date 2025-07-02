@@ -17,9 +17,9 @@
   "sedClusterCode": "5",
   "sedClusterDesc": "Human and Public Services",
   "sedClusterLongDesc": "People working in this field provide protective, social, education and community services. They provide assistance to individuals or families in periods of need throughout their lives.",
-  "brightFlag": false,
+  "brightFlag": true,
   "layTitle": "Agricultural Research Director, Agriculture Research Director, Analytical Services Manager, Chemical Engineer Supervisor, Chemical Plant Technical Director",
-  "greenFlag": false,
+  "greenFlag": true,
   "moreJobsFlag": false,
   "interests": [
     {
@@ -1491,7 +1491,7 @@
   ],
   "hasResourcesFlag": true,
   "apprenticeships": [],
-  "hasApprenticeshipFlag": false,
+  "hasApprenticeshipFlag": true,
   "apprenticeableFlag": false,
   "relatedOccs": [
     {
