@@ -93,6 +93,11 @@
             <div class="border-bottom">
                 <a href="#education" class="nav-link d-block text-decoration-none p-3 text-body-secondary fw-medium">Preparation &amp; Training</a>
             </div>
+            <h:panelGroup rendered="#{careerView.occupation.hasResourcesFlag}">
+                <div class="border-bottom">
+                    <a href="#resources" class="nav-link d-block text-decoration-none p-3 text-body-secondary fw-medium">Learning Resources</a>
+                </div>
+            </h:panelGroup>
             <h:panelGroup rendered="#{careerView.occupation.hasLicenseFlag}">
                 <div class="border-bottom">
                     <a href="#licenses" class="nav-link d-block text-decoration-none p-3 text-body-secondary fw-medium">Licensing &amp; Certification</a>

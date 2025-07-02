@@ -11,28 +11,44 @@
         <div id="related" class="card shadow-sm mb-4">
             <div class="card-body">
                 <h2 class="fs-2 fw-semibold text-primary mb-3 pb-2 border-bottom">Related Careers</h2>
-                <p class="mb-4">Careers that are similar or related to this occupation.</p>
+                <p class="mb-4">Careers that are similar or related to this occupation and may be of interest to you.</p>
                 
                 <!-- Related Careers Container -->
                 <div id="relatedCareersContainer">
                     <ui:repeat value="#{careerView.occupation.relatedOccs}" var="relatedOcc" varStatus="status">
-                        <div class="related-career-item border-start border-success border-4 ps-4 py-3 mb-3">
+                        <div class="related-career-item border-start border-info border-4 ps-4 py-3 mb-3" style="display: none;">
                             <div class="d-flex align-items-start">
                                 <div class="flex-shrink-0 me-3">
-                                    <i class="bi bi-briefcase-fill text-success"></i>
+                                    <i class="bi bi-diagram-3-fill text-info"></i>
                                 </div>
                                 <div class="flex-grow-1">
-                                    <h5 class="fw-semibold mb-2 text-dark">#{relatedOcc.occTitle}</h5>
+                                    <h5 class="fw-semibold mb-2">
+                                        <h:outputLink value="careerDetails.xhtml?onet=#{relatedOcc.onet}" 
+                                                     styleClass="text-dark text-decoration-none">
+                                            #{relatedOcc.occTitle}
+                                        </h:outputLink>
+                                    </h5>
                                     <h:panelGroup rendered="#{relatedOcc.occDescription != null and relatedOcc.occDescription.length() > 0}">
                                         <p class="mb-2 text-muted lh-relaxed">#{relatedOcc.occDescription}</p>
                                     </h:panelGroup>
                                     <h:panelGroup rendered="#{relatedOcc.onet != null}">
-                                        <div class="small text-primary">O*NET Code: #{relatedOcc.onet}</div>
+                                        <div class="small text-info fw-medium">O*NET Code: #{relatedOcc.onet}</div>
                                     </h:panelGroup>
                                 </div>
                             </div>
                         </div>
                     </ui:repeat>
+                </div>
+                
+                <!-- Simple Pagination -->
+                <div class="d-flex justify-content-between align-items-center mt-4 pt-3 border-top">
+                    <button type="button" id="relatedPrevBtn" class="btn btn-outline-info" disabled="disabled">
+                        <i class="bi bi-arrow-left me-1"></i>Previous
+                    </button>
+                    <span id="relatedPageInfo" class="text-muted fw-medium">Page 1 of 1</span>
+                    <button type="button" id="relatedNextBtn" class="btn btn-outline-info" disabled="disabled">
+                        Next<i class="bi bi-arrow-right ms-1"></i>
+                    </button>
                 </div>
             </div>
         </div>
@@ -46,5 +62,69 @@
             </div>
         </div>
     </h:panelGroup>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Related Careers Pagination
+            const relatedItems = document.querySelectorAll('.related-career-item');
+            const relatedItemsPerPage = 3;
+            let relatedCurrentPage = 1;
+            const relatedTotalPages = Math.ceil(relatedItems.length / relatedItemsPerPage);
+            
+            const relatedPrevBtn = document.getElementById('relatedPrevBtn');
+            const relatedNextBtn = document.getElementById('relatedNextBtn');
+            const relatedPageInfo = document.getElementById('relatedPageInfo');
+            
+            function showRelatedPage(page) {
+                relatedItems.forEach((item, index) => {
+                    const startIndex = (page - 1) * relatedItemsPerPage;
+                    const endIndex = startIndex + relatedItemsPerPage;
+                    
+                    if (index &gt;= startIndex &amp;&amp; index &lt; endIndex) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+                
+                // Update page info
+                if (relatedPageInfo) {
+                    relatedPageInfo.textContent = `Page ${page} of ${relatedTotalPages}`;
+                }
+                
+                // Update button states
+                if (relatedPrevBtn) {
+                    relatedPrevBtn.disabled = (page === 1);
+                }
+                if (relatedNextBtn) {
+                    relatedNextBtn.disabled = (page === relatedTotalPages);
+                }
+            }
+            
+            // Event listeners
+            if (relatedPrevBtn) {
+                relatedPrevBtn.addEventListener('click', function() {
+                    if (relatedCurrentPage &gt; 1) {
+                        relatedCurrentPage--;
+                        showRelatedPage(relatedCurrentPage);
+                    }
+                });
+            }
+            
+            if (relatedNextBtn) {
+                relatedNextBtn.addEventListener('click', function() {
+                    if (relatedCurrentPage &lt; relatedTotalPages) {
+                        relatedCurrentPage++;
+                        showRelatedPage(relatedCurrentPage);
+                    }
+                });
+            }
+            
+            // Initialize
+            if (relatedItems.length &gt; 0) {
+                showRelatedPage(1);
+            }
+        });
+    </script>
 </ui:composition>
 </html>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+<ui:composition>
+    <h:panelGroup rendered="#{careerView.occupation.hasResourcesFlag and careerView.occupation.resources != null and careerView.occupation.resources.size() > 0}">
+        <div id="resources" class="card shadow-sm mb-4">
+            <div class="card-body">
+                <h2 class="fs-2 fw-semibold text-primary mb-3 pb-2 border-bottom">Learning Resources</h2>
+                <p class="mb-4">External resources to help you learn more about this career.</p>
+                
+                <!-- Resources Container -->
+                <div id="resourcesContainer">
+                    <ui:repeat value="#{careerView.occupation.resources}" var="learningResource">
+                        <div class="resource-item border-start border-info border-4 ps-4 py-3 mb-3">
+                            <div class="d-flex align-items-start">
+                                <div class="flex-shrink-0 me-3">
+                                    <i class="bi bi-book-fill text-info"></i>
+                                </div>
+                                <div class="flex-grow-1">
+                                    <h5 class="fw-semibold mb-2 text-dark">#{learningResource.name}</h5>
+                                    <h:panelGroup rendered="#{learningResource.description != null and learningResource.description != ''}">
+                                        <p class="mb-2 text-muted lh-relaxed">#{learningResource.description}</p>
+                                    </h:panelGroup>
+                                    <h:panelGroup rendered="#{learningResource.url != null and learningResource.url != ''}">
+                                        <a href="#{learningResource.url}" target="_blank" class="btn btn-outline-info btn-sm">
+                                            <i class="bi bi-box-arrow-up-right me-1"></i>Learn More
+                                        </a>
+                                    </h:panelGroup>
+                                </div>
+                            </div>
+                        </div>
+                    </ui:repeat>
+                </div>
+            </div>
+        </div>
+    </h:panelGroup>
+</ui:composition>
+</html> 
