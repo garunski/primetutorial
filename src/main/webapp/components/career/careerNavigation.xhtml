@@ -7,18 +7,38 @@
       xmlns:p="http://primefaces.org/ui">
 
 <ui:composition>
-    <div class="career-nav mb-4">
-        <div class="d-flex align-items-center justify-content-center mb-3">
-            <div class="w-10">
-                <hr class="border-primary m-0" />
-            </div>
-            <h5 class="text-primary fw-semibold mb-0 mx-3">Quick Navigation</h5>
-            <div class="w-10">
-                <hr class="border-primary m-0" />
+    <!-- Mobile Navigation Toggle Button -->
+    <div class="d-lg-none mb-3">
+        <button class="btn btn-primary w-100" type="button" onclick="document.body.classList.toggle('navigation-open')">
+            <i class="bi bi-list me-2"></i>
+            Quick Navigation
+        </button>
+    </div>
+
+    <!-- Career Navigation Panel -->
+    <div class="career-nav-panel mb-4">
+        <!-- Mobile Header -->
+        <div class="d-lg-none nav-header border-bottom p-3">
+            <div class="d-flex align-items-center justify-content-between">
+                <h5 class="m-0">Quick Navigation</h5>
+                <button type="button" class="btn-close" onclick="document.body.classList.remove('navigation-open')" aria-label="Close"></button>
             </div>
         </div>
 
-        <div class="bg-white border rounded-2 shadow-sm overflow-hidden">
+        <!-- Navigation Content -->
+        <div class="nav-content">
+            <!-- Desktop Header -->
+            <div class="d-none d-lg-flex align-items-center justify-content-center mb-3">
+                <div class="w-10">
+                    <hr class="border-primary m-0" />
+                </div>
+                <h5 class="text-primary fw-semibold mb-0 mx-3">Quick Navigation</h5>
+                <div class="w-10">
+                    <hr class="border-primary m-0" />
+                </div>
+            </div>
+
+            <div class="bg-white border rounded-2 shadow-sm overflow-hidden">
             <div class="border-bottom">
                 <a href="#overview" class="nav-link d-block text-decoration-none p-3 text-body-secondary fw-medium">Overview</a>
             </div>
@@ -88,25 +108,77 @@
                     <a href="#related" class="nav-link d-block text-decoration-none p-3 text-body-secondary fw-medium">Related Careers</a>
                 </div>
             </h:panelGroup>
+            </div>
         </div>
     </div>
 
+    <!-- Mobile Overlay -->
+    <div class="nav-overlay" onclick="document.body.classList.remove('navigation-open')"></div>
+
     <style>
-        .career-nav {
-            position: relative;
-            z-index: 1;
+        /* Mobile Navigation Panel */
+        @media (max-width: 991.98px) {
+            .career-nav-panel {
+                position: fixed;
+                top: 0;
+                left: 0;
+                bottom: 0;
+                width: 90%;
+                max-width: 400px;
+                background: white;
+                z-index: 1045;
+                transform: translateX(-100%);
+                transition: transform 0.3s ease-in-out;
+                overflow-y: auto;
+            }
+
+            .navigation-open .career-nav-panel {
+                transform: translateX(0);
+            }
+
+            .nav-overlay {
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: rgba(0, 0, 0, 0.5);
+                z-index: 1040;
+                opacity: 0;
+                visibility: hidden;
+                transition: opacity 0.3s ease-in-out;
+            }
+
+            .navigation-open .nav-overlay {
+                opacity: 1;
+                visibility: visible;
+            }
+
+            .nav-content {
+                padding: 1rem;
+            }
         }
 
-        .career-nav .nav-link.active {
+        /* Desktop Navigation Panel */
+        @media (min-width: 992px) {
+            .career-nav-panel {
+                position: sticky;
+                top: 1rem;
+            }
+
+            .nav-overlay {
+                display: none;
+            }
+
+            .nav-header {
+                display: none;
+            }
+        }
+
+        /* Common Navigation Styles */
+        .career-nav-panel .nav-link.active {
             background-color: var(--bs-primary-bg-subtle);
             color: var(--bs-primary) !important;
-        }
-
-        @media (max-width: 991.98px) {
-            .career-nav {
-                position: relative;
-                z-index: 1;
-            }
         }
 
         .w-10 {
