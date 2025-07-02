@@ -7,169 +7,66 @@
       xmlns:p="http://primefaces.org/ui">
 
 <ui:composition>
-  <!-- Hero Section with Background -->
-  <div class="bg-gradient-primary-subtle py-4 border-bottom">
+    <!-- Hero Section with Background -->
+  <div class="bg-light py-5 border-bottom">
     <div class="container">
       
       <!-- Main Header Card -->
-      <div class="card shadow-sm border-0 mb-4">
-        <div class="card-body p-4">
+      <div class="card shadow-sm border-0">
+        <div class="card-body p-5 text-center">
           
-          <!-- Title and Badges Section -->
-          <div class="row align-items-start">
-            <div class="col-lg-8">
-              <h1 class="display-4 fw-bold text-dark mb-3">#{careerView.occupation.title}</h1>
-              
-              <!-- Status Badges -->
-              <div class="d-flex flex-wrap gap-2 mb-3">
-                <h:panelGroup rendered="#{careerView.occupation.brightFlag}">
-                  <span class="badge bg-warning bg-opacity-20 text-warning-emphasis border border-warning rounded-pill px-3 py-2">
-                    <i class="bi bi-sun-fill me-2"></i>Bright Outlook
-                  </span>
+          <!-- Job Title -->
+          <h1 class="display-4 fw-bold text-dark mb-3">#{careerView.occupation.title}</h1>
+          
+          <!-- Career Navigation Breadcrumb -->
+          <h:panelGroup rendered="#{careerView.occupation.hasClustersFlag and not empty careerView.occupation.careerClusters}">
+            <div class="text-muted small mb-3">
+              <ui:repeat value="#{careerView.occupation.careerClusters}" var="cluster" varStatus="clusterStatus">
+                <h:outputLink value="/cz/occupations/search.jsf?cluster=#{cluster.clusterID}" 
+                             styleClass="text-decoration-none text-muted category-link">
+                  #{cluster.clusterName}
+                </h:outputLink>
+                
+                <h:panelGroup rendered="#{cluster.hasPathwayFlag and not empty cluster.careerPathwayList}">
+                  <ui:repeat value="#{cluster.careerPathwayList}" var="pathway" varStatus="pathwayStatus">
+                    <h:outputText value=" | " styleClass="text-muted" />
+                    <h:outputLink value="/cz/occupations/search.jsf?cluster=#{cluster.clusterID}&amp;pathway=#{pathway.value}" 
+                                 styleClass="text-decoration-none text-muted category-link">
+                      #{pathway.description}
+                    </h:outputLink>
+                  </ui:repeat>
                 </h:panelGroup>
-                <h:panelGroup rendered="#{careerView.occupation.greenFlag}">
-                  <span class="badge bg-success bg-opacity-20 text-success-emphasis border border-success rounded-pill px-3 py-2">
-                    <i class="bi bi-leaf-fill me-2"></i>Green Job
-                  </span>
-                </h:panelGroup>
-                <h:panelGroup rendered="#{careerView.occupation.hasApprenticeshipFlag}">
-                  <span class="badge bg-primary bg-opacity-20 text-primary-emphasis border border-primary rounded-pill px-3 py-2">
-                    <i class="bi bi-mortarboard-fill me-2"></i>Apprenticeship Available
-                  </span>
-                </h:panelGroup>
-              </div>
-              
-              <!-- Career Navigation Breadcrumb -->
-              <h:panelGroup rendered="#{careerView.occupation.hasClustersFlag and not empty careerView.occupation.careerClusters}">
-                <nav aria-label="Career pathway breadcrumb">
-                  <div class="d-flex flex-wrap align-items-center gap-2 text-muted small">
-                    <i class="bi bi-house-fill"></i>
-                    <ui:repeat value="#{careerView.occupation.careerClusters}" var="cluster" varStatus="clusterStatus">
-                      <h:outputLink value="/cz/occupations/search.jsf?cluster=#{cluster.clusterID}" 
-                                   styleClass="text-decoration-none text-primary fw-medium">
-                        #{cluster.clusterName}
-                      </h:outputLink>
-                      
-                      <h:panelGroup rendered="#{cluster.hasPathwayFlag and not empty cluster.careerPathwayList}">
-                        <ui:repeat value="#{cluster.careerPathwayList}" var="pathway" varStatus="pathwayStatus">
-                          <i class="bi bi-chevron-right"></i>
-                          <h:outputLink value="/cz/occupations/search.jsf?cluster=#{cluster.clusterID}&amp;pathway=#{pathway.value}" 
-                                       styleClass="text-decoration-none text-primary fw-medium">
-                            #{pathway.description}
-                          </h:outputLink>
-                        </ui:repeat>
-                      </h:panelGroup>
-                    </ui:repeat>
-                  </div>
-                </nav>
-              </h:panelGroup>
+              </ui:repeat>
             </div>
-            
-            <!-- Quick Stats Card -->
-            <div class="col-lg-4">
-              <div class="card bg-light border-0 h-100">
-                <div class="card-body p-3">
-                  <h6 class="card-title text-muted mb-3 fw-semibold">
-                    <i class="bi bi-info-circle me-2"></i>Quick Overview
-                  </h6>
-                  
-                  <!-- Job Zone / Preparation -->
-                  <h:panelGroup rendered="#{careerView.occupation.jobZoneFlag and careerView.occupation.jobZoneName != null}">
-                    <div class="d-flex align-items-center mb-3">
-                      <div class="flex-shrink-0 me-3">
-                        <div class="bg-primary bg-opacity-10 rounded-circle p-2">
-                          <i class="bi bi-mortarboard text-primary"></i>
-                        </div>
-                      </div>
-                      <div class="flex-grow-1">
-                        <div class="small text-muted">Preparation Level</div>
-                        <div class="fw-semibold text-dark">#{careerView.occupation.jobZoneName}</div>
-                      </div>
-                    </div>
-                  </h:panelGroup>
-                  
-                  <!-- Median Salary -->
-                  <h:panelGroup rendered="#{careerView.occupation.hasWageFlag and careerView.occupation.wages != null}">
-                    <div class="d-flex align-items-center mb-3">
-                      <div class="flex-shrink-0 me-3">
-                        <div class="bg-success bg-opacity-10 rounded-circle p-2">
-                          <i class="bi bi-currency-dollar text-success"></i>
-                        </div>
-                      </div>
-                      <div class="flex-grow-1">
-                        <div class="small text-muted">
-                          <h:panelGroup rendered="#{careerView.occupation.wages.stateWageAnnualPct50MedianAmount != null}">
-                            #{careerView.occupation.wages.state} Median Salary
-                          </h:panelGroup>
-                          <h:panelGroup rendered="#{careerView.occupation.wages.stateWageAnnualPct50MedianAmount == null and careerView.occupation.wages.nationalWageAnnualPct50MedianAmount != null}">
-                            National Median Salary
-                          </h:panelGroup>
-                        </div>
-                        <div class="fw-bold text-dark">
-                          <h:panelGroup rendered="#{careerView.occupation.wages.stateWageAnnualPct50MedianAmount != null}">
-                            <h:outputText value="#{careerView.occupation.wages.stateWageAnnualPct50MedianAmount}">
-                              <f:convertNumber type="currency" currencySymbol="$" groupingUsed="true" />
-                            </h:outputText>
-                          </h:panelGroup>
-                          <h:panelGroup rendered="#{careerView.occupation.wages.stateWageAnnualPct50MedianAmount == null and careerView.occupation.wages.nationalWageAnnualPct50MedianAmount != null}">
-                            <h:outputText value="#{careerView.occupation.wages.nationalWageAnnualPct50MedianAmount}">
-                              <f:convertNumber type="currency" currencySymbol="$" groupingUsed="true" />
-                            </h:outputText>
-                          </h:panelGroup>
-                        </div>
-                      </div>
-                    </div>
-                  </h:panelGroup>
-                  
-                  <!-- Employment Growth -->
-                  <h:panelGroup rendered="#{careerView.occupation.hasWageFlag and careerView.occupation.wages != null and careerView.occupation.wages.stateEmplChangePercent != null}">
-                    <div class="d-flex align-items-center">
-                      <div class="flex-shrink-0 me-3">
-                        <div class="rounded-circle p-2">
-                          <h:panelGroup rendered="#{careerView.occupation.wages.stateEmplChangePercent gt 0}">
-                            <div class="bg-success bg-opacity-10">
-                              <i class="bi bi-trending-up text-success"></i>
-                            </div>
-                          </h:panelGroup>
-                          <h:panelGroup rendered="#{careerView.occupation.wages.stateEmplChangePercent le 0}">
-                            <div class="bg-warning bg-opacity-10">
-                              <i class="bi bi-trending-down text-warning"></i>
-                            </div>
-                          </h:panelGroup>
-                        </div>
-                      </div>
-                      <div class="flex-grow-1">
-                        <div class="small text-muted">Employment Growth</div>
-                        <div class="fw-semibold">
-                          <h:outputText value="#{careerView.occupation.wages.stateEmplChangePercent}">
-                            <f:convertNumber pattern="#0.0" />
-                          </h:outputText>%
-                          <h:panelGroup rendered="#{careerView.occupation.wages.stateEmplChangePercent gt 0}">
-                            <span class="text-success ms-1">(Growing)</span>
-                          </h:panelGroup>
-                          <h:panelGroup rendered="#{careerView.occupation.wages.stateEmplChangePercent le 0}">
-                            <span class="text-warning ms-1">(Declining)</span>
-                          </h:panelGroup>
-                        </div>
-                      </div>
-                    </div>
-                  </h:panelGroup>
-                  
-                </div>
-              </div>
-            </div>
+          </h:panelGroup>
+          
+          <!-- Job Description -->
+          <div class="text-secondary mb-4">
+            <p class="fs-5 mx-auto" style="max-width: 800px;">#{careerView.occupation.description}</p>
           </div>
           
-        </div>
-      </div>
-      
-      <!-- Description Card -->
-      <div class="card shadow-sm border-0">
-        <div class="card-body p-4">
-          <h2 class="fs-4 fw-semibold text-primary mb-3 pb-2 border-bottom">
-            <i class="bi bi-file-text me-2"></i>What They Do
-          </h2>
-          <p class="fs-5 text-muted lh-base mb-0">#{careerView.occupation.description}</p>
+          <!-- Status Badges -->
+          <div class="d-flex flex-wrap justify-content-center gap-2">
+            <h:panelGroup rendered="#{careerView.occupation.brightFlag}">
+              <span class="pe-none btn btn-outline-warning bg-warning bg-opacity-10 text-dark rounded-pill px-2 py-1 me-1 mb-1" style="font-size: 0.75rem;">
+                <i class="bi bi-check-circle-fill text-warning me-1"></i>
+                Bright Outlook
+              </span>
+            </h:panelGroup>
+            <h:panelGroup rendered="#{careerView.occupation.greenFlag}">
+              <span class="pe-none btn btn-outline-success bg-success bg-opacity-10 text-dark rounded-pill px-2 py-1 me-1 mb-1" style="font-size: 0.75rem;">
+                <i class="bi bi-check-circle-fill text-success me-1"></i>
+                Green Job
+              </span>
+            </h:panelGroup>
+            <h:panelGroup rendered="#{careerView.occupation.hasApprenticeshipFlag}">
+              <span class="pe-none btn btn-outline-primary bg-primary bg-opacity-10 text-dark rounded-pill px-2 py-1 me-1 mb-1" style="font-size: 0.75rem;">
+                <i class="bi bi-check-circle-fill text-primary me-1"></i>
+                Apprenticeship
+              </span>
+            </h:panelGroup>
+          </div>
+          
         </div>
       </div>
       
