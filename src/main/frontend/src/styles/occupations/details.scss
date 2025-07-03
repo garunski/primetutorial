@@ -47,16 +47,14 @@
   border-radius: $border-radius-sm;
 }
 
-// Work Context Tag Cloud Styles
+// Work Context Tag Cloud Styles - Simplified
 .work-context-tag-cloud {
   .work-context-tag {
     cursor: pointer;
     transition: all 0.3s ease;
-    position: relative;
-    display: inline-block;
     
     &:hover {
-      transform: scale(1.1);
+      transform: scale(1.05);
       background-color: $primary !important;
       color: white !important;
       z-index: 10;
@@ -95,17 +93,6 @@
   }
 }
 
-// Custom tag styling
-.tag-primary {
-  background-color: rgba($primary, 0.1);
-  color: $primary;
-}
-
-// PrimeFaces overrides - Only if needed
-.ui-widget {
-  font-family: $font-family-base;
-}
-
 // Career header boxes - Only custom styling
 .career-stat-box {
   border-left-width: 3px !important;
@@ -139,12 +126,5 @@
   &:hover {
     transform: translateY(-2px);
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  }
-}
-
-// Responsive adjustments for career video
-@media (max-width: 768px) {
-  .card-body {
-    flex-direction: column;
   }
 }

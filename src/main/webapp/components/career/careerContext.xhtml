@@ -14,13 +14,13 @@
 
             <h:panelGroup rendered="#{careerView.occupation.hasWorkContextFlag and careerView.occupation.workContext != null and careerView.occupation.workContext.size() > 0}">
                 <div class="row mb-4">
-                    <div class="col-md-12">
+                    <div class="col-12">
                         <!-- Tag cloud container -->
-                        <div class="work-context-tag-cloud bg-light p-4 rounded shadow-sm mx-auto position-relative mb-4">
+                        <div class="work-context-tag-cloud bg-light p-3 p-sm-4 rounded shadow-sm mx-auto position-relative mb-4">
                             <h4 class="fs-5 fw-semibold text-center mb-4">Work Context Factors</h4>
-                            <div class="d-flex flex-wrap justify-content-center align-items-center gap-3" style="min-height: 200px;">
+                            <div class="d-flex flex-wrap justify-content-center align-items-center gap-2 gap-sm-3" style="min-height: 200px;">
                                 <ui:repeat value="#{careerView.occupation.workContext}" var="context" varStatus="status">
-                                    <span class="work-context-tag badge text-dark bg-primary-subtle border border-primary-subtle rounded-pill px-3 py-2 
+                                    <span class="work-context-tag badge text-dark bg-primary-subtle border border-primary-subtle rounded-pill px-2 px-sm-3 py-2 text-wrap text-center
                                                  #{context.value >= 4.8 ? 'size-xl' : context.value >= 4.6 ? 'size-lg' : context.value >= 4.4 ? 'size-md' : context.value >= 4.2 ? 'size-sm' : 'size-xs'}"
                                           data-bs-toggle="tooltip" 
                                           data-bs-placement="top" 
@@ -46,7 +46,9 @@
 
                         <p class="small text-muted mt-3 text-center">
                             <i class="bi bi-info-circle me-1"></i>
-                            Hover over each factor to see its description. Tag size reflects importance level (4-5 scale).
+                            <span class="d-none d-sm-inline">Hover over each factor to see its description.</span>
+                            <span class="d-sm-none">Tap each factor to see its description.</span>
+                            Tag size reflects importance level (4-5 scale).
                         </p>
                     </div>
                 </div>
