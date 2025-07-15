@@ -47,23 +47,48 @@
                                             <h6 class="fw-semibold mb-2">
                                                 <i class="bi bi-house me-2 text-primary"></i>Location Details
                                             </h6>
-                                            <p class="mb-1">
-                                                <h:panelGroup rendered="#{apprenticeship.addr1 != null}">
-                                                    #{apprenticeship.addr1}
+                                            <address class="mb-2 text-nowrap">
+                                                <h:panelGroup rendered="#{apprenticeship.apprenticeshipCompleteAddress != null}">
+                                                    <a href="https://maps.google.com/?q=#{apprenticeship.apprenticeshipCompleteAddress}" 
+                                                       target="_blank" 
+                                                       class="text-decoration-none">
+                                                        <h:panelGroup rendered="#{apprenticeship.addr1 != null}">
+                                                            #{apprenticeship.addr1}
+                                                        </h:panelGroup>
+                                                        <h:panelGroup rendered="#{apprenticeship.city != null}">
+                                                            <h:panelGroup rendered="#{apprenticeship.addr1 != null}">, </h:panelGroup>
+                                                            #{apprenticeship.city}
+                                                        </h:panelGroup>
+                                                        <h:panelGroup rendered="#{apprenticeship.state != null}">
+                                                            <h:panelGroup rendered="#{apprenticeship.city != null or apprenticeship.addr1 != null}">, </h:panelGroup>
+                                                            #{apprenticeship.state}
+                                                        </h:panelGroup>
+                                                        <h:panelGroup rendered="#{apprenticeship.zip != null}">
+                                                            <h:panelGroup rendered="#{apprenticeship.state != null or apprenticeship.city != null or apprenticeship.addr1 != null}"> </h:panelGroup>
+                                                            #{apprenticeship.zip}
+                                                        </h:panelGroup>
+                                                        <i class="bi bi-map ms-1 text-primary"></i>
+                                                    </a>
                                                 </h:panelGroup>
-                                                <h:panelGroup rendered="#{apprenticeship.city != null}">
-                                                    <h:panelGroup rendered="#{apprenticeship.addr1 != null}">, </h:panelGroup>
-                                                    #{apprenticeship.city}
+                                                <h:panelGroup rendered="#{apprenticeship.apprenticeshipCompleteAddress == null}">
+                                                    <h:panelGroup rendered="#{apprenticeship.addr1 != null}">
+                                                        #{apprenticeship.addr1}
+                                                    </h:panelGroup>
+                                                    <h:panelGroup rendered="#{apprenticeship.city != null}">
+                                                        <h:panelGroup rendered="#{apprenticeship.addr1 != null}">, </h:panelGroup>
+                                                        #{apprenticeship.city}
+                                                    </h:panelGroup>
+                                                    <h:panelGroup rendered="#{apprenticeship.state != null}">
+                                                        <h:panelGroup rendered="#{apprenticeship.city != null or apprenticeship.addr1 != null}">, </h:panelGroup>
+                                                        #{apprenticeship.state}
+                                                    </h:panelGroup>
+                                                    <h:panelGroup rendered="#{apprenticeship.zip != null}">
+                                                        <h:panelGroup rendered="#{apprenticeship.state != null or apprenticeship.city != null or apprenticeship.addr1 != null}"> </h:panelGroup>
+                                                        #{apprenticeship.zip}
+                                                    </h:panelGroup>
                                                 </h:panelGroup>
-                                                <h:panelGroup rendered="#{apprenticeship.state != null}">
-                                                    <h:panelGroup rendered="#{apprenticeship.city != null or apprenticeship.addr1 != null}">, </h:panelGroup>
-                                                    #{apprenticeship.state}
-                                                </h:panelGroup>
-                                                <h:panelGroup rendered="#{apprenticeship.zip != null}">
-                                                    <h:panelGroup rendered="#{apprenticeship.state != null or apprenticeship.city != null or apprenticeship.addr1 != null}"> </h:panelGroup>
-                                                    #{apprenticeship.zip}
-                                                </h:panelGroup>
-                                            </p>
+                                            </address>
+
                                         </div>
                                     </h:panelGroup>
                                     
