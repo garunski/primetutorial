@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+<ui:composition>
+    <!-- Redesigned Favorites Filter with Modern Design -->
+    <div class="favorites-filter-container mb-4">
+        <!-- Animated Header with Gradient Background -->
+        <div class="favorites-header position-relative overflow-hidden rounded-top-3 p-3" 
+             style="background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 50%, #ff4757 100%);">
+            <div class="position-absolute top-0 start-0 w-100 h-100 opacity-10">
+                <div class="floating-hearts">
+                    <i class="bi bi-heart-fill position-absolute" style="top: 10%; left: 10%; animation: float 3s ease-in-out infinite;"></i>
+                    <i class="bi bi-heart-fill position-absolute" style="top: 30%; right: 15%; animation: float 3s ease-in-out infinite 1s;"></i>
+                    <i class="bi bi-heart-fill position-absolute" style="bottom: 20%; left: 20%; animation: float 3s ease-in-out infinite 2s;"></i>
+                </div>
+            </div>
+            
+            <div class="text-center position-relative">
+                <div class="favorites-icon-wrapper d-inline-block mb-2">
+                    <i class="bi bi-heart-fill text-white" style="font-size: 2rem; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));"></i>
+                </div>
+                <h5 class="text-white fw-bold mb-1 text-shadow">My Favorites</h5>
+                <p class="text-white-50 mb-0 small">Discover your saved treasures</p>
+            </div>
+        </div>
+        
+        <!-- Interactive Toggle Button -->
+        <div class="favorites-toggle-container p-3 bg-light rounded-bottom-3 border-start border-end border-bottom">
+            <ui:include src="searchLink.xhtml">
+                <ui:param name="targetPage" value="#{param['page'] ne null ? param['page'] : '1'}" />
+                <ui:param name="enabled" value="true" />
+                <ui:param name="buttonText" value="#{not empty param['favorites'] ? 'Hide Favorites' : 'Show Favorites'}" />
+                <ui:param name="iconClass" value="bi #{not empty param['favorites'] ? 'bi-eye-slash' : 'bi-eye'} me-2" />
+                <ui:param name="styleClass" value="favorites-toggle-btn #{not empty param['favorites'] ? 'btn-success' : 'btn-outline-primary'} w-100 py-3 position-relative overflow-hidden" />
+                <ui:param name="filterParam" value="favorites" />
+            </ui:include>
+            
+            <!-- Status Indicator -->
+            <div class="text-center mt-2">
+                <span class="badge #{not empty param['favorites'] ? 'bg-success' : 'bg-secondary'} rounded-pill px-3 py-2">
+                    <i class="bi #{not empty param['favorites'] ? 'bi-check-circle' : 'bi-circle'} me-1"></i>
+                    #{not empty param['favorites'] ? 'Active' : 'Inactive'}
+                </span>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Custom CSS for Enhanced Styling -->
+    <style>
+        .favorites-filter-container {
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .favorites-filter-container:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+        }
+        
+        .favorites-header {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .favorites-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            animation: shimmer 2s infinite;
+        }
+        
+        .favorites-icon-wrapper {
+            animation: pulse 2s ease-in-out infinite;
+        }
+        
+        .favorites-toggle-btn {
+            transition: all 0.3s ease;
+            border-radius: 12px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+        
+        .favorites-toggle-btn:hover {
+            transform: scale(1.02);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        
+        .favorites-toggle-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s;
+        }
+        
+        .favorites-toggle-btn:hover::before {
+            left: 100%;
+        }
+        
+        .text-shadow {
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        @keyframes shimmer {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+        
+        .floating-hearts i {
+            color: rgba(255,255,255,0.3);
+            font-size: 1.2rem;
+        }
+        
+        .badge {
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+    </style>
+</ui:composition>
+</html> 

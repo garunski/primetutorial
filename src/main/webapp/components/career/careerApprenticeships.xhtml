@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+<ui:composition>
+    <h:panelGroup rendered="#{careerView.occupation.hasApprenticeshipFlag and careerView.occupation.apprenticeships != null and careerView.occupation.apprenticeships.size() > 0}">
+        <div id="apprenticeships" class="card shadow-sm mb-4">
+            <div class="card-body">
+                <h2 class="fs-2 fw-semibold text-primary mb-3 pb-2 border-bottom">
+                    <i class="bi bi-tools me-2"></i>Apprenticeship Opportunities
+                </h2>
+                <p class="mb-4">Discover hands-on training opportunities that combine paid work experience with classroom instruction for this career path.</p>
+                
+                <!-- Apprenticeships Container -->
+                <div id="apprenticeshipsContainer">
+                    <ui:repeat value="#{careerView.occupation.apprenticeships}" var="apprenticeship" varStatus="status">
+                        <div class="apprenticeship-item border border-2 border-primary rounded mb-4 p-4" style="display: none;">
+                            <div class="row">
+                                <!-- Main Content -->
+                                <div class="col-lg-8">
+                                    <div class="d-flex align-items-start mb-3">
+                                        <div class="flex-shrink-0 me-3">
+                                            <i class="bi bi-building text-primary fs-2"></i>
+                                        </div>
+                                        <div class="flex-grow-1">
+                                            <h4 class="fw-bold text-dark mb-1">#{apprenticeship.name}</h4>
+                                            <h:panelGroup rendered="#{apprenticeship.companyName != null and apprenticeship.companyName != apprenticeship.name}">
+                                                <p class="text-muted mb-2">
+                                                    <i class="bi bi-briefcase me-1"></i>#{apprenticeship.companyName}
+                                                </p>
+                                            </h:panelGroup>
+                                            <h:panelGroup rendered="#{apprenticeship.location != null}">
+                                                <p class="text-muted mb-2">
+                                                    <i class="bi bi-geo-alt me-1"></i>#{apprenticeship.location}
+                                                </p>
+                                            </h:panelGroup>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Address Information -->
+                                    <h:panelGroup rendered="#{apprenticeship.addr1 != null or apprenticeship.city != null}">
+                                        <div class="bg-light rounded p-3 mb-3">
+                                            <h6 class="fw-semibold mb-2">
+                                                <i class="bi bi-house me-2 text-primary"></i>Location Details
+                                            </h6>
+                                            <p class="mb-1">
+                                                <h:panelGroup rendered="#{apprenticeship.addr1 != null}">
+                                                    #{apprenticeship.addr1}
+                                                </h:panelGroup>
+                                                <h:panelGroup rendered="#{apprenticeship.city != null}">
+                                                    <h:panelGroup rendered="#{apprenticeship.addr1 != null}">, </h:panelGroup>
+                                                    #{apprenticeship.city}
+                                                </h:panelGroup>
+                                                <h:panelGroup rendered="#{apprenticeship.state != null}">
+                                                    <h:panelGroup rendered="#{apprenticeship.city != null or apprenticeship.addr1 != null}">, </h:panelGroup>
+                                                    #{apprenticeship.state}
+                                                </h:panelGroup>
+                                                <h:panelGroup rendered="#{apprenticeship.zip != null}">
+                                                    <h:panelGroup rendered="#{apprenticeship.state != null or apprenticeship.city != null or apprenticeship.addr1 != null}"> </h:panelGroup>
+                                                    #{apprenticeship.zip}
+                                                </h:panelGroup>
+                                            </p>
+                                        </div>
+                                    </h:panelGroup>
+                                    
+                                    <!-- Application Information -->
+                                    <h:panelGroup rendered="#{apprenticeship.howToApplyText != null}">
+                                        <div class="mb-3">
+                                            <h6 class="fw-semibold mb-2">
+                                                <i class="bi bi-info-circle me-2 text-primary"></i>How to Apply
+                                            </h6>
+                                            <p class="mb-0">#{apprenticeship.howToApplyText}</p>
+                                        </div>
+                                    </h:panelGroup>
+                                    
+                                    <h:panelGroup rendered="#{apprenticeship.applicantReqtText != null}">
+                                        <div class="mb-3">
+                                            <h6 class="fw-semibold mb-2">
+                                                <i class="bi bi-person-check me-2 text-primary"></i>Requirements
+                                            </h6>
+                                            <p class="mb-0">#{apprenticeship.applicantReqtText}</p>
+                                        </div>
+                                    </h:panelGroup>
+                                    
+                                    <h:panelGroup rendered="#{apprenticeship.announcementText != null}">
+                                        <div class="mb-3">
+                                            <h6 class="fw-semibold mb-2">
+                                                <i class="bi bi-megaphone me-2 text-primary"></i>Announcement
+                                            </h6>
+                                            <p class="mb-0">#{apprenticeship.announcementText}</p>
+                                        </div>
+                                    </h:panelGroup>
+                                    
+                                    <h:panelGroup rendered="#{apprenticeship.furtherInfo != null}">
+                                        <div class="mb-3">
+                                            <h6 class="fw-semibold mb-2">
+                                                <i class="bi bi-file-text me-2 text-primary"></i>Additional Information
+                                            </h6>
+                                            <p class="mb-0">#{apprenticeship.furtherInfo}</p>
+                                        </div>
+                                    </h:panelGroup>
+                                </div>
+                                
+                                <!-- Sidebar Information -->
+                                <div class="col-lg-4">
+                                    <div class="card bg-light border-0 h-100">
+                                        <div class="card-body">
+                                            <h6 class="fw-semibold text-primary mb-3">Program Details</h6>
+                                            
+                                            <!-- Dates -->
+                                            <h:panelGroup rendered="#{apprenticeship.openDateStr != null or apprenticeship.closingDateStr != null}">
+                                                <div class="mb-3">
+                                                    <h:panelGroup rendered="#{apprenticeship.openDateStr != null}">
+                                                        <div class="d-flex justify-content-between mb-1">
+                                                            <span class="text-muted small">Open Date:</span>
+                                                            <span class="fw-medium">#{apprenticeship.openDateStr}</span>
+                                                        </div>
+                                                    </h:panelGroup>
+                                                    <h:panelGroup rendered="#{apprenticeship.closingDateStr != null}">
+                                                        <div class="d-flex justify-content-between mb-1">
+                                                            <span class="text-muted small">Closing Date:</span>
+                                                            <span class="fw-medium">#{apprenticeship.closingDateStr}</span>
+                                                        </div>
+                                                    </h:panelGroup>
+                                                </div>
+                                            </h:panelGroup>
+                                            
+                                            <!-- Schedule -->
+                                            <h:panelGroup rendered="#{apprenticeship.dayTime != null}">
+                                                <div class="mb-3">
+                                                    <div class="d-flex justify-content-between mb-1">
+                                                        <span class="text-muted small">Schedule:</span>
+                                                        <span class="fw-medium">#{apprenticeship.dayTime}</span>
+                                                    </div>
+                                                </div>
+                                            </h:panelGroup>
+                                            
+                                            <!-- O*NET Code -->
+                                            <h:panelGroup rendered="#{apprenticeship.apprenticeshipCode != null}">
+                                                <div class="mb-3">
+                                                    <div class="d-flex justify-content-between mb-1">
+                                                        <span class="text-muted small">O*NET Code:</span>
+                                                        <span class="fw-medium">#{apprenticeship.apprenticeshipCode}</span>
+                                                    </div>
+                                                </div>
+                                            </h:panelGroup>
+                                            
+                                            <!-- Distance -->
+                                            <h:panelGroup rendered="#{apprenticeship.distanceText != null and apprenticeship.distanceText != 'Unknown'}">
+                                                <div class="mb-3">
+                                                    <div class="d-flex justify-content-between mb-1">
+                                                        <span class="text-muted small">Distance:</span>
+                                                        <span class="fw-medium">#{apprenticeship.distanceText}</span>
+                                                    </div>
+                                                </div>
+                                            </h:panelGroup>
+                                            
+                                            <!-- Contact Information -->
+                                            <h:panelGroup rendered="#{apprenticeship.contactName != null or apprenticeship.phone != null}">
+                                                <hr class="my-3" />
+                                                <h6 class="fw-semibold text-primary mb-2">Contact Information</h6>
+                                                
+                                                <h:panelGroup rendered="#{apprenticeship.contactName != null}">
+                                                    <div class="mb-2">
+                                                        <div class="text-muted small mb-1">Contact:</div>
+                                                        <div class="fw-medium">#{apprenticeship.contactName}</div>
+                                                    </div>
+                                                </h:panelGroup>
+                                                
+                                                <h:panelGroup rendered="#{apprenticeship.phone != null}">
+                                                    <div class="mb-2">
+                                                        <div class="text-muted small mb-1">Phone:</div>
+                                                        <div class="fw-medium">
+                                                            <a href="tel:#{apprenticeship.phone}" class="text-decoration-none">
+                                                                #{apprenticeship.phone}
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </h:panelGroup>
+                                            </h:panelGroup>
+                                            
+                                            <!-- Action Buttons -->
+                                            <div class="mt-3">
+                                                <button type="button" class="btn btn-outline-primary btn-sm me-2">
+                                                    <i class="bi bi-heart me-1"></i>Save
+                                                </button>
+                                                <button type="button" class="btn btn-primary btn-sm">
+                                                    <i class="bi bi-arrow-right me-1"></i>Apply Now
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </ui:repeat>
+                </div>
+                
+                <!-- Pagination -->
+                <div class="d-flex justify-content-between align-items-center mt-4 pt-3 border-top">
+                    <button type="button" id="apprenticeshipPrevBtn" class="btn btn-outline-primary" disabled="disabled">
+                        <i class="bi bi-arrow-left me-1"></i>Previous
+                    </button>
+                    <span id="apprenticeshipPageInfo" class="text-muted fw-medium">Page 1 of 1</span>
+                    <button type="button" id="apprenticeshipNextBtn" class="btn btn-outline-primary" disabled="disabled">
+                        Next<i class="bi bi-arrow-right ms-1"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </h:panelGroup>
+    
+    <h:panelGroup rendered="#{!careerView.occupation.hasApprenticeshipFlag or careerView.occupation.apprenticeships == null or careerView.occupation.apprenticeships.size() == 0}">
+        <div id="apprenticeships" class="card shadow-sm mb-4">
+            <div class="card-body">
+                <h2 class="fs-2 fw-semibold text-primary mb-3 pb-2 border-bottom">
+                    <i class="bi bi-tools me-2"></i>Apprenticeship Opportunities
+                </h2>
+                <div class="alert alert-info border-start border-info border-4">
+                    <div class="d-flex align-items-start">
+                        <i class="bi bi-info-circle me-2 mt-1"></i>
+                        <div>
+                            <h6 class="alert-heading mb-2">No Apprenticeship Opportunities Available</h6>
+                            <p class="mb-0 small">Currently, there are no apprenticeship opportunities listed for this occupation. Check back regularly for new opportunities, or explore other training and education options in the Education section.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </h:panelGroup>
+    
+    <script>
+        //<![CDATA[
+        document.addEventListener('DOMContentLoaded', function() {
+            // Apprenticeship Opportunities Pagination
+            const apprenticeshipItems = document.querySelectorAll('.apprenticeship-item');
+            const apprenticeshipItemsPerPage = 2;
+            let apprenticeshipCurrentPage = 1;
+            const apprenticeshipTotalPages = Math.ceil(apprenticeshipItems.length / apprenticeshipItemsPerPage);
+            
+            const apprenticeshipPrevBtn = document.getElementById('apprenticeshipPrevBtn');
+            const apprenticeshipNextBtn = document.getElementById('apprenticeshipNextBtn');
+            const apprenticeshipPageInfo = document.getElementById('apprenticeshipPageInfo');
+            
+            function showApprenticeshipPage(page) {
+                apprenticeshipItems.forEach((item, index) => {
+                    const startIndex = (page - 1) * apprenticeshipItemsPerPage;
+                    const endIndex = startIndex + apprenticeshipItemsPerPage;
+                    
+                    if (index >= startIndex && index < endIndex) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+                
+                // Update page info
+                if (apprenticeshipPageInfo) {
+                    apprenticeshipPageInfo.textContent = `Page ${page} of ${apprenticeshipTotalPages}`;
+                }
+                
+                // Update button states
+                if (apprenticeshipPrevBtn) {
+                    apprenticeshipPrevBtn.disabled = (page === 1);
+                }
+                if (apprenticeshipNextBtn) {
+                    apprenticeshipNextBtn.disabled = (page === apprenticeshipTotalPages);
+                }
+            }
+            
+            // Event listeners
+            if (apprenticeshipPrevBtn) {
+                apprenticeshipPrevBtn.addEventListener('click', function() {
+                    if (apprenticeshipCurrentPage > 1) {
+                        apprenticeshipCurrentPage--;
+                        showApprenticeshipPage(apprenticeshipCurrentPage);
+                    }
+                });
+            }
+            
+            if (apprenticeshipNextBtn) {
+                apprenticeshipNextBtn.addEventListener('click', function() {
+                    if (apprenticeshipCurrentPage < apprenticeshipTotalPages) {
+                        apprenticeshipCurrentPage++;
+                        showApprenticeshipPage(apprenticeshipCurrentPage);
+                    }
+                });
+            }
+            
+            // Initialize
+            if (apprenticeshipItems.length > 0) {
+                showApprenticeshipPage(1);
+            }
+        });
+        //]]>
+    </script>
+</ui:composition>
+</html> 

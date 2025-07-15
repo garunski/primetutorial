@@ -15,25 +15,27 @@
         <f:param name="page" value="#{targetPage eq null ? '1' : targetPage}" />
         
         <!-- Always include existing params (preserve current filters) -->
-        <f:param name="cluster" value="#{param.cluster eq null ? '' : param.cluster}" />
-        <f:param name="pathway" value="#{param.pathway eq null ? '' : param.pathway}" />
-        <f:param name="education" value="#{param.education eq null ? '' : param.education}" />
-        <f:param name="category" value="#{param.category eq null ? '' : param.category}" />
-        <f:param name="eduCluster" value="#{param.eduCluster eq null ? '' : param.eduCluster}" />
-        <f:param name="artsHumanities" value="#{param.artsHumanities eq null ? '' : param.artsHumanities}" />
-        <f:param name="businessInfoSystems" value="#{param.businessInfoSystems eq null ? '' : param.businessInfoSystems}" />
-        <f:param name="engineeringTech" value="#{param.engineeringTech eq null ? '' : param.engineeringTech}" />
-        <f:param name="healthServices" value="#{param.healthServices eq null ? '' : param.healthServices}" />
-        <f:param name="architectureEngineering" value="#{param.architectureEngineering eq null ? '' : param.architectureEngineering}" />
-        <f:param name="computerMathematical" value="#{param.computerMathematical eq null ? '' : param.computerMathematical}" />
-        <f:param name="healthcarePractitioners" value="#{param.healthcarePractitioners eq null ? '' : param.healthcarePractitioners}" />
-        <f:param name="lifeSocialScience" value="#{param.lifeSocialScience eq null ? '' : param.lifeSocialScience}" />
-        <f:param name="salary" value="#{param.salary eq null ? '' : param.salary}" />
+        <!-- Clear all other filters when favorites is selected -->
+        <f:param name="cluster" value="#{filterParam eq 'favorites' ? '' : (param.cluster eq null ? '' : param.cluster)}" />
+        <f:param name="pathway" value="#{filterParam eq 'favorites' ? '' : (param.pathway eq null ? '' : param.pathway)}" />
+        <f:param name="education" value="#{filterParam eq 'favorites' ? '' : (param.education eq null ? '' : param.education)}" />
+        <f:param name="category" value="#{filterParam eq 'favorites' ? '' : (param.category eq null ? '' : param.category)}" />
+        <f:param name="eduCluster" value="#{filterParam eq 'favorites' ? '' : (param.eduCluster eq null ? '' : param.eduCluster)}" />
+        <f:param name="artsHumanities" value="#{filterParam eq 'favorites' ? '' : (param.artsHumanities eq null ? '' : param.artsHumanities)}" />
+        <f:param name="businessInfoSystems" value="#{filterParam eq 'favorites' ? '' : (param.businessInfoSystems eq null ? '' : param.businessInfoSystems)}" />
+        <f:param name="engineeringTech" value="#{filterParam eq 'favorites' ? '' : (param.engineeringTech eq null ? '' : param.engineeringTech)}" />
+        <f:param name="healthServices" value="#{filterParam eq 'favorites' ? '' : (param.healthServices eq null ? '' : param.healthServices)}" />
+        <f:param name="architectureEngineering" value="#{filterParam eq 'favorites' ? '' : (param.architectureEngineering eq null ? '' : param.architectureEngineering)}" />
+        <f:param name="computerMathematical" value="#{filterParam eq 'favorites' ? '' : (param.computerMathematical eq null ? '' : param.computerMathematical)}" />
+        <f:param name="healthcarePractitioners" value="#{filterParam eq 'favorites' ? '' : (param.healthcarePractitioners eq null ? '' : param.healthcarePractitioners)}" />
+        <f:param name="lifeSocialScience" value="#{filterParam eq 'favorites' ? '' : (param.lifeSocialScience eq null ? '' : param.lifeSocialScience)}" />
+        <f:param name="salary" value="#{filterParam eq 'favorites' ? '' : (param.salary eq null ? '' : param.salary)}" />
         
         <!-- Toggle logic for the specific filter param -->
-        <f:param name="brightOutlook" value="#{filterParam eq 'brightOutlook' ? (empty param.brightOutlook ? 'true' : '') : (param.brightOutlook eq null ? '' : param.brightOutlook)}" />
-        <f:param name="greenJobs" value="#{filterParam eq 'greenJobs' ? (empty param.greenJobs ? 'true' : '') : (param.greenJobs eq null ? '' : param.greenJobs)}" />
-        <f:param name="apprenticeship" value="#{filterParam eq 'apprenticeship' ? (empty param.apprenticeship ? 'true' : '') : (param.apprenticeship eq null ? '' : param.apprenticeship)}" />
+        <f:param name="favorites" value="#{filterParam eq 'favorites' ? (empty param.favorites ? 'true' : '') : (param.favorites eq null ? '' : param.favorites)}" />
+        <f:param name="brightOutlook" value="#{filterParam eq 'favorites' ? '' : (filterParam eq 'brightOutlook' ? (empty param.brightOutlook ? 'true' : '') : (param.brightOutlook eq null ? '' : param.brightOutlook))}" />
+        <f:param name="greenJobs" value="#{filterParam eq 'favorites' ? '' : (filterParam eq 'greenJobs' ? (empty param.greenJobs ? 'true' : '') : (param.greenJobs eq null ? '' : param.greenJobs))}" />
+        <f:param name="apprenticeship" value="#{filterParam eq 'favorites' ? '' : (filterParam eq 'apprenticeship' ? (empty param.apprenticeship ? 'true' : '') : (param.apprenticeship eq null ? '' : param.apprenticeship))}" />
         
         <ui:fragment rendered="#{not empty iconClass and iconPosition != 'after'}">
             <i class="#{iconClass} me-2"></i>

@@ -108,6 +108,11 @@
                     <a href="#salary" class="nav-link d-block text-decoration-none p-3 text-body-secondary fw-medium">Salary &amp; Job Outlook</a>
                 </div>
             </h:panelGroup>
+            <h:panelGroup rendered="#{careerView.occupation.hasApprenticeshipFlag}">
+                <div class="border-bottom">
+                    <a href="#apprenticeships" class="nav-link d-block text-decoration-none p-3 text-body-secondary fw-medium">Apprenticeship Opportunities</a>
+                </div>
+            </h:panelGroup>
             <h:panelGroup rendered="#{careerView.occupation.hasRelatedOccsFlag}">
                 <div>
                     <a href="#related" class="nav-link d-block text-decoration-none p-3 text-body-secondary fw-medium">Related Careers</a>

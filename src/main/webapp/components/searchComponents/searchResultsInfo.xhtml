@@ -156,18 +156,7 @@
             <!-- Quick Filters -->
             <div class="p-3 border-bottom bg-white">
                 <div class="row g-2">
-                    <div class="col-6">
-                        <ui:include src="searchLink.xhtml">
-                            <ui:param name="targetPage" value="#{param['page'] ne null ? param['page'] : '1'}" />
-                            <ui:param name="enabled" value="true" />
-                            <ui:param name="buttonText" value="Favorites" />
-                            <ui:param name="iconClass" value="#{not empty param['favorites'] ? 'bi bi-check-circle-fill text-danger' : 'bi bi-circle text-danger'}" />
-                            <ui:param name="styleClass" value="#{not empty param['favorites'] ? 'btn-outline-danger bg-danger bg-opacity-10 text-dark fs-5 px-5 py-3' : 'btn-light border-secondary text-dark btn-sm'} rounded-pill w-100" />
-                            <ui:param name="filterParam" value="favorites" />
-                        </ui:include>
-                    </div>
-
-                    <div class="col-6">
+                    <div class="col-4">
                         <ui:include src="searchLink.xhtml">
                             <ui:param name="targetPage" value="#{param['page'] ne null ? param['page'] : '1'}" />
                             <ui:param name="enabled" value="true" />
@@ -178,7 +167,7 @@
                         </ui:include>
                     </div>
                     
-                    <div class="col-6">
+                    <div class="col-4">
                         <ui:include src="searchLink.xhtml">
                             <ui:param name="targetPage" value="#{param['page'] ne null ? param['page'] : '1'}" />
                             <ui:param name="enabled" value="true" />
@@ -189,7 +178,7 @@
                         </ui:include>
                     </div>
                     
-                    <div class="col-6">
+                    <div class="col-4">
                         <ui:include src="searchLink.xhtml">
                             <ui:param name="targetPage" value="#{param['page'] ne null ? param['page'] : '1'}" />
                             <ui:param name="enabled" value="true" />
