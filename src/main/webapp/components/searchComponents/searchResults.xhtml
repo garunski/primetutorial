@@ -112,12 +112,21 @@
                                 </h:panelGroup>
                             </div>
                             <div class="d-flex align-items-center gap-2">
-                                <!-- Favorite Button -->
-                                <h:form>
-                                    <h:commandButton value="#{favoriteService.isFavorite(job.id) ? 'Remove' : 'Save'}"
-                                                   styleClass="btn #{favoriteService.isFavorite(job.id) ? 'btn-outline-danger' : 'btn-outline-secondary'} btn-sm"
-                                                   action="#{favoriteService.toggleFavorite(job.id)}" />
-                                </h:form>
+                                <!-- Add Favorite Button -->
+                                <button type="button" 
+                                        class="btn btn-outline-secondary btn-sm add-favorite-btn"
+                                        data-job-id="#{job.id}"
+                                        rendered="#{not favoriteResource.isFavorite(job.id)}">
+                                    <i class="bi bi-heart me-1"></i>Save
+                                </button>
+                                
+                                <!-- Remove Favorite Button -->
+                                <button type="button" 
+                                        class="btn btn-outline-danger btn-sm remove-favorite-btn"
+                                        data-job-id="#{job.id}"
+                                        rendered="#{favoriteResource.isFavorite(job.id)}">
+                                    <i class="bi bi-heart-fill me-1"></i>Remove
+                                </button>
                                 
                                 <!-- View Details Button -->
                                 <h:button value="View Details" outcome="careerDetails" styleClass="btn btn-primary btn-sm">

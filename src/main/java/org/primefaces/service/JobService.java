@@ -28,8 +28,8 @@ public class JobService implements Serializable {
     @Inject
     private SearchFilterBean searchFilterBean;
     
-    @Inject
-    private FavoriteService favoriteService;
+    // Create instance of FavoriteResource for favorites filtering
+    private org.primefaces.rest.FavoriteResource favoriteResource = new org.primefaces.rest.FavoriteResource();
 
     private List<Job> allJobs;
     private List<Job> filteredJobs;
@@ -361,7 +361,7 @@ public class JobService implements Serializable {
         // Apply favorites filter
         if (favoritesOnly) {
             result = result.stream()
-                    .filter(job -> favoriteService.isFavorite(job.getId()))
+                    .filter(job -> favoriteResource.isFavorite(job.getId()))
                     .collect(Collectors.toList());
         }
 
