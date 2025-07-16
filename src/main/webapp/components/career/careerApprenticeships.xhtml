@@ -140,15 +140,15 @@
                                             <h:panelGroup rendered="#{apprenticeship.openDateStr != null or apprenticeship.closingDateStr != null}">
                                                 <div class="mb-3">
                                                     <h:panelGroup rendered="#{apprenticeship.openDateStr != null}">
-                                                        <div class="d-flex justify-content-between mb-1">
-                                                            <span class="text-muted small">Open Date:</span>
-                                                            <span class="fw-medium">#{apprenticeship.openDateStr}</span>
+                                                        <div class="mb-2">
+                                                            <div class="text-muted small mb-1">Open Date:</div>
+                                                            <div class="fw-medium">#{apprenticeship.openDateStr}</div>
                                                         </div>
                                                     </h:panelGroup>
                                                     <h:panelGroup rendered="#{apprenticeship.closingDateStr != null}">
-                                                        <div class="d-flex justify-content-between mb-1">
-                                                            <span class="text-muted small">Closing Date:</span>
-                                                            <span class="fw-medium">#{apprenticeship.closingDateStr}</span>
+                                                        <div class="mb-2">
+                                                            <div class="text-muted small mb-1">Closing Date:</div>
+                                                            <div class="fw-medium">#{apprenticeship.closingDateStr}</div>
                                                         </div>
                                                     </h:panelGroup>
                                                 </div>
@@ -157,30 +157,24 @@
                                             <!-- Schedule -->
                                             <h:panelGroup rendered="#{apprenticeship.dayTime != null}">
                                                 <div class="mb-3">
-                                                    <div class="d-flex justify-content-between mb-1">
-                                                        <span class="text-muted small">Schedule:</span>
-                                                        <span class="fw-medium">#{apprenticeship.dayTime}</span>
-                                                    </div>
+                                                    <div class="text-muted small mb-1">Schedule:</div>
+                                                    <div class="fw-medium">#{apprenticeship.dayTime}</div>
                                                 </div>
                                             </h:panelGroup>
                                             
                                             <!-- O*NET Code -->
                                             <h:panelGroup rendered="#{apprenticeship.apprenticeshipCode != null}">
                                                 <div class="mb-3">
-                                                    <div class="d-flex justify-content-between mb-1">
-                                                        <span class="text-muted small">O*NET Code:</span>
-                                                        <span class="fw-medium">#{apprenticeship.apprenticeshipCode}</span>
-                                                    </div>
+                                                    <div class="text-muted small mb-1">O*NET Code:</div>
+                                                    <div class="fw-medium">#{apprenticeship.apprenticeshipCode}</div>
                                                 </div>
                                             </h:panelGroup>
                                             
                                             <!-- Distance -->
                                             <h:panelGroup rendered="#{apprenticeship.distanceText != null and apprenticeship.distanceText != 'Unknown'}">
                                                 <div class="mb-3">
-                                                    <div class="d-flex justify-content-between mb-1">
-                                                        <span class="text-muted small">Distance:</span>
-                                                        <span class="fw-medium">#{apprenticeship.distanceText}</span>
-                                                    </div>
+                                                    <div class="text-muted small mb-1">Distance:</div>
+                                                    <div class="fw-medium">#{apprenticeship.distanceText}</div>
                                                 </div>
                                             </h:panelGroup>
                                             

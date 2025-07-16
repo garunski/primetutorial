@@ -27,6 +27,9 @@ public class JobService implements Serializable {
 
     @Inject
     private SearchFilterBean searchFilterBean;
+    
+    @Inject
+    private FavoriteService favoriteService;
 
     private List<Job> allJobs;
     private List<Job> filteredJobs;
@@ -234,13 +237,16 @@ public class JobService implements Serializable {
         boolean healthcarePractitioners = searchFilterBean.isHealthcarePractitioners();
         boolean lifeSocialScience = searchFilterBean.isLifeSocialScience();
 
+        // Favorites filter
+        boolean favoritesOnly = searchFilterBean.isFavoritesOnly();
+
         // Check if any filters are applied
         boolean hasFilters = clusterParam != null || pathwayParam != null ||
                             (educationParam != null && !educationParam.isEmpty()) ||
                             (categoryParam != null && !categoryParam.isEmpty()) ||
                             artsHumanities || businessInfoSystems || engineeringTech || healthServices ||
                             architectureEngineering || computerMathematical ||
-                            healthcarePractitioners || lifeSocialScience;
+                            healthcarePractitioners || lifeSocialScience || favoritesOnly;
 
         if (!hasFilters) {
             return new ArrayList<>();
@@ -349,6 +355,13 @@ public class JobService implements Serializable {
                         }
                         return !(architectureEngineering || computerMathematical || healthcarePractitioners || lifeSocialScience);
                     })
+                    .collect(Collectors.toList());
+        }
+
+        // Apply favorites filter
+        if (favoritesOnly) {
+            result = result.stream()
+                    .filter(job -> favoriteService.isFavorite(job.getId()))
                     .collect(Collectors.toList());
         }
 
