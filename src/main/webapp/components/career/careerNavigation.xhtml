@@ -39,6 +39,17 @@
             </div>
 
             <div class="bg-white border rounded-2 shadow-sm overflow-hidden">
+            <!-- Back to Career List Button -->
+            <div class="border-bottom">
+                <h:form>
+                    <h:commandLink action="#{careerView.navigateToCareerList}" 
+                                  styleClass="btn btn-outline-primary w-100 rounded-0 border-0 text-start p-3 fw-medium text-decoration-none d-block">
+                        <i class="bi bi-arrow-left me-2"></i>
+                        Back to Career List
+                        <f:param name="jobId" value="#{param.jobId}" />
+                    </h:commandLink>
+                </h:form>
+            </div>
             <div class="border-bottom">
                 <a href="#overview" class="nav-link d-block text-decoration-none p-3 text-body-secondary fw-medium">Overview</a>
             </div>
@@ -194,6 +205,8 @@
         .w-10 {
             width: 10%;
         }
+
+
     </style>
 </ui:composition>
 </html>

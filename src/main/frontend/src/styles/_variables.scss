@@ -76,3 +76,10 @@ $text-primary: $dark;
 $text-secondary: $gray-600;
 $text-muted: $gray-500;
 $border-color: $gray-200;
+
+// Bootstrap CSS Custom Properties
+:root {
+    --bs-btn-hover-bg: #{$primary-hover}; // Uses your custom primary-hover color
+    --bs-btn-hover-border-color: #{$primary-hover};
+    --bs-btn-hover-color: white;
+}

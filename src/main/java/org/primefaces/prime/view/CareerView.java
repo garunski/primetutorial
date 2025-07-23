@@ -82,4 +82,32 @@ public class CareerView implements Serializable {
     public boolean isCareerExists() {
         return careerExists;
     }
+    
+    public String navigateToCareerList() {
+        logger.info("Navigating to career list");
+        
+        // Get the jobId parameter from the request
+        String jobId = FacesContext.getCurrentInstance()
+            .getExternalContext()
+            .getRequestParameterMap()
+            .get("jobId");
+            
+        logger.info("JobId parameter: " + jobId);
+        
+        try {
+            String redirectUrl = "/occupationSearchRevised.xhtml";
+            if (jobId != null && !jobId.isEmpty()) {
+                redirectUrl += "?jobId=" + jobId;
+            }
+            FacesContext.getCurrentInstance().getExternalContext().redirect(redirectUrl);
+            return null;
+        } catch (Exception e) {
+            logger.severe("Error redirecting: " + e.getMessage());
+            String fallbackUrl = "/occupationSearchRevised.xhtml?faces-redirect=true";
+            if (jobId != null && !jobId.isEmpty()) {
+                fallbackUrl += "&jobId=" + jobId;
+            }
+            return fallbackUrl;
+        }
+    }
 } 
