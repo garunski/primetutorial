@@ -9,6 +9,7 @@ import java.io.Serializable;
 import java.util.logging.Logger;
 
 import org.primefaces.prime.domain.Occupation;
+import org.primefaces.prime.domain.SchoolProgram;
 import org.primefaces.prime.service.OccupationService;
 
 @Named
@@ -106,6 +107,60 @@ public class CareerView implements Serializable {
             String fallbackUrl = "/occupationSearchRevised.xhtml?faces-redirect=true";
             if (jobId != null && !jobId.isEmpty()) {
                 fallbackUrl += "&jobId=" + jobId;
+            }
+            return fallbackUrl;
+        }
+    }
+    
+    public String searchProgram(SchoolProgram program) {
+        logger.info("Searching for program: " + (program != null ? program.getName() : "null"));
+        
+        if (program == null) {
+            logger.warning("Program object is null");
+            return "/occupationSearchRevised.xhtml?faces-redirect=true";
+        }
+        
+        try {
+            // Redirect to the search page with program parameters
+            String redirectUrl = "/occupationSearchRevised.xhtml";
+            StringBuilder params = new StringBuilder();
+            
+            if (program.getCip() != null && !program.getCip().isEmpty()) {
+                params.append("programCip=").append(program.getCip());
+            }
+            
+            if (program.getName() != null && !program.getName().isEmpty()) {
+                if (params.length() > 0) {
+                    params.append("&");
+                }
+                params.append("programName=").append(program.getName());
+            }
+            
+            if (program.getDescription() != null && !program.getDescription().isEmpty()) {
+                if (params.length() > 0) {
+                    params.append("&");
+                }
+                params.append("programDescription=").append(program.getDescription());
+            }
+            
+            if (params.length() > 0) {
+                redirectUrl += "?" + params.toString();
+            }
+            
+            logger.info("Redirecting to: " + redirectUrl);
+            FacesContext.getCurrentInstance().getExternalContext().redirect(redirectUrl);
+            return null;
+        } catch (Exception e) {
+            logger.severe("Error redirecting to search: " + e.getMessage());
+            String fallbackUrl = "/occupationSearchRevised.xhtml?faces-redirect=true";
+            if (program.getCip() != null && !program.getCip().isEmpty()) {
+                fallbackUrl += "&programCip=" + program.getCip();
+            }
+            if (program.getName() != null && !program.getName().isEmpty()) {
+                fallbackUrl += "&programName=" + program.getName();
+            }
+            if (program.getDescription() != null && !program.getDescription().isEmpty()) {
+                fallbackUrl += "&programDescription=" + program.getDescription();
             }
             return fallbackUrl;
         }

@@ -26,6 +26,16 @@
                                     <h:panelGroup rendered="#{program.description != null and program.description != ''}">
                                         <p class="mb-0 text-muted lh-relaxed">#{program.description}</p>
                                     </h:panelGroup>
+                                    <!-- Search Button -->
+                                    <div class="mt-3">
+                                        <h:form>
+                                            <h:commandLink action="#{careerView.searchProgram(program)}" 
+                                                          styleClass="btn btn-outline-primary btn-sm text-decoration-none">
+                                                <i class="bi bi-search me-1"></i>
+                                                Search Programs
+                                            </h:commandLink>
+                                        </h:form>
+                                    </div>
                                 </div>
                             </div>
                         </div>
