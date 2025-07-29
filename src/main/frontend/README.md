@@ -211,6 +211,47 @@ The build system integrates with the Maven build process:
 - Verify that all entry points are being discovered correctly
 - Ensure no file naming conflicts in output paths
 
+## Tutorial: Adding New Assets
+
+This section explains the process of adding new SCSS and JavaScript files to the build system.
+
+### Adding a New SCSS File
+
+To add a new SCSS file, you'll need to create it in the appropriate directory under `src/styles/`. The build system automatically discovers all SCSS files in this directory (excluding partial files that start with an underscore).
+
+For organization, consider placing your files in subdirectories:
+- `src/styles/components/` for reusable component styles
+- `src/styles/pages/` for page-specific styles  
+- `src/styles/shared/` for utility and shared styles
+
+Once you create your SCSS file, you can import the shared variables from `_variables.scss` and write your styles using the existing Foundation and Bootstrap variables. When you run the build process, your file will be automatically compiled to CSS and placed in the corresponding directory under `webapp/resources/assets/`, preserving the nested folder structure.
+
+### Adding a New JavaScript File
+
+JavaScript files should be created in the `src/js/` directory. Similar to SCSS files, you can organize them in subdirectories like `components/`, `pages/`, or `utils/` for better organization.
+
+The build system will automatically discover your JavaScript file and compile it to the corresponding location under `webapp/resources/js/`. You can write modern ES6 JavaScript with classes and modules, and the build system will handle the compilation and bundling.
+
+### Integrating Assets into JSF Pages
+
+After building your assets, you need to include them in your JSF pages. For individual pages, you can add the compiled CSS and JavaScript files using the `ui:define` sections in your XHTML template.
+
+In the `head` section, you'll reference your compiled CSS file using the path `/resources/assets/` followed by the relative path from the styles directory. In the `page-scripts` section, you'll reference your compiled JavaScript file using the path `/resources/js/` followed by the relative path from the js directory.
+
+For components that will be used across multiple pages, you can add them to the main template file (`template.xhtml`) so they're available globally throughout the application.
+
+### Development Workflow
+
+During development, you can use the watch mode (`npm run watch`) to automatically rebuild your assets whenever you make changes to your source files. This allows you to see your changes immediately without manually running the build command each time.
+
+The build system preserves the directory structure from your source files, so if you create a file at `src/styles/components/userProfile.scss`, it will be compiled to `webapp/resources/assets/components/userProfile.css`. This makes it easy to organize your assets and maintain a clear structure.
+
+### File Naming and Organization
+
+Use consistent naming conventions: kebab-case for SCSS files (like `user-profile.scss`) and camelCase for JavaScript files (like `userProfile.js`). This helps maintain consistency across the codebase and makes it easier for other developers to understand the file structure.
+
+Remember that the build system automatically handles the discovery and compilation of your files, so you don't need to manually configure entry points or worry about build order - just create your files in the appropriate directories and the system will take care of the rest.
+
 ## Notes
 
 - The build system is designed for a Java web application context
