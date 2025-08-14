@@ -3,12 +3,15 @@ import path from 'path';
 import { sync as glob } from 'glob';
 import fs from 'fs';
 
+// Version for directory structure - uses current timestamp in milliseconds
+const VERSION = process.env.VERSION || "1_" + Date.now().toString();
+
 // Custom plugin to copy vendor files without processing them
 const copyVendorFiles = () => ({
   name: 'copy-vendor-files',
   generateBundle() {
     // Create the vendor directory if it doesn't exist
-    const vendorDir = '../webapp/resources/js/vendor';
+    const vendorDir = `../webapp/resources/js/${VERSION}/vendor`;
     fs.mkdirSync(vendorDir, { recursive: true });
 
     // Copy Foundation and its dependencies
@@ -35,7 +38,7 @@ const copyNestedImages = () => ({
   generateBundle() {
     // Source and destination directories
     const srcImagesDir = path.resolve(__dirname, 'src/images');
-    const destImagesDir = '../webapp/resources/assets/images';
+    const destImagesDir = `../webapp/resources/assets/${VERSION}/images`;
 
     // Create the destination directory if it doesn't exist
     fs.mkdirSync(destImagesDir, { recursive: true });
@@ -80,7 +83,7 @@ const imageAliasPlugin = () => ({
     // Replace @images alias with the correct path
     const modifiedCode = code.replace(
       /url\(['"]?@images\/([^'"]+)['"]?\)/g,
-      "url('/resources/assets/images/$1')"
+      `url('/resources/assets/${VERSION}/images/$1')`
     );
 
     if (modifiedCode !== code) {
@@ -175,8 +178,8 @@ export default defineConfig({
       },
       output: {
         // Use fixed filenames without hashes for predictable paths
-        entryFileNames: 'js/[name].js',
-        chunkFileNames: 'js/[name].js',
+        entryFileNames: `js/${VERSION}/[name].js`,
+        chunkFileNames: `js/${VERSION}/[name].js`,
         assetFileNames: (info) => {
           // For CSS files from SCSS entries, preserve the nested structure
           if (info.fileName?.endsWith('.css')) {
@@ -186,12 +189,12 @@ export default defineConfig({
             if (originalFileName?.includes('/styles/')) {
               const parts = originalFileName.split('/styles/');
               if (parts.length > 1 && parts[1].includes('/')) {
-                return `assets/${parts[1].replace('.scss', '')}.css`;
+                return `css/${VERSION}/${parts[1].replace('.scss', '')}.css`;
               }
             }
 
             // For non-nested files or fallback
-            return `assets/${path.basename(info.fileName, '.css')}.css`;
+            return `css/${VERSION}/${path.basename(info.fileName, '.css')}.css`;
           }
 
           // For images, preserve the nested folder structure
@@ -202,12 +205,12 @@ export default defineConfig({
             // Extract the path relative to the images directory
             const parts = fileName.split('/images/');
             if (parts.length > 1) {
-              return `assets/images/${parts[1]}`;
+              return `assets/${VERSION}/images/${parts[1]}`;
             }
           }
 
           // For other assets
-          return 'assets/[name].[ext]';
+          return `assets/${VERSION}/[name].[ext]`;
         }
       }
     }
