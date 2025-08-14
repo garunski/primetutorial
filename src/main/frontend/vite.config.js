@@ -1,7 +1,7 @@
 import { defineConfig } from 'vite';
 import path from 'path';
 import { sync as glob } from 'glob';
-import fs from 'fs';
+import fs from 'fs-extra';
 
 // Version for directory structure - uses current timestamp in milliseconds
 const VERSION = process.env.VERSION || "1_" + Date.now().toString();
@@ -73,6 +73,31 @@ const copyNestedImages = () => ({
   }
 });
 
+// Custom plugin to copy public directory files with versioned structure
+const copyPublicFiles = () => ({
+  name: 'copy-public-files',
+  generateBundle() {
+    const publicDir = path.resolve(__dirname, 'public');
+    
+    if (!fs.existsSync(publicDir)) {
+      return;
+    }
+
+    // Copy each top-level folder from public to resources/FOLDER_NAME/VERSION/
+    const entries = fs.readdirSync(publicDir, { withFileTypes: true });
+    
+    for (const entry of entries) {
+      if (entry.isDirectory()) {
+        const srcDir = path.join(publicDir, entry.name);
+        const destDir = `../webapp/resources/${entry.name}/${VERSION}`;
+        
+        fs.copySync(srcDir, destDir);
+        console.log(`Copied ${srcDir} to ${destDir}`);
+      }
+    }
+  }
+});
+
 // Custom plugin to handle @images alias in CSS
 const imageAliasPlugin = () => ({
   name: 'image-alias-plugin',
@@ -120,10 +145,14 @@ export default defineConfig({
   // Base public path when served in production
   base: '/resources/',
 
+  // Disable default public directory copying
+  publicDir: false,
+
   // Add our custom plugins
   plugins: [
     copyVendorFiles(),
     copyNestedImages(),
+    copyPublicFiles(),
     imageAliasPlugin()
   ],
 
@@ -158,8 +187,7 @@ export default defineConfig({
     // Output directory (relative to project root)
     outDir: '../webapp/resources',
 
-    // Don't empty the outDir on build to avoid permission issues
-    emptyOutDir: false,
+    emptyOutDir: true,
 
     // Don't generate manifest.json since we're using fixed filenames
     manifest: false,
@@ -207,6 +235,13 @@ export default defineConfig({
             if (parts.length > 1) {
               return `assets/${VERSION}/images/${parts[1]}`;
             }
+          }
+
+          // Check if this is from the public directory
+          if (fileName.includes('/public/')) {
+            const relativePath = fileName.split('/public/')[1];
+            const [rootFolder, ...rest] = relativePath.split('/');
+            return `${rootFolder}/${VERSION}/${rest.join('/')}`;
           }
 
           // For other assets
